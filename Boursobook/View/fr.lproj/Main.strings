@@ -1,1 +1,14 @@
 
+/* Class = "UITabBarItem"; title = "Seller"; ObjectID = "24T-0Q-59f"; */
+"24T-0Q-59f.title" = "Seller";
+
+/* Class = "UINavigationItem"; title = "List of Sellers"; ObjectID = "BEQ-DY-SZp"; */
+"BEQ-DY-SZp.title" = "List of Sellers";
+
+/* Class = "UITabBarItem"; title = "Info"; ObjectID = "CST-XH-SDW"; */
+"CST-XH-SDW.title" = "Info";
+
+/* Class = "UITabBarItem"; title = "Buy"; ObjectID = "iVT-Ge-bjO"; */
+"iVT-Ge-bjO.title" = "Buy";
+
+

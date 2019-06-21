@@ -1,20 +1,19 @@
 //
-//  ViewController.swift
+//  InfoViewController.swift
 //  Boursobook
 //
-//  Created by David Dubez on 12/06/2019.
+//  Created by David Dubez on 21/06/2019.
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
 
 }
 
+// TODO:    - Statistiques de ventes

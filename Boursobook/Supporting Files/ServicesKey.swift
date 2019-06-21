@@ -10,6 +10,8 @@ import Foundation
 
 struct ServicesKey {
     // Storage of private key
-    
+
     static let apiKey = "nothing"
+
 }
+// TODO:    - Verif comportement gitignore
