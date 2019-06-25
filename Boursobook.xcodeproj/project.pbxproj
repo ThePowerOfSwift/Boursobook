@@ -17,6 +17,10 @@
 		4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
 		4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
 		4FA05B8922BD356500708718 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
+		4FA05B8E22BD43E300708718 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
+		4FA05B9022BD72F300708718 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
+		4FA05B9222BD83F700708718 /* SellerCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9122BD83F700708718 /* SellerCode.swift */; };
+		4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9322BD880200708718 /* UIViewController+Extension.swift */; };
 		4FC5133B22B13440000FD572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
 		4FC5134022B13440000FD572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4FC5134522B13440000FD572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
@@ -49,6 +53,10 @@
 		4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSellerViewController.swift; sourceTree = "<group>"; };
 		4FA05B8622BD270100708718 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FA05B8822BD356500708718 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
+		4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListTableViewCell.swift; sourceTree = "<group>"; };
+		4FA05B8F22BD72F300708718 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
+		4FA05B9122BD83F700708718 /* SellerCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCode.swift; sourceTree = "<group>"; };
+		4FA05B9322BD880200708718 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4FC5133722B13440000FD572 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC5133A22B13440000FD572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FC5133F22B13440000FD572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +97,34 @@
 				4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FA05B8A22BD3FA100708718 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				4FA05B8222BD06E100708718 /* SellersListViewController.swift */,
+				4FA05B7822BCFE3900708718 /* SellerViewController.swift */,
+				4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */,
+			);
+			path = Seller;
+			sourceTree = "<group>";
+		};
+		4FA05B8B22BD3FC700708718 /* Buy */ = {
+			isa = PBXGroup;
+			children = (
+				4FA05B8022BD01C100708718 /* BuyViewController.swift */,
+				4FA05B7E22BD014700708718 /* ArticleListTableViewController.swift */,
+			);
+			path = Buy;
+			sourceTree = "<group>";
+		};
+		4FA05B8C22BD3FE200708718 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				4FA05B7422BCFD4900708718 /* InfoViewController.swift */,
+				4FA05B7A22BD006400708718 /* AddContactViewController.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 		4FC5132E22B13440000FD572 = {
@@ -136,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				4FA05B8822BD356500708718 /* Seller.swift */,
+				4FA05B9122BD83F700708718 /* SellerCode.swift */,
+				4FA05B8F22BD72F300708718 /* SellerService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +183,7 @@
 			children = (
 				4FC5133E22B13440000FD572 /* Main.storyboard */,
 				4FC5134622B13440000FD572 /* LaunchScreen.storyboard */,
+				4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,13 +191,10 @@
 		4FC5136222B15600000FD572 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4FA05B8022BD01C100708718 /* BuyViewController.swift */,
-				4FA05B7E22BD014700708718 /* ArticleListTableViewController.swift */,
-				4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */,
-				4FA05B7422BCFD4900708718 /* InfoViewController.swift */,
-				4FA05B7822BCFE3900708718 /* SellerViewController.swift */,
-				4FA05B8222BD06E100708718 /* SellersListViewController.swift */,
-				4FA05B7A22BD006400708718 /* AddContactViewController.swift */,
+				4FA05B8C22BD3FE200708718 /* Info */,
+				4FA05B8B22BD3FC700708718 /* Buy */,
+				4FA05B8A22BD3FA100708718 /* Seller */,
+				4FA05B9322BD880200708718 /* UIViewController+Extension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,8 +370,12 @@
 			files = (
 				4FC5136722B1570C000FD572 /* ServicesKey.swift in Sources */,
 				4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */,
+				4FA05B9022BD72F300708718 /* SellerService.swift in Sources */,
 				4FA05B7B22BD006400708718 /* AddContactViewController.swift in Sources */,
+				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
 				4FA05B7922BCFE3900708718 /* SellerViewController.swift in Sources */,
+				4FA05B8E22BD43E300708718 /* SellerListTableViewCell.swift in Sources */,
+				4FA05B9222BD83F700708718 /* SellerCode.swift in Sources */,
 				4FA05B7522BCFD4900708718 /* InfoViewController.swift in Sources */,
 				4FA05B8322BD06E100708718 /* SellersListViewController.swift in Sources */,
 				4FA05B8922BD356500708718 /* Seller.swift in Sources */,
