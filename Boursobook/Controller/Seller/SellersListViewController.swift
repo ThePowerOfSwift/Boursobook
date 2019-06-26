@@ -14,6 +14,7 @@ class SellersListViewController: UITableViewController {
     @IBOutlet var sellersTableView: UITableView!
 
     // MARK: - Properties
+    var selectedSeller: Seller?
 
     // MARK: - Override
     override func viewDidLoad() {
@@ -30,7 +31,6 @@ class SellersListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return SellerService.shared.sellers.count
     }
 
@@ -45,6 +45,11 @@ class SellersListViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSeller = SellerService.shared.sellers[indexPath.row]
+        self.performSegue(withIdentifier: "segueToSeller", sender: nil)
+    }
+
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -52,4 +57,15 @@ class SellersListViewController: UITableViewController {
             sellersTableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSeller" {
+            if let sellerVC = segue.destination as? SellerViewController {
+                sellerVC.selectedSeller = selectedSeller
+            }
+        }
+    }
 }
+// TODO:    - Revoir la mise en forme de la cellule

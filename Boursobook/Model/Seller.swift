@@ -8,7 +8,15 @@
 
 import Foundation
 
-class Seller {
+class Seller: Equatable {
+    static func == (lhs: Seller, rhs: Seller) -> Bool {
+        if lhs.code == rhs.code && lhs.email == rhs.email
+            && lhs.familyName == rhs.familyName && lhs.firstName == rhs.firstName {
+            return true
+        }
+        return false
+    }
+    
     var familyName: String
     var firstName: String
     var email: String
@@ -25,3 +33,5 @@ class Seller {
         self.code = code
     }
 }
+// TODO:          - tests à faire
+//                 - calcul des articles à vendre et vendus

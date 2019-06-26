@@ -15,7 +15,6 @@ class BuyViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -30,3 +29,4 @@ class BuyViewController: UIViewController {
 }
 // TODO:    - Mettre le total des articles vendus
 //          - Forcage création article si passe pas
+//          - Classement alphabétique des articles dans la liste

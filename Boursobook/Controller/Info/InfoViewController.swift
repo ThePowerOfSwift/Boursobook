@@ -17,3 +17,4 @@ class InfoViewController: UIViewController {
 }
 
 // TODO:    - Statistiques de ventes
+//          - Ajouter un contact pour mailing list
