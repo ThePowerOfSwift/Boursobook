@@ -29,6 +29,8 @@
 		4FC5134522B13440000FD572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4FC5135322B13440000FD572 /* BoursobookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5135222B13440000FD572 /* BoursobookTests.swift */; };
+		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
+		4FF1668A22C3DA9700236165 /* ServicesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668922C3DA9700236165 /* ServicesKeys.swift */; };
 		CC5C5A81B7903845658B7944 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		4FC5135222B13440000FD572 /* BoursobookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoursobookTests.swift; sourceTree = "<group>"; };
 		4FC5135422B13440000FD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		4FF1668922C3DA9700236165 /* ServicesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesKeys.swift; sourceTree = "<group>"; };
 		813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +216,8 @@
 			children = (
 				4FC5134922B13440000FD572 /* Info.plist */,
 				4FC5133A22B13440000FD572 /* AppDelegate.swift */,
+				4FF1668922C3DA9700236165 /* ServicesKeys.swift */,
+				4FF1668722C3D9E800236165 /* .gitignore */,
 				4FA05B8622BD270100708718 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
@@ -310,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF1668822C3D9E800236165 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
 				4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */,
 				4FC5134522B13440000FD572 /* Assets.xcassets in Resources */,
@@ -374,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA05B9822C24AC300708718 /* Article.swift in Sources */,
+				4FF1668A22C3DA9700236165 /* ServicesKeys.swift in Sources */,
 				4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */,
 				4FA05B9022BD72F300708718 /* SellerService.swift in Sources */,
 				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
