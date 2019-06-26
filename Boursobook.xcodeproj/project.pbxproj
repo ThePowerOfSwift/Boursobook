@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F06C41922B15FBC00ECCE51 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F06C41822B15FBC00ECCE51 /* .gitignore */; };
 		4FA05B7522BCFD4900708718 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
 		4FA05B7922BCFE3900708718 /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
 		4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F06C41822B15FBC00ECCE51 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4FA05B7322BCE94F00708718 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4FA05B7422BCFD4900708718 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4FA05B7822BCFE3900708718 /* SellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				4FC5136622B1570C000FD572 /* ServicesKey.swift */,
 				4FC5133A22B13440000FD572 /* AppDelegate.swift */,
 				4FA05B8622BD270100708718 /* GoogleService-Info.plist */,
-				4F06C41822B15FBC00ECCE51 /* .gitignore */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F06C41922B15FBC00ECCE51 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
 				4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */,
 				4FC5134522B13440000FD572 /* Assets.xcassets in Resources */,
