@@ -26,7 +26,7 @@ class ArticleListTableViewController: UITableViewController {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        sellerNameLabel.text = "Articles of  " + seller.firstName + " " + seller.familyName
+        sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "") + seller.firstName + " " + seller.familyName
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -80,8 +80,9 @@ class ArticleListTableViewController: UITableViewController {
             }
         }
     }
-
 }
+// FIXME:   - il y a deux article qui s'affiche en meme temps l'un apreès l'autre
+//
 // TODO :       - faire une tri des article suivant leur type
 //              - afficher que les articles qui ne sont pas vendus
 //              - gerer le format du prix

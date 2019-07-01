@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Boursobook
+
+  Created by David Dubez on 28/06/2019.
+  Copyright © 2019 David Dubez. All rights reserved.
+*/
+
+// General
+"Error !" = "Error !";
+"It's ok !" = "It's ok !";
+"Sorry, it's note possible yet !" = "Sorry, it's note possible yet !";
+
+//AddSellerViewController
+"Please, fill all the field !" = "Please, fill all the field !";
+
+//AddArticleViewController
+"Please, fill the name and the price !" = "Please, fill the name and the price !";
+"Incorrect price !" = "Incorrect price !";
+
+//ArticleListTableViewController
+"Articles of  " = "Articles of  ";
+
+// InfoViewController
+"Register" = "Register";
+"New user" = "New user";
+"Save" = "Save";
+"Cancel" = "Cancel";
+"Enter your email" = "Enter your email";
+"Enter your password" = "Enter your password";
+"An email has been send to the new user !" = "An email has been send to the new user !";
+
+//Error
+"Please enter a stronger password !" = "Please enter a stronger password !";
+"Please enter a good email !" = "Please enter a good email !";
+"The email already exist !" = "The email already exist !";
+

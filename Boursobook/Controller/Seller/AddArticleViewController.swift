@@ -80,11 +80,13 @@ class AddArticleViewController: UIViewController {
                 return
         }
         if titleValue == "" || priceText == "" {
-            displayAlert(with: "Please, fill the name and the price !")
+            displayAlert(message: NSLocalizedString("Please, fill the name and the price !", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
             return
         }
         guard let priceValue = Double(priceText) else {
-            displayAlert(with: "Incorrect price !")
+            displayAlert(message: NSLocalizedString("Incorrect price !", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
             return
         }
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
@@ -153,4 +155,3 @@ extension AddArticleViewController: UITextFieldDelegate {
 }
 // TODO:    - Add a button pour scanner l'isbn
 //          - Gerer le format du prix
-

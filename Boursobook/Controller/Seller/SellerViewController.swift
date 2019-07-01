@@ -62,10 +62,10 @@ class SellerViewController: UIViewController {
     }
 }
 
-// TODO:
+// TODO:    - Mettre la posibilité de modifier les informations des vendeurs
 //          - Imprimer la liste des articles vendus et restants
 //              avec les prix de ventes / montants revenants au vendeur
 //          - Calculer forfait d'insription en fonction du nombre d'article
 //              ( et creer une vente fictive pour enregister transaction
 //          - calcul du nombre d'article
-//          - vue de la liste des articles
+//          - vue de la liste des articles ( dans cette vue)

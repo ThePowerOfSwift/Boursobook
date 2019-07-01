@@ -11,8 +11,8 @@ import UIKit
 
 // MARK: - Alert
 extension UIViewController {
-    func displayAlert(with message: String) {
-        let alert = UIAlertController(title: NSLocalizedString("Error!", comment: ""),
+    func displayAlert(message: String, title: String) {
+        let alert = UIAlertController(title: title,
                                       message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

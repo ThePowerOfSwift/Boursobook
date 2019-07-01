@@ -15,7 +15,7 @@ class ArticleListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
-    
+
     // MARK: - Override
     override func awakeFromNib() {
         super.awakeFromNib()

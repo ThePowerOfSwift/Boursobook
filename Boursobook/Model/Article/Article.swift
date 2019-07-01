@@ -17,7 +17,7 @@ struct Article {
     var code: String {
         return "ddd"
     }
-    var qrCode: String  {
+    var qrCode: String {
         return "ddd"
     }
     var price: Double
@@ -25,15 +25,15 @@ struct Article {
     var solded: Bool
 
     enum Sort: String, CaseIterable {
-        case book = "book"
-        case comic = "comic"
-        case novel = "novel"
-        case guide = "guide"
-        case game = "game"
-        case compactDisk = "compactDisk"
-        case dvd = "dvd"
-        case videoGame = "videoGame"
-        case other = "other"
+        case book
+        case comic
+        case novel
+        case guide
+        case game
+        case compactDisk
+        case dvd
+        case videoGame
+        case other
     }
 }
 // TODO:         - gerer la generaltion du code

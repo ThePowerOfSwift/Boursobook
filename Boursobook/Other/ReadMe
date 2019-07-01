@@ -1,0 +1,14 @@
+// JSON Configuration
+
+{
+    "sellers": {
+        "DUPP" : {
+            "firstName": "Pierre",
+            "familyName": "Dupond",
+            "code": "DUPP",
+            "email": "jean@dd.fr",
+            "phoneNumber": "3333333",
+            "addedByUser": "ddddd"
+        }
+    }
+}

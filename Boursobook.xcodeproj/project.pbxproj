@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
+		4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
+		4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
+		4F9E864722C636B100C9BE1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
+		4F9E864922C636EB00C9BE1E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864822C636EB00C9BE1E /* UserService.swift */; };
+		4F9E864E22C6431700C9BE1E /* Error+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864D22C6431700C9BE1E /* Error+extension.swift */; };
 		4FA05B7522BCFD4900708718 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
 		4FA05B7922BCFE3900708718 /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
 		4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
@@ -30,7 +36,10 @@
 		4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4FC5135322B13440000FD572 /* BoursobookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5135222B13440000FD572 /* BoursobookTests.swift */; };
 		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
+		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
+		4FF1668F22C4D29200236165 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668E22C4D29200236165 /* ReadMe */; };
 		CC5C5A81B7903845658B7944 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
+		D93563E27C229C1B2477D2EC /* libPods-Boursobook-BoursobookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FA05B7322BCE94F00708718 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
+		4F9E864022C6239A00C9BE1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F9E864222C6239F00C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F9E864522C6289000C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		4F9E864622C636B100C9BE1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4F9E864822C636EB00C9BE1E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		4F9E864D22C6431700C9BE1E /* Error+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extension.swift"; sourceTree = "<group>"; };
 		4FA05B7422BCFD4900708718 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4FA05B7822BCFE3900708718 /* SellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerViewController.swift; sourceTree = "<group>"; };
 		4FA05B8022BD01C100708718 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
@@ -74,8 +92,12 @@
 		4FC5135422B13440000FD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4FF1668E22C4D29200236165 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
+		A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D93563E27C229C1B2477D2EC /* libPods-Boursobook-BoursobookTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +124,38 @@
 			isa = PBXGroup;
 			children = (
 				4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */,
+				4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F9E864A22C6383D00C9BE1E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4F9E864622C636B100C9BE1E /* User.swift */,
+				4F9E864822C636EB00C9BE1E /* UserService.swift */,
+				4F9E864D22C6431700C9BE1E /* Error+extension.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		4F9E864B22C6384C00C9BE1E /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				4FA05B8822BD356500708718 /* Seller.swift */,
+				4FA05B9122BD83F700708718 /* SellerCode.swift */,
+				4FA05B8F22BD72F300708718 /* SellerService.swift */,
+			);
+			path = Seller;
+			sourceTree = "<group>";
+		};
+		4F9E864C22C6386300C9BE1E /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				4FA05B9922C25AE300708718 /* ArticleService.swift */,
+				4FA05B9722C24AC200708718 /* Article.swift */,
+			);
+			path = Article;
 			sourceTree = "<group>";
 		};
 		4FA05B8A22BD3FA100708718 /* Seller */ = {
@@ -122,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA05B8022BD01C100708718 /* BuyViewController.swift */,
+				4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */,
 			);
 			path = Buy;
 			sourceTree = "<group>";
@@ -130,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA05B7422BCFD4900708718 /* InfoViewController.swift */,
+				4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -157,10 +212,12 @@
 		4FC5133922B13440000FD572 /* Boursobook */ = {
 			isa = PBXGroup;
 			children = (
+				4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */,
 				4FC5136022B155E9000FD572 /* Model */,
 				4FC5136122B155F5000FD572 /* View */,
 				4FC5136222B15600000FD572 /* Controller */,
 				4FC5134422B13440000FD572 /* Assets.xcassets */,
+				4FF1668D22C4D23B00236165 /* Other */,
 				4FC5136322B15617000FD572 /* Supporting Files */,
 			);
 			path = Boursobook;
@@ -178,11 +235,9 @@
 		4FC5136022B155E9000FD572 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4FA05B8822BD356500708718 /* Seller.swift */,
-				4FA05B9722C24AC200708718 /* Article.swift */,
-				4FA05B9122BD83F700708718 /* SellerCode.swift */,
-				4FA05B8F22BD72F300708718 /* SellerService.swift */,
-				4FA05B9922C25AE300708718 /* ArticleService.swift */,
+				4F9E864A22C6383D00C9BE1E /* User */,
+				4F9E864B22C6384C00C9BE1E /* Seller */,
+				4F9E864C22C6386300C9BE1E /* Article */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +256,7 @@
 		4FC5136222B15600000FD572 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4FF1668B22C4C7FC00236165 /* LoginViewController.swift */,
 				4FA05B8C22BD3FE200708718 /* Info */,
 				4FA05B8B22BD3FC700708718 /* Buy */,
 				4FA05B8A22BD3FA100708718 /* Seller */,
@@ -213,11 +269,20 @@
 			isa = PBXGroup;
 			children = (
 				4FC5134922B13440000FD572 /* Info.plist */,
-				4FC5133A22B13440000FD572 /* AppDelegate.swift */,
 				4FF1668722C3D9E800236165 /* .gitignore */,
 				4FA05B8622BD270100708718 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FF1668D22C4D23B00236165 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4F9E864122C6239A00C9BE1E /* Localizable.strings */,
+				4FC5133A22B13440000FD572 /* AppDelegate.swift */,
+				4FF1668E22C4D29200236165 /* ReadMe */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		52F8EC04C1FA26C604F0A847 /* Pods */ = {
@@ -225,6 +290,8 @@
 			children = (
 				813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */,
 				8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */,
+				A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */,
+				B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -255,6 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FC5135A22B13440000FD572 /* Build configuration list for PBXNativeTarget "BoursobookTests" */;
 			buildPhases = (
+				FA218A92C63455AA3F85A304 /* [CP] Check Pods Manifest.lock */,
 				4FC5134A22B13440000FD572 /* Sources */,
 				4FC5134B22B13440000FD572 /* Frameworks */,
 				4FC5134C22B13440000FD572 /* Resources */,
@@ -281,6 +349,11 @@
 				TargetAttributes = {
 					4FC5133622B13440000FD572 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					4FC5134D22B13440000FD572 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -315,6 +388,8 @@
 			files = (
 				4FF1668822C3D9E800236165 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
+				4FF1668F22C4D29200236165 /* ReadMe in Resources */,
+				4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */,
 				4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */,
 				4FC5134522B13440000FD572 /* Assets.xcassets in Resources */,
 				4FC5134022B13440000FD572 /* Main.storyboard in Resources */,
@@ -370,6 +445,28 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		FA218A92C63455AA3F85A304 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Boursobook-BoursobookTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -377,9 +474,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */,
 				4FA05B9822C24AC300708718 /* Article.swift in Sources */,
 				4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */,
+				4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */,
 				4FA05B9022BD72F300708718 /* SellerService.swift in Sources */,
+				4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */,
+				4F9E864E22C6431700C9BE1E /* Error+extension.swift in Sources */,
 				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
 				4FA05B9A22C25AE300708718 /* ArticleService.swift in Sources */,
 				4FA05B9C22C26DE400708718 /* ArticleListTableViewController.swift in Sources */,
@@ -392,8 +493,10 @@
 				4FA05BA022C3484A00708718 /* ArticleViewController.swift in Sources */,
 				4FA05B8922BD356500708718 /* Seller.swift in Sources */,
 				4FA05B9622C2400E00708718 /* AddArticleViewController.swift in Sources */,
+				4F9E864922C636EB00C9BE1E /* UserService.swift in Sources */,
 				4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */,
 				4FC5133B22B13440000FD572 /* AppDelegate.swift in Sources */,
+				4F9E864722C636B100C9BE1E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,11 +519,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4F9E864122C6239A00C9BE1E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F9E864022C6239A00C9BE1E /* en */,
+				4F9E864222C6239F00C9BE1E /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4FC5133E22B13440000FD572 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4FC5133F22B13440000FD572 /* Base */,
-				4FA05B7322BCE94F00708718 /* fr */,
+				4F9E864522C6289000C9BE1E /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -560,6 +672,7 @@
 			baseConfigurationReference = 813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
 				INFOPLIST_FILE = "$(SRCROOT)/Boursobook/Supporting Files/Info.plist";
@@ -579,6 +692,7 @@
 			baseConfigurationReference = 8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
 				INFOPLIST_FILE = "$(SRCROOT)/Boursobook/Supporting Files/Info.plist";
@@ -595,6 +709,7 @@
 		};
 		4FC5135B22B13440000FD572 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -616,6 +731,7 @@
 		};
 		4FC5135C22B13440000FD572 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class AddNewSellerViewController: UIViewController {
 
-    // MARK: - IBOUTLET
+    // MARK: - Properties
+    let sellersReference = Database.database().reference(withPath: "sellers")
+
+    // MARK: - IBOutlets
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var familyNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var codePickerView: UIPickerView!
 
-    // MARK: - IBACTION
+    // MARK: - IBActions
     @IBAction func didTapSaveButton(_ sender: UIButton) {
         resignAllTextField()
         saveSeller()
@@ -35,7 +39,8 @@ class AddNewSellerViewController: UIViewController {
             return
         }
         if firstNameValue == "" || familyNameValue == "" || emailValue == "" || phoneNumberValue == "" {
-            displayAlert(with: "Please, fill all the field !")
+            displayAlert(message: NSLocalizedString("Please, fill all the field !", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
             return
         }
 
@@ -45,9 +50,15 @@ class AddNewSellerViewController: UIViewController {
             code += SellerCode.caractersList[codeIndex]
         }
 
-        let seller = Seller(familyName: familyNameValue.uppercased(), firstName: firstNameValue,
-                            email: emailValue, phoneNumber: phoneNumberValue, code: code)
+        let seller = Seller(familyName: familyNameValue, firstName: firstNameValue,
+                            email: emailValue, phoneNumber: phoneNumberValue, code: code, addedByUser: "user@dd.fr")
         SellerService.shared.add(seller: seller)
+
+        let sellerRef = self.sellersReference.child(code)
+        let values: [String: Any] = ["firstName": firstNameValue, "familyName": familyNameValue, "code": code,
+                                     "email": emailValue, "phoneNumber": phoneNumberValue, "addedByUser": "user@dd.fr"]
+        sellerRef.setValue(values)
+
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -134,3 +145,5 @@ extension AddNewSellerViewController: UITextFieldDelegate {
 }
 // TODO:    - Bloquer le code en fonction de code existants
 //          - Mettre un message d'alerte pour choisir un autre code
+//          - Ajouter l'enregitrement de l'suer qui saisie les valeurs
+//          - Mettre la sauvegarde dans la classe Seller Service

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SellersListViewController: UITableViewController {
 
@@ -19,6 +20,9 @@ class SellersListViewController: UITableViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        SellerService.shared.familyNameOrderedQuery { (_) in
+            self.sellersTableView.reloadData()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,6 +59,7 @@ class SellersListViewController: UITableViewController {
         if editingStyle == .delete {
             SellerService.shared.removeSeller(at: indexPath.row)
             sellersTableView.deleteRows(at: [indexPath], with: .automatic)
+            sellersTableView.reloadData()
         }
     }
 
@@ -68,4 +73,4 @@ class SellersListViewController: UITableViewController {
         }
     }
 }
-// TODO:    - Revoir la mise en forme de la cellule
+// TODO: - Ajouter un activity indicator pour dire que les données se chargeent
