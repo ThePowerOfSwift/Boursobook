@@ -10,12 +10,27 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var userLogInLabel: UILabel!
+    @IBOutlet weak var userLogInIDLabel: UILabel!
+    
     // MARK: - IBActions
 
+    // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadValues()
+    }
+
+    // MARK: - functions
+    private func loadValues() {
+        userLogInLabel.text = UserService.shared.userLogIn?.email
+        userLogInIDLabel.text = UserService.shared.userLogIn?.uid
+    }
 }
 
 // TODO:    - Statistiques de ventes

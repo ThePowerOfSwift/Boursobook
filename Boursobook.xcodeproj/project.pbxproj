@@ -37,7 +37,6 @@
 		4FC5135322B13440000FD572 /* BoursobookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5135222B13440000FD572 /* BoursobookTests.swift */; };
 		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
-		4FF1668F22C4D29200236165 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668E22C4D29200236165 /* ReadMe */; };
 		CC5C5A81B7903845658B7944 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
 		D93563E27C229C1B2477D2EC /* libPods-Boursobook-BoursobookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */; };
 /* End PBXBuildFile section */
@@ -93,7 +92,6 @@
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4FF1668E22C4D29200236165 /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
 		A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 			children = (
 				4F9E864122C6239A00C9BE1E /* Localizable.strings */,
 				4FC5133A22B13440000FD572 /* AppDelegate.swift */,
-				4FF1668E22C4D29200236165 /* ReadMe */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -388,7 +385,6 @@
 			files = (
 				4FF1668822C3D9E800236165 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
-				4FF1668F22C4D29200236165 /* ReadMe in Resources */,
 				4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */,
 				4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */,
 				4FC5134522B13440000FD572 /* Assets.xcassets in Resources */,

@@ -26,7 +26,18 @@ class SellersListViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        UserService.shared.listenAuthentication { (login) in
+            if !login {
+              self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+            }
+        }
         sellersTableView.reloadData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UserService.shared.stopListenAuthentification()
     }
 
     // MARK: - Table view data source
@@ -73,4 +84,5 @@ class SellersListViewController: UITableViewController {
         }
     }
 }
-// TODO: - Ajouter un activity indicator pour dire que les données se chargeent
+// TODO:    - Ajouter un activity indicator pour dire que les données se chargeent
+//          - Voir pourquoi le unwind segue ne fonctionne pas lorsque j'efface l'utilisateur loggé

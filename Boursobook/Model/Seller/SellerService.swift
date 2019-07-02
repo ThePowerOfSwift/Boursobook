@@ -6,6 +6,30 @@
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
+
+//  JSON Configuration for FireBase
+//  {
+//    "sellers": {
+//      "DUPP" : {
+//          "firstName": "Pierre",
+//          "familyName": "Dupond",
+//          "code": "DUPP",
+//          "email": "jean@dd.fr",
+//          "phoneNumber": "3333333",
+//          "addedByUser": "ddddd",
+//          "numberRegisteredArticles": 23,
+//          "numberSoldedArticles": 22,
+//          "depositAmount": 10,
+//          "salesAmount": 13,30
+//          "purse": {
+//              "APE2019": True
+//          }
+//          "
+//      }
+//    }
+//  }
+
+
 import Foundation
 import Firebase
 

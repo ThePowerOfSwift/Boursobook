@@ -6,6 +6,22 @@
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
+/*
+ // JSON Configuration for FireBase
+ {
+    "articles": {
+        "DUPP" : {
+            "firstName": "Pierre",
+            "familyName": "Dupond",
+            "code": "DUPP",
+            "email": "jean@dd.fr",
+            "phoneNumber": "3333333",
+            "addedByUser": "ddddd"
+        }
+    }
+ }
+ 
+ */
 import Foundation
 
 class ArticleService {

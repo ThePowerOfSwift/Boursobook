@@ -81,8 +81,7 @@ class ArticleListTableViewController: UITableViewController {
         }
     }
 }
-// FIXME:   - il y a deux article qui s'affiche en meme temps l'un apreès l'autre
-//
+
 // TODO :       - faire une tri des article suivant leur type
 //              - afficher que les articles qui ne sont pas vendus
 //              - gerer le format du prix

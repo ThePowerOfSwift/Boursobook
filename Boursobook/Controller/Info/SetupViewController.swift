@@ -36,25 +36,25 @@ class SetupViewController: UIViewController {
                                                                         }
                                         })
         }
-        
+
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .default)
-        
+
         alert.addTextField { textEmail in
             textEmail.placeholder = NSLocalizedString("Enter your email", comment: "")
             textEmail.keyboardType = .emailAddress
         }
-        
+
         alert.addTextField { textPassword in
             textPassword.isSecureTextEntry = true
             textPassword.placeholder = NSLocalizedString("Enter your password", comment: "")
         }
-        
+
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
-        
+
         present(alert, animated: true, completion: nil)
-        
+
     }
 
     override func viewDidLoad() {
@@ -62,7 +62,6 @@ class SetupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

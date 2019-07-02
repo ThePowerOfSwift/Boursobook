@@ -15,7 +15,7 @@ struct Article {
     var description: String
     var isbn: String
     var code: String {
-        return "ddd"
+        return "BAND002"
     }
     var qrCode: String {
         return "ddd"

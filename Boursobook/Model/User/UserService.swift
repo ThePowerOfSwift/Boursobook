@@ -12,9 +12,51 @@ import Firebase
 class UserService {
     static var shared = UserService()
 
-    private(set) var users: [User] = []
+    private(set) var userLogIn: User?
 
     private init() {
+    }
+
+    private var handle: AuthStateDidChangeListenerHandle?
+
+    func listenAuthentication(callBack: @escaping (Bool) -> Void) {
+        handle = Auth.auth().addStateDidChangeListener({ (_, user) in
+            if user == nil {
+                self.userLogIn = nil
+                callBack(false)
+            }
+            if let user = user {
+                if let userEmail = user.email {
+                    self.userLogIn = User(uid: user.uid, email: userEmail)
+                }
+                callBack(true)
+            }
+        })
+    }
+
+    func stopListenAuthentification() {
+        if let handle = handle {
+              Auth.auth().removeStateDidChangeListener(handle)
+        }
+    }
+
+    func signInUser(email: String, password: String, callBack: @escaping (Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+            if let error = error {
+                if let errorCode = AuthErrorCode(rawValue: error._code) {
+                    switch errorCode {
+                    case .invalidEmail:
+                        callBack(USError.wrongEmail)
+                    case .wrongPassword:
+                        callBack(USError.wrongPassword)
+                    default:
+                        callBack(USError.other)
+                    }
+                }
+            } else {
+                callBack(nil)
+            }
+        }
     }
 
     func createUser(email: String, password: String, callBack: @escaping (Error?) -> Void) {
@@ -59,6 +101,7 @@ extension UserService {
         case weakPassword = "Please enter a stronger password !"
         case wrongEmail = "Please enter a good email !"
         case emailAlreadyExist = "The email already exist !"
+        case wrongPassword = "It's not the good password ! "
         case other = "Sorry, there is an error !"
     }
 }

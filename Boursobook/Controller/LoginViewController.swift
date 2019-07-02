@@ -17,11 +17,28 @@ class LoginViewController: UIViewController {
 
     // MARK: IBActions
     @IBAction func didTapLogin(_ sender: Any) {
-        performSegue(withIdentifier: "segueToApp", sender: nil)
+        if let loginEmailValue = loginEmailTextField.text, let loginPasswordValue = loginPasswordTextField.text {
+            UserService.shared.signInUser(email: loginEmailValue, password: loginPasswordValue) { (error) in
+                if let error = error {
+                    self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
+                                 title: NSLocalizedString("Error !", comment: ""))
+                } else {
+                    self.performSegue(withIdentifier: "segueToApp", sender: nil)
+                }
+            }
+        } else {
+            displayAlert(message: NSLocalizedString("Please, fill all the field !", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
+        }
     }
+
     @IBAction func didTapLoginAsGuest(_ sender: Any) {
         displayAlert(message: NSLocalizedString("Sorry, it's note possible yet !", comment: ""),
                      title: NSLocalizedString("Error !", comment: ""))
+
+    }
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
 
     // MARK: OverRide
@@ -47,5 +64,6 @@ extension LoginViewController: UITextFieldDelegate {
 }
 // TODO:    - faire disparaitre le login si on est déja logé
 //          - Gestion des mots de passe et des fonction save et login
+//          - Login as a guest ??
 // TODO: - Mettre à jour les string du storyboard
 

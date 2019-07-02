@@ -10,14 +10,7 @@ import Foundation
 import Firebase
 
 struct Seller: Equatable {
-    static func == (lhs: Seller, rhs: Seller) -> Bool {
-        if lhs.code == rhs.code && lhs.email == rhs.email
-            && lhs.familyName == rhs.familyName && lhs.firstName == rhs.firstName {
-            return true
-        }
-        return false
-    }
-
+   
     let familyName: String
     let firstName: String
     let email: String
@@ -65,6 +58,16 @@ struct Seller: Equatable {
         addedByUser = addedByUserValue
         ref = snapshot.ref
     }
+    
+    // To conform to equatable protocol
+    static func == (lhs: Seller, rhs: Seller) -> Bool {
+        if lhs.code == rhs.code && lhs.email == rhs.email
+            && lhs.familyName == rhs.familyName && lhs.firstName == rhs.firstName {
+            return true
+        }
+        return false
+    }
+
 }
 // TODO:          - tests à faire
 //                 - calcul des articles à vendre et vendus
