@@ -93,7 +93,8 @@ class AddArticleViewController: UIViewController {
         let sortValue = Article.Sort.allCases[sortValueIndex]
 
         let article = Article(title: titleValue, sort: sortValue, author: authorValue,
-                              description: descriptionValue, isbn: isbnValue, price: priceValue,
+                              description: descriptionValue, purse: PurseService.shared.currentPurse,
+                              isbn: isbnValue, price: priceValue,
                               seller: seller, solded: false)
         ArticleService.shared.add(article: article)
         self.navigationController?.popViewController(animated: true)
@@ -153,5 +154,5 @@ extension AddArticleViewController: UITextFieldDelegate {
         }
     }
 }
-// TODO:    - Add a button pour scanner l'isbn
+// TODO:    - Ajouter la fonction pour scanner l'isbn
 //          - Gerer le format du prix

@@ -20,7 +20,7 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var numberOfArticleSoldedLabel: UILabel!
-    @IBOutlet weak var numberOfArticleToSoldLabel: UILabel!
+    @IBOutlet weak var numberOfArticleRegisteredLabel: UILabel!
 
     // MARK: - Override
     override func viewDidLoad() {
@@ -42,8 +42,8 @@ class SellerViewController: UIViewController {
         emailLabel.text = sellerToLoad.email
         phoneLabel.text = sellerToLoad.phoneNumber
         codeLabel.text = sellerToLoad.code
-        numberOfArticleSoldedLabel.text = String(sellerToLoad.itemsToSold)
-        numberOfArticleToSoldLabel.text = String(sellerToLoad.soldedItem)
+        numberOfArticleSoldedLabel.text = String(sellerToLoad.articleSolded)
+        numberOfArticleRegisteredLabel.text = String(sellerToLoad.articleRegistered)
     }
 
     // MARK: - Navigation

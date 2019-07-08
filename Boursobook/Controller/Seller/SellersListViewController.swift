@@ -13,6 +13,7 @@ class SellersListViewController: UITableViewController {
 
     // MARK: - IBOUTLET
     @IBOutlet var sellersTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Properties
     var selectedSeller: Seller?
@@ -21,12 +22,13 @@ class SellersListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SellerService.shared.familyNameOrderedQuery { (_) in
+            self.activityIndicator.isHidden = true
             self.sellersTableView.reloadData()
         }
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         UserService.shared.listenAuthentication { (login) in
             if !login {
               self.performSegue(withIdentifier: "unwindToLogin", sender: self)
@@ -84,5 +86,4 @@ class SellersListViewController: UITableViewController {
         }
     }
 }
-// TODO:    - Ajouter un activity indicator pour dire que les données se chargeent
-//          - Voir pourquoi le unwind segue ne fonctionne pas lorsque j'efface l'utilisateur loggé
+// TODO:    - Voir pourquoi le unwind segue ne fonctionne pas lorsque j'efface l'utilisateur loggé

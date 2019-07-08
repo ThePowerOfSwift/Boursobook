@@ -14,16 +14,25 @@ class LoginViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var loginEmailTextField: UITextField!
     @IBOutlet weak var loginPasswordTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var logStackView: UIStackView!
 
     // MARK: IBActions
     @IBAction func didTapLogin(_ sender: Any) {
         if let loginEmailValue = loginEmailTextField.text, let loginPasswordValue = loginPasswordTextField.text {
+            toogleActivity(logging: true)
             UserService.shared.signInUser(email: loginEmailValue, password: loginPasswordValue) { (error) in
                 if let error = error {
+                    self.toogleActivity(logging: false)
                     self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
                                  title: NSLocalizedString("Error !", comment: ""))
                 } else {
-                    self.performSegue(withIdentifier: "segueToApp", sender: nil)
+                    PurseService.shared.downloadData(completionHandler: { (done) in
+                        if done {
+                            self.toogleActivity(logging: false)
+                            self.performSegue(withIdentifier: "segueToApp", sender: nil)
+                        }
+                    })
                 }
             }
         } else {
@@ -37,7 +46,7 @@ class LoginViewController: UIViewController {
                      title: NSLocalizedString("Error !", comment: ""))
 
     }
-    
+
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
 
@@ -46,7 +55,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    // MARK: Functions
+    // MARK: Function
+    func toogleActivity(logging: Bool) {
+        activityIndicator.isHidden = !logging
+        logStackView.isHidden = logging
+    }
 }
 
 // MARK: - KEYBOARD
@@ -65,5 +78,4 @@ extension LoginViewController: UITextFieldDelegate {
 // TODO:    - faire disparaitre le login si on est déja logé
 //          - Gestion des mots de passe et des fonction save et login
 //          - Login as a guest ??
-// TODO: - Mettre à jour les string du storyboard
-
+// TODO:    - Mettre à jour les string du storyboard

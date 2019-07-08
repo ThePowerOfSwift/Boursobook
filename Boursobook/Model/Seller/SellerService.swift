@@ -6,30 +6,6 @@
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
-
-//  JSON Configuration for FireBase
-//  {
-//    "sellers": {
-//      "DUPP" : {
-//          "firstName": "Pierre",
-//          "familyName": "Dupond",
-//          "code": "DUPP",
-//          "email": "jean@dd.fr",
-//          "phoneNumber": "3333333",
-//          "addedByUser": "ddddd",
-//          "numberRegisteredArticles": 23,
-//          "numberSoldedArticles": 22,
-//          "depositAmount": 10,
-//          "salesAmount": 13,30
-//          "purse": {
-//              "APE2019": True
-//          }
-//          "
-//      }
-//    }
-//  }
-
-
 import Foundation
 import Firebase
 
@@ -42,12 +18,27 @@ class SellerService {
     private init() {
     }
 
-    func add(seller: Seller) {
+    func createNew(seller: Seller) {
         sellers.append(seller)
+        guard let userLogIn = UserService.shared.userLogIn, let currentPurse = PurseService.shared.currentPurse else {
+            return
+        }
+
+        let sellerRef = reference.child(seller.code)
+        let values: [String: Any] = ["firstName": seller.firstName, "familyName": seller.familyName,
+                                     "code": seller.code,
+                                     "email": seller.email, "phoneNumber": seller.phoneNumber,
+                                     "createdBy": userLogIn.uid, "purse": currentPurse.name,
+                                     "articleSolded": 0, "articleRegistered": 0,
+                                     "depositFeeAmount": 0, "salesAmount": 0,
+                                     "refundDone": false, "refundDate": "", "refundBy": ""]
+        sellerRef.setValue(values)
+
     }
     func removeSeller(at index: Int) {
         let seller = sellers[index]
-        seller.ref?.removeValue()
+        reference.child(seller.code).removeValue()
+
         sellers.remove(at: index)
     }
 

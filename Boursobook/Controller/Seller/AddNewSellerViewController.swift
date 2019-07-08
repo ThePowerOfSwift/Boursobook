@@ -12,7 +12,6 @@ import Firebase
 class AddNewSellerViewController: UIViewController {
 
     // MARK: - Properties
-    let sellersReference = Database.database().reference(withPath: "sellers")
 
     // MARK: - IBOutlets
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -50,14 +49,15 @@ class AddNewSellerViewController: UIViewController {
             code += SellerCode.caractersList[codeIndex]
         }
 
-        let seller = Seller(familyName: familyNameValue, firstName: firstNameValue,
-                            email: emailValue, phoneNumber: phoneNumberValue, code: code, addedByUser: "user@dd.fr")
-        SellerService.shared.add(seller: seller)
+        guard let userLogIn = UserService.shared.userLogIn, let currentPurse = PurseService.shared.currentPurse else {
+            return
+        }
 
-        let sellerRef = self.sellersReference.child(code)
-        let values: [String: Any] = ["firstName": firstNameValue, "familyName": familyNameValue, "code": code,
-                                     "email": emailValue, "phoneNumber": phoneNumberValue, "addedByUser": "user@dd.fr"]
-        sellerRef.setValue(values)
+        let seller = Seller(familyName: familyNameValue, firstName: firstNameValue, email: emailValue,
+                            phoneNumber: phoneNumberValue, code: code,
+                            createdBy: userLogIn.email, purseName: currentPurse.name)
+
+        SellerService.shared.createNew(seller: seller)
 
         self.navigationController?.popViewController(animated: true)
     }
@@ -145,5 +145,5 @@ extension AddNewSellerViewController: UITextFieldDelegate {
 }
 // TODO:    - Bloquer le code en fonction de code existants
 //          - Mettre un message d'alerte pour choisir un autre code
-//          - Ajouter l'enregitrement de l'suer qui saisie les valeurs
+//          - Ajouter l'enregitrement de l'suer qui saisie les valeurs et le nom de la purse
 //          - Mettre la sauvegarde dans la classe Seller Service

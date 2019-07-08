@@ -10,25 +10,33 @@ import Foundation
 import Firebase
 
 struct Seller: Equatable {
-   
+
     let familyName: String
     let firstName: String
     let email: String
     let phoneNumber: String
     let code: String
-    var soldedItem = 0
-    var itemsToSold = 0
-    let addedByUser: String
-    let ref: DatabaseReference?
+    let createdBy: String
+    let purseName: String
 
-    init(familyName: String, firstName: String, email: String, phoneNumber: String, code: String, addedByUser: String) {
+    var articleSolded = 0
+    var articleRegistered = 0
+    var depositFeeAmount: Double = 0
+    var salesAmount: Double = 0
+
+    var refundDone = false
+    var refundDate: Date?
+    var refundBy: User?
+
+    init(familyName: String, firstName: String, email: String, phoneNumber: String,
+         code: String, createdBy: String, purseName: String) {
         self.familyName = familyName
         self.firstName = firstName
         self.email = email
         self.phoneNumber = phoneNumber
         self.code = code
-        self.addedByUser = addedByUser
-        self.ref = nil
+        self.createdBy = createdBy
+        self.purseName = purseName
     }
 
    init?(snapshot: DataSnapshot) {
@@ -48,17 +56,20 @@ struct Seller: Equatable {
         guard let phoneNumberValue = snapshotValue["phoneNumber"] as? String else {
             return nil
         }
-        guard let addedByUserValue = snapshotValue["addedByUser"] as? String else {
+        guard let createdByValue = snapshotValue["createdBy"] as? String else {
+            return nil
+        }
+        guard let purseValue = snapshotValue["purse"] as? String else {
             return nil
         }
         familyName = familyNameValue
         firstName = firstNameValue
         email = emailValue
         phoneNumber = phoneNumberValue
-        addedByUser = addedByUserValue
-        ref = snapshot.ref
+        createdBy = createdByValue
+        purseName = purseValue
     }
-    
+
     // To conform to equatable protocol
     static func == (lhs: Seller, rhs: Seller) -> Bool {
         if lhs.code == rhs.code && lhs.email == rhs.email
@@ -67,7 +78,6 @@ struct Seller: Equatable {
         }
         return false
     }
-
 }
 // TODO:          - tests à faire
 //                 - calcul des articles à vendre et vendus

@@ -15,7 +15,7 @@ class SetupViewController: UIViewController {
         let alert = UIAlertController(title: NSLocalizedString("Register", comment: ""),
                                       message: NSLocalizedString("New user", comment: ""),
                                       preferredStyle: .alert)
-        
+
         let saveAction = UIAlertAction(title: NSLocalizedString("Save", comment: ""),
                                        style: .default) { _ in
                                         guard let emailTextFieldValue = alert.textFields?[0].text else {
@@ -29,10 +29,11 @@ class SetupViewController: UIViewController {
                                                                       callBack: { (error) in
                                                                         if let error = error {
                                                                             self.displayAlert(message: error.message,
-                                                                                              title: NSLocalizedString("Error !", comment: ""))
+                                        title: NSLocalizedString("Error !", comment: ""))
                                                                         } else {
-                                                                            self.displayAlert(message: NSLocalizedString("An email has been send to the new user !", comment: ""),
-                                                                                              title: NSLocalizedString("It's ok !", comment: ""))
+                                            self.displayAlert(message: NSLocalizedString("An email has been send to the new user !",
+                                                                                comment: ""),
+                                            title: NSLocalizedString("It's ok !", comment: ""))
                                                                         }
                                         })
         }
@@ -75,3 +76,4 @@ class SetupViewController: UIViewController {
 
 }
 // TODO: - Verouiller l'acces aux régalges si c'est pas delphine ????
+//           - Mettre des valuers avec virgules pour voir si le format passe

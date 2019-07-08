@@ -14,8 +14,8 @@ class SellerListTableViewCell: UITableViewCell {
     @IBOutlet weak var familyNameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var itemToSoldLabel: UILabel!
-    @IBOutlet weak var soldedItemLabel: UILabel!
+    @IBOutlet weak var registerdArticle: UILabel!
+    @IBOutlet weak var soldedArticleLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +32,7 @@ class SellerListTableViewCell: UITableViewCell {
         familyNameLabel.text = seller.familyName
         codeLabel.text = seller.code
         firstNameLabel.text = seller.firstName
-        itemToSoldLabel.text = String(seller.itemsToSold)
-        soldedItemLabel.text = String(seller.soldedItem)
+        registerdArticle.text = String(seller.articleRegistered)
+        soldedArticleLabel.text = String(seller.articleSolded)
     }
 }

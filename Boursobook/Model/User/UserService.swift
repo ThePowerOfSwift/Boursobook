@@ -41,7 +41,7 @@ class UserService {
     }
 
     func signInUser(email: String, password: String, callBack: @escaping (Error?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
             if let error = error {
                 if let errorCode = AuthErrorCode(rawValue: error._code) {
                     switch errorCode {
@@ -53,7 +53,11 @@ class UserService {
                         callBack(USError.other)
                     }
                 }
-            } else {
+            } else if let authDataResultValue = authDataResult {
+                guard let userEmailValue = authDataResultValue.user.email else {
+                    return
+                }
+                self.userLogIn = User(uid: authDataResultValue.user.uid, email: userEmailValue)
                 callBack(nil)
             }
         }
@@ -105,3 +109,6 @@ extension UserService {
         case other = "Sorry, there is an error !"
     }
 }
+// TODO:    - Test à faire
+//           - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)
+//          - Ajouter l'user crée dans la purse en cours

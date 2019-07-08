@@ -13,6 +13,7 @@ struct Article {
     var sort: Article.Sort = .other
     var author: String
     var description: String
+    var purse: Purse?
     var isbn: String
     var code: String {
         return "BAND002"

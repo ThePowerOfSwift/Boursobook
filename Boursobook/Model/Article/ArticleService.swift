@@ -6,22 +6,6 @@
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
-/*
- // JSON Configuration for FireBase
- {
-    "articles": {
-        "DUPP" : {
-            "firstName": "Pierre",
-            "familyName": "Dupond",
-            "code": "DUPP",
-            "email": "jean@dd.fr",
-            "phoneNumber": "3333333",
-            "addedByUser": "ddddd"
-        }
-    }
- }
- 
- */
 import Foundation
 
 class ArticleService {
@@ -52,3 +36,4 @@ class ArticleService {
     }
 }
 // TODO:         - tests à faire
+//           - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)

@@ -13,7 +13,8 @@ class InfoViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var userLogInLabel: UILabel!
     @IBOutlet weak var userLogInIDLabel: UILabel!
-    
+    @IBOutlet weak var currentPurseLabel: UILabel!
+
     // MARK: - IBActions
 
     // MARK: - Override
@@ -30,6 +31,7 @@ class InfoViewController: UIViewController {
     private func loadValues() {
         userLogInLabel.text = UserService.shared.userLogIn?.email
         userLogInIDLabel.text = UserService.shared.userLogIn?.uid
+        currentPurseLabel.text = PurseService.shared.currentPurse?.name
     }
 }
 

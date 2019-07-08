@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F6C1C3922CE2437004C9BF3 /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
+		4F6C1C3C22CE294C004C9BF3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
+		4F6C1C3E22CF29E0004C9BF3 /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
 		4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
 		4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
 		4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
@@ -54,6 +57,9 @@
 /* Begin PBXFileReference section */
 		4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
+		4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseService.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -127,12 +133,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4F6C1C3622CC912E004C9BF3 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				4FA05B9F22C3484A00708718 /* ArticleViewController.swift */,
+				4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */,
+				4FA05B9522C2400E00708718 /* AddArticleViewController.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		4F6C1C3722CE2424004C9BF3 /* Purse */ = {
+			isa = PBXGroup;
+			children = (
+				4F6C1C3822CE2437004C9BF3 /* Purse.swift */,
+				4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */,
+			);
+			path = Purse;
+			sourceTree = "<group>";
+		};
+		4F6C1C3A22CE293A004C9BF3 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
 		4F9E864A22C6383D00C9BE1E /* User */ = {
 			isa = PBXGroup;
 			children = (
 				4F9E864622C636B100C9BE1E /* User.swift */,
 				4F9E864822C636EB00C9BE1E /* UserService.swift */,
-				4F9E864D22C6431700C9BE1E /* Error+extension.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -162,9 +194,6 @@
 				4FA05B8222BD06E100708718 /* SellersListViewController.swift */,
 				4FA05B7822BCFE3900708718 /* SellerViewController.swift */,
 				4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */,
-				4FA05B9522C2400E00708718 /* AddArticleViewController.swift */,
-				4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */,
-				4FA05B9F22C3484A00708718 /* ArticleViewController.swift */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -233,9 +262,12 @@
 		4FC5136022B155E9000FD572 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F6C1C3A22CE293A004C9BF3 /* Transaction */,
+				4F6C1C3722CE2424004C9BF3 /* Purse */,
 				4F9E864A22C6383D00C9BE1E /* User */,
 				4F9E864B22C6384C00C9BE1E /* Seller */,
 				4F9E864C22C6386300C9BE1E /* Article */,
+				4F9E864D22C6431700C9BE1E /* Error+extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +288,7 @@
 			children = (
 				4FF1668B22C4C7FC00236165 /* LoginViewController.swift */,
 				4FA05B8C22BD3FE200708718 /* Info */,
+				4F6C1C3622CC912E004C9BF3 /* Article */,
 				4FA05B8B22BD3FC700708718 /* Buy */,
 				4FA05B8A22BD3FA100708718 /* Seller */,
 				4FA05B9322BD880200708718 /* UIViewController+Extension.swift */,
@@ -475,14 +508,17 @@
 				4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */,
 				4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */,
 				4FA05B9022BD72F300708718 /* SellerService.swift in Sources */,
+				4F6C1C3922CE2437004C9BF3 /* Purse.swift in Sources */,
 				4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */,
 				4F9E864E22C6431700C9BE1E /* Error+extension.swift in Sources */,
 				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
 				4FA05B9A22C25AE300708718 /* ArticleService.swift in Sources */,
 				4FA05B9C22C26DE400708718 /* ArticleListTableViewController.swift in Sources */,
+				4F6C1C3E22CF29E0004C9BF3 /* PurseService.swift in Sources */,
 				4FA05B7922BCFE3900708718 /* SellerViewController.swift in Sources */,
 				4FA05B8E22BD43E300708718 /* SellerListTableViewCell.swift in Sources */,
 				4FA05B9222BD83F700708718 /* SellerCode.swift in Sources */,
+				4F6C1C3C22CE294C004C9BF3 /* Transaction.swift in Sources */,
 				4FA05B7522BCFD4900708718 /* InfoViewController.swift in Sources */,
 				4FA05B9E22C270BB00708718 /* ArticleListTableViewCell.swift in Sources */,
 				4FA05B8322BD06E100708718 /* SellersListViewController.swift in Sources */,
