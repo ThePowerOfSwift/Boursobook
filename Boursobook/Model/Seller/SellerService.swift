@@ -10,14 +10,16 @@ import Foundation
 import Firebase
 
 class SellerService {
+    // MARK: - Properties
     static var shared = SellerService()
-
     private(set) var sellers: [Seller] = []
     let reference = Database.database().reference(withPath: "sellers")
 
+    // MARK: - Initialisation
     private init() {
     }
 
+    // MARK: - Functions
     func createNew(seller: Seller) {
         sellers.append(seller)
         guard let userLogIn = UserService.shared.userLogIn, let currentPurse = PurseService.shared.currentPurse else {
@@ -45,23 +47,6 @@ class SellerService {
     func familyNameOrderedQuery(completionHandler: @escaping (Bool) -> Void) {
         // Query sellers from FireBase and order by name
         reference.queryOrdered(byChild: "familyName").observe(.value) { snapshot in
-            var newSellers: [Seller] = []
-
-            for child in snapshot.children {
-                if let childValue = child as? DataSnapshot {
-                    if let seller = Seller(snapshot: childValue) {
-                        newSellers.append(seller)
-                    }
-                }
-            }
-            self.sellers = newSellers
-            completionHandler(true)
-        }
-    }
-
-    func downloadData(completionHandler: @escaping (Bool) -> Void) {
-        //download value from FireBase
-        reference.observe(.value) { snapshot in
             var newSellers: [Seller] = []
 
             for child in snapshot.children {

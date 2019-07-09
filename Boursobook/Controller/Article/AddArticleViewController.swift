@@ -90,15 +90,19 @@ class AddArticleViewController: UIViewController {
             return
         }
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
-        let sortValue = Article.Sort.allCases[sortValueIndex]
+        let sortValue = Article.sort[sortValueIndex]
 
-        let article = Article(title: titleValue, sort: sortValue, author: authorValue,
-                              description: descriptionValue, purse: PurseService.shared.currentPurse,
-                              isbn: isbnValue, price: priceValue,
-                              seller: seller, solded: false)
-        ArticleService.shared.add(article: article)
-        self.navigationController?.popViewController(animated: true)
+        if let currentPurse = PurseService.shared.currentPurse {
+            let article = Article(title: titleValue, sort: sortValue, author: authorValue,
+                                  description: descriptionValue, purseName: currentPurse.name, isbn: isbnValue, code: seller.nextOrderNumber(), price: priceValue,
+                                  sellerCode: seller.code, solded: false)
+            
+            ArticleService.shared.add(article: article)
+            self.navigationController?.popViewController(animated: true)
+        }
+
     }
+
 }
 // MARK: - PICKERVIEW
 extension AddArticleViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -108,10 +112,10 @@ extension AddArticleViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Article.Sort.allCases.count
+        return Article.sort.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Article.Sort.allCases[row].rawValue
+        return Article.sort[row]
     }
 
 }

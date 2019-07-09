@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
                 } else {
                     PurseService.shared.downloadData(completionHandler: { (done) in
                         if done {
+                            ArticleService.shared.titleOrderedQuery(completionHandler: { (_) in })
                             self.toogleActivity(logging: false)
                             self.performSegue(withIdentifier: "segueToApp", sender: nil)
                         }
@@ -78,4 +79,5 @@ extension LoginViewController: UITextFieldDelegate {
 // TODO:    - faire disparaitre le login si on est déja logé
 //          - Gestion des mots de passe et des fonction save et login
 //          - Login as a guest ??
+//          - gestion de l'appli offligne
 // TODO:    - Mettre à jour les string du storyboard

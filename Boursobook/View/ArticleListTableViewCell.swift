@@ -29,7 +29,7 @@ class ArticleListTableViewCell: UITableViewCell {
 
     // MARK: - Functions
     func configure(with article: Article) {
-        sortLabel.text = article.sort.rawValue
+        sortLabel.text = article.sort
         titleLabel.text = article.title
         priceLabel.text = String(article.price) + " €"
         codeLabel.text = article.code

@@ -9,8 +9,9 @@
 import Foundation
 import Firebase
 
-struct Seller: Equatable {
+class Seller: Equatable {
 
+    // MARK: - Properties
     let familyName: String
     let firstName: String
     let email: String
@@ -28,6 +29,7 @@ struct Seller: Equatable {
     var refundDate: Date?
     var refundBy: User?
 
+    // MARK: - Initialisation
     init(familyName: String, firstName: String, email: String, phoneNumber: String,
          code: String, createdBy: String, purseName: String) {
         self.familyName = familyName
@@ -70,6 +72,7 @@ struct Seller: Equatable {
         purseName = purseValue
     }
 
+    // MARK: - Functions
     // To conform to equatable protocol
     static func == (lhs: Seller, rhs: Seller) -> Bool {
         if lhs.code == rhs.code && lhs.email == rhs.email
@@ -78,6 +81,13 @@ struct Seller: Equatable {
         }
         return false
     }
+
+    func nextOrderNumber() -> String {
+        // optain  the next number for articles list
+        let numberOfOrder = articleRegistered + 1
+        return code + String(numberOfOrder)
+    }
 }
 // TODO:          - tests à faire
 //                 - calcul des articles à vendre et vendus
+//                  - probleme de la fonction nextnumber si on supprime des articles et qu'on en crée d'autre après

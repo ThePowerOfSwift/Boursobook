@@ -66,7 +66,7 @@ class ArticleListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            ArticleService.shared.remove(article: articlesToDisplay[indexPath.row])
+            ArticleService.shared.remove(at: indexPath.row)
             articleListTableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

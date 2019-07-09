@@ -611,7 +611,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HnO-u3-M9X">
                                                 <rect key="frame" x="0.0" y="163.66666666666669" width="335" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of article recorded :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr1-5V-nhD">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of article registered :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr1-5V-nhD">
                                                         <rect key="frame" x="0.0" y="0.0" width="283.66666666666669" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -683,7 +683,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kwz-xv-tdE">
                                                 <rect key="frame" x="0.0" y="295.66666666666669" width="335" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of sells :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flr-y6-arV">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of sales :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flr-y6-arV">
                                                         <rect key="frame" x="0.0" y="0.0" width="244.66666666666666" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -865,12 +865,18 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="amountDepositFeeLabel" destination="hW1-RE-JKY" id="XiS-bM-GhE"/>
+                        <outlet property="amountOfSalesLabel" destination="gNL-JZ-7uM" id="MrT-WR-AZj"/>
                         <outlet property="codeLabel" destination="5Tp-x3-hWT" id="6Xa-09-cKv"/>
+                        <outlet property="didTapPrintButton" destination="I6U-07-m41" id="t6B-pW-5Yy"/>
+                        <outlet property="didTapRefundButton" destination="upv-xV-o0l" id="hzx-T8-mpB"/>
                         <outlet property="emailLabel" destination="3lW-4W-v2j" id="O6v-TI-vaS"/>
                         <outlet property="familyNameLabel" destination="tgm-x8-29Z" id="T3w-gp-927"/>
                         <outlet property="firstNameLabel" destination="UnQ-Cw-Rhd" id="C6j-yj-es5"/>
                         <outlet property="numberOfArticleRegisteredLabel" destination="IOf-A9-aGy" id="DAF-m2-TaC"/>
                         <outlet property="numberOfArticleSoldedLabel" destination="rbd-Ex-7IZ" id="e0W-Nl-rfC"/>
+                        <outlet property="numberReturnedCheckedSwitch" destination="cLY-av-CGI" id="zZw-hd-KSr"/>
+                        <outlet property="numerOfArticleToReturnLabel" destination="7fc-8S-TZH" id="WAB-se-cdD"/>
                         <outlet property="phoneLabel" destination="uJr-8p-H4D" id="II6-o0-N7E"/>
                     </connections>
                 </viewController>
