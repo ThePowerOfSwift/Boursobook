@@ -26,7 +26,8 @@ class ArticleListTableViewController: UITableViewController {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "") + seller.firstName + " " + seller.familyName
+        sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "")
+                                + seller.firstName + " " + seller.familyName
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -66,6 +67,7 @@ class ArticleListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            articlesToDisplay.remove(at: indexPath.row)
             InMemoryStorage.shared.removeArticle(at: indexPath.row)
             articleListTableView.deleteRows(at: [indexPath], with: .automatic)
         }

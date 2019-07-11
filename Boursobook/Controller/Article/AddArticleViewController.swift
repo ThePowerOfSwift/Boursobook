@@ -94,7 +94,8 @@ class AddArticleViewController: UIViewController {
 
         if let currentPurse = InMemoryStorage.shared.currentPurse {
             let article = Article(title: titleValue, sort: sortValue, author: authorValue,
-                                  description: descriptionValue, purseName: currentPurse.name, isbn: isbnValue, code: seller.nextOrderNumber(), price: priceValue,
+                                  description: descriptionValue, purseName: currentPurse.name,
+                                  isbn: isbnValue, code: seller.nextOrderNumber(), price: priceValue,
                                   sellerCode: seller.code, solded: false)
             InMemoryStorage.shared.addArticle(article)
             self.navigationController?.popViewController(animated: true)

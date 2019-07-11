@@ -112,6 +112,13 @@ class InMemoryStorage {
         return filteredList
     }
 
+    func isExistingSellerWith(code: String) -> Bool {
+        for seller in sellers where seller.code == code {
+            return true
+        }
+        return false
+    }
+
 }
 
 // TODO:    - gestion de l'appli offligne

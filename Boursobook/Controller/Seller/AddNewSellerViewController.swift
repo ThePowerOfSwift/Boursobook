@@ -22,7 +22,6 @@ class AddNewSellerViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func didTapSaveButton(_ sender: UIButton) {
-        resignAllTextField()
         saveSeller()
     }
 
@@ -33,6 +32,11 @@ class AddNewSellerViewController: UIViewController {
 
     // MARK: - Function
     private func saveSeller() {
+        guard let userLogIn = UserService.shared.userLogIn,
+            let currentPurse = InMemoryStorage.shared.currentPurse else {
+                return
+        }
+
         guard let firstNameValue = firstNameTextField.text, let familyNameValue = familyNameTextField.text,
             let emailValue = emailTextField.text, let phoneNumberValue = phoneNumberTextField.text else {
             return
@@ -49,7 +53,9 @@ class AddNewSellerViewController: UIViewController {
             code += SellerCode.caractersList[codeIndex]
         }
 
-        guard let userLogIn = UserService.shared.userLogIn, let currentPurse = InMemoryStorage.shared.currentPurse else {
+        if InMemoryStorage.shared.isExistingSellerWith(code: code) {
+            displayAlert(message: NSLocalizedString("Code already exist, please change it !", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
             return
         }
 
@@ -143,7 +149,5 @@ extension AddNewSellerViewController: UITextFieldDelegate {
         setCode()
     }
 }
-// TODO:    - Bloquer le code en fonction de code existants
-//          - Mettre un message d'alerte pour choisir un autre code
-//          - Ajouter l'enregitrement de l'suer qui saisie les valeurs et le nom de la purse
+// TODO:    - Ajouter l'enregitrement de l'suer qui saisie les valeurs et le nom de la purse
 //          - Mettre la sauvegarde dans la classe Seller Service
