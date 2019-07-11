@@ -49,7 +49,7 @@ class AddNewSellerViewController: UIViewController {
             code += SellerCode.caractersList[codeIndex]
         }
 
-        guard let userLogIn = UserService.shared.userLogIn, let currentPurse = PurseService.shared.currentPurse else {
+        guard let userLogIn = UserService.shared.userLogIn, let currentPurse = InMemoryStorage.shared.currentPurse else {
             return
         }
 
@@ -57,7 +57,7 @@ class AddNewSellerViewController: UIViewController {
                             phoneNumber: phoneNumberValue, code: code,
                             createdBy: userLogIn.email, purseName: currentPurse.name)
 
-        SellerService.shared.createNew(seller: seller)
+        InMemoryStorage.shared.addSeller(seller)
 
         self.navigationController?.popViewController(animated: true)
     }

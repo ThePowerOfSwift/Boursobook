@@ -20,22 +20,8 @@ class LoginViewController: UIViewController {
     // MARK: IBActions
     @IBAction func didTapLogin(_ sender: Any) {
         if let loginEmailValue = loginEmailTextField.text, let loginPasswordValue = loginPasswordTextField.text {
-            toogleActivity(logging: true)
-            UserService.shared.signInUser(email: loginEmailValue, password: loginPasswordValue) { (error) in
-                if let error = error {
-                    self.toogleActivity(logging: false)
-                    self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
-                                 title: NSLocalizedString("Error !", comment: ""))
-                } else {
-                    PurseService.shared.downloadData(completionHandler: { (done) in
-                        if done {
-                            ArticleService.shared.titleOrderedQuery(completionHandler: { (_) in })
-                            self.toogleActivity(logging: false)
-                            self.performSegue(withIdentifier: "segueToApp", sender: nil)
-                        }
-                    })
-                }
-            }
+            login(identifiant: loginEmailValue, password: loginPasswordValue)
+
         } else {
             displayAlert(message: NSLocalizedString("Please, fill all the field !", comment: ""),
                          title: NSLocalizedString("Error !", comment: ""))
@@ -57,6 +43,23 @@ class LoginViewController: UIViewController {
     }
 
     // MARK: Function
+
+    func login(identifiant: String, password: String) {
+        toogleActivity(logging: true)
+        UserService.shared.signInUser(email: identifiant, password: password) { (error) in
+            if let error = error {
+                self.toogleActivity(logging: false)
+                self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
+                                  title: NSLocalizedString("Error !", comment: ""))
+            } else {
+                InMemoryStorage.shared.readAndListenData(completionHandler: { (done) in
+                    InMemoryStorage.shared.setCurrentPurse()
+                    self.toogleActivity(logging: false)
+                    self.performSegue(withIdentifier: "segueToApp", sender: nil)
+                })
+            }
+        }
+    }
     func toogleActivity(logging: Bool) {
         activityIndicator.isHidden = !logging
         logStackView.isHidden = logging
@@ -80,4 +83,5 @@ extension LoginViewController: UITextFieldDelegate {
 //          - Gestion des mots de passe et des fonction save et login
 //          - Login as a guest ??
 //          - gestion de l'appli offligne
+//          - message si on est pas connecté et que l'on peut pas telecharger les données
 // TODO:    - Mettre à jour les string du storyboard

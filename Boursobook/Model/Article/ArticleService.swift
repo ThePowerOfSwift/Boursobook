@@ -12,18 +12,10 @@ import Firebase
 class ArticleService {
 
     // MARK: - Properties
-    static var shared = ArticleService()
-    private(set) var articles: [Article] = []
     let reference = Database.database().reference(withPath: "articles")
 
-    // MARK: - Initialisation
-    private init() {
-    }
-
     // MARK: - Functions
-    func add(article: Article) {
-
-        articles.append(article)
+    func create(article: Article) {
 
         let articleRef = reference.child(article.code)
         let values: [String: Any] = ["title": article.title,
@@ -33,28 +25,13 @@ class ArticleService {
                                      "sellerCode": article.sellerCode]
 
         articleRef.setValue(values)
-        for seller in SellerService.shared.sellers where seller.code == article.sellerCode {
-            seller.articleRegistered += 1
-        }
-        //FIXME: maj le nombre d'article du seller
-        
     }
-    func remove(at index: Int) {
-        let article = articles[index]
+
+    func remove(article: Article) {
         reference.child(article.code).removeValue()
-        articles.remove(at: index)
-        //FIXME: maj le nombre d'article du seller
     }
 
-    func filtered(by seller: Seller) -> [Article] {
-        var filteredList = [Article]()
-        for article in articles where article.sellerCode == seller.code {
-            filteredList.append(article)
-        }
-        return filteredList
-    }
-
-    func titleOrderedQuery(completionHandler: @escaping (Bool) -> Void) {
+    func readAndListenData(completionHandler: @escaping (Bool, [Article]) -> Void) {
         // Query articles from FireBase and order by title
         reference.queryOrdered(byChild: "title").observe(.value) { snapshot in
             var newArticles: [Article] = []
@@ -66,8 +43,7 @@ class ArticleService {
                     }
                 }
             }
-            self.articles = newArticles
-            completionHandler(true)
+            completionHandler(true, newArticles)
         }
     }
 }

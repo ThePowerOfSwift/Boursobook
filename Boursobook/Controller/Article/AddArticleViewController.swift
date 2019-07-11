@@ -92,12 +92,11 @@ class AddArticleViewController: UIViewController {
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
         let sortValue = Article.sort[sortValueIndex]
 
-        if let currentPurse = PurseService.shared.currentPurse {
+        if let currentPurse = InMemoryStorage.shared.currentPurse {
             let article = Article(title: titleValue, sort: sortValue, author: authorValue,
                                   description: descriptionValue, purseName: currentPurse.name, isbn: isbnValue, code: seller.nextOrderNumber(), price: priceValue,
                                   sellerCode: seller.code, solded: false)
-            
-            ArticleService.shared.add(article: article)
+            InMemoryStorage.shared.addArticle(article)
             self.navigationController?.popViewController(animated: true)
         }
 

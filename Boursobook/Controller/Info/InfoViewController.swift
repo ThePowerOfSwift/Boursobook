@@ -31,7 +31,7 @@ class InfoViewController: UIViewController {
     private func loadValues() {
         userLogInLabel.text = UserService.shared.userLogIn?.email
         userLogInIDLabel.text = UserService.shared.userLogIn?.uid
-        currentPurseLabel.text = PurseService.shared.currentPurse?.name
+        currentPurseLabel.text = InMemoryStorage.shared.currentPurse?.name
     }
 }
 

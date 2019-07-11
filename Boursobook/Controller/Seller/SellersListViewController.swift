@@ -21,12 +21,9 @@ class SellersListViewController: UITableViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        SellerService.shared.familyNameOrderedQuery { (_) in
-            self.activityIndicator.isHidden = true
-            self.sellersTableView.reloadData()
-        }
-
+        self.activityIndicator.isHidden = true
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UserService.shared.listenAuthentication { (login) in
@@ -48,7 +45,7 @@ class SellersListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SellerService.shared.sellers.count
+        return InMemoryStorage.shared.sellers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,22 +54,23 @@ class SellersListViewController: UITableViewController {
                                                         return UITableViewCell()
         }
 
-        let seller = SellerService.shared.sellers[indexPath.row]
+        let seller = InMemoryStorage.shared.sellers[indexPath.row]
         cell.configure(with: seller)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSeller = SellerService.shared.sellers[indexPath.row]
+        selectedSeller = InMemoryStorage.shared.sellers[indexPath.row]
         self.performSegue(withIdentifier: "segueToSeller", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            SellerService.shared.removeSeller(at: indexPath.row)
+            InMemoryStorage.shared.removeSeller(at: indexPath.row)
             sellersTableView.deleteRows(at: [indexPath], with: .automatic)
             sellersTableView.reloadData()
+            //FIXME: mettre un message pour confirmer l'effacement et tous les enregistrements relatifs
         }
     }
 

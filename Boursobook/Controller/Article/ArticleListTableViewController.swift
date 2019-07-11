@@ -34,7 +34,7 @@ class ArticleListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let seller = selectedSeller {
-            articlesToDisplay = ArticleService.shared.filtered(by: seller)
+            articlesToDisplay = InMemoryStorage.shared.filterArticles(by: seller)
         }
     }
 
@@ -66,7 +66,7 @@ class ArticleListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            ArticleService.shared.remove(at: indexPath.row)
+            InMemoryStorage.shared.removeArticle(at: indexPath.row)
             articleListTableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

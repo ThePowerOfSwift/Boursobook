@@ -10,15 +10,8 @@ import Foundation
 import Firebase
 
 class PurseService {
-    static var shared = PurseService()
 
-    private(set) var purses: [Purse] = []
-    private(set) var currentPurse: Purse?
-
-    private init() {
-    }
-
-    // Reference for FireBase
+    // MARK: Properties
     let pursesReference = Database.database().reference(withPath: "purses")
 
     // MARK: Function
@@ -27,7 +20,7 @@ class PurseService {
         let purseRef = pursesReference.child(name)
         let purseValues: [String: Any] = [
             "name": name,
-            "percentageOnSales": 0,
+            "percentageOnSales": 0
             ]
         purseRef.setValue(purseValues)
         let depositRef = purseRef.child("depositFee")
@@ -42,7 +35,7 @@ class PurseService {
         depositRef.setValue(depositValues)
     }
 
-    func downloadData(completionHandler: @escaping (Bool) -> Void) {
+    func readAndListenData(completionHandler: @escaping (Bool, [Purse]) -> Void) {
         //download value from FireBase
         pursesReference.observe(.value) { snapshot in
             var newPurse: [Purse] = []
@@ -54,19 +47,7 @@ class PurseService {
                     }
                 }
             }
-            self.purses = newPurse
-            self.setCurrentPurse()
-            completionHandler(true)
-        }
-    }
-
-    func setCurrentPurse() {
-        // choose the purse corresponding to the user
-        guard let userLogIn = UserService.shared.userLogIn else {
-            return
-        }
-        for purse in purses where purse.users[userLogIn.uid] != nil {
-            self.currentPurse = purse
+            completionHandler(true, newPurse)
         }
     }
 }

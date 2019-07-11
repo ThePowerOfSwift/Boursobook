@@ -9,10 +9,8 @@
 import Foundation
 import Firebase
 
-struct Purse {
+class Purse {
     var name: String
-    var sellers: [Seller] = []
-    var article: [Article] = []
 
     var numberOfArticleRegistered = 0
     var numberOfSellers = 0
