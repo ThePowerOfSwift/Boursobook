@@ -16,9 +16,12 @@ class Purse {
     var numberOfSellers = 0
     var numberOfArticleSolded = 0
     var numberOfTransaction = 0
-
     var percentageOnSales: Double
     var depositFee: DepositFee
+    var totalSalesAmount: Double = 0
+    var totalDepositFeeAmount: Double = 0
+    var administrators: [String: Bool]
+    var users: [String: String]
 
     struct DepositFee {
         var underFifty: Double
@@ -29,52 +32,39 @@ class Purse {
         var overTwoHundredFifty: Double
     }
 
-    var totalSalesAmount: Double = 0
-    var totalDepositFeeAmount: Double = 0
-    var administrators: [String: Bool]
-    var users: [String: String]
-
     init?(snapshot: DataSnapshot) {
-        guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
-            return nil
-        }
-        guard let nameValue = snapshotValue["name"] as? String else {
-            return nil
-        }
-        guard let percentageOnSalesValue = snapshotValue["percentageOnSales"] as? Double else {
-            return nil
-        }
-        guard let depositFeeData = snapshotValue["depositFee"] as? [String: AnyObject] else {
-            return nil
-        }
-        guard let underFiftyValue = depositFeeData["underFifty"] as? Double else {
-            return nil
-        }
-        guard let underOneHundredValue = depositFeeData["underOneHundred"] as? Double else {
-            return nil
-        }
-        guard let underOneHundredFiftyValue = depositFeeData["underOneHundredFifty"] as? Double else {
-            return nil
-        }
-        guard let underTwoHundredValue = depositFeeData["underTwoHundred"] as? Double else {
-            return nil
-        }
-        guard let underTwoHundredFiftyValue = depositFeeData["underTwoHundredFifty"] as? Double else {
-            return nil
-        }
-        guard let overTwoHundredFiftyValue = depositFeeData["overTwoHundredFifty"] as? Double else {
+        guard   let snapshotValue = snapshot.value as? [String: AnyObject],
+                let nameValue = snapshotValue["name"] as? String,
+                let percentageOnSalesValue = snapshotValue["percentageOnSales"] as? Double,
+                let depositFeeData = snapshotValue["depositFee"] as? [String: AnyObject],
+                let administratorsValue = snapshotValue["administrators"] as? [String: Bool],
+                let usersValue = snapshotValue["users"] as? [String: String],
+                let numberOfArticleRegisteredValue = snapshotValue["numberOfArticleRegistered"] as? Int,
+                let numberOfSellersValue = snapshotValue["numberOfSellers"] as? Int,
+                let numberOfArticleSoldedValue = snapshotValue["numberOfArticleSolded"] as? Int,
+                let numberOfTransactionValue = snapshotValue["numberOfTransaction"] as? Int,
+                let totalSalesAmountValue = snapshotValue["totalSalesAmount"] as? Double,
+                let totalDepositFeeAmountValue = snapshotValue["totalDepositFeeAmount"] as? Double else {
             return nil
         }
 
-        guard let administratorsValue = snapshotValue["administrators"] as? [String: Bool] else {
-            return nil
-        }
-        guard let usersValue = snapshotValue["users"] as? [String: String] else {
+        guard   let underFiftyValue = depositFeeData["underFifty"] as? Double,
+                let underOneHundredValue = depositFeeData["underOneHundred"] as? Double,
+                let underOneHundredFiftyValue = depositFeeData["underOneHundredFifty"] as? Double,
+                let underTwoHundredValue = depositFeeData["underTwoHundred"] as? Double,
+                let underTwoHundredFiftyValue = depositFeeData["underTwoHundredFifty"] as? Double,
+                let overTwoHundredFiftyValue = depositFeeData["overTwoHundredFifty"] as? Double else {
             return nil
         }
 
         name = nameValue
         percentageOnSales = percentageOnSalesValue
+        numberOfArticleRegistered = numberOfArticleRegisteredValue
+        numberOfSellers = numberOfSellersValue
+        numberOfArticleSolded = numberOfArticleSoldedValue
+        numberOfTransaction = numberOfTransactionValue
+        totalSalesAmount = totalSalesAmountValue
+        totalDepositFeeAmount = totalDepositFeeAmountValue
 
         depositFee = DepositFee(underFifty: underFiftyValue,
                                 underOneHundred: underOneHundredValue,

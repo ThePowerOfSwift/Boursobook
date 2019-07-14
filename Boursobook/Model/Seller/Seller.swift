@@ -43,22 +43,22 @@ class Seller: Equatable {
     }
 
    init?(snapshot: DataSnapshot) {
-        guard let snapshotValue = snapshot.value as? [String: AnyObject],
-            let familyNameValue = snapshotValue["familyName"] as? String,
-            let firstNameValue = snapshotValue["firstName"] as? String,
-            let emailValue = snapshotValue["email"] as? String,
-            let phoneNumberValue = snapshotValue["phoneNumber"] as? String,
-            let codeValue = snapshotValue["code"] as? String,
-            let createdByValue = snapshotValue["createdBy"] as? String,
-            let purseValue = snapshotValue["purse"] as? String,
-            let articleSoldedValue = snapshotValue["articleSolded"] as? Int,
-            let articleRegisteredValue = snapshotValue["articleRegistered"] as? Int,
-            let orderNumberValue = snapshotValue["orderNumber"] as? Int,
-            let depositFeeAmountValue = snapshotValue["depositFeeAmount"] as? Double,
-            let salesAmountValue = snapshotValue["salesAmount"] as? Double,
-            let refundDoneValue = snapshotValue["refundDone"] as? Bool,
-            let refundDateValue = snapshotValue["refundDate"] as? String,
-            let refundByValue = snapshotValue["refundBy"] as? String else {
+        guard   let snapshotValue = snapshot.value as? [String: AnyObject],
+                let familyNameValue = snapshotValue["familyName"] as? String,
+                let firstNameValue = snapshotValue["firstName"] as? String,
+                let emailValue = snapshotValue["email"] as? String,
+                let phoneNumberValue = snapshotValue["phoneNumber"] as? String,
+                let codeValue = snapshotValue["code"] as? String,
+                let createdByValue = snapshotValue["createdBy"] as? String,
+                let purseValue = snapshotValue["purse"] as? String,
+                let articleSoldedValue = snapshotValue["articleSolded"] as? Int,
+                let articleRegisteredValue = snapshotValue["articleRegistered"] as? Int,
+                let orderNumberValue = snapshotValue["orderNumber"] as? Int,
+                let depositFeeAmountValue = snapshotValue["depositFeeAmount"] as? Double,
+                let salesAmountValue = snapshotValue["salesAmount"] as? Double,
+                let refundDoneValue = snapshotValue["refundDone"] as? Bool,
+                let refundDateValue = snapshotValue["refundDate"] as? String,
+                let refundByValue = snapshotValue["refundBy"] as? String else {
                 return nil
         }
 

@@ -35,6 +35,8 @@ class InMemoryStorage {
     private init() {
     }
 
+    static let pursesUpdatedNotification =
+        Notification.Name("InMemoryStorage.pursesUpdated")
     static let sellerUpdatedNotification =
         Notification.Name("InMemoryStorage.sellerUpdated")
     static let articleUpdatedNotification =
@@ -48,11 +50,8 @@ class InMemoryStorage {
         // set purses data from fireBase
         var isSettingPurse = true
 
-        purseService.readAndListenData { (done, readedPurses) in
+        self.setPurses { (done) in
             if done && isSettingPurse {
-                self.purses = readedPurses
-                self.setCurrentPurse()
-
                 self.setSellers(completionHandler: { (done) in
                     if done && isSettingPurse {
                         self.setArticle(completionHandler: { (done) in
@@ -67,12 +66,21 @@ class InMemoryStorage {
                         })
                     }
                 })
-
-                
             }
         }
     }
 
+    func setPurses(completionHandler: @escaping (Bool) -> Void) {
+        // Query purses
+        purseService.readAndListenData { (done, readedPurses) in
+            if done {
+                self.purses = readedPurses
+                self.setCurrentPurse()
+                NotificationCenter.default.post(name: InMemoryStorage.pursesUpdatedNotification, object: nil)
+                completionHandler(true)
+            }
+        }
+    }
     func setCurrentPurse() {
         // choose the purse corresponding to the user
         guard let userLogIn = UserService.shared.userLogIn else {

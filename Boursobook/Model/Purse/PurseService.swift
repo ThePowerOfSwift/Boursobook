@@ -20,7 +20,13 @@ class PurseService {
         let purseRef = pursesReference.child(name)
         let purseValues: [String: Any] = [
             "name": name,
-            "percentageOnSales": 0
+            "percentageOnSales": 0,
+            "numberOfArticleRegistered": 0,
+            "numberOfSellers": 0,
+            "numberOfArticleSolded": 0,
+            "numberOfTransaction": 0,
+            "totalSalesAmount": 0,
+            "totalDepositFeeAmount": 0
             ]
         purseRef.setValue(purseValues)
         let depositRef = purseRef.child("depositFee")

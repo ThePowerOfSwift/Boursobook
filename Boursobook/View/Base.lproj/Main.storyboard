@@ -1084,7 +1084,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a5i-WP-4ku">
                                                 <rect key="frame" x="0.0" y="344" width="335" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of sells :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-jL-TBJ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of sales :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVC-jL-TBJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1104,7 +1104,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BbH-Ug-uRh">
                                                 <rect key="frame" x="0.0" y="394" width="335" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount of sells :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcl-4W-gZ8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount of sales :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcl-4W-gZ8">
                                                         <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1176,7 +1176,7 @@
                         <viewLayoutGuide key="safeArea" id="bgQ-gI-sy8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Information" id="g4z-hl-bl4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="t42-Vq-amP">
+                        <barButtonItem key="rightBarButtonItem" title="Config" image="config" id="t42-Vq-amP">
                             <connections>
                                 <segue destination="pGv-eA-uXX" kind="show" id="jfG-lB-mca"/>
                             </connections>
@@ -1184,6 +1184,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="currentPurseLabel" destination="Yxs-RE-Vk7" id="F1d-HL-YBh"/>
+                        <outlet property="numberOfArticleRecordedLabel" destination="wVX-eu-1ER" id="RCt-MG-4Gx"/>
+                        <outlet property="numberOfArticleSoldedLabel" destination="75b-ZZ-ZBY" id="j6i-Ks-jcc"/>
+                        <outlet property="numberOfSalesLabel" destination="cms-Yq-afG" id="9ol-3D-abe"/>
+                        <outlet property="numberOfSellerLabel" destination="lsf-fx-sZM" id="h0a-Zp-FJq"/>
+                        <outlet property="totalAmountOfSalesLabel" destination="lw3-VV-SNm" id="PBZ-cQ-y2p"/>
+                        <outlet property="totalAmountOfSubscriptionLabel" destination="lk4-El-HQV" id="d2G-yI-wvg"/>
                         <outlet property="userLogInIDLabel" destination="EyH-9o-NQ6" id="Dkx-To-KK2"/>
                         <outlet property="userLogInLabel" destination="OpJ-PE-Tk0" id="GC0-MD-dJ1"/>
                     </connections>
@@ -2393,6 +2399,7 @@
         <image name="Buying" width="25" height="25"/>
         <image name="Info" width="18" height="25"/>
         <image name="Vendor" width="25" height="25"/>
+        <image name="config" width="20" height="20"/>
         <image name="item" width="16" height="20"/>
         <image name="solds" width="20" height="20"/>
     </resources>

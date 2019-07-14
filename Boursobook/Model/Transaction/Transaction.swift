@@ -19,28 +19,14 @@ class Transaction {
     var purseName: String
 
     init?(snapshot: DataSnapshot) {
-        guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
-            return nil
-        }
-        guard let dateValue = snapshotValue["date"] as? Date else {
-            return nil
-        }
-        guard let timestampValue = snapshotValue["timestamp"] as? String else {
-            return nil
-        }
-        guard let amountValue = snapshotValue["amount"] as? Double else {
-            return nil
-        }
-        guard let numberValue = snapshotValue["numberOfArticle"] as? Int else {
-            return nil
-        }
-        guard let madeByValue = snapshotValue["madeByUser"] as? String else {
-            return nil
-        }
-        guard let articlesValues = snapshotValue["articles"] as? [String: Bool] else {
-            return nil
-        }
-        guard let purseNameValue = snapshotValue["purseName"] as? String else {
+        guard   let snapshotValue = snapshot.value as? [String: AnyObject],
+                let dateValue = snapshotValue["date"] as? Date,
+                let timestampValue = snapshotValue["timestamp"] as? String,
+                let amountValue = snapshotValue["amount"] as? Double,
+                let numberValue = snapshotValue["numberOfArticle"] as? Int,
+                let madeByValue = snapshotValue["madeByUser"] as? String,
+                let articlesValues = snapshotValue["articles"] as? [String: Bool],
+                let purseNameValue = snapshotValue["purseName"] as? String else {
             return nil
         }
 
