@@ -31,9 +31,9 @@ class ArticleService {
         reference.child(article.code).removeValue()
     }
 
-    func readAndListenData(completionHandler: @escaping (Bool, [Article]) -> Void) {
-        // Query articles from FireBase and order by title
-        reference.queryOrdered(byChild: "title").observe(.value) { snapshot in
+    func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Article]) -> Void) {
+        // Query articles from FireBase for one Purse
+        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
             var newArticles: [Article] = []
 
             for child in snapshot.children {

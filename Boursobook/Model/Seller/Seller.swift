@@ -22,12 +22,13 @@ class Seller: Equatable {
 
     var articleSolded = 0
     var articleRegistered = 0
+    var orderNumber = 0
     var depositFeeAmount: Double = 0
     var salesAmount: Double = 0
 
     var refundDone = false
-    var refundDate: Date?
-    var refundBy: User?
+    var refundDate: String?
+    var refundBy: String?
 
     // MARK: - Initialisation
     init(familyName: String, firstName: String, email: String, phoneNumber: String,
@@ -42,34 +43,40 @@ class Seller: Equatable {
     }
 
    init?(snapshot: DataSnapshot) {
-        code = snapshot.key
-        guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
-            return nil
+        guard let snapshotValue = snapshot.value as? [String: AnyObject],
+            let familyNameValue = snapshotValue["familyName"] as? String,
+            let firstNameValue = snapshotValue["firstName"] as? String,
+            let emailValue = snapshotValue["email"] as? String,
+            let phoneNumberValue = snapshotValue["phoneNumber"] as? String,
+            let codeValue = snapshotValue["code"] as? String,
+            let createdByValue = snapshotValue["createdBy"] as? String,
+            let purseValue = snapshotValue["purse"] as? String,
+            let articleSoldedValue = snapshotValue["articleSolded"] as? Int,
+            let articleRegisteredValue = snapshotValue["articleRegistered"] as? Int,
+            let orderNumberValue = snapshotValue["orderNumber"] as? Int,
+            let depositFeeAmountValue = snapshotValue["depositFeeAmount"] as? Double,
+            let salesAmountValue = snapshotValue["salesAmount"] as? Double,
+            let refundDoneValue = snapshotValue["refundDone"] as? Bool,
+            let refundDateValue = snapshotValue["refundDate"] as? String,
+            let refundByValue = snapshotValue["refundBy"] as? String else {
+                return nil
         }
-        guard let familyNameValue = snapshotValue["familyName"] as? String else {
-            return nil
-        }
-        guard let firstNameValue = snapshotValue["firstName"] as? String else {
-            return nil
-        }
-        guard let emailValue = snapshotValue["email"] as? String else {
-            return nil
-        }
-        guard let phoneNumberValue = snapshotValue["phoneNumber"] as? String else {
-            return nil
-        }
-        guard let createdByValue = snapshotValue["createdBy"] as? String else {
-            return nil
-        }
-        guard let purseValue = snapshotValue["purse"] as? String else {
-            return nil
-        }
+
         familyName = familyNameValue
         firstName = firstNameValue
         email = emailValue
         phoneNumber = phoneNumberValue
+        code = codeValue
         createdBy = createdByValue
         purseName = purseValue
+        articleSolded = articleSoldedValue
+        articleRegistered = articleRegisteredValue
+        orderNumber = orderNumberValue
+        depositFeeAmount = depositFeeAmountValue
+        salesAmount = salesAmountValue
+        refundDone = refundDoneValue
+        refundDate = refundDateValue
+        refundBy = refundByValue
     }
 
     // MARK: - Functions
@@ -80,12 +87,6 @@ class Seller: Equatable {
             return true
         }
         return false
-    }
-
-    func nextOrderNumber() -> String {
-        // optain  the next number for articles list
-        let numberOfOrder = articleRegistered + 1
-        return code + String(numberOfOrder)
     }
 }
 // TODO:          - tests à faire

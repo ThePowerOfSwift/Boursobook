@@ -31,7 +31,8 @@ class SetupViewController: UIViewController {
                                                                             self.displayAlert(message: error.message,
                                         title: NSLocalizedString("Error !", comment: ""))
                                                                         } else {
-                                            self.displayAlert(message: NSLocalizedString("An email has been send to the new user !",
+                                            self.displayAlert(message:
+                                                NSLocalizedString("An email has been send to the new user !",
                                                                                 comment: ""),
                                             title: NSLocalizedString("It's ok !", comment: ""))
                                                                         }

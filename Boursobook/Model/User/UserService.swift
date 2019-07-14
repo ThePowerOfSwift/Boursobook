@@ -111,4 +111,4 @@ extension UserService {
 }
 // TODO:    - Test à faire
 //           - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)
-//          - Ajouter l'user crée dans la purse en cours
+//          - Ajouter l'user crée dans la purse en cours (id et mail)

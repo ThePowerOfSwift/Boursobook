@@ -149,5 +149,4 @@ extension AddNewSellerViewController: UITextFieldDelegate {
         setCode()
     }
 }
-// TODO:    - Ajouter l'enregitrement de l'suer qui saisie les valeurs et le nom de la purse
-//          - Mettre la sauvegarde dans la classe Seller Service
+// TODO:    - Controle du format correct du tel et du mail

@@ -26,7 +26,8 @@ class Article {
     static let sort = ["Book", "Comic", "Novel", "Guide", "Game", "Compact Disk", "DVD", "Video Game", "Other"]
 
  // MARK: - Initialisation
-    init(title: String, sort: String, author: String, description: String, purseName: String, isbn: String, code: String, price: Double, sellerCode: String, solded: Bool) {
+    init(title: String, sort: String, author: String, description: String,
+         purseName: String, isbn: String, code: String, price: Double, sellerCode: String, solded: Bool) {
         self.title = title
         self.sort = sort
         self.author = author

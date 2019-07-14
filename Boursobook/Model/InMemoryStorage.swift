@@ -30,26 +30,36 @@ class InMemoryStorage {
 
     private(set) var currentPurse: Purse?
     private(set) var currentUser: User?
+    private(set) var currentSeller: Seller?
 
     private init() {
     }
 
-    // MARK: - Functions
-    func readAndListenData(completionHandler: @escaping (Bool) -> Void) {
-        // read and listen all data from fireBase
+    static let sellerUpdatedNotification =
+        Notification.Name("InMemoryStorage.sellerUpdated")
+    static let articleUpdatedNotification =
+        Notification.Name("InMemoryStorage.articleUpdated")
+    static let transactionUpdatedNotification =
+        Notification.Name("InMemoryStorage.transactionUpdated")
+
+    // MARK: - Functions PURSES
+
+    func setPursesData(completionHandler: @escaping (Bool) -> Void) {
+        // set purses data from fireBase
+        var isSettingPurse = true
 
         purseService.readAndListenData { (done, readedPurses) in
-            if done {
+            if done && isSettingPurse {
                 self.purses = readedPurses
-                self.sellerService.readAndListenData(completionHandler: { (done, readedSellers) in
-                    if done {
-                        self.sellers = readedSellers
-                        self.articleService.readAndListenData(completionHandler: { (done, readedArticles) in
-                            if done {
-                                self.articles = readedArticles
-                                self.transactionService.readAndListenData(completionHandler: { (done, readedTransactions) in
-                                    if done {
-                                        self.transactions = readedTransactions
+                self.setCurrentPurse()
+
+                self.setSellers(completionHandler: { (done) in
+                    if done && isSettingPurse {
+                        self.setArticle(completionHandler: { (done) in
+                            if done && isSettingPurse {
+                                self.setTransaction(completionHandler: { (done) in
+                                    if done && isSettingPurse {
+                                        isSettingPurse = false
                                         completionHandler(true)
                                     }
                                 })
@@ -57,6 +67,8 @@ class InMemoryStorage {
                         })
                     }
                 })
+
+                
             }
         }
     }
@@ -71,6 +83,18 @@ class InMemoryStorage {
         }
     }
 
+    // MARK: - Functions SELLERS
+    func setSellers(completionHandler: @escaping (Bool) -> Void) {
+        // Query sellers for the current purse
+        guard let currentPurse = currentPurse else {return}
+        sellerService.readAndListenData(for: currentPurse) { (done, readedSellers) in
+            if done {
+                self.sellers = readedSellers
+                NotificationCenter.default.post(name: InMemoryStorage.sellerUpdatedNotification, object: nil)
+                completionHandler(true)
+            }
+        }
+    }
     func addSeller(_ seller: Seller) {
         sellerService.create(seller: seller)
         sellers.append(seller)
@@ -84,15 +108,43 @@ class InMemoryStorage {
         //FIXME: maj le nombre de seller dans la purse
         //FIXME: detruire les articles correspondants
     }
+    func isExistingSellerWith(code: String) -> Bool {
+        for seller in sellers where seller.code == code {
+            return true
+        }
+        return false
+    }
+    func selectSellerWithCode(_ code: String) -> Seller? {
+        var selectedSeller: Seller?
+        for seller in sellers where seller.code == code {
+            selectedSeller = seller
+        }
+        return selectedSeller
+    }
 
-    func addArticle(_ article: Article) {
+    // MARK: - Functions ARTICLES
+    func setArticle(completionHandler: @escaping (Bool) -> Void) {
+        // Query articles for the current purse
+        guard let currentPurse = currentPurse else {return}
+        articleService.readAndListenData(for: currentPurse) { (done, readedArticle) in
+            if done {
+                self.articles = readedArticle
+                NotificationCenter.default.post(name: InMemoryStorage.articleUpdatedNotification, object: nil)
+                completionHandler(true)
+            }
+        }
+    }
+
+    func addArticle(_ article: Article, for codeOfSeller: String) {
         articleService.create(article: article)
         articles.append(article)
-//
-//        for seller in SellerService.shared.sellers where seller.code == article.sellerCode {
-//            seller.articleRegistered += 1
-//        }
-        //FIXME: maj le nombre d'article du seller
+        sellerService.increaseNumberOfArtilceRegistered(for: codeOfSeller)
+        sellerService.increaseOrderNumber(for: codeOfSeller)
+        for seller in sellers where seller.code == codeOfSeller {
+            seller.articleRegistered += 1
+            seller.orderNumber += 1
+        }
+
         //FIXME: maj le nombre d'artilce de la purse
     }
 
@@ -104,21 +156,36 @@ class InMemoryStorage {
         //FIXME: maj le nombre d'artilce de la purse
     }
 
-    func filterArticles(by seller: Seller) -> [Article] {
+    func filterArticles(by codeOfSeller: String) -> [Article] {
         var filteredList = [Article]()
-        for article in articles where article.sellerCode == seller.code {
+        for article in articles where article.sellerCode == codeOfSeller {
             filteredList.append(article)
         }
         return filteredList
     }
-
-    func isExistingSellerWith(code: String) -> Bool {
-        for seller in sellers where seller.code == code {
-            return true
+    func selectArticle(by code: String) -> Article? {
+        var selectedArticle: Article?
+        for article in articles where article.code == code {
+            selectedArticle = article
         }
-        return false
+        return selectedArticle
     }
 
+    // MARK: - Functions TRANSACTION
+    func setTransaction(completionHandler: @escaping (Bool) -> Void) {
+        // Query transactions for the current purse
+        guard let currentPurse = currentPurse else {return}
+        transactionService.readAndListenData(for: currentPurse) { (done, readedTransaction) in
+            if done {
+                self.transactions = readedTransaction
+                NotificationCenter.default.post(name: InMemoryStorage.transactionUpdatedNotification, object: nil)
+                completionHandler(true)
+            }
+        }
+    }
 }
 
 // TODO:    - gestion de l'appli offligne
+
+//FIXME: refactorisez tout ca : le inmemory ne gere que le stockage local .... chaque service gere ses appel
+//      (voir pour faire une classe qui s'occupe de regrouper les fonctions de sauvegarde par exemple ( en locel + sur firebase)

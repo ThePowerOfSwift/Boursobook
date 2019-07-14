@@ -24,31 +24,41 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var articleLabelPriceLabel: UILabel!
 
     // MARK: - Properties
-    var selectedArticle: Article?
+    var codeOfSelectedArticle: String?
 
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadValues()
+        updateValues()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
+                                               name: InMemoryStorage.articleUpdatedNotification,
+                                               object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: InMemoryStorage.articleUpdatedNotification,
+                                                  object: nil)
     }
 
     // MARK: - functions
-    private func loadValues() {
-        guard let articleToLoad = selectedArticle else {
+    @objc private func updateValues() {
+        if let codeOfSelectedArticle = codeOfSelectedArticle {
+            guard let articleToLoad = InMemoryStorage.shared.selectArticle(by: codeOfSelectedArticle) else {return}
+            titleLabel.text = articleToLoad.title
+            authorLabel.text = articleToLoad.author
+            descriptionTextField.text = articleToLoad.description
+            isbnLabel.text = articleToLoad.isbn
+            priceLabel.text = String(articleToLoad.price) + " €"
+            codeLabel.text = articleToLoad.code
+            if let qRCode = generateQrCode(from: articleToLoad.code) {
+                qRCodeImage.image = qRCode
+            }
+            articleLabelCodeLabel.text = articleToLoad.code
+            articleLabelPriceLabel.text = String(articleToLoad.price) + " €"
+        } else {
             self.navigationController?.popViewController(animated: true)
-            return
         }
-        titleLabel.text = articleToLoad.title
-        authorLabel.text = articleToLoad.author
-        descriptionTextField.text = articleToLoad.description
-        isbnLabel.text = articleToLoad.isbn
-        priceLabel.text = String(articleToLoad.price) + " €"
-        codeLabel.text = articleToLoad.code
-        if let qRCode = generateQrCode(from: articleToLoad.code) {
-            qRCodeImage.image = qRCode
-        }
-        articleLabelCodeLabel.text = articleToLoad.code
-         articleLabelPriceLabel.text = String(articleToLoad.price) + " €"
     }
 
     private func generateQrCode(from stingToConvert: String) -> UIImage? {

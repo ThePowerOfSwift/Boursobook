@@ -12,20 +12,24 @@ import Firebase
 class TransactionService {
 
     // MARK: Properties
-    let transactionReference = Database.database().reference(withPath: "transactions")
+    let reference = Database.database().reference(withPath: "transactions")
+
+    static let transactionUpdatedNotification =
+        Notification.Name("TransactionService.transactionUpdated")
 
     // MARK: Function
     func create(transaction: Transaction) {
-        let transactionRef = transactionReference.child(transaction.madeByUser + transaction.timestamp)
+        let transactionRef = reference.child(transaction.madeByUser + transaction.timestamp)
         let values: [String: Any] = ["date": transaction.date, "timestamp": transaction.timestamp,
                                      "amount": transaction.amount, "numberOfArticle": transaction.numberOfArticle,
-                                     "madeByUser": transaction.madeByUser, "articles": transaction.articles]
+                                     "madeByUser": transaction.madeByUser, "articles": transaction.articles,
+                                     "purseName": transaction.purseName]
         transactionRef.setValue(values)
     }
 
-    func readAndListenData(completionHandler: @escaping (Bool, [Transaction]) -> Void) {
-        //download value from FireBase
-        transactionReference.observe(.value) { snapshot in
+    func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Transaction]) -> Void) {
+        // Query transactions from FireBase for one Purse
+        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
             var newTransaction: [Transaction] = []
 
             for child in snapshot.children {

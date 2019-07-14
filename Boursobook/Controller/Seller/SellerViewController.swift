@@ -11,7 +11,7 @@ import UIKit
 class SellerViewController: UIViewController {
 
     // MARK: - Properties
-    var selectedSeller: Seller?
+    var codeOfSelectedSeller: String?
 
     // MARK: - IBOutlets
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -19,6 +19,7 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var createdByLabel: UILabel!
     @IBOutlet weak var numberOfArticleSoldedLabel: UILabel!
     @IBOutlet weak var numberOfArticleRegisteredLabel: UILabel!
     @IBOutlet weak var amountDepositFeeLabel: UILabel!
@@ -33,28 +34,42 @@ class SellerViewController: UIViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
+                                               name: InMemoryStorage.sellerUpdatedNotification,
+                                               object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateValues()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: InMemoryStorage.sellerUpdatedNotification,
+                                                  object: nil)
+    }
+
     // MARK: - functions
-    private func updateValues() {
-        guard let displayedSeller = selectedSeller else {
+    @objc private func updateValues() {
+
+        guard let code = codeOfSelectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        firstNameLabel.text = displayedSeller.firstName
-        familyNameLabel.text = displayedSeller.familyName
-        emailLabel.text = displayedSeller.email
-        phoneLabel.text = displayedSeller.phoneNumber
-        codeLabel.text = displayedSeller.code
-        numberOfArticleRegisteredLabel.text = String(displayedSeller.articleRegistered)
-        amountDepositFeeLabel.text = String(displayedSeller.depositFeeAmount)
-        numberOfArticleSoldedLabel.text = String(displayedSeller.articleSolded)
-        amountOfSalesLabel.text = String(displayedSeller.salesAmount)
-        numerOfArticleToReturnLabel.text = String(displayedSeller.articleRegistered - displayedSeller.articleSolded)
+        if let displayedSeller = InMemoryStorage.shared.selectSellerWithCode(code) {
+
+            firstNameLabel.text = displayedSeller.firstName
+            familyNameLabel.text = displayedSeller.familyName
+            emailLabel.text = displayedSeller.email
+            phoneLabel.text = displayedSeller.phoneNumber
+            codeLabel.text = displayedSeller.code
+            createdByLabel.text = displayedSeller.createdBy
+            numberOfArticleRegisteredLabel.text = String(displayedSeller.articleRegistered)
+            amountDepositFeeLabel.text = String(displayedSeller.depositFeeAmount)
+            numberOfArticleSoldedLabel.text = String(displayedSeller.articleSolded)
+            amountOfSalesLabel.text = String(displayedSeller.salesAmount)
+            numerOfArticleToReturnLabel.text = String(displayedSeller.articleRegistered - displayedSeller.articleSolded)
+        }
     }
 
     // MARK: - Navigation
@@ -62,12 +77,12 @@ class SellerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToAddArticle" {
             if let addArticleVC = segue.destination as? AddArticleViewController {
-                addArticleVC.selectedSeller = selectedSeller
+                addArticleVC.codeOfSelectedSeller = codeOfSelectedSeller
             }
         }
         if segue.identifier == "segueToArticleList" {
             if let articleListVC = segue.destination as? ArticleListTableViewController {
-                articleListVC.selectedSeller = selectedSeller
+                articleListVC.codeOfSelectedSeller = codeOfSelectedSeller
             }
         }
     }

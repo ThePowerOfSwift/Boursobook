@@ -11,9 +11,9 @@ import UIKit
 class ArticleListTableViewController: UITableViewController {
 
     // MARK: - Properties
-    var selectedSeller: Seller?
+    var codeOfSelectedSeller: String?
     var articlesToDisplay = [Article]()
-    var selectedArticle: Article?
+    var codeOfSelectedArticle: String?
 
     // MARK: - IBOutlets
     @IBOutlet weak var sellerNameLabel: UILabel!
@@ -22,21 +22,37 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let seller = selectedSeller else {
+        guard let codeOfSeller = codeOfSelectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "")
-                                + seller.firstName + " " + seller.familyName
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        for seller in InMemoryStorage.shared.sellers where seller.code == codeOfSeller {
+            sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "")
+                + seller.firstName + " " + seller.familyName
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
+                                               name: InMemoryStorage.articleUpdatedNotification,
+                                               object: nil)
     }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: InMemoryStorage.articleUpdatedNotification,
+                                                  object: nil)
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let seller = selectedSeller {
-            articlesToDisplay = InMemoryStorage.shared.filterArticles(by: seller)
+        updateValues()
+    }
+
+    // MARK: - functions
+    @objc func updateValues() {
+        if let codeOfSeller = codeOfSelectedSeller {
+            articlesToDisplay = InMemoryStorage.shared.filterArticles(by: codeOfSeller)
         }
+        articleListTableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -60,16 +76,19 @@ class ArticleListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedArticle = articlesToDisplay[indexPath.row]
+        codeOfSelectedArticle = articlesToDisplay[indexPath.row].code
         self.performSegue(withIdentifier: "segueToArticle", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            articlesToDisplay.remove(at: indexPath.row)
+           
             InMemoryStorage.shared.removeArticle(at: indexPath.row)
             articleListTableView.deleteRows(at: [indexPath], with: .automatic)
+            articlesToDisplay.remove(at: indexPath.row)
+            articleListTableView.reloadData()
+            //FIXME: mettre un message pour confirmer l'effacement
         }
     }
 
@@ -78,7 +97,7 @@ class ArticleListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToArticle" {
             if let articleVC = segue.destination as? ArticleViewController {
-                articleVC.selectedArticle = selectedArticle
+                articleVC.codeOfSelectedArticle = codeOfSelectedArticle
             }
         }
     }

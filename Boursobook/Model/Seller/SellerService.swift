@@ -21,7 +21,7 @@ class SellerService {
                                      "email": seller.email, "phoneNumber": seller.phoneNumber,
                                      "createdBy": seller.createdBy, "purse": seller.purseName,
                                      "articleSolded": 0, "articleRegistered": 0,
-                                     "depositFeeAmount": 0, "salesAmount": 0,
+                                     "depositFeeAmount": 0, "salesAmount": 0, "orderNumber": 0,
                                      "refundDone": false, "refundDate": "", "refundBy": ""]
         sellerRef.setValue(values)
     }
@@ -30,9 +30,9 @@ class SellerService {
         reference.child(seller.code).removeValue()
     }
 
-    func readAndListenData(completionHandler: @escaping (Bool, [Seller]) -> Void) {
-        // Query sellers from FireBase and order by name
-        reference.queryOrdered(byChild: "familyName").observe(.value) { snapshot in
+    func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Seller]) -> Void) {
+        // Query sellers from FireBase for one Purse
+        reference.queryOrdered(byChild: "purse").queryEqual(toValue: purse.name).observe(.value) { snapshot in
             var newSellers: [Seller] = []
 
             for child in snapshot.children {
@@ -45,5 +45,49 @@ class SellerService {
             completionHandler(true, newSellers)
         }
     }
+
+    func increaseNumberOfArtilceRegistered(for codeOfSeller: String) {
+        // add 1 to the number of article registered of the seller
+        reference.child(codeOfSeller).runTransactionBlock ({ (currentData) -> TransactionResult in
+
+            if var seller = currentData.value as? [String: AnyObject] {
+                var articleRegistered = seller["articleRegistered"] as? Int ?? 0
+                articleRegistered += 1
+                seller["articleRegistered"] = articleRegistered as AnyObject?
+
+                // Set value and report transaction success
+                currentData.value = seller
+
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }) {(error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func increaseOrderNumber(for codeOfSeller: String) {
+        // add 1 to the number of article registered of the seller
+        reference.child(codeOfSeller).runTransactionBlock ({ (currentData) -> TransactionResult in
+
+            if var seller = currentData.value as? [String: AnyObject] {
+                var orderNumber = seller["orderNumber"] as? Int ?? 0
+                orderNumber += 1
+                seller["orderNumber"] = orderNumber as AnyObject?
+
+                // Set value and report transaction success
+                currentData.value = seller
+
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }) {(error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 // TODO:          - tests à faire
+//                  - gestion erreur dans increase number of article et number of order

@@ -11,7 +11,8 @@ import UIKit
 class AddArticleViewController: UIViewController {
 
     // MARK: - Properties
-    var selectedSeller: Seller?
+    var codeOfSelectedSeller: String?
+    var orderNumber: Int?
 
     // MARK: - IBOUTLET
     @IBOutlet weak var sellerNameLabel: UILabel!
@@ -32,11 +33,14 @@ class AddArticleViewController: UIViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let seller = selectedSeller else {
+        guard let codeOfSeller = codeOfSelectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        sellerNameLabel.text = "Seller : " + seller.firstName + " " + seller.familyName
+        for seller in InMemoryStorage.shared.sellers where seller.code == codeOfSeller {
+            sellerNameLabel.text = "Seller : " + seller.firstName + " " + seller.familyName
+            orderNumber = seller.orderNumber + 1
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +79,8 @@ class AddArticleViewController: UIViewController {
             let descriptionValue = descriptionTextView.text,
             let isbnValue = isbnTextField.text,
             let priceText = priceTextField.text,
-            let seller = selectedSeller
+            let codeOfSeller = codeOfSelectedSeller,
+            let orderNumberValue = orderNumber
         else {
                 return
         }
@@ -95,9 +100,9 @@ class AddArticleViewController: UIViewController {
         if let currentPurse = InMemoryStorage.shared.currentPurse {
             let article = Article(title: titleValue, sort: sortValue, author: authorValue,
                                   description: descriptionValue, purseName: currentPurse.name,
-                                  isbn: isbnValue, code: seller.nextOrderNumber(), price: priceValue,
-                                  sellerCode: seller.code, solded: false)
-            InMemoryStorage.shared.addArticle(article)
+                                  isbn: isbnValue, code: codeOfSeller + String(format: "%03d", orderNumberValue),
+                                  price: priceValue, sellerCode: codeOfSeller, solded: false)
+            InMemoryStorage.shared.addArticle(article, for: codeOfSeller)
             self.navigationController?.popViewController(animated: true)
         }
 

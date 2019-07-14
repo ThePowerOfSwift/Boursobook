@@ -52,10 +52,11 @@ class LoginViewController: UIViewController {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
                                   title: NSLocalizedString("Error !", comment: ""))
             } else {
-                InMemoryStorage.shared.readAndListenData(completionHandler: { (done) in
-                    InMemoryStorage.shared.setCurrentPurse()
-                    self.toogleActivity(logging: false)
-                    self.performSegue(withIdentifier: "segueToApp", sender: nil)
+                InMemoryStorage.shared.setPursesData(completionHandler: { (done) in
+                    if done {
+                        self.toogleActivity(logging: false)
+                        self.performSegue(withIdentifier: "segueToApp", sender: nil)
+                    }
                 })
             }
         }

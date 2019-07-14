@@ -21,7 +21,16 @@ class SellersListViewController: UITableViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activityIndicator.isHidden = true
+        activityIndicator.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
+                                               name: InMemoryStorage.sellerUpdatedNotification,
+                                               object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: InMemoryStorage.sellerUpdatedNotification,
+                                                  object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,12 +40,17 @@ class SellersListViewController: UITableViewController {
               self.performSegue(withIdentifier: "unwindToLogin", sender: self)
             }
         }
-        sellersTableView.reloadData()
+        updateValues()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UserService.shared.stopListenAuthentification()
+    }
+
+    // MARK: - functions
+    @objc func updateValues() {
+        sellersTableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -78,8 +92,8 @@ class SellersListViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSeller" {
-            if let sellerVC = segue.destination as? SellerViewController {
-                sellerVC.selectedSeller = selectedSeller
+            if let sellerVC = segue.destination as? SellerViewController, let selectedSeller = selectedSeller {
+                sellerVC.codeOfSelectedSeller = selectedSeller.code
             }
         }
     }

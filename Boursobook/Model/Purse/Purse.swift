@@ -32,7 +32,7 @@ class Purse {
     var totalSalesAmount: Double = 0
     var totalDepositFeeAmount: Double = 0
     var administrators: [String: Bool]
-    var users: [String: Bool]
+    var users: [String: String]
 
     init?(snapshot: DataSnapshot) {
         guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
@@ -69,7 +69,7 @@ class Purse {
         guard let administratorsValue = snapshotValue["administrators"] as? [String: Bool] else {
             return nil
         }
-        guard let usersValue = snapshotValue["users"] as? [String: Bool] else {
+        guard let usersValue = snapshotValue["users"] as? [String: String] else {
             return nil
         }
 
