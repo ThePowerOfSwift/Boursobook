@@ -91,6 +91,14 @@ class InMemoryStorage {
         }
     }
 
+    func setupCurrentPurseRates(percentage: Double, depositFee: Purse.DepositFee) {
+        if let currentPurse = self.currentPurse {
+            currentPurse.percentageOnSales = percentage
+            currentPurse.depositFee = depositFee
+            purseService.setupRates(purseName: currentPurse.name, percentage: currentPurse.percentageOnSales, depositFee: currentPurse.depositFee)
+        }
+    }
+
     // MARK: - Functions SELLERS
     func setSellers(completionHandler: @escaping (Bool) -> Void) {
         // Query sellers for the current purse
@@ -194,6 +202,4 @@ class InMemoryStorage {
 }
 
 // TODO:    - gestion de l'appli offligne
-
-//FIXME: refactorisez tout ca : le inmemory ne gere que le stockage local .... chaque service gere ses appel
-//      (voir pour faire une classe qui s'occupe de regrouper les fonctions de sauvegarde par exemple ( en locel + sur firebase)
+//          - Posibilité de choisir la purse si un user est inscrit sur plusieurs

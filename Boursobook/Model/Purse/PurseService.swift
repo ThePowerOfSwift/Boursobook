@@ -56,9 +56,20 @@ class PurseService {
             completionHandler(true, newPurse)
         }
     }
+
+    func setupRates(purseName: String, percentage: Double, depositFee: Purse.DepositFee) {
+        let newValues = ["percentageOnSales": percentage]
+        let newChildValues = ["underFifty": depositFee.underFifty,
+                              "underOneHundred": depositFee.underOneHundred,
+                              "underOneHundredFifty": depositFee.underOneHundredFifty,
+                              "underTwoHundred": depositFee.underTwoHundred,
+                              "underTwoHundredFifty": depositFee.underTwoHundredFifty,
+                              "overTwoHundredFifty": depositFee.overTwoHundredFifty]
+        pursesReference.child(purseName).updateChildValues(newValues)
+        pursesReference.child(purseName).child("depositFee").updateChildValues(newChildValues)
+    }
 }
 
 // TODO:    - Voir si on crée 2 purse avec le meme nom
 //          - voir ce qui se passe si pas de reseau et pas d'acces ???
-//          - Problème du total si plusierus acces en meme temps ????
 //          - Gerer l'erreur si aucun purse est retenue? 
