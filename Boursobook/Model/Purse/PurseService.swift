@@ -12,12 +12,12 @@ import Firebase
 class PurseService {
 
     // MARK: Properties
-    let pursesReference = Database.database().reference(withPath: "purses")
+    let reference = Database.database().reference(withPath: "purses")
 
     // MARK: Function
     func createNew(name: String, percentageOnSales: Double, depositFee: Purse.DepositFee ) {
         // create a new purse
-        let purseRef = pursesReference.child(name)
+        let purseRef = reference.child(name)
         let purseValues: [String: Any] = [
             "name": name,
             "percentageOnSales": 0,
@@ -43,7 +43,7 @@ class PurseService {
 
     func readAndListenData(completionHandler: @escaping (Bool, [Purse]) -> Void) {
         //download value from FireBase
-        pursesReference.observe(.value) { snapshot in
+        reference.observe(.value) { snapshot in
             var newPurse: [Purse] = []
 
             for child in snapshot.children {
@@ -65,8 +65,52 @@ class PurseService {
                               "underTwoHundred": depositFee.underTwoHundred,
                               "underTwoHundredFifty": depositFee.underTwoHundredFifty,
                               "overTwoHundredFifty": depositFee.overTwoHundredFifty]
-        pursesReference.child(purseName).updateChildValues(newValues)
-        pursesReference.child(purseName).child("depositFee").updateChildValues(newChildValues)
+        reference.child(purseName).updateChildValues(newValues)
+        reference.child(purseName).child("depositFee").updateChildValues(newChildValues)
+    }
+
+    func updateNumberOfSeller(with number: Int, for purseName: String) {
+        // add a number to the number of seller for the purse
+        reference.child(purseName).runTransactionBlock ({ (currentData) -> TransactionResult in
+
+            if var purse = currentData.value as? [String: AnyObject] {
+                var numberOfSeller = purse["numberOfSellers"] as? Int ?? 0
+                numberOfSeller += number
+                purse["numberOfSellers"] = numberOfSeller as AnyObject?
+
+                // Set value and report transaction success
+                currentData.value = purse
+
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }, andCompletionBlock: {(error, _, _) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        })
+    }
+
+    func updateNumberOfArticleRegistered(with number: Int, for purseName: String) {
+        // add a number to the number of article registered for the purse
+        reference.child(purseName).runTransactionBlock ({ (currentData) -> TransactionResult in
+
+            if var purse = currentData.value as? [String: AnyObject] {
+                var numberOfArticleRegistered = purse["numberOfArticleRegistered"] as? Int ?? 0
+                numberOfArticleRegistered += number
+                purse["numberOfArticleRegistered"] = numberOfArticleRegistered as AnyObject?
+
+                // Set value and report transaction success
+                currentData.value = purse
+
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }, andCompletionBlock: {(error, _, _) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        })
     }
 }
 

@@ -114,17 +114,41 @@ class InMemoryStorage {
         }
     }
     func addSeller(_ seller: Seller) {
+        // add seller to list of seller, update Firebase
+        // and increment the number of seller of the current purse
+        guard let currentPurse = currentPurse else {return}
+
+        // Add seller
         sellerService.create(seller: seller)
         sellers.append(seller)
-        //FIXME: maj le nombre des sellers dans purse
+
+        // Update purse
+        purseService.updateNumberOfSeller(with: 1, for: currentPurse.name)
+        currentPurse.numberOfSellers += 1
+
     }
 
     func removeSeller(at index: Int) {
+        // delete seller to list of seller, update Firebase,
+        // decrement the number of seller of the current purse
+        // and delete articles of seller
+        guard let currentPurse = currentPurse else {return}
         let seller = sellers[index]
+
+        // Delete articles
+        let articlesToDelete = filterArticles(by: seller.code)
+        for article in articlesToDelete {
+            removeArticle(article)
+        }
+
+        // Delete seller
         sellerService.remove(seller: seller)
         sellers.remove(at: index)
-        //FIXME: maj le nombre de seller dans la purse
-        //FIXME: detruire les articles correspondants
+
+         // Update purse
+        purseService.updateNumberOfSeller(with: -1, for: currentPurse.name)
+        currentPurse.numberOfSellers -= 1
+
     }
     func isExistingSellerWith(code: String) -> Bool {
         for seller in sellers where seller.code == code {
@@ -154,8 +178,14 @@ class InMemoryStorage {
     }
 
     func addArticle(_ article: Article, for codeOfSeller: String) {
+        // add article to list of article, update Firebase
+        // and increment the number of article in the current purse and in the seller
+
+        // Add article
         articleService.create(article: article)
         articles.append(article)
+
+        // Update Seller
         sellerService.updateNumberOfArtilceRegistered(with: 1, for: codeOfSeller)
         sellerService.increaseOrderNumber(for: codeOfSeller)
         for seller in sellers where seller.code == codeOfSeller {
@@ -163,17 +193,30 @@ class InMemoryStorage {
             seller.orderNumber += 1
         }
 
-        //FIXME: maj le nombre d'artilce de la purse
+        // Update purse
+        guard let currentPurse = currentPurse else {return}
+        purseService.updateNumberOfArticleRegistered(with: 1, for: currentPurse.name)
+        currentPurse.numberOfArticleRegistered += 1
     }
 
     func removeArticle(_ articleToDelete: Article) {
+        // delete article to list of article, update Firebase,
+        // decrement the number of article of the current purse and in the seller
+
+        // Delete Article
         for (index, article) in articles.enumerated() where article.code == articleToDelete.code {
             articles.remove(at: index )
         }
         articleService.remove(article: articleToDelete)
+
+        // Update Seller
         sellerService.updateNumberOfArtilceRegistered(with: -1, for: articleToDelete.sellerCode)
-        //FIXME: maj le nombre d'article du seller
-        //FIXME: maj le nombre d'artilce de la purse
+
+        // Update purse
+        guard let currentPurse = currentPurse else {return}
+        purseService.updateNumberOfArticleRegistered(with: -1, for: currentPurse.name)
+        currentPurse.numberOfArticleRegistered -= 1
+
     }
 
     func filterArticles(by codeOfSeller: String?) -> [Article] {
