@@ -81,10 +81,7 @@ class SellersListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            InMemoryStorage.shared.removeSeller(at: indexPath.row)
-            sellersTableView.deleteRows(at: [indexPath], with: .automatic)
-            sellersTableView.reloadData()
-            //FIXME: mettre un message pour confirmer l'effacement et tous les enregistrements relatifs
+            displayAlertConfirmDelete(for: indexPath)
         }
     }
 
@@ -96,6 +93,24 @@ class SellersListViewController: UITableViewController {
                 sellerVC.codeOfSelectedSeller = selectedSeller.code
             }
         }
+    }
+
+    // MARK: - AlertControler
+    private func displayAlertConfirmDelete(for indexPath: IndexPath) {
+        let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
+                                      message: NSLocalizedString("Are you sure delete alla seller ?",
+                                                                 comment: ""),
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                         style: .default)
+        let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
+            InMemoryStorage.shared.removeSeller(at: indexPath.row)
+            self.sellersTableView.deleteRows(at: [indexPath], with: .automatic)
+            self.updateValues()
+        }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 // TODO:    - Voir pourquoi le unwind segue ne fonctionne pas lorsque j'efface l'utilisateur loggé

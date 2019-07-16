@@ -30,6 +30,12 @@
 "Enter your password" = "Enter your password";
 "An email has been send to the new user !" = "An email has been send to the new user !";
 
+// Alert message
+"Warning" = "Warning";
+"Are you sure you want to delete this article ?" = "Are you sure you want to delete this article ?";
+"OK" = "OK";
+"Are you sure delete alla seller ?" = "Are you sure you want to delete this seller and all these articles ?";
+
 //Error
 "Please enter a stronger password !" = "Please enter a stronger password !";
 "Please enter a good email !" = "Please enter a good email !";

@@ -49,9 +49,7 @@ class ArticleListTableViewController: UITableViewController {
 
     // MARK: - functions
     @objc func updateValues() {
-        if let codeOfSeller = codeOfSelectedSeller {
-            articlesToDisplay = InMemoryStorage.shared.filterArticles(by: codeOfSeller)
-        }
+        articlesToDisplay = InMemoryStorage.shared.filterArticles(by: codeOfSelectedSeller)
         articleListTableView.reloadData()
     }
 
@@ -83,12 +81,9 @@ class ArticleListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-           
-            InMemoryStorage.shared.removeArticle(at: indexPath.row)
-            articleListTableView.deleteRows(at: [indexPath], with: .automatic)
-            articlesToDisplay.remove(at: indexPath.row)
-            articleListTableView.reloadData()
-            //FIXME: mettre un message pour confirmer l'effacement
+
+            let articleToDelete = articlesToDisplay[indexPath.row]
+            displayAlertConfirmDelete(for: articleToDelete)
         }
     }
 
@@ -100,6 +95,23 @@ class ArticleListTableViewController: UITableViewController {
                 articleVC.codeOfSelectedArticle = codeOfSelectedArticle
             }
         }
+    }
+
+    // MARK: - AlertControler
+    private func displayAlertConfirmDelete(for article: Article) {
+        let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
+                                      message: NSLocalizedString("Are you sure you want to delete this article ?",
+                                                                 comment: ""),
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                         style: .default)
+        let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
+            InMemoryStorage.shared.removeArticle(article)
+            self.updateValues()
+        }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 

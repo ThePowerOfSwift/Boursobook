@@ -21,6 +21,12 @@
 //ArticleListTableViewController
 "Articles of  " = "Articles de  ";
 
+// Alert message
+"Warning" = "Attention";
+"Are you sure you want to delete this article ?" = "Etes vous sur de vouloir effacer cet article ?";
+"OK" = "OK";
+"Are you sure delete alla seller ?" = "Etes vous sur de vouloir effacer ce vendeur et tous ces articles ?";
+
 // InfoViewController
 "Register" = "Enregistrement";
 "New user" = "Nouvel utilisateur";

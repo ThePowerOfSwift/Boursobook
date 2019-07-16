@@ -46,13 +46,13 @@ class SellerService {
         }
     }
 
-    func increaseNumberOfArtilceRegistered(for codeOfSeller: String) {
+    func updateNumberOfArtilceRegistered(with number: Int, for codeOfSeller: String) {
         // add 1 to the number of article registered of the seller
         reference.child(codeOfSeller).runTransactionBlock ({ (currentData) -> TransactionResult in
 
             if var seller = currentData.value as? [String: AnyObject] {
                 var articleRegistered = seller["articleRegistered"] as? Int ?? 0
-                articleRegistered += 1
+                articleRegistered += number
                 seller["articleRegistered"] = articleRegistered as AnyObject?
 
                 // Set value and report transaction success
@@ -61,12 +61,13 @@ class SellerService {
                 return TransactionResult.success(withValue: currentData)
             }
             return TransactionResult.success(withValue: currentData)
-        }) {(error, committed, snapshot) in
+        }, andCompletionBlock: {(error, _, _) in
             if let error = error {
                 print(error.localizedDescription)
             }
-        }
+        })
     }
+
     func increaseOrderNumber(for codeOfSeller: String) {
         // add 1 to the number of article registered of the seller
         reference.child(codeOfSeller).runTransactionBlock ({ (currentData) -> TransactionResult in
@@ -82,12 +83,12 @@ class SellerService {
                 return TransactionResult.success(withValue: currentData)
             }
             return TransactionResult.success(withValue: currentData)
-        }) {(error, committed, snapshot) in
+        }, andCompletionBlock: {(error, _, _) in
             if let error = error {
                 print(error.localizedDescription)
             }
-        }
+        })
     }
 }
 // TODO:          - tests à faire
-//                  - gestion erreur dans increase number of article et number of order
+//                - gestion erreur dans increase number of article et number of order

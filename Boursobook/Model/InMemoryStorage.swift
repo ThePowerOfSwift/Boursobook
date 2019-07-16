@@ -95,7 +95,9 @@ class InMemoryStorage {
         if let currentPurse = self.currentPurse {
             currentPurse.percentageOnSales = percentage
             currentPurse.depositFee = depositFee
-            purseService.setupRates(purseName: currentPurse.name, percentage: currentPurse.percentageOnSales, depositFee: currentPurse.depositFee)
+            purseService.setupRates(purseName: currentPurse.name,
+                                    percentage: currentPurse.percentageOnSales,
+                                    depositFee: currentPurse.depositFee)
         }
     }
 
@@ -154,7 +156,7 @@ class InMemoryStorage {
     func addArticle(_ article: Article, for codeOfSeller: String) {
         articleService.create(article: article)
         articles.append(article)
-        sellerService.increaseNumberOfArtilceRegistered(for: codeOfSeller)
+        sellerService.updateNumberOfArtilceRegistered(with: 1, for: codeOfSeller)
         sellerService.increaseOrderNumber(for: codeOfSeller)
         for seller in sellers where seller.code == codeOfSeller {
             seller.articleRegistered += 1
@@ -164,15 +166,18 @@ class InMemoryStorage {
         //FIXME: maj le nombre d'artilce de la purse
     }
 
-    func removeArticle(at index: Int) {
-        let article = articles[index]
-        articleService.remove(article: article)
-        articles.remove(at: index)
+    func removeArticle(_ articleToDelete: Article) {
+        for (index, article) in articles.enumerated() where article.code == articleToDelete.code {
+            articles.remove(at: index )
+        }
+        articleService.remove(article: articleToDelete)
+        sellerService.updateNumberOfArtilceRegistered(with: -1, for: articleToDelete.sellerCode)
         //FIXME: maj le nombre d'article du seller
         //FIXME: maj le nombre d'artilce de la purse
     }
 
-    func filterArticles(by codeOfSeller: String) -> [Article] {
+    func filterArticles(by codeOfSeller: String?) -> [Article] {
+        guard let codeOfSeller = codeOfSeller else { return [] }
         var filteredList = [Article]()
         for article in articles where article.sellerCode == codeOfSeller {
             filteredList.append(article)
