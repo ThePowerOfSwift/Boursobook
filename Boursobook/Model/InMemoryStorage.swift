@@ -115,7 +115,7 @@ class InMemoryStorage {
     }
     func addSeller(_ seller: Seller) {
         // add seller to list of seller, update Firebase
-        // and increment the number of seller of the current purse
+        // and update datas on the current purse
         guard let currentPurse = currentPurse else {return}
 
         // Add seller
@@ -130,7 +130,7 @@ class InMemoryStorage {
 
     func removeSeller(at index: Int) {
         // delete seller to list of seller, update Firebase,
-        // decrement the number of seller of the current purse
+        // update data on the current purse
         // and delete articles of seller
         guard let currentPurse = currentPurse else {return}
         let seller = sellers[index]
@@ -150,18 +150,39 @@ class InMemoryStorage {
         currentPurse.numberOfSellers -= 1
 
     }
+
     func isExistingSellerWith(code: String) -> Bool {
         for seller in sellers where seller.code == code {
             return true
         }
         return false
     }
+
     func selectSellerWithCode(_ code: String) -> Seller? {
         var selectedSeller: Seller?
         for seller in sellers where seller.code == code {
             selectedSeller = seller
         }
         return selectedSeller
+    }
+
+    func setDepositFeeAmout(for seller: Seller) {
+        guard let currentPurse = currentPurse else {return}
+
+        if seller.articleRegistered < 51 {
+            seller.depositFeeAmount = currentPurse.depositFee.underFifty
+        } else if seller.articleRegistered < 101 {
+            seller.depositFeeAmount = currentPurse.depositFee.underOneHundred
+        } else if seller.articleRegistered < 151 {
+            seller.depositFeeAmount = currentPurse.depositFee.underOneHundredFifty
+        } else if seller.articleRegistered < 201 {
+            seller.depositFeeAmount = currentPurse.depositFee.underTwoHundred
+        } else if seller.articleRegistered < 251 {
+            seller.depositFeeAmount = currentPurse.depositFee.underTwoHundredFifty
+        } else {
+            seller.depositFeeAmount = currentPurse.depositFee.overTwoHundredFifty
+        }
+        sellerService.updateDepositFee(for: seller, with: seller.depositFeeAmount)
     }
 
     // MARK: - Functions ARTICLES
@@ -179,18 +200,18 @@ class InMemoryStorage {
 
     func addArticle(_ article: Article, for codeOfSeller: String) {
         // add article to list of article, update Firebase
-        // and increment the number of article in the current purse and in the seller
+        // and update datas on the current purse and on the seller
 
         // Add article
         articleService.create(article: article)
         articles.append(article)
 
         // Update Seller
-        sellerService.updateNumberOfArtilceRegistered(with: 1, for: codeOfSeller)
-        sellerService.increaseOrderNumber(for: codeOfSeller)
+        sellerService.updateArticlesCounters(for: codeOfSeller, numberArticleRegistered: 1, numberOrder: 1)
         for seller in sellers where seller.code == codeOfSeller {
             seller.articleRegistered += 1
             seller.orderNumber += 1
+            setDepositFeeAmout(for: seller)
         }
 
         // Update purse
@@ -201,7 +222,7 @@ class InMemoryStorage {
 
     func removeArticle(_ articleToDelete: Article) {
         // delete article to list of article, update Firebase,
-        // decrement the number of article of the current purse and in the seller
+        // update datas oo the current purse and on the seller
 
         // Delete Article
         for (index, article) in articles.enumerated() where article.code == articleToDelete.code {
@@ -210,7 +231,14 @@ class InMemoryStorage {
         articleService.remove(article: articleToDelete)
 
         // Update Seller
-        sellerService.updateNumberOfArtilceRegistered(with: -1, for: articleToDelete.sellerCode)
+        sellerService.updateArticlesCounters(for: articleToDelete.sellerCode,
+                                             numberArticleRegistered: -1,
+                                             numberOrder: 0)
+
+        for seller in sellers where seller.code == articleToDelete.sellerCode {
+            seller.articleRegistered -= 1
+            setDepositFeeAmout(for: seller)
+        }
 
         // Update purse
         guard let currentPurse = currentPurse else {return}

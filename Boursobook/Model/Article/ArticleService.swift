@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class ArticleService {
+    // Manage the "articles" database on FireBase
 
     // MARK: - Properties
     let reference = Database.database().reference(withPath: "articles")

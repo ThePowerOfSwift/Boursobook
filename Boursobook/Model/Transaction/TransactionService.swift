@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class TransactionService {
+    // Manage the "transactions" database on FireBase
 
     // MARK: Properties
     let reference = Database.database().reference(withPath: "transactions")

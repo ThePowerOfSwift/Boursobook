@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class PurseService {
+    // Manage the "purses" database on FireBase
 
     // MARK: Properties
     let reference = Database.database().reference(withPath: "purses")

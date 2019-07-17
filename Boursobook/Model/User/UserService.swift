@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 class UserService {
+    // Manage the "users" database on FireBase
+    
     static var shared = UserService()
 
     private(set) var userLogIn: User?
