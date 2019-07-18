@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class Transaction {
-    var date: Date
+    var date: String
     var timestamp: String
     var amount: Double
     var numberOfArticle: Int
@@ -18,9 +18,30 @@ class Transaction {
     var articles: [String: Bool]
     var purseName: String
 
+    // MARK: - Initialisation
+    init() {
+        self.date = ""
+        self.timestamp = ""
+        self.amount = 0
+        self.numberOfArticle = 0
+        self.madeByUser = ""
+        self.articles = [:]
+        self.purseName = ""
+    }
+    
+    init(date: String, timestamp: String, amount: Double, numberOfArticle: Int, madeByUser: String, articles: [String: Bool], purseName: String) {
+        self.date = date
+        self.timestamp = timestamp
+        self.amount = amount
+        self.numberOfArticle = numberOfArticle
+        self.madeByUser = madeByUser
+        self.articles = articles
+        self.purseName = purseName
+    }
+
     init?(snapshot: DataSnapshot) {
         guard   let snapshotValue = snapshot.value as? [String: AnyObject],
-                let dateValue = snapshotValue["date"] as? Date,
+                let dateValue = snapshotValue["date"] as? String,
                 let timestampValue = snapshotValue["timestamp"] as? String,
                 let amountValue = snapshotValue["amount"] as? Double,
                 let numberValue = snapshotValue["numberOfArticle"] as? Int,

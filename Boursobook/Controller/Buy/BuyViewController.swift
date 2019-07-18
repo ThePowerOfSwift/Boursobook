@@ -10,23 +10,120 @@ import UIKit
 
 class BuyViewController: UIViewController {
 
+    // MARK: - Properties
+    var articleList = [Article]()
+
+    // MARK: - IBOutlets
+    @IBOutlet weak var numberOfRegisteredArticleLabel: UILabel!
+    @IBOutlet weak var numberCheckedSwitch: UISwitch!
+    @IBOutlet weak var totalAmountSaleLabel: UILabel!
+    @IBOutlet weak var selectedArticleTableView: UITableView!
+
+    // MARK: - IBActions
+    @IBAction func didTapSaveButton(_ sender: UIButton) {
+        saveTheSale()
+    }
+    @IBAction func didTapResetButton(_ sender: UIButton) {
+       resetTransaction()
+    }
+
+    // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        InMemoryStorage.shared.setCurrentTransaction()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setArticleList()
+        selectedArticleTableView.reloadData()
+        updateValues()
     }
 
-    /*
+    // MARK: - Functions
+    private func setArticleList() {
+        articleList.removeAll()
+        for (articleCode, _) in InMemoryStorage.shared.currentTransaction.articles {
+            for article in InMemoryStorage.shared.articles where article.code == articleCode {
+                articleList.append(article)
+            }
+        }
+    }
+
+    private func updateValues() {
+        numberOfRegisteredArticleLabel.text = String(InMemoryStorage.shared.currentTransaction.numberOfArticle)
+        totalAmountSaleLabel.text = String(InMemoryStorage.shared.currentTransaction.amount)
+    }
+
+    private func saveTheSale() {
+        if InMemoryStorage.shared.currentTransaction.numberOfArticle == 0 {
+            self.displayAlert(message: NSLocalizedString("Nothing To Save !",
+                                                         comment: ""),
+                              title: NSLocalizedString("Warning", comment: ""))
+        } else {
+            if numberCheckedSwitch.isOn {
+                InMemoryStorage.shared.validCurrentTransaction()
+                resetTransaction()
+            } else {
+                self.displayAlert(message: NSLocalizedString("Please check the number !",
+                                                             comment: ""),
+                                  title: NSLocalizedString("Warning", comment: ""))
+            }
+        }
+    }
+
+    private func resetTransaction() {
+        InMemoryStorage.shared.setCurrentTransaction()
+        setArticleList()
+        selectedArticleTableView.reloadData()
+        updateValues()
+    }
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   @IBAction func unwindToBuyVC(segue: UIStoryboardSegue) { }
 }
-// TODO:    - Mettre le total des articles vendus
-//          - Forcage création article si passe pas
-//          - Classement alphabétique des articles dans la liste
+
+// MARK: - TableView for list of article
+extension BuyViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articleList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "transactionActicleListCell",
+                                                       for: indexPath) as? TransactionActicleListTableViewCell else {
+                                                        return UITableViewCell()
+        }
+
+        let article = articleList[indexPath.row]
+
+        cell.configure(with: article)
+
+        return cell
+    }
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let articleToDelete = articleList[indexPath.row]
+            InMemoryStorage.shared.removeArticleToCurrentTransaction(codeOfArticle: articleToDelete.code)
+            setArticleList()
+            selectedArticleTableView.deleteRows(at: [indexPath], with: .automatic)
+            updateValues()
+        }
+    }
+
+    // MARK: - AlertControler
+    private func displayAlertConfirmCompted() {
+        let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
+                                      message: NSLocalizedString("Please check the number ?",
+                                                                 comment: ""),
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                         style: .default)
+
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+}

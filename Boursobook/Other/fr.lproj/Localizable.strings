@@ -26,6 +26,9 @@
 "Are you sure you want to delete this article ?" = "Etes vous sur de vouloir effacer cet article ?";
 "OK" = "OK";
 "Are you sure delete alla seller ?" = "Etes vous sur de vouloir effacer ce vendeur et tous ces articles ?";
+"Please check the number !" = "Merci de vérifier le nombre d'article !";
+"Nothing To Save !" = "Il n'y a rien a sauvegarder !";
+
 
 // InfoViewController
 "Register" = "Enregistrement";

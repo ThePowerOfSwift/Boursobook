@@ -30,7 +30,7 @@ class InMemoryStorage {
 
     private(set) var currentPurse: Purse?
     private(set) var currentUser: User?
-    private(set) var currentSeller: Seller?
+    private(set) var currentTransaction = Transaction()
 
     private init() {
     }
@@ -255,6 +255,15 @@ class InMemoryStorage {
         }
         return filteredList
     }
+
+    func filterNoSoldedArticles() -> [Article] {
+        var filteredList = [Article]()
+        for article in articles where article.solded == false {
+            filteredList.append(article)
+        }
+        return filteredList
+    }
+
     func selectArticle(by code: String) -> Article? {
         var selectedArticle: Article?
         for article in articles where article.code == code {
@@ -274,6 +283,51 @@ class InMemoryStorage {
                 completionHandler(true)
             }
         }
+    }
+
+    func setCurrentTransaction() {
+        // set a new transaction corresponding to the user and the purse
+        guard let userLogIn = UserService.shared.userLogIn else {
+            return
+        }
+        guard let currentPurse = currentPurse else {
+            return
+        }
+        let date = Date()
+        let frenchFormatter = DateFormatter()
+        frenchFormatter.dateStyle = .short
+        frenchFormatter.timeStyle = .none
+        frenchFormatter.locale = Locale(identifier: "FR-fr")
+
+        let currentDate = frenchFormatter.string(from: date)
+        let timestamp = String(Date().timeIntervalSince1970)
+
+        self.currentTransaction = Transaction(date: currentDate, timestamp: timestamp,
+                                              amount: 0, numberOfArticle: 0, madeByUser: userLogIn.email,
+                                              articles: [:], purseName: currentPurse.name)
+    }
+
+    func addArticleToCurrentTransaction(codeOfArticle: String) {
+        for articleToAdd in articles where articleToAdd.code == codeOfArticle {
+            currentTransaction.amount += articleToAdd.price
+        }
+        currentTransaction.articles.updateValue(true, forKey: codeOfArticle)
+        currentTransaction.numberOfArticle += 1
+    }
+
+    func removeArticleToCurrentTransaction(codeOfArticle: String) {
+        for articleToRemove in articles where articleToRemove.code == codeOfArticle {
+            currentTransaction.amount -= articleToRemove.price
+        }
+        currentTransaction.articles.removeValue(forKey: codeOfArticle)
+        currentTransaction.numberOfArticle -= 1
+    }
+
+    func validCurrentTransaction() {
+        // set articles to solded, calculate amounts
+        // save the transaction
+
+        
     }
 }
 

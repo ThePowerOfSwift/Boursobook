@@ -68,7 +68,7 @@ class SetupViewController: UIViewController {
     // MARK: - Functions
     @objc private func updateValues() {
         if let currentPurse = InMemoryStorage.shared.currentPurse {
-            percentageOnSalesDisplayLabel.text = String(currentPurse.percentageOnSales)
+            percentageOnSalesDisplayLabel.text = String(currentPurse.percentageOnSales) + " %"
             percentageOnSalesSetupLabel.text = String(currentPurse.percentageOnSales)
             underFiftyDisplayLabel.text = String(currentPurse.depositFee.underFifty)
             underFiftySetupLabel.text = String(currentPurse.depositFee.underFifty)

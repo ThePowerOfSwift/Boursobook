@@ -75,7 +75,7 @@ class ArticleListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         codeOfSelectedArticle = articlesToDisplay[indexPath.row].code
-        self.performSegue(withIdentifier: "segueToArticle", sender: nil)
+        self.performSegue(withIdentifier: "segueToArticleFromArticleList", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView,
@@ -90,9 +90,10 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToArticle" {
+        if segue.identifier == "segueToArticleFromArticleList" {
             if let articleVC = segue.destination as? ArticleViewController {
                 articleVC.codeOfSelectedArticle = codeOfSelectedArticle
+                articleVC.isRegisterSale = false
             }
         }
     }

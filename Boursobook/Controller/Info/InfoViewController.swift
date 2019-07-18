@@ -59,5 +59,7 @@ class InfoViewController: UIViewController {
     }
 }
 
-// TODO:    - Ajouter un contact pour mailing list
+// TODO:    - Ajouter un bouton pour acces liste transaction
+//          - Ajouter bouton liste articles totaux
+//          - Ajouter un contact pour mailing list
 //          - Afficher qu'un email a bien été envoye à l'emeil du la création

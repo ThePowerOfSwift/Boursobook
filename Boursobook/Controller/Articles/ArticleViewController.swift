@@ -23,13 +23,25 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var articleLabelCodeLabel: UILabel!
     @IBOutlet weak var articleLabelPriceLabel: UILabel!
 
+    @IBOutlet weak var saveButtonStackView: UIStackView!
+
+    // MARK: - IBActions
+    @IBAction func didTapSaveButton(_ sender: UIButton) {
+        saveArticleInSale(codeOfArticle: codeOfSelectedArticle)
+    }
+
     // MARK: - Properties
     var codeOfSelectedArticle: String?
+    var isRegisterSale: Bool?
 
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
         updateValues()
+        guard let isRegisterSaleState = isRegisterSale else {
+            return
+        }
+        toogleRegisterSaleView(registering: isRegisterSaleState)
         NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
                                                name: InMemoryStorage.articleUpdatedNotification,
                                                object: nil)
@@ -60,7 +72,10 @@ class ArticleViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-
+    private func toogleRegisterSaleView(registering: Bool) {
+        saveButtonStackView.isHidden = !registering
+        articleLabelView.isHidden = registering
+    }
     private func generateQrCode(from stingToConvert: String) -> UIImage? {
         // create QRCode from the code of the article
         // Get data from the string
@@ -80,6 +95,13 @@ class ArticleViewController: UIViewController {
 
         return UIImage(cgImage: cgImage)
 
+    }
+
+    private func saveArticleInSale(codeOfArticle: String? ) {
+        if let code = codeOfArticle {
+            InMemoryStorage.shared.addArticleToCurrentTransaction(codeOfArticle: code)
+            self.performSegue(withIdentifier: "undwindToBuyVC", sender: self)
+        }
     }
 }
 

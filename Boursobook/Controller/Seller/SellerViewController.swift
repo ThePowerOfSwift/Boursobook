@@ -89,11 +89,9 @@ class SellerViewController: UIViewController {
 }
 
 // TODO:    - Mettre la posibilité de modifier les informations des vendeurs
-//          - Imprimer la liste des articles vendus et restants
+//          - Imprimer la liste des articles vendus et restants PDF
 //              avec les prix de ventes / montants revenants au vendeur
 //          - Calculer forfait d'insription en fonction du nombre d'article
 //              ( et creer une vente fictive pour enregister transaction
-//          - calcul du nombre d'article
-//          - vue de la liste des articles ( dans cette vue)
 //          - Mettre les chiffres au format
 //          - Traiter la partie pour la restitution des livres
