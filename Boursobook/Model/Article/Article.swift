@@ -68,7 +68,6 @@ class Article {
     }
 }
 
-
 // TODO:         - gerer la generaltion du code
 //         - generer le qrcode
 //          - tests à faire

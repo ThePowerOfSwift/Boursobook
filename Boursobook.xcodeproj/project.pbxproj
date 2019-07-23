@@ -15,6 +15,7 @@
 		4F6C1C4222D5C1DB004C9BF3 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
 		4F7AA7E322DF8E94001FA860 /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
 		4F7AA7E522E05418001FA860 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
+		4F7AA7E822E2F683001FA860 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
 		4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
 		4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
 		4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
@@ -70,6 +71,7 @@
 		4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
+		4F7AA7E722E2F683001FA860 /* LabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheet.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -170,6 +172,14 @@
 				4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */,
 			);
 			path = Transaction;
+			sourceTree = "<group>";
+		};
+		4F7AA7E622E2F1C0001FA860 /* LabelSheet */ = {
+			isa = PBXGroup;
+			children = (
+				4F7AA7E722E2F683001FA860 /* LabelSheet.swift */,
+			);
+			path = LabelSheet;
 			sourceTree = "<group>";
 		};
 		4F9E864A22C6383D00C9BE1E /* User */ = {
@@ -274,6 +284,7 @@
 		4FC5136022B155E9000FD572 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F7AA7E622E2F1C0001FA860 /* LabelSheet */,
 				4F6C1C3A22CE293A004C9BF3 /* Transaction */,
 				4F6C1C3722CE2424004C9BF3 /* Purse */,
 				4F9E864A22C6383D00C9BE1E /* User */,
@@ -522,6 +533,7 @@
 				4FA05B9822C24AC300708718 /* Article.swift in Sources */,
 				4F6C1C4222D5C1DB004C9BF3 /* TransactionService.swift in Sources */,
 				4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */,
+				4F7AA7E822E2F683001FA860 /* LabelSheet.swift in Sources */,
 				4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */,
 				4FA05B9022BD72F300708718 /* SellerService.swift in Sources */,
 				4F7AA7E522E05418001FA860 /* TransactionActicleListTableViewCell.swift in Sources */,

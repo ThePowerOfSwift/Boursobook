@@ -32,6 +32,8 @@ class InMemoryStorage {
     private(set) var currentUser: User?
     private(set) var currentTransaction = Transaction()
 
+    var onSellerUpdate: (() -> ())?
+
     private init() {
     }
 
@@ -69,6 +71,16 @@ class InMemoryStorage {
             }
         }
     }
+    //FIXME: promises
+//    self.setPurses()
+//        .then {
+//            self.setSellers()
+//        }
+//        .then {
+//            self.setArticle
+//        }
+
+    // --> RxSwift => Reactive Programming
 
     func setPurses(completionHandler: @escaping (Bool) -> Void) {
         // Query purses
@@ -108,6 +120,8 @@ class InMemoryStorage {
         sellerService.readAndListenData(for: currentPurse) { (done, readedSellers) in
             if done {
                 self.sellers = readedSellers
+                //FIXME:
+                //self.onSellerUpdate?()
                 NotificationCenter.default.post(name: InMemoryStorage.sellerUpdatedNotification, object: nil)
                 completionHandler(true)
             }
@@ -327,7 +341,37 @@ class InMemoryStorage {
         // set articles to solded, calculate amounts
         // save the transaction
 
-        
+        //Pour chaque article :
+            // je met à jour le solded de l'article
+                //local
+                // firebase
+
+            // je calcule le PV pour le vendeur
+                    // je met à jour local
+                    // je met à jour firebase
+
+            // je calcule le nombre d'article vendu  pour le vendeur
+                    // je met à jour local
+                    // je met à jour firebase
+
+            // je calcule le PV pour la purse
+                    // je met à jour local
+                // je met à jour firebase
+
+        // je calcule le nombre d'article vendu  pour la purse
+                    // je met à jour local
+                    // je met à jour firebase
+
+        // je sauvegarde la transaction
+                    //local
+                    //firebase
+
+        // je calcule le nombre de transaction de la purse
+                //local
+                //firebase
+
+        //FIXME: A faire
+        //FIXME: Utiliser le UUID pour l'identification d'une transaction
     }
 }
 

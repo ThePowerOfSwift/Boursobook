@@ -190,6 +190,7 @@ class SetupViewController: UIViewController {
 
     }
 }
-// TODO: - Verouiller l'acces aux régalges si c'est pas delphine ????
+// TODO:    - Ajouter le reglage pour la page d'impression
+//           - Verouiller l'acces aux régalges si c'est pas delphine ????
 //           - Mettre des valuers avec virgules pour voir si le format passe`
 //          - metter une verification au max à 100% sur le pourcentage

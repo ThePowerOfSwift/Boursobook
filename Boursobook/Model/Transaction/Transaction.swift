@@ -28,8 +28,10 @@ class Transaction {
         self.articles = [:]
         self.purseName = ""
     }
-    
-    init(date: String, timestamp: String, amount: Double, numberOfArticle: Int, madeByUser: String, articles: [String: Bool], purseName: String) {
+
+    init(date: String, timestamp: String, amount: Double,
+         numberOfArticle: Int, madeByUser: String,
+         articles: [String: Bool], purseName: String) {
         self.date = date
         self.timestamp = timestamp
         self.amount = amount

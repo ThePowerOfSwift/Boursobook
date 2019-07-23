@@ -755,6 +755,9 @@
                                                         <state key="normal" title="Print Labels">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="didTapPrintButton:" destination="hyR-5s-AiI" eventType="touchUpInside" id="y0L-uw-tN6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -838,7 +841,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapSaveButton:" destination="28c-9Z-gna" eventType="touchUpInside" id="MIT-eZ-B7q"/>
+                                                            <action selector="didTapRefundButton:" destination="hyR-5s-AiI" eventType="touchUpInside" id="J9d-0n-dd3"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mre-Jf-cZB">
@@ -886,8 +889,6 @@
                         <outlet property="amountOfSalesLabel" destination="gNL-JZ-7uM" id="MrT-WR-AZj"/>
                         <outlet property="codeLabel" destination="5Tp-x3-hWT" id="6Xa-09-cKv"/>
                         <outlet property="createdByLabel" destination="lzi-x0-AKV" id="k7m-hQ-YIU"/>
-                        <outlet property="didTapPrintButton" destination="I6U-07-m41" id="t6B-pW-5Yy"/>
-                        <outlet property="didTapRefundButton" destination="upv-xV-o0l" id="hzx-T8-mpB"/>
                         <outlet property="emailLabel" destination="3lW-4W-v2j" id="O6v-TI-vaS"/>
                         <outlet property="familyNameLabel" destination="tgm-x8-29Z" id="T3w-gp-927"/>
                         <outlet property="firstNameLabel" destination="UnQ-Cw-Rhd" id="C6j-yj-es5"/>

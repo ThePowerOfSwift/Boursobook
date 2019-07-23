@@ -12,6 +12,7 @@ class SellerViewController: UIViewController {
 
     // MARK: - Properties
     var codeOfSelectedSeller: String?
+    var labelSheet = LabelSheet()
 
     // MARK: - IBOutlets
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -28,8 +29,11 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var numberReturnedCheckedSwitch: UISwitch!
 
     // MARK: - IBActions
-    @IBOutlet weak var didTapPrintButton: UIButton!
-    @IBOutlet weak var didTapRefundButton: UIButton!
+    @IBAction func didTapPrintButton(_ sender: UIButton) {
+        sharePdf(on: labelSheet)
+    }
+    @IBAction func didTapRefundButton(_ sender: UIButton) {
+    }
 
     // MARK: - Override
     override func viewDidLoad() {
@@ -85,6 +89,118 @@ class SellerViewController: UIViewController {
                 articleListVC.codeOfSelectedSeller = codeOfSelectedSeller
             }
         }
+    }
+}
+// MARK: PDF and Lable generation
+extension SellerViewController {
+    private func sharePdf(on sheet: LabelSheet) {
+        // A4 size
+        let pageRect = CGRect(x: 0, y: 0, width: sheet.sheetWidthInPSP, height: sheet.sheetHeightInPSP)
+        let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
+
+        // Generate all the label
+        var labels = [UIImage]()
+
+        let articlesToDisplay = InMemoryStorage.shared.filterArticles(by: codeOfSelectedSeller)
+        for article in articlesToDisplay {
+            if let imageToAdd = generateLabel(from: article) {
+                labels.append(imageToAdd)
+            }
+        }
+
+        // Create pdf with labels creating with disposition of labelSheet
+        let data = renderer.pdfData { (context) in
+            var page = 0
+            var row = 0
+            var column = 0
+            var positionInX: Double {
+                if column == 0 {
+                    return labelSheet.firstLablePositionXInPSP
+                } else {
+                    return Double(column) * (labelSheet.labelWidthInPSP + labelSheet.labelSpacingXInPSP)
+                        + labelSheet.firstLablePositionXInPSP
+                }
+            }
+            var positionInY: Double {
+                if row == 0 {
+                    return labelSheet.firstLablePositionYInPSP
+                } else {
+                    return Double(row) * (labelSheet.labelHeightInPSP + labelSheet.labelSpacingYInPSP)
+                        + labelSheet.firstLablePositionYInPSP
+                }
+            }
+
+            context.beginPage()
+
+            for label in labels {
+                label.draw(in: CGRect(x: positionInX, y: positionInY,
+                                      width: labelSheet.labelWidthInPSP, height: labelSheet.labelHeightInPSP))
+
+                column += 1
+                if column > labelSheet.getNumberOfColumns() && row <= labelSheet.getNumberOfRows() {
+                    row += 1
+                    column = 0
+                } else if column > labelSheet.getNumberOfColumns() && row > labelSheet.getNumberOfRows() {
+                    page += 1
+                    row = 0
+                    column = 0
+                    context.beginPage()
+                }
+            }
+        }
+        let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        activityController.completionWithItemsHandler = {(activityType, completed, returnedItems, error) in
+
+        }
+        present(activityController, animated: true, completion: nil)
+    }
+
+    private func generateLabel(from article: Article) -> UIImage? {
+        // create label with the QRCode from the article
+        UIGraphicsBeginImageContext(CGSize(width: labelSheet.labelWidthInPSP, height: labelSheet.labelHeightInPSP))
+
+        // Get data from the code string
+        let data = article.code.data(using: String.Encoding.ascii)
+        // Get a QR CIFilter
+        guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
+        // Input the data
+        qrFilter.setValue(data, forKey: "inputMessage")
+        // Get the output image
+        guard let qrImage = qrFilter.outputImage else { return nil }
+        // get the UIImage
+
+        let QRcodeUIImage = UIImage(ciImage: qrImage, scale: 1, orientation: .up)
+
+        // Draw QRCode
+        QRcodeUIImage.draw(in: CGRect(x: 0, y: 0,
+                                      width: labelSheet.labelHeightInPSP,
+                                      height: labelSheet.labelHeightInPSP ))
+
+        // add text + price
+        let stringLabel = article.code
+        let priceLabel = String(article.price) + " €"
+        let textAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 50)]
+        let formattedStringLabel = NSMutableAttributedString(string: stringLabel, attributes: textAttributes)
+        formattedStringLabel.draw(in: CGRect(x: labelSheet.labelWidthInPSP / 2 ,
+                                             y: (labelSheet.labelHeightInPSP / 4 ) * 1,
+                                             width: (labelSheet.labelWidthInPSP / 2),
+                                             height: labelSheet.labelHeightInPSP / 3))
+        let formattedPriceLabel = NSMutableAttributedString(string: priceLabel, attributes: textAttributes)
+        formattedPriceLabel.draw(in: CGRect(x: labelSheet.labelWidthInPSP / 2 ,
+                                             y: (labelSheet.labelHeightInPSP / 4 ) * 3,
+                                             width: (labelSheet.labelWidthInPSP / 2),
+                                             height: labelSheet.labelHeightInPSP / 3))
+        
+
+        // draw a rectangle
+        let path = UIBezierPath(rect: CGRect(x: 0, y: 0,
+                                             width: labelSheet.labelWidthInPSP,
+                                             height: labelSheet.labelHeightInPSP))
+        UIColor.black.setStroke()
+        path.lineWidth = 10
+        path.stroke()
+
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
 
