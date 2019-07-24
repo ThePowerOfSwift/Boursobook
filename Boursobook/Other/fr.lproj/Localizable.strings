@@ -49,3 +49,6 @@
 "Code already exist, please change it !" = "Le code existe déja, changez le s'il vous plait !";
 "Please, fill all the values !" = "SVP, remplissez toutes les valeurs !";
 "Incorrect amount !" = "Montant(s) incorrect(s) !";
+"Scanning not supported" = "Scanner n'est pas supporté";
+"Article allready scanned" = "Article déja scanné";
+"Wrong QRCODE" = "Mauvais QRCODE";

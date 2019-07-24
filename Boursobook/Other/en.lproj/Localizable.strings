@@ -48,3 +48,6 @@
 "Code already exist, please change it !" = "Code already exist, please change it !";
 "Please, fill all the values !" = "Please, fill all the values !";
 "Incorrect amount !" = "Incorrect amount !";
+"Scanning not supported" = "Scanning not supported";
+"Article allready scanned" = "Article allready scanned";
+"Wrong QRCODE" = "Wrong QRCODE";

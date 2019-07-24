@@ -286,6 +286,13 @@ class InMemoryStorage {
         return selectedArticle
     }
 
+    func isExistingArticleWith(code: String) -> Bool {
+        for article in articles where article.code == code {
+            return true
+        }
+        return false
+    }
+
     // MARK: - Functions TRANSACTION
     func setTransaction(completionHandler: @escaping (Bool) -> Void) {
         // Query transactions for the current purse
@@ -337,6 +344,13 @@ class InMemoryStorage {
         currentTransaction.numberOfArticle -= 1
     }
 
+    func isCodeArticleInCurrentTransaction(code: String) -> Bool {
+        for (key, _) in currentTransaction.articles where  key == code {
+            return true
+        }
+        return false
+    }
+
     func validCurrentTransaction() {
         // set articles to solded, calculate amounts
         // save the transaction
@@ -371,9 +385,10 @@ class InMemoryStorage {
                 //firebase
 
         //FIXME: A faire
-        //FIXME: Utiliser le UUID pour l'identification d'une transaction
+
     }
 }
 
 // TODO:    - gestion de l'appli offligne
 //          - Posibilité de choisir la purse si un user est inscrit sur plusieurs
+//FIXME: Utiliser le UUID pour l'identification d'une transaction

@@ -85,4 +85,5 @@ extension LoginViewController: UITextFieldDelegate {
 //          - Login as a guest ??
 //          - gestion de l'appli offligne
 //          - message si on est pas connecté et que l'on peut pas telecharger les données
+//          - verifier toutes les tailles d'iphones
 // TODO:    - Mettre à jour les string du storyboard

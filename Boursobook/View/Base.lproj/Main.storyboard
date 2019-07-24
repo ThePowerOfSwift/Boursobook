@@ -1925,10 +1925,15 @@
                             <constraint firstItem="wp7-8d-yBV" firstAttribute="leading" secondItem="HSU-mO-nwG" secondAttribute="leading" id="9nV-R6-miy"/>
                             <constraint firstItem="HSU-mO-nwG" firstAttribute="trailing" secondItem="wp7-8d-yBV" secondAttribute="trailing" id="Ff8-Tv-mLc"/>
                             <constraint firstItem="wp7-8d-yBV" firstAttribute="bottom" secondItem="HSU-mO-nwG" secondAttribute="bottom" id="NzL-Rr-tbO"/>
+                            <constraint firstItem="HSU-mO-nwG" firstAttribute="bottom" secondItem="YDY-kT-Vbe" secondAttribute="bottom" constant="90" id="eSW-DI-PgY"/>
                             <constraint firstItem="wp7-8d-yBV" firstAttribute="top" secondItem="HSU-mO-nwG" secondAttribute="top" id="f0N-X4-4An"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HSU-mO-nwG"/>
                     </view>
+                    <connections>
+                        <outlet property="scanningView" destination="YDY-kT-Vbe" id="8jR-xJ-AG1"/>
+                        <segue destination="33M-Ia-7Eh" kind="show" identifier="segueToArticleFromScan" id="Ot6-5O-cg9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZq-CX-z8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2020,7 +2025,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmH-tB-9jX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="-211"/>
+            <point key="canvasLocation" x="4113" y="-78"/>
         </scene>
         <!--Article List Table View Controller-->
         <scene sceneID="FQo-oQ-Z15">
@@ -2661,6 +2666,6 @@
         <image name="solds" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AkI-cN-Ktu"/>
+        <segue reference="Ot6-5O-cg9"/>
     </inferredMetricsTieBreakers>
 </document>

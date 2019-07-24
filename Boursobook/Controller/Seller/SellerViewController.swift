@@ -190,7 +190,6 @@ extension SellerViewController {
                                              y: (labelSheet.labelHeightInPSP / 4 ) * 3,
                                              width: (labelSheet.labelWidthInPSP / 2),
                                              height: labelSheet.labelHeightInPSP / 3))
-        
 
         // draw a rectangle
         let path = UIBezierPath(rect: CGRect(x: 0, y: 0,
@@ -211,3 +210,5 @@ extension SellerViewController {
 //              ( et creer une vente fictive pour enregister transaction
 //          - Mettre les chiffres au format
 //          - Traiter la partie pour la restitution des livres
+//          - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes
+//          - tester generation plusieurs pages d'étiquettes
