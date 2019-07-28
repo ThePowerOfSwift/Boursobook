@@ -82,6 +82,34 @@ class SellerService {
         reference.child(seller.code).updateChildValues(newValue)
     }
 
+    func updateValuesAfterTransaction(for list: [String: TransactionValues]) {
+        // Update liste of values of seller after the validation of a transaction
+        for (sellerCode, values) in list {
+            reference.child(sellerCode).runTransactionBlock ({ (currentData) -> TransactionResult in
+
+                if var seller = currentData.value as? [String: AnyObject] {
+                    var salesAmount = seller["salesAmount"] as? Double ?? 0
+                    var articleSolded = seller["articleSolded"] as? Int ?? 0
+
+                    salesAmount += values.amount
+                    articleSolded += values.number
+
+                    seller["salesAmount"] = salesAmount as AnyObject?
+                    seller["articleSolded"] = articleSolded as AnyObject?
+
+                    // Set value and report transaction success
+                    currentData.value = seller
+
+                    return TransactionResult.success(withValue: currentData)
+                }
+                return TransactionResult.success(withValue: currentData)
+            }, andCompletionBlock: {(error, _, _) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            })
+        }
+    }
 }
 // TODO:          - tests à faire
 //                - gestion erreur dans increase number of article et number of order

@@ -20,8 +20,8 @@ class TransactionService {
 
     // MARK: Function
     func create(transaction: Transaction) {
-        let transactionRef = reference.child(transaction.madeByUser + transaction.timestamp)
-        let values: [String: Any] = ["date": transaction.date, "timestamp": transaction.timestamp,
+        let transactionRef = reference.child(transaction.uniqueID)
+        let values: [String: Any] = ["date": transaction.date, "uniqueID": transaction.uniqueID,
                                      "amount": transaction.amount, "numberOfArticle": transaction.numberOfArticle,
                                      "madeByUser": transaction.madeByUser, "articles": transaction.articles,
                                      "purseName": transaction.purseName]

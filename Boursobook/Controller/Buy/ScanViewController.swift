@@ -64,6 +64,7 @@ class ScanViewController: UIViewController {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = .resizeAspectFill
         videoPreviewLayer?.frame = scanningView.layer.bounds
+        scanningView.layer.masksToBounds = true
         scanningView.layer.addSublayer(videoPreviewLayer!)
 
         // Start video capture

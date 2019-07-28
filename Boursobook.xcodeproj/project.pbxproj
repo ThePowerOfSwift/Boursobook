@@ -16,6 +16,7 @@
 		4F7AA7E322DF8E94001FA860 /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
 		4F7AA7E522E05418001FA860 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
 		4F7AA7E822E2F683001FA860 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
+		4F7AA7EA22EAFBEC001FA860 /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
 		4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
 		4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
 		4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
@@ -72,6 +73,7 @@
 		4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E722E2F683001FA860 /* LabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheet.swift; sourceTree = "<group>"; };
+		4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionValues.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */,
+				4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */,
 				4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */,
 			);
 			path = Transaction;
@@ -556,6 +559,7 @@
 				4FA05B8322BD06E100708718 /* SellersListViewController.swift in Sources */,
 				4FA05BA022C3484A00708718 /* ArticleViewController.swift in Sources */,
 				4FA05B8922BD356500708718 /* Seller.swift in Sources */,
+				4F7AA7EA22EAFBEC001FA860 /* TransactionValues.swift in Sources */,
 				4FA05B9622C2400E00708718 /* AddArticleViewController.swift in Sources */,
 				4F9E864922C636EB00C9BE1E /* UserService.swift in Sources */,
 				4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */,

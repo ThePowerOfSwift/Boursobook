@@ -19,6 +19,7 @@ class Purse {
     var percentageOnSales: Double
     var depositFee: DepositFee
     var totalSalesAmount: Double = 0
+    var totalBenefitOnSalesAmount: Double = 0
     var totalDepositFeeAmount: Double = 0
     var administrators: [String: Bool]
     var users: [String: String]
@@ -44,6 +45,7 @@ class Purse {
                 let numberOfArticleSoldedValue = snapshotValue["numberOfArticleSolded"] as? Int,
                 let numberOfTransactionValue = snapshotValue["numberOfTransaction"] as? Int,
                 let totalSalesAmountValue = snapshotValue["totalSalesAmount"] as? Double,
+            let totalBenefitOnSalesAmountValue = snapshotValue["totalBenefitOnSalesAmount"] as? Double,
                 let totalDepositFeeAmountValue = snapshotValue["totalDepositFeeAmount"] as? Double else {
             return nil
         }
@@ -63,6 +65,7 @@ class Purse {
         numberOfSellers = numberOfSellersValue
         numberOfArticleSolded = numberOfArticleSoldedValue
         numberOfTransaction = numberOfTransactionValue
+        totalBenefitOnSalesAmount = totalBenefitOnSalesAmountValue
         totalSalesAmount = totalSalesAmountValue
         totalDepositFeeAmount = totalDepositFeeAmountValue
 

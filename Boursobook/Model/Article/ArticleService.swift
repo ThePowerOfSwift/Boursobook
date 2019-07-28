@@ -47,6 +47,16 @@ class ArticleService {
             completionHandler(true, newArticles)
         }
     }
+
+    func updateSoldedList(list: [String: Bool] ) {
+        var childUpdate = [String: Bool]()
+
+        for (articleCode, _) in list {
+            childUpdate.updateValue(true, forKey: "/\(articleCode)/solded/")
+        }
+
+        reference.updateChildValues(childUpdate)
+    }
 }
 // TODO:         - tests à faire
 //           - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)

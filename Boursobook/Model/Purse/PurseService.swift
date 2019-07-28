@@ -27,6 +27,7 @@ class PurseService {
             "numberOfArticleSolded": 0,
             "numberOfTransaction": 0,
             "totalSalesAmount": 0,
+            "totalBenefitOnSalesAmount": 0,
             "totalDepositFeeAmount": 0
             ]
         purseRef.setValue(purseValues)
@@ -112,6 +113,42 @@ class PurseService {
                 print(error.localizedDescription)
             }
         })
+    }
+
+    func updateValuesAfterTransactionWith(for purseName: String, benefit: Double,
+                                          salesAmount: Double, articleSolded: Int,
+                                          numberTransaction: Int) {
+        // Update liste of values of seller after the validation of a transaction
+
+            reference.child(purseName).runTransactionBlock ({ (currentData) -> TransactionResult in
+
+                if var purse = currentData.value as? [String: AnyObject] {
+                    var totalBenefitOnSalesAmount = purse["totalBenefitOnSalesAmount"] as? Double ?? 0
+                    var totalSalesAmount = purse["totalSalesAmount"] as? Double ?? 0
+                    var numberOfArticleSolded = purse["numberOfArticleSolded"] as? Int ?? 0
+                    var numberOfTransaction = purse["numberOfTransaction"] as? Int ?? 0
+
+                    totalBenefitOnSalesAmount += benefit
+                    totalSalesAmount += salesAmount
+                    numberOfArticleSolded += articleSolded
+                    numberOfTransaction += numberTransaction
+
+                    purse["totalBenefitOnSalesAmount"] = totalBenefitOnSalesAmount as AnyObject?
+                    purse["totalSalesAmount"] = totalSalesAmount as AnyObject?
+                    purse["numberOfArticleSolded"] = numberOfArticleSolded as AnyObject?
+                    purse["numberOfTransaction"] = numberOfTransaction as AnyObject?
+
+                    // Set value and report transaction success
+                    currentData.value = purse
+
+                    return TransactionResult.success(withValue: currentData)
+                }
+                return TransactionResult.success(withValue: currentData)
+            }, andCompletionBlock: {(error, _, _) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            })
     }
 }
 

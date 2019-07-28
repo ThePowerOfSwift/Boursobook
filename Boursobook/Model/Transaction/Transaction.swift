@@ -11,7 +11,7 @@ import Firebase
 
 class Transaction {
     var date: String
-    var timestamp: String
+    var uniqueID: String
     var amount: Double
     var numberOfArticle: Int
     var madeByUser: String
@@ -21,7 +21,7 @@ class Transaction {
     // MARK: - Initialisation
     init() {
         self.date = ""
-        self.timestamp = ""
+        self.uniqueID = ""
         self.amount = 0
         self.numberOfArticle = 0
         self.madeByUser = ""
@@ -29,11 +29,11 @@ class Transaction {
         self.purseName = ""
     }
 
-    init(date: String, timestamp: String, amount: Double,
+    init(date: String, uniqueID: String, amount: Double,
          numberOfArticle: Int, madeByUser: String,
          articles: [String: Bool], purseName: String) {
         self.date = date
-        self.timestamp = timestamp
+        self.uniqueID = uniqueID
         self.amount = amount
         self.numberOfArticle = numberOfArticle
         self.madeByUser = madeByUser
@@ -44,7 +44,7 @@ class Transaction {
     init?(snapshot: DataSnapshot) {
         guard   let snapshotValue = snapshot.value as? [String: AnyObject],
                 let dateValue = snapshotValue["date"] as? String,
-                let timestampValue = snapshotValue["timestamp"] as? String,
+                let uniqueIDValue = snapshotValue["uniqueID"] as? String,
                 let amountValue = snapshotValue["amount"] as? Double,
                 let numberValue = snapshotValue["numberOfArticle"] as? Int,
                 let madeByValue = snapshotValue["madeByUser"] as? String,
@@ -54,7 +54,7 @@ class Transaction {
         }
 
         date = dateValue
-        timestamp = timestampValue
+        uniqueID = uniqueIDValue
         amount = amountValue
         numberOfArticle = numberValue
         madeByUser = madeByValue

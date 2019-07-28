@@ -112,8 +112,10 @@ class InMemoryStorage {
                                     depositFee: currentPurse.depositFee)
         }
     }
+}
 
-    // MARK: - Functions SELLERS
+// MARK: - Functions SELLERS
+extension InMemoryStorage {
     func setSellers(completionHandler: @escaping (Bool) -> Void) {
         // Query sellers for the current purse
         guard let currentPurse = currentPurse else {return}
@@ -198,8 +200,10 @@ class InMemoryStorage {
         }
         sellerService.updateDepositFee(for: seller, with: seller.depositFeeAmount)
     }
+}
 
-    // MARK: - Functions ARTICLES
+// MARK: - Functions ARTICLES
+extension InMemoryStorage {
     func setArticle(completionHandler: @escaping (Bool) -> Void) {
         // Query articles for the current purse
         guard let currentPurse = currentPurse else {return}
@@ -292,8 +296,10 @@ class InMemoryStorage {
         }
         return false
     }
+}
 
-    // MARK: - Functions TRANSACTION
+// MARK: - Functions TRANSACTION
+extension InMemoryStorage {
     func setTransaction(completionHandler: @escaping (Bool) -> Void) {
         // Query transactions for the current purse
         guard let currentPurse = currentPurse else {return}
@@ -321,9 +327,9 @@ class InMemoryStorage {
         frenchFormatter.locale = Locale(identifier: "FR-fr")
 
         let currentDate = frenchFormatter.string(from: date)
-        let timestamp = String(Date().timeIntervalSince1970)
+        let uniqueID = UUID().description
 
-        self.currentTransaction = Transaction(date: currentDate, timestamp: timestamp,
+        self.currentTransaction = Transaction(date: currentDate, uniqueID: uniqueID,
                                               amount: 0, numberOfArticle: 0, madeByUser: userLogIn.email,
                                               articles: [:], purseName: currentPurse.name)
     }
@@ -355,40 +361,68 @@ class InMemoryStorage {
         // set articles to solded, calculate amounts
         // save the transaction
 
-        //Pour chaque article :
-            // je met à jour le solded de l'article
-                //local
-                // firebase
+        var transacationValuesBySeller = [String: TransactionValues]()
 
-            // je calcule le PV pour le vendeur
-                    // je met à jour local
-                    // je met à jour firebase
+        guard let purse = currentPurse else { return }
+        let sellerBenefitRate = (100 - purse.percentageOnSales) / 100
+        let purseBenefitRate = purse.percentageOnSales / 100
 
-            // je calcule le nombre d'article vendu  pour le vendeur
-                    // je met à jour local
-                    // je met à jour firebase
+        // Update articles
+        for (code, _) in currentTransaction.articles {
+            for article in articles where article.code == code {
+                // Update article to solded  state in localMemory
+                article.solded = true
 
-            // je calcule le PV pour la purse
-                    // je met à jour local
-                // je met à jour firebase
+                let values = TransactionValues(amount: (article.price * sellerBenefitRate), number: 1)
 
-        // je calcule le nombre d'article vendu  pour la purse
-                    // je met à jour local
-                    // je met à jour firebase
+                // Compute the amount and the number of sale for each seller in localMemory
+                if let oldValues = transacationValuesBySeller[article.sellerCode] {
+                    let newValues = TransactionValues(amount: values.amount + oldValues.amount,
+                                                      number: values.number + oldValues.number)
+                    transacationValuesBySeller.updateValue(newValues, forKey: article.sellerCode)
+                } else {
+                    transacationValuesBySeller.updateValue(values, forKey: article.sellerCode)
+                }
+            }
+        }
 
-        // je sauvegarde la transaction
-                    //local
-                    //firebase
+        // update list of article to solded State in FireBase
+        articleService.updateSoldedList(list: currentTransaction.articles)
 
-        // je calcule le nombre de transaction de la purse
-                //local
-                //firebase
+        // Update sellers in local Memory
+        for (sellerCode, values) in transacationValuesBySeller {
+            for seller in sellers where sellerCode == seller.code {
+                seller.salesAmount += values.amount
+                seller.articleSolded += values.number
+            }
+        }
+        // Update sellers in firebase
+        sellerService.updateValuesAfterTransaction(for: transacationValuesBySeller)
 
-        //FIXME: A faire
+        // Update current purse in local Memory
+        purse.totalBenefitOnSalesAmount += currentTransaction.amount * purseBenefitRate
+        purse.totalSalesAmount += currentTransaction.amount
+        purse.numberOfArticleSolded += currentTransaction.numberOfArticle
+        purse.numberOfTransaction += 1
 
+        // Update current purse in fireBase
+        purseService.updateValuesAfterTransactionWith(
+            for: purse.name,
+            benefit: currentTransaction.amount * purseBenefitRate,
+            salesAmount: currentTransaction.amount,
+            articleSolded: currentTransaction.numberOfArticle,
+            numberTransaction: 1)
+
+        // Update current transaction in local Memory
+        transactions.append(currentTransaction)
+
+        // Update current transaction in Firebase
+        transactionService.create(transaction: currentTransaction)
+
+        setCurrentTransaction()
     }
 }
 
 // TODO:    - gestion de l'appli offligne
 //          - Posibilité de choisir la purse si un user est inscrit sur plusieurs
-//FIXME: Utiliser le UUID pour l'identification d'une transaction
+//          - valider l'entrée dans l'appli meme s'il n'y a pas de seller, de article ou de transactions

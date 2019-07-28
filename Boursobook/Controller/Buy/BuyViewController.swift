@@ -63,6 +63,7 @@ class BuyViewController: UIViewController {
             if numberCheckedSwitch.isOn {
                 InMemoryStorage.shared.validCurrentTransaction()
                 resetTransaction()
+                numberCheckedSwitch.isOn = false
             } else {
                 self.displayAlert(message: NSLocalizedString("Please check the number !",
                                                              comment: ""),

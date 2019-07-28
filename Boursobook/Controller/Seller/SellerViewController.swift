@@ -208,6 +208,7 @@ extension SellerViewController {
 //              avec les prix de ventes / montants revenants au vendeur
 //          - Calculer forfait d'insription en fonction du nombre d'article
 //              ( et creer une vente fictive pour enregister transaction
+//          - #### Mettre a jour le montant de desposit fee dans la purse #####
 //          - Mettre les chiffres au format
 //          - Traiter la partie pour la restitution des livres
 //          - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes
