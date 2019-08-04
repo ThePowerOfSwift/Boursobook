@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddArticleViewController: UIViewController {
+class AddArticleViewController: UIViewController, SearchingBookDelegate {
 
     // MARK: - Properties
     var codeOfSelectedSeller: String?
@@ -108,6 +108,31 @@ class AddArticleViewController: UIViewController {
 
     }
 
+    // To conform to SearchingBookDelegate Protocol
+    func didFindExistingBook(info: Book.VolumeInfo, isbn: String) {
+        loadValueFrom(info: info, isbn: isbn)
+    }
+
+    private func loadValueFrom(info: Book.VolumeInfo, isbn: String) {
+        titleTextField.text = info.title
+        var authorList = ""
+        for author in info.authors {
+            authorList += author
+            authorList += " "
+        }
+        authorTexField.text = authorList
+        descriptionTextView.text = info.description
+        isbnTextField.text = isbn
+    }
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToScanBook" {
+            if let scanBookVC: ScanBookViewController = segue.destination as? ScanBookViewController {
+                scanBookVC.searchingDelegate = self
+            }
+        }
+    }
 }
 // MARK: - PICKERVIEW
 extension AddArticleViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -163,5 +188,5 @@ extension AddArticleViewController: UITextFieldDelegate {
         }
     }
 }
-// TODO:    - Ajouter la fonction pour scanner l'isbn
-//          - Gerer le format du prix
+// TODO:    - Gerer le format du prix / et celui de l'isbn
+//          - probleme avec certain livre error in JSONDECODER

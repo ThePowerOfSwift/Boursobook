@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F19E83B22F5F69C004C545C /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
 		4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
 		4F6C1C3922CE2437004C9BF3 /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
 		4F6C1C3C22CE294C004C9BF3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
@@ -17,6 +18,9 @@
 		4F7AA7E522E05418001FA860 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
 		4F7AA7E822E2F683001FA860 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
 		4F7AA7EA22EAFBEC001FA860 /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
+		4F7AA7EC22EDDBAC001FA860 /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */; };
+		4F7AA7EF22EDE162001FA860 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EE22EDE162001FA860 /* Book.swift */; };
+		4F7AA7F122EF44E7001FA860 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
 		4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
 		4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
 		4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
@@ -64,6 +68,7 @@
 /* Begin PBXFileReference section */
 		4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
 		4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -74,6 +79,9 @@
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E722E2F683001FA860 /* LabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheet.swift; sourceTree = "<group>"; };
 		4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionValues.swift; sourceTree = "<group>"; };
+		4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBookViewController.swift; sourceTree = "<group>"; };
+		4F7AA7EE22EDE162001FA860 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		4F7AA7F022EF44E7001FA860 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 				4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */,
 				4FA05B9F22C3484A00708718 /* ArticleViewController.swift */,
 				4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */,
+				4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */,
 			);
 			path = Articles;
 			sourceTree = "<group>";
@@ -183,6 +192,15 @@
 				4F7AA7E722E2F683001FA860 /* LabelSheet.swift */,
 			);
 			path = LabelSheet;
+			sourceTree = "<group>";
+		};
+		4F7AA7ED22EDE100001FA860 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				4F7AA7EE22EDE162001FA860 /* Book.swift */,
+				4F7AA7F022EF44E7001FA860 /* BookService.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 		4F9E864A22C6383D00C9BE1E /* User */ = {
@@ -287,6 +305,7 @@
 		4FC5136022B155E9000FD572 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F7AA7ED22EDE100001FA860 /* Book */,
 				4F7AA7E622E2F1C0001FA860 /* LabelSheet */,
 				4F6C1C3A22CE293A004C9BF3 /* Transaction */,
 				4F6C1C3722CE2424004C9BF3 /* Purse */,
@@ -316,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF1668B22C4C7FC00236165 /* LoginViewController.swift */,
+				4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */,
 				4FA05B8C22BD3FE200708718 /* Info */,
 				4FA05B8B22BD3FC700708718 /* Buy */,
 				4FA05B8A22BD3FA100708718 /* Seller */,
@@ -535,6 +555,7 @@
 				4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */,
 				4FA05B9822C24AC300708718 /* Article.swift in Sources */,
 				4F6C1C4222D5C1DB004C9BF3 /* TransactionService.swift in Sources */,
+				4F19E83B22F5F69C004C545C /* SearchingBookDelegate.swift in Sources */,
 				4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */,
 				4F7AA7E822E2F683001FA860 /* LabelSheet.swift in Sources */,
 				4F8B454C22C9FBA8005FD099 /* ScanViewController.swift in Sources */,
@@ -544,6 +565,7 @@
 				4F6C1C3922CE2437004C9BF3 /* Purse.swift in Sources */,
 				4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */,
 				4F9E864E22C6431700C9BE1E /* Error+extension.swift in Sources */,
+				4F7AA7EC22EDDBAC001FA860 /* ScanBookViewController.swift in Sources */,
 				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
 				4FA05B9A22C25AE300708718 /* ArticleService.swift in Sources */,
 				4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */,
@@ -554,6 +576,7 @@
 				4FA05B9222BD83F700708718 /* SellerCode.swift in Sources */,
 				4F6C1C4022D4F2FC004C9BF3 /* InMemoryStorage.swift in Sources */,
 				4F6C1C3C22CE294C004C9BF3 /* Transaction.swift in Sources */,
+				4F7AA7EF22EDE162001FA860 /* Book.swift in Sources */,
 				4FA05B7522BCFD4900708718 /* InfoViewController.swift in Sources */,
 				4FA05B9E22C270BB00708718 /* ArticleListTableViewCell.swift in Sources */,
 				4FA05B8322BD06E100708718 /* SellersListViewController.swift in Sources */,
@@ -562,6 +585,7 @@
 				4F7AA7EA22EAFBEC001FA860 /* TransactionValues.swift in Sources */,
 				4FA05B9622C2400E00708718 /* AddArticleViewController.swift in Sources */,
 				4F9E864922C636EB00C9BE1E /* UserService.swift in Sources */,
+				4F7AA7F122EF44E7001FA860 /* BookService.swift in Sources */,
 				4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */,
 				4FC5133B22B13440000FD572 /* AppDelegate.swift in Sources */,
 				4F9E864722C636B100C9BE1E /* User.swift in Sources */,

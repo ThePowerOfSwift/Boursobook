@@ -42,7 +42,8 @@ class Article {
 
     init?(snapshot: DataSnapshot) {
         code = snapshot.key
-        guard   let snapshotValue = snapshot.value as? [String: AnyObject],
+        guard
+            let snapshotValue = snapshot.value as? [String: AnyObject],
                 let titleValue = snapshotValue["title"] as? String,
                 let sortValue = snapshotValue["sort"] as? String,
                 let authorValue = snapshotValue["author"] as? String,
