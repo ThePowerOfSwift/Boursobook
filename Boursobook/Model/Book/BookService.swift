@@ -26,7 +26,7 @@ class BookService {
 
     // MARK: - FUNCTIONS
     func getBook(isbn: String,
-                 callBack: @escaping (Bool, Book.VolumeInfo?, String) -> Void) {
+                 callBack: @escaping (Bool, Book.VolumeInfo?, BSError?) -> Void) {
         let request = createBookRequest(isbn: isbn)
 
         task?.cancel()
@@ -34,29 +34,29 @@ class BookService {
         task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    callBack(false, nil, "error in data")
+                    callBack(false, nil, .errorInData)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callBack(false, nil, "error in statusCode")
+                    callBack(false, nil, .errorInStatusCode)
                     return
                 }
                 guard let responseJSON = try? JSONDecoder().decode(Book.self, from: data) else {
-                    callBack(false, nil, "error in JSONDecoder")
+                    callBack(false, nil, .errorInJSONDecoder)
                     return
                 }
                 guard responseJSON.error == nil else {
-                    callBack(false, nil, (responseJSON.error?.message)!)
+                    callBack(false, nil, .errorInAPIResponse)
                     return
                 }
                 let book = responseJSON
 
                 guard let items = book.items else {
-                    callBack(false, nil, "no match !")
+                    callBack(false, nil, .errorNoMatch)
                     return
                 }
 
-                callBack(true, items[0].volumeInfo, "")
+                callBack(true, items[0].volumeInfo, nil)
             }
         }
         task?.resume()
@@ -72,4 +72,18 @@ class BookService {
         return request
     }
 }
-// TODO: Gestion des erreurs, messages en localised ...
+
+extension BookService {
+    /**
+     'BSError' is the error type returned by BookService.
+     It encompasses a few different types of errors, each with
+     their own associated reasons.
+     */
+    enum BSError: String, Error {
+        case errorInData = "error in data !"
+        case errorInStatusCode = "error in statusCode !"
+        case errorInJSONDecoder = "error in JSONDecoder !"
+        case errorInAPIResponse = "error in API response !"
+        case errorNoMatch = "Sorry, there is no match !"
+    }
+}

@@ -30,7 +30,6 @@ class Book: Decodable {
         var code: Int
         var message: String
         var errors: [Errors]
-        var status: String
     }
 
     struct Errors: Decodable {

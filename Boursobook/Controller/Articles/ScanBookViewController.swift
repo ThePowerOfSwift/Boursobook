@@ -63,14 +63,15 @@ class ScanBookViewController: UIViewController {
 
         // Initialise the video preview layer and add it as a sublayer to the viewPreview view's layer
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer?.videoGravity = .resizeAspectFill
-        videoPreviewLayer?.frame = scanView.layer.bounds
-        scanView.layer.masksToBounds = true
-        scanView.layer.addSublayer(videoPreviewLayer!)
+        if let videoPreviewLayer = videoPreviewLayer {
+            videoPreviewLayer.videoGravity = .resizeAspectFill
+            videoPreviewLayer.frame = scanView.layer.bounds
+            scanView.layer.masksToBounds = true
+            scanView.layer.addSublayer(videoPreviewLayer)
 
-        // Start video capture
-        captureSession.startRunning()
-
+            // Start video capture
+            captureSession.startRunning()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -101,11 +102,10 @@ class ScanBookViewController: UIViewController {
         bookService.getBook(isbn: isbn) { (success, volumeInfo, error) in
             if success, let bookInfo = volumeInfo {
                 self.didFindABook(bookInfo, isbn: isbn)
-            } else {
+            } else if let error = error {
                 self.toogleScanningView(searching: false)
-                self.presentAlertForCode(message: error)
+                self.presentAlertForCode(message: NSLocalizedString(error.message, comment: ""))
             }
-        //        FIXME: gestion de erreur
         }
     }
 
@@ -145,5 +145,3 @@ extension ScanBookViewController: AVCaptureMetadataOutputObjectsDelegate {
         }
     }
 }
-
-// TODO:    - Gerer optionnel videoPreviewLayer ???

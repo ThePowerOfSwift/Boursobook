@@ -51,3 +51,8 @@
 "Scanning not supported" = "Scanning not supported";
 "Article allready scanned" = "Article allready scanned";
 "Wrong QRCODE" = "Wrong QRCODE";
+"error in data !" = "error in data !";
+"error in statusCode !" = "error in statusCode !";
+"error in JSONDecoder !" = "error in JSONDecoder !";
+"Sorry, there is no match !" = "Sorry, there is no match !";
+"error in API response !" = "error in API response !";

@@ -28,12 +28,12 @@ class LabelSheet {
     // MARK: Functions
     func getNumberOfColumns() -> Int {
         let calculation = (sheetWidthInPSP - firstLablePositionXInPSP ) / ( labelWidthInPSP + labelSpacingXInPSP)
-        return Int(calculation.rounded())
+        return Int(calculation.rounded(.towardZero))
     }
 
     func getNumberOfRows() -> Int {
         let calculation = (sheetHeightInPSP - firstLablePositionYInPSP ) / ( labelHeightInPSP + labelSpacingYInPSP)
-        return Int(calculation.rounded())
+        return Int(calculation.rounded(.towardZero))
     }
 
     func getNumberPerSheet() -> Int {
@@ -42,4 +42,5 @@ class LabelSheet {
 }
 
 // TODO:    - Imposer taille etiquette h = 50 % largeur
-//          - Mettre taille en mm et transformer en 
+//          - Mettre taille en mm et transformer en
+//          - verifier si valeur diff de zero

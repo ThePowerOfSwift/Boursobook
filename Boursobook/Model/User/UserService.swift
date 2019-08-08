@@ -99,9 +99,6 @@ extension UserService {
     'USError' is the error type returned by UserService.
     It encompasses a few different types of errors, each with
     their own associated reasons.
-    
-    - weakPassword: return when the password is too weak
-     - wrongEmail: return when the email is badly formatted
     */
     enum USError: String, Error {
         case weakPassword = "Please enter a stronger password !"
