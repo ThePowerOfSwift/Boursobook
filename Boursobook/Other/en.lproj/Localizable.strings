@@ -56,3 +56,5 @@
 "error in JSONDecoder !" = "error in JSONDecoder !";
 "Sorry, there is no match !" = "Sorry, there is no match !";
 "error in API response !" = "error in API response !";
+"Please, fill correctly all the values !" = "Please, fill correctly all the values !";
+"We advise you to create a landscape label !" = "We advise you to create a landscape label !";

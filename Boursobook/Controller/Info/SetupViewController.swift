@@ -28,6 +28,7 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var changeAmountButtonStackView: UIStackView!
     @IBOutlet weak var addNewUserButtonStackView: UIStackView!
     @IBOutlet weak var actionButtonStackView: UIStackView!
+    @IBOutlet weak var configSheetStackView: UIStackView!
 
     // MARK: - IBActions
     @IBAction func didTapAddNewUser(_ sender: Any) {
@@ -105,6 +106,7 @@ class SetupViewController: UIViewController {
         changeAmountButtonStackView.isHidden = isConfiguring
         addNewUserButtonStackView.isHidden = isConfiguring
         actionButtonStackView.isHidden = !isConfiguring
+        configSheetStackView.isHidden = isConfiguring
 
     }
 
@@ -194,3 +196,4 @@ class SetupViewController: UIViewController {
 //           - Verouiller l'acces aux régalges si c'est pas delphine ????
 //           - Mettre des valuers avec virgules pour voir si le format passe`
 //          - metter une verification au max à 100% sur le pourcentage
+//          - attention a la gestion du clavier (ne cache pas les textes)

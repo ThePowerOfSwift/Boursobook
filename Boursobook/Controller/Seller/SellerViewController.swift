@@ -95,7 +95,7 @@ class SellerViewController: UIViewController {
 extension SellerViewController {
     private func sharePdf(on sheet: LabelSheet) {
         // A4 size
-        let pageRect = CGRect(x: 0, y: 0, width: sheet.sheetWidthInPSP, height: sheet.sheetHeightInPSP)
+        let pageRect = CGRect(x: 0, y: 0, width: sheet.sheetWidthInMM, height: sheet.sheetHeightInMM)
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
 
         // Generate all the label
@@ -115,18 +115,18 @@ extension SellerViewController {
             var column = 0
             var positionInX: Double {
                 if column == 0 {
-                    return labelSheet.firstLablePositionXInPSP
+                    return labelSheet.firstLablePositionXInMM
                 } else {
-                    return Double(column) * (labelSheet.labelWidthInPSP + labelSheet.labelSpacingXInPSP)
-                        + labelSheet.firstLablePositionXInPSP
+                    return Double(column) * (labelSheet.labelWidthInMM + labelSheet.labelSpacingXInMM)
+                        + labelSheet.firstLablePositionXInMM
                 }
             }
             var positionInY: Double {
                 if row == 0 {
-                    return labelSheet.firstLablePositionYInPSP
+                    return labelSheet.firstLablePositionYInMM
                 } else {
-                    return Double(row) * (labelSheet.labelHeightInPSP + labelSheet.labelSpacingYInPSP)
-                        + labelSheet.firstLablePositionYInPSP
+                    return Double(row) * (labelSheet.labelHeightInMM + labelSheet.labelSpacingYInMM)
+                        + labelSheet.firstLablePositionYInMM
                 }
             }
 
@@ -134,7 +134,7 @@ extension SellerViewController {
 
             for label in labels {
                 label.draw(in: CGRect(x: positionInX, y: positionInY,
-                                      width: labelSheet.labelWidthInPSP, height: labelSheet.labelHeightInPSP))
+                                      width: labelSheet.labelWidthInMM, height: labelSheet.labelHeightInMM))
 
                 column += 1
                 if column > labelSheet.getNumberOfColumns() && row <= labelSheet.getNumberOfRows() {
@@ -157,7 +157,7 @@ extension SellerViewController {
 
     private func generateLabel(from article: Article) -> UIImage? {
         // create label with the QRCode from the article
-        UIGraphicsBeginImageContext(CGSize(width: labelSheet.labelWidthInPSP, height: labelSheet.labelHeightInPSP))
+        UIGraphicsBeginImageContext(CGSize(width: labelSheet.labelWidthInMM, height: labelSheet.labelHeightInMM))
 
         // Get data from the code string
         let data = article.code.data(using: String.Encoding.ascii)
@@ -173,28 +173,28 @@ extension SellerViewController {
 
         // Draw QRCode
         QRcodeUIImage.draw(in: CGRect(x: 0, y: 0,
-                                      width: labelSheet.labelHeightInPSP,
-                                      height: labelSheet.labelHeightInPSP ))
+                                      width: labelSheet.labelHeightInMM,
+                                      height: labelSheet.labelHeightInMM ))
 
         // add text + price
         let stringLabel = article.code
         let priceLabel = String(article.price) + " €"
         let textAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 50)]
         let formattedStringLabel = NSMutableAttributedString(string: stringLabel, attributes: textAttributes)
-        formattedStringLabel.draw(in: CGRect(x: labelSheet.labelWidthInPSP / 2 ,
-                                             y: (labelSheet.labelHeightInPSP / 4 ) * 1,
-                                             width: (labelSheet.labelWidthInPSP / 2),
-                                             height: labelSheet.labelHeightInPSP / 3))
+        formattedStringLabel.draw(in: CGRect(x: labelSheet.labelWidthInMM / 2 ,
+                                             y: (labelSheet.labelHeightInMM / 4 ) * 1,
+                                             width: (labelSheet.labelWidthInMM / 2),
+                                             height: labelSheet.labelHeightInMM / 3))
         let formattedPriceLabel = NSMutableAttributedString(string: priceLabel, attributes: textAttributes)
-        formattedPriceLabel.draw(in: CGRect(x: labelSheet.labelWidthInPSP / 2 ,
-                                             y: (labelSheet.labelHeightInPSP / 4 ) * 3,
-                                             width: (labelSheet.labelWidthInPSP / 2),
-                                             height: labelSheet.labelHeightInPSP / 3))
+        formattedPriceLabel.draw(in: CGRect(x: labelSheet.labelWidthInMM / 2 ,
+                                             y: (labelSheet.labelHeightInMM / 4 ) * 3,
+                                             width: (labelSheet.labelWidthInMM / 2),
+                                             height: labelSheet.labelHeightInMM / 3))
 
         // draw a rectangle
         let path = UIBezierPath(rect: CGRect(x: 0, y: 0,
-                                             width: labelSheet.labelWidthInPSP,
-                                             height: labelSheet.labelHeightInPSP))
+                                             width: labelSheet.labelWidthInMM,
+                                             height: labelSheet.labelHeightInMM))
         UIColor.black.setStroke()
         path.lineWidth = 10
         path.stroke()
@@ -211,5 +211,5 @@ extension SellerViewController {
 //          - #### Mettre a jour le montant de desposit fee dans la purse #####
 //          - Mettre les chiffres au format
 //          - Traiter la partie pour la restitution des livres
-//          - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes
+//          - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes (et taille avec des mm)
 //          - tester generation plusieurs pages d'étiquettes

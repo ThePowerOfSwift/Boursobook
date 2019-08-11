@@ -20,10 +20,10 @@ class LabelSheetTestCase: XCTestCase {
     func testGetNumberOfColumsShouldReturnGoodNumber() {
         // Given
         let labelSheet = LabelSheet()
-        labelSheet.sheetWidthInPSP = 100
-        labelSheet.firstLablePositionXInPSP = 10
-        labelSheet.labelWidthInPSP = 20
-        labelSheet.labelSpacingXInPSP = 5
+        labelSheet.sheetWidthInMM = 100
+        labelSheet.firstLablePositionXInMM = 10
+        labelSheet.labelWidthInMM = 20
+        labelSheet.labelSpacingXInMM = 5
 
         // When
         let numberOfColums = labelSheet.getNumberOfColumns()
@@ -35,10 +35,10 @@ class LabelSheetTestCase: XCTestCase {
     func testGetNumberOfRowShouldReturnGoodNumber() {
         // Given
         let labelSheet = LabelSheet()
-        labelSheet.sheetHeightInPSP = 200
-        labelSheet.firstLablePositionYInPSP = 10
-        labelSheet.labelHeightInPSP = 10
-        labelSheet.labelSpacingYInPSP = 5
+        labelSheet.sheetHeightInMM = 200
+        labelSheet.firstLablePositionYInMM = 10
+        labelSheet.labelHeightInMM = 10
+        labelSheet.labelSpacingYInMM = 5
 
         // When
         let numberOfRows = labelSheet.getNumberOfRows()
@@ -50,14 +50,14 @@ class LabelSheetTestCase: XCTestCase {
     func testGetNumberPerSheetShouldReturnGoodNumber() {
         // Given
         let labelSheet = LabelSheet()
-        labelSheet.sheetWidthInPSP = 100
-        labelSheet.firstLablePositionXInPSP = 10
-        labelSheet.labelWidthInPSP = 20
-        labelSheet.labelSpacingXInPSP = 5
-        labelSheet.sheetHeightInPSP = 200
-        labelSheet.firstLablePositionYInPSP = 10
-        labelSheet.labelHeightInPSP = 10
-        labelSheet.labelSpacingYInPSP = 5
+        labelSheet.sheetWidthInMM = 100
+        labelSheet.firstLablePositionXInMM = 10
+        labelSheet.labelWidthInMM = 20
+        labelSheet.labelSpacingXInMM = 5
+        labelSheet.sheetHeightInMM = 200
+        labelSheet.firstLablePositionYInMM = 10
+        labelSheet.labelHeightInMM = 10
+        labelSheet.labelSpacingYInMM = 5
 
         // When
         let numberPerSheet = labelSheet.getNumberPerSheet()
