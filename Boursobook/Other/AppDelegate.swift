@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         #if TEST_VERSION
             print("TEST_VERSION")
-            guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info-Test",
+            guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info-forTests",
                                                    ofType: "plist") else {return}
             #else
             print("NORMAL_VERSION")
