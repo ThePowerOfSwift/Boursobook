@@ -16,7 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     override init() {
-        FirebaseApp.configure()
+
+        #if TEST_VERSION
+            print("TEST_VERSION")
+            guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info-Test",
+                                                   ofType: "plist") else {return}
+            #else
+            print("NORMAL_VERSION")
+            guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info",
+                                                   ofType: "plist") else {return}
+            #endif
+
+        //FIXME: A voir avec Vincent pourquoi on passe pas par la meme si on coche le target membership
+
+        if let option = FirebaseOptions(contentsOfFile: plistPath) {
+            FirebaseApp.configure(options: option)
+        }
     }
 
     func application(_ application: UIApplication,

@@ -13,7 +13,11 @@ class TransactionService {
     // Manage the "transactions" database on FireBase
 
     // MARK: Properties
-    let reference = Database.database().reference(withPath: "transactions")
+    private let reference: DatabaseReference
+
+    init(with reference: DatabaseReference) {
+        self.reference = reference
+    }
 
     static let transactionUpdatedNotification =
         Notification.Name("TransactionService.transactionUpdated")

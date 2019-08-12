@@ -68,29 +68,34 @@ class TransactionTestCase: XCTestCase {
         let madeByUser = "michel"
         let articles = ["livre": true]
         let purseName = "APE 2019"
-
-//        let dataSnapshot: [String: AnyObject] = ["date": date, "uniqueID": uniqueID]
-//
-//        if let data = dataSnapshot as? DataSnapshot {
-//
-//        }
-        
-//        let snapshot = DataSnapshot()
-//        snapshot.setValue(date, forKey: "date")
-//        snapshot.setValue(uniqueID, forKey: "uniqueID")
+        let fakeTransactionDataSnapshot = FakeTransactionDataSnapshot()
 
         //When
-//        guard let transaction = Transaction(snapshot: dataSnapshot) else {
-//            return
-//        }
+        guard let transaction = Transaction(snapshot: fakeTransactionDataSnapshot) else {
+            return
+        }
 
         //Then
-//        XCTAssertEqual(transaction.date, date)
-//        XCTAssertEqual(transaction.uniqueID, uniqueID)
-//        XCTAssertEqual(transaction.amount, amount)
-//        XCTAssertEqual(transaction.numberOfArticle, numberOfArticle)
-//        XCTAssertEqual(transaction.madeByUser, madeByUser)
-//        XCTAssertEqual(transaction.articles, articles)
-//        XCTAssertEqual(transaction.purseName, purseName)
+        XCTAssertEqual(transaction.date, date)
+        XCTAssertEqual(transaction.uniqueID, uniqueID)
+        XCTAssertEqual(transaction.amount, amount)
+        XCTAssertEqual(transaction.numberOfArticle, numberOfArticle)
+        XCTAssertEqual(transaction.madeByUser, madeByUser)
+        XCTAssertEqual(transaction.articles, articles)
+        XCTAssertEqual(transaction.purseName, purseName)
+    }
+
+    func testInitTransactionWithEmptyDataSnapshotSouldReturnNil() {
+        //Given
+        let emptyTransactionDataSnapshot = DataSnapshot()
+
+        //When
+        guard let transaction = Transaction(snapshot: emptyTransactionDataSnapshot) else {
+            return
+        }
+
+        //Then
+        XCTAssertNil(transaction)
+
     }
 }

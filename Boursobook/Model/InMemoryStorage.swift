@@ -26,7 +26,7 @@ class InMemoryStorage {
     private var articleService = ArticleService()
 
     private(set) var transactions: [Transaction] = []
-    private var transactionService = TransactionService()
+    private var transactionService = TransactionService(with: Database.database().reference(withPath: "transactions"))
 
     private(set) var currentPurse: Purse?
     private(set) var currentUser: User?
@@ -426,3 +426,4 @@ extension InMemoryStorage {
 // TODO:    - gestion de l'appli offligne
 //          - Posibilité de choisir la purse si un user est inscrit sur plusieurs
 //          - valider l'entrée dans l'appli meme s'il n'y a pas de seller, de article ou de transactions
+//          - mettre un message si on peux pas se loger à cause de pas de puse, pas d'id....
