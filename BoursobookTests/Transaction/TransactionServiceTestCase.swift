@@ -21,7 +21,9 @@ class TransactionServiceTestCase: XCTestCase {
     func testReadTransactionDataSouldReturnTransactions() {
         //Given
         let fakeTransactionService = TransactionService(with: MockDatabaseReference())
-        guard let purse = Purse(snapshot: FakePurseDataSnapshot()) else {return}
+        guard let purse = Purse(snapshot: FakePurseDataSnapshot()) else {
+            XCTFail("error in init purse")
+            return}
 
         //When
         let expectaion = XCTestExpectation(description: "Wait for queue change.")
@@ -34,4 +36,48 @@ class TransactionServiceTestCase: XCTestCase {
         }
         wait(for: [expectaion], timeout: 0.5)
     }
+
+    func testRealReadTransactionDataSouldReturnTransactions() {
+        //Given
+        let date = "15/01/19"
+        let uniqueID = "fake transaction For test"
+        let amount = 23.4
+        let numberOfArticle = 7
+        let madeByUser = "michel"
+        let articles = ["livre": true]
+        let purseName = "APE 2019"
+
+        guard let purse = Purse(snapshot: FakePurseDataSnapshot()) else {
+            XCTFail("error in init purse")
+            return}
+
+        let transaction = Transaction(date: date, uniqueID: uniqueID,
+                                      amount: amount, numberOfArticle: numberOfArticle,
+                                      madeByUser: madeByUser, articles: articles, purseName: purseName)
+
+        let transactionService = TransactionService(with: Database.database().reference(withPath: "transactions"))
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
+        transactionService.create(transaction: transaction)
+        transactionService.readAndListenData(for: purse) { (done, transactionsReaded) in
+            //Then
+            if done {
+                for transaction in transactionsReaded where transaction.uniqueID == uniqueID {
+                    XCTAssertTrue(done)
+                    XCTAssertEqual(transaction.date, date)
+                    XCTAssertEqual(transaction.madeByUser, madeByUser)
+                }
+            }
+            XCTAssertTrue(done)
+            XCTAssertFalse(done)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5.0)
+        XCTAssertEqual(date, "rien")
+    }
 }
+//        faire un test directement sur firebase en creant une transaction
+//        verifier si on travaille sur la test Firebase
+//        et sinon changer les @testable import sur BoursobookTest

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24CCF1DA94450ED6F7BA4321 /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F18894D002D6E3E2DA7C9C /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a */; };
 		4F19E83B22F5F69C004C545C /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
 		4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */; };
 		4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83E22FAF4E9004C545C /* BookServiceTestCase.swift */; };
@@ -19,101 +20,103 @@
 		4F19E85823014E5B004C545C /* FakeDataSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */; };
 		4F19E85A2301563A004C545C /* TransactionServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E8592301563A004C545C /* TransactionServiceTestCase.swift */; };
 		4F19E85C2301659D004C545C /* FakeDataBaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */; };
-		4F19E8982301B070004C545C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
-		4F19E8992301B070004C545C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
-		4F19E89A2301B070004C545C /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
-		4F19E89B2301B070004C545C /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
-		4F19E89C2301B070004C545C /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
-		4F19E89D2301B070004C545C /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
-		4F19E89E2301B070004C545C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
-		4F19E89F2301B070004C545C /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
-		4F19E8A02301B070004C545C /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
-		4F19E8A12301B070004C545C /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
-		4F19E8A22301B070004C545C /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
-		4F19E8A32301B070004C545C /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
-		4F19E8A42301B070004C545C /* Error+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864D22C6431700C9BE1E /* Error+extension.swift */; };
-		4F19E8A52301B070004C545C /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */; };
-		4F19E8A62301B070004C545C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9322BD880200708718 /* UIViewController+Extension.swift */; };
-		4F19E8A72301B070004C545C /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9922C25AE300708718 /* ArticleService.swift */; };
-		4F19E8A82301B070004C545C /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
-		4F19E8A92301B070004C545C /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */; };
-		4F19E8AA2301B070004C545C /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
-		4F19E8AB2301B070004C545C /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
-		4F19E8AC2301B070004C545C /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
-		4F19E8AD2301B070004C545C /* SellerCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9122BD83F700708718 /* SellerCode.swift */; };
-		4F19E8AE2301B070004C545C /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */; };
-		4F19E8AF2301B070004C545C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
-		4F19E8B02301B070004C545C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EE22EDE162001FA860 /* Book.swift */; };
-		4F19E8B12301B070004C545C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
-		4F19E8B22301B070004C545C /* ArticleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */; };
-		4F19E8B32301B070004C545C /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
-		4F19E8B42301B070004C545C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9F22C3484A00708718 /* ArticleViewController.swift */; };
-		4F19E8B52301B070004C545C /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
-		4F19E8B62301B070004C545C /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
-		4F19E8B72301B070004C545C /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9522C2400E00708718 /* AddArticleViewController.swift */; };
-		4F19E8B82301B070004C545C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864822C636EB00C9BE1E /* UserService.swift */; };
-		4F19E8B92301B070004C545C /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
-		4F19E8BA2301B070004C545C /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
-		4F19E8BB2301B070004C545C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
-		4F19E8BC2301B070004C545C /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
-		4F19E8BD2301B070004C545C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
-		4F19E8BF2301B070004C545C /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
-		4F19E8C12301B070004C545C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
-		4F19E8C22301B070004C545C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
-		4F19E8C32301B070004C545C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
-		4F19E8C42301B070004C545C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
-		4F19E8C52301B070004C545C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
-		4F19E8C62301B070004C545C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
-		4F19E8DE2301D69E004C545C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
-		4F19E8DF2301D69E004C545C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
-		4F19E8E02301D69E004C545C /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
-		4F19E8E12301D69E004C545C /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
-		4F19E8E22301D69E004C545C /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
-		4F19E8E32301D69E004C545C /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
-		4F19E8E42301D69E004C545C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
-		4F19E8E52301D69E004C545C /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
-		4F19E8E62301D69E004C545C /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
-		4F19E8E72301D69E004C545C /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
-		4F19E8E82301D69E004C545C /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
-		4F19E8E92301D69E004C545C /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
-		4F19E8EA2301D69E004C545C /* Error+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864D22C6431700C9BE1E /* Error+extension.swift */; };
-		4F19E8EB2301D69E004C545C /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */; };
-		4F19E8EC2301D69E004C545C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9322BD880200708718 /* UIViewController+Extension.swift */; };
-		4F19E8ED2301D69E004C545C /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9922C25AE300708718 /* ArticleService.swift */; };
-		4F19E8EE2301D69E004C545C /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
-		4F19E8EF2301D69E004C545C /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */; };
-		4F19E8F02301D69E004C545C /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
-		4F19E8F12301D69E004C545C /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
-		4F19E8F22301D69E004C545C /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
-		4F19E8F32301D69E004C545C /* SellerCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9122BD83F700708718 /* SellerCode.swift */; };
-		4F19E8F42301D69E004C545C /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */; };
-		4F19E8F52301D69E004C545C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
-		4F19E8F62301D69E004C545C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EE22EDE162001FA860 /* Book.swift */; };
-		4F19E8F72301D69E004C545C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
-		4F19E8F82301D69E004C545C /* ArticleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */; };
-		4F19E8F92301D69E004C545C /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
-		4F19E8FA2301D69E004C545C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9F22C3484A00708718 /* ArticleViewController.swift */; };
-		4F19E8FB2301D69E004C545C /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
-		4F19E8FC2301D69E004C545C /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
-		4F19E8FD2301D69E004C545C /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9522C2400E00708718 /* AddArticleViewController.swift */; };
-		4F19E8FE2301D69E004C545C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864822C636EB00C9BE1E /* UserService.swift */; };
-		4F19E8FF2301D69E004C545C /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
-		4F19E9002301D69E004C545C /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
-		4F19E9012301D69E004C545C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
-		4F19E9022301D69E004C545C /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
-		4F19E9032301D69E004C545C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
-		4F19E9052301D69E004C545C /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
-		4F19E9082301D69E004C545C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
-		4F19E9092301D69E004C545C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
-		4F19E90A2301D69E004C545C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
-		4F19E90B2301D69E004C545C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
-		4F19E90C2301D69E004C545C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
-		4F19E90D2301D69E004C545C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
 		4F381FAD2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
-		4F381FAE2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
-		4F381FAF2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
+		4F381FB32301F11C00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
+		4F381FB42301F11C00AB9577 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
+		4F381FB52301F11C00AB9577 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
+		4F381FB62301F11C00AB9577 /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
+		4F381FB72301F11C00AB9577 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
+		4F381FB82301F11C00AB9577 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
+		4F381FB92301F11C00AB9577 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
+		4F381FBA2301F11C00AB9577 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
+		4F381FBB2301F11C00AB9577 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
+		4F381FBC2301F11C00AB9577 /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
+		4F381FBD2301F11C00AB9577 /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
+		4F381FBE2301F11C00AB9577 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
+		4F381FBF2301F11C00AB9577 /* Error+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864D22C6431700C9BE1E /* Error+extension.swift */; };
+		4F381FC02301F11C00AB9577 /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */; };
+		4F381FC12301F11C00AB9577 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9322BD880200708718 /* UIViewController+Extension.swift */; };
+		4F381FC22301F11C00AB9577 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9922C25AE300708718 /* ArticleService.swift */; };
+		4F381FC32301F11C00AB9577 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
+		4F381FC42301F11C00AB9577 /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */; };
+		4F381FC52301F11C00AB9577 /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
+		4F381FC62301F11C00AB9577 /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
+		4F381FC72301F11C00AB9577 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
+		4F381FC82301F11C00AB9577 /* SellerCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9122BD83F700708718 /* SellerCode.swift */; };
+		4F381FC92301F11C00AB9577 /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */; };
+		4F381FCA2301F11C00AB9577 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
+		4F381FCB2301F11C00AB9577 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EE22EDE162001FA860 /* Book.swift */; };
+		4F381FCC2301F11C00AB9577 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
+		4F381FCD2301F11C00AB9577 /* ArticleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */; };
+		4F381FCE2301F11C00AB9577 /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
+		4F381FCF2301F11C00AB9577 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9F22C3484A00708718 /* ArticleViewController.swift */; };
+		4F381FD02301F11C00AB9577 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
+		4F381FD12301F11C00AB9577 /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
+		4F381FD22301F11C00AB9577 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9522C2400E00708718 /* AddArticleViewController.swift */; };
+		4F381FD32301F11C00AB9577 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864822C636EB00C9BE1E /* UserService.swift */; };
+		4F381FD42301F11C00AB9577 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
+		4F381FD52301F11C00AB9577 /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
+		4F381FD62301F11C00AB9577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
+		4F381FD72301F11C00AB9577 /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
+		4F381FD82301F11C00AB9577 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
+		4F381FDA2301F11C00AB9577 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
+		4F381FDC2301F11C00AB9577 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
+		4F381FDD2301F11C00AB9577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
+		4F381FDE2301F11C00AB9577 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
+		4F381FDF2301F11C00AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
+		4F381FE02301F11C00AB9577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
+		4F381FE12301F11C00AB9577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
+		4F381FE22301F11C00AB9577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
+		4F381FEC2301F17E00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
+		4F381FED2301F17E00AB9577 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
+		4F381FEE2301F17E00AB9577 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
+		4F381FEF2301F17E00AB9577 /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
+		4F381FF02301F17E00AB9577 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
+		4F381FF12301F17E00AB9577 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
+		4F381FF22301F17E00AB9577 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
+		4F381FF32301F17E00AB9577 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
+		4F381FF42301F17E00AB9577 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
+		4F381FF52301F17E00AB9577 /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
+		4F381FF62301F17E00AB9577 /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
+		4F381FF72301F17E00AB9577 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */; };
+		4F381FF82301F17E00AB9577 /* Error+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864D22C6431700C9BE1E /* Error+extension.swift */; };
+		4F381FF92301F17E00AB9577 /* ScanBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */; };
+		4F381FFA2301F17E00AB9577 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9322BD880200708718 /* UIViewController+Extension.swift */; };
+		4F381FFB2301F17E00AB9577 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9922C25AE300708718 /* ArticleService.swift */; };
+		4F381FFC2301F17E00AB9577 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
+		4F381FFD2301F17E00AB9577 /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */; };
+		4F381FFE2301F17E00AB9577 /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
+		4F381FFF2301F17E00AB9577 /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
+		4F3820002301F17E00AB9577 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
+		4F3820012301F17E00AB9577 /* SellerCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9122BD83F700708718 /* SellerCode.swift */; };
+		4F3820022301F17E00AB9577 /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */; };
+		4F3820032301F17E00AB9577 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
+		4F3820042301F17E00AB9577 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EE22EDE162001FA860 /* Book.swift */; };
+		4F3820052301F17E00AB9577 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
+		4F3820062301F17E00AB9577 /* ArticleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */; };
+		4F3820072301F17E00AB9577 /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
+		4F3820082301F17E00AB9577 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9F22C3484A00708718 /* ArticleViewController.swift */; };
+		4F3820092301F17E00AB9577 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
+		4F38200A2301F17E00AB9577 /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
+		4F38200B2301F17E00AB9577 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9522C2400E00708718 /* AddArticleViewController.swift */; };
+		4F38200C2301F17E00AB9577 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864822C636EB00C9BE1E /* UserService.swift */; };
+		4F38200D2301F17E00AB9577 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
+		4F38200E2301F17E00AB9577 /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
+		4F38200F2301F17E00AB9577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
+		4F3820102301F17E00AB9577 /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
+		4F3820112301F17E00AB9577 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
+		4F3820132301F17E00AB9577 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
+		4F3820152301F17E00AB9577 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
+		4F3820162301F17E00AB9577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
+		4F3820172301F17E00AB9577 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
+		4F3820182301F17E00AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
+		4F3820192301F17E00AB9577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
+		4F38201A2301F17E00AB9577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
+		4F38201B2301F17E00AB9577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
+		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
+		4F3820282302EAB000AB9577 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820272302EAB000AB9577 /* Notes.swift */; };
 		4F6C1C3922CE2437004C9BF3 /* Purse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3822CE2437004C9BF3 /* Purse.swift */; };
 		4F6C1C3C22CE294C004C9BF3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
 		4F6C1C3E22CF29E0004C9BF3 /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
@@ -157,14 +160,15 @@
 		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		CC5C5A81B7903845658B7944 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
 		D93563E27C229C1B2477D2EC /* libPods-Boursobook-BoursobookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */; };
+		DCB5EB214D5A8E6DE4AC8A5D /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBE265992D7902D02891411 /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4F381FA62301DF1D00AB9577 /* PBXContainerItemProxy */ = {
+		4F3820222302167800AB9577 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FC5132F22B13440000FD572 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4F19E8DB2301D69E004C545C;
+			remoteGlobalIDString = 4F381FB02301F11C00AB9577;
 			remoteInfo = BoursobookForTests;
 		};
 		4FC5134F22B13440000FD572 /* PBXContainerItemProxy */ = {
@@ -177,6 +181,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A947C37F3BA2F1C58828B63 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig"; sourceTree = "<group>"; };
+		1AF60FA6D8E83646897AA4D0 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig"; sourceTree = "<group>"; };
 		4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
@@ -191,11 +197,15 @@
 		4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataSnapshot.swift; sourceTree = "<group>"; };
 		4F19E8592301563A004C545C /* TransactionServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceTestCase.swift; sourceTree = "<group>"; };
 		4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataBaseReference.swift; sourceTree = "<group>"; };
-		4F19E8CB2301B070004C545C /* BoursobookForTestsFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookForTestsFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
-		4F19E9122301D69E004C545C /* BoursobookForTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookForTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
 		4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-forTests.plist"; sourceTree = "<group>"; };
+		4F381FE72301F11C00AB9577 /* BoursobookForTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookForTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoursobookForTests-Info.plist"; path = "/Users/daviddubez/Dropbox/_00 _ dev/P12_Boursobook/Boursobook/BoursobookForTests-Info.plist"; sourceTree = "<absolute>"; };
+		4F3820202301F17E00AB9577 /* BoursobookForTestsFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookForTestsFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F3820212301F17E00AB9577 /* BoursobookForTestsFrench-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoursobookForTestsFrench-Info.plist"; path = "/Users/daviddubez/Dropbox/_00 _ dev/P12_Boursobook/Boursobook/BoursobookForTestsFrench-Info.plist"; sourceTree = "<absolute>"; };
+		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
+		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
 		4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseService.swift; sourceTree = "<group>"; };
@@ -245,26 +255,32 @@
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		57F18894D002D6E3E2DA7C9C /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests-BoursobookForTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EBE265992D7902D02891411 /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A18145339DF743E7B10667E /* Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests/Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig"; sourceTree = "<group>"; };
 		813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
 		A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.release.xcconfig"; sourceTree = "<group>"; };
+		BE1CAC10D1219453D3FB0786 /* Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests/Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4F19E8BE2301B070004C545C /* Frameworks */ = {
+		4F381FD92301F11C00AB9577 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F19E8BF2301B070004C545C /* libPods-Boursobook.a in Frameworks */,
+				4F381FDA2301F11C00AB9577 /* libPods-Boursobook.a in Frameworks */,
+				24CCF1DA94450ED6F7BA4321 /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F19E9042301D69E004C545C /* Frameworks */ = {
+		4F3820122301F17E00AB9577 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F19E9052301D69E004C545C /* libPods-Boursobook.a in Frameworks */,
+				4F3820132301F17E00AB9577 /* libPods-Boursobook.a in Frameworks */,
+				DCB5EB214D5A8E6DE4AC8A5D /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +308,8 @@
 			children = (
 				4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */,
 				4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */,
+				57F18894D002D6E3E2DA7C9C /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a */,
+				6EBE265992D7902D02891411 /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,6 +344,14 @@
 				4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */,
 			);
 			path = Articles;
+			sourceTree = "<group>";
+		};
+		4F3820262302ADEC00AB9577 /* Purse */ = {
+			isa = PBXGroup;
+			children = (
+				4F3820242302ADE600AB9577 /* PurseTestCase.swift */,
+			);
+			path = Purse;
 			sourceTree = "<group>";
 		};
 		4F6C1C3722CE2424004C9BF3 /* Purse */ = {
@@ -437,8 +463,8 @@
 			children = (
 				4FC5133722B13440000FD572 /* Boursobook.app */,
 				4FC5134E22B13440000FD572 /* BoursobookTests.xctest */,
-				4F19E8CB2301B070004C545C /* BoursobookForTestsFrench.app */,
-				4F19E9122301D69E004C545C /* BoursobookForTests.app */,
+				4F381FE72301F11C00AB9577 /* BoursobookForTests.app */,
+				4F3820202301F17E00AB9577 /* BoursobookForTestsFrench.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -447,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */,
+				4F3820272302EAB000AB9577 /* Notes.swift */,
 				4FC5136022B155E9000FD572 /* Model */,
 				4FC5136122B155F5000FD572 /* View */,
 				4FC5136222B15600000FD572 /* Controller */,
@@ -464,6 +491,7 @@
 				4F19E84322FB26E6004C545C /* FakeResponseData.swift */,
 				4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */,
 				4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */,
+				4F3820262302ADEC00AB9577 /* Purse */,
 				4F19E84E22FC4AEC004C545C /* Transaction */,
 				4F19E84022FAF503004C545C /* BookService */,
 				4FC5135422B13440000FD572 /* Info.plist */,
@@ -519,6 +547,8 @@
 			isa = PBXGroup;
 			children = (
 				4FC5134922B13440000FD572 /* Info.plist */,
+				4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */,
+				4F3820212301F17E00AB9577 /* BoursobookForTestsFrench-Info.plist */,
 				4FF1668722C3D9E800236165 /* .gitignore */,
 				4FA05B8622BD270100708718 /* GoogleService-Info.plist */,
 				4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */,
@@ -542,6 +572,10 @@
 				8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */,
 				A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */,
 				B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */,
+				BE1CAC10D1219453D3FB0786 /* Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig */,
+				7A18145339DF743E7B10667E /* Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig */,
+				1A947C37F3BA2F1C58828B63 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig */,
+				1AF60FA6D8E83646897AA4D0 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -549,34 +583,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F19E8952301B070004C545C /* BoursobookForTestsFrench */ = {
+		4F381FB02301F11C00AB9577 /* BoursobookForTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F19E8C82301B070004C545C /* Build configuration list for PBXNativeTarget "BoursobookForTestsFrench" */;
+			buildConfigurationList = 4F381FE42301F11C00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTests" */;
 			buildPhases = (
-				4F19E8962301B070004C545C /* [CP] Check Pods Manifest.lock */,
-				4F19E8972301B070004C545C /* Sources */,
-				4F19E8BE2301B070004C545C /* Frameworks */,
-				4F19E8C02301B070004C545C /* Resources */,
-				4F19E8C72301B070004C545C /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BoursobookForTestsFrench;
-			productName = Boursobook;
-			productReference = 4F19E8CB2301B070004C545C /* BoursobookForTestsFrench.app */;
-			productType = "com.apple.product-type.application";
-		};
-		4F19E8DB2301D69E004C545C /* BoursobookForTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F19E90F2301D69E004C545C /* Build configuration list for PBXNativeTarget "BoursobookForTests" */;
-			buildPhases = (
-				4F19E8DC2301D69E004C545C /* [CP] Check Pods Manifest.lock */,
-				4F19E8DD2301D69E004C545C /* Sources */,
-				4F19E9042301D69E004C545C /* Frameworks */,
-				4F19E9062301D69E004C545C /* Resources */,
-				4F19E90E2301D69E004C545C /* ShellScript */,
+				4F381FB12301F11C00AB9577 /* [CP] Check Pods Manifest.lock */,
+				4F381FB22301F11C00AB9577 /* Sources */,
+				4F381FD92301F11C00AB9577 /* Frameworks */,
+				4F381FDB2301F11C00AB9577 /* Resources */,
+				4F381FE32301F11C00AB9577 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -584,7 +599,26 @@
 			);
 			name = BoursobookForTests;
 			productName = Boursobook;
-			productReference = 4F19E9122301D69E004C545C /* BoursobookForTests.app */;
+			productReference = 4F381FE72301F11C00AB9577 /* BoursobookForTests.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F381FE92301F17E00AB9577 /* BoursobookForTestsFrench */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F38201D2301F17E00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTestsFrench" */;
+			buildPhases = (
+				4F381FEA2301F17E00AB9577 /* [CP] Check Pods Manifest.lock */,
+				4F381FEB2301F17E00AB9577 /* Sources */,
+				4F3820122301F17E00AB9577 /* Frameworks */,
+				4F3820142301F17E00AB9577 /* Resources */,
+				4F38201C2301F17E00AB9577 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoursobookForTestsFrench;
+			productName = Boursobook;
+			productReference = 4F3820202301F17E00AB9577 /* BoursobookForTestsFrench.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4FC5133622B13440000FD572 /* Boursobook */ = {
@@ -619,7 +653,7 @@
 			);
 			dependencies = (
 				4FC5135022B13440000FD572 /* PBXTargetDependency */,
-				4F381FA72301DF1D00AB9577 /* PBXTargetDependency */,
+				4F3820232302167800AB9577 /* PBXTargetDependency */,
 			);
 			name = BoursobookTests;
 			productName = BoursobookTests;
@@ -646,7 +680,7 @@
 					};
 					4FC5134D22B13440000FD572 = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 4F19E8DB2301D69E004C545C;
+						TestTargetID = 4FC5133622B13440000FD572;
 					};
 				};
 			};
@@ -666,38 +700,38 @@
 			targets = (
 				4FC5133622B13440000FD572 /* Boursobook */,
 				4FC5134D22B13440000FD572 /* BoursobookTests */,
-				4F19E8952301B070004C545C /* BoursobookForTestsFrench */,
-				4F19E8DB2301D69E004C545C /* BoursobookForTests */,
+				4F381FB02301F11C00AB9577 /* BoursobookForTests */,
+				4F381FE92301F17E00AB9577 /* BoursobookForTestsFrench */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4F19E8C02301B070004C545C /* Resources */ = {
+		4F381FDB2301F11C00AB9577 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F19E8C12301B070004C545C /* .gitignore in Resources */,
-				4F19E8C22301B070004C545C /* LaunchScreen.storyboard in Resources */,
-				4F19E8C32301B070004C545C /* Localizable.strings in Resources */,
-				4F381FAE2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */,
-				4F19E8C42301B070004C545C /* GoogleService-Info.plist in Resources */,
-				4F19E8C52301B070004C545C /* Assets.xcassets in Resources */,
-				4F19E8C62301B070004C545C /* Main.storyboard in Resources */,
+				4F381FDC2301F11C00AB9577 /* .gitignore in Resources */,
+				4F381FDD2301F11C00AB9577 /* LaunchScreen.storyboard in Resources */,
+				4F381FDE2301F11C00AB9577 /* Localizable.strings in Resources */,
+				4F381FDF2301F11C00AB9577 /* GoogleService-Info-forTests.plist in Resources */,
+				4F381FE02301F11C00AB9577 /* GoogleService-Info.plist in Resources */,
+				4F381FE12301F11C00AB9577 /* Assets.xcassets in Resources */,
+				4F381FE22301F11C00AB9577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F19E9062301D69E004C545C /* Resources */ = {
+		4F3820142301F17E00AB9577 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F19E9082301D69E004C545C /* .gitignore in Resources */,
-				4F19E9092301D69E004C545C /* LaunchScreen.storyboard in Resources */,
-				4F19E90A2301D69E004C545C /* Localizable.strings in Resources */,
-				4F381FAF2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */,
-				4F19E90B2301D69E004C545C /* GoogleService-Info.plist in Resources */,
-				4F19E90C2301D69E004C545C /* Assets.xcassets in Resources */,
-				4F19E90D2301D69E004C545C /* Main.storyboard in Resources */,
+				4F3820152301F17E00AB9577 /* .gitignore in Resources */,
+				4F3820162301F17E00AB9577 /* LaunchScreen.storyboard in Resources */,
+				4F3820172301F17E00AB9577 /* Localizable.strings in Resources */,
+				4F3820182301F17E00AB9577 /* GoogleService-Info-forTests.plist in Resources */,
+				4F3820192301F17E00AB9577 /* GoogleService-Info.plist in Resources */,
+				4F38201A2301F17E00AB9577 /* Assets.xcassets in Resources */,
+				4F38201B2301F17E00AB9577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +784,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F19E8962301B070004C545C /* [CP] Check Pods Manifest.lock */ = {
+		4F381FB12301F11C00AB9577 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -765,14 +799,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Boursobook-BoursobookTests-BoursobookForTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F19E8C72301B070004C545C /* ShellScript */ = {
+		4F381FE32301F11C00AB9577 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -789,7 +823,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		4F19E8DC2301D69E004C545C /* [CP] Check Pods Manifest.lock */ = {
+		4F381FEA2301F17E00AB9577 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -804,14 +838,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F19E90E2301D69E004C545C /* ShellScript */ = {
+		4F38201C2301F17E00AB9577 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -870,93 +904,93 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4F19E8972301B070004C545C /* Sources */ = {
+		4F381FB22301F11C00AB9577 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F19E8982301B070004C545C /* LoginViewController.swift in Sources */,
-				4F19E8992301B070004C545C /* Article.swift in Sources */,
-				4F19E89A2301B070004C545C /* TransactionService.swift in Sources */,
-				4F19E89B2301B070004C545C /* SearchingBookDelegate.swift in Sources */,
-				4F19E89C2301B070004C545C /* BuyViewController.swift in Sources */,
-				4F19E89D2301B070004C545C /* LabelSheet.swift in Sources */,
-				4F19E89E2301B070004C545C /* ScanViewController.swift in Sources */,
-				4F19E89F2301B070004C545C /* SellerService.swift in Sources */,
-				4F19E8A02301B070004C545C /* TransactionActicleListTableViewCell.swift in Sources */,
-				4F19E8A12301B070004C545C /* BrowseArticleTableViewCell.swift in Sources */,
-				4F19E8A22301B070004C545C /* Purse.swift in Sources */,
-				4F19E8A32301B070004C545C /* SetupViewController.swift in Sources */,
-				4F19E8A42301B070004C545C /* Error+extension.swift in Sources */,
-				4F19E8A52301B070004C545C /* ScanBookViewController.swift in Sources */,
-				4F19E8A62301B070004C545C /* UIViewController+Extension.swift in Sources */,
-				4F19E8A72301B070004C545C /* ArticleService.swift in Sources */,
-				4F19E8A82301B070004C545C /* BrowseArticleListTableViewController.swift in Sources */,
-				4F19E8A92301B070004C545C /* ArticleListTableViewController.swift in Sources */,
-				4F19E8AA2301B070004C545C /* PurseService.swift in Sources */,
-				4F19E8AB2301B070004C545C /* SellerViewController.swift in Sources */,
-				4F19E8AC2301B070004C545C /* SellerListTableViewCell.swift in Sources */,
-				4F19E8AD2301B070004C545C /* SellerCode.swift in Sources */,
-				4F19E8AE2301B070004C545C /* InMemoryStorage.swift in Sources */,
-				4F19E8AF2301B070004C545C /* Transaction.swift in Sources */,
-				4F19E8B02301B070004C545C /* Book.swift in Sources */,
-				4F19E8B12301B070004C545C /* InfoViewController.swift in Sources */,
-				4F19E8B22301B070004C545C /* ArticleListTableViewCell.swift in Sources */,
-				4F19E8B32301B070004C545C /* SellersListViewController.swift in Sources */,
-				4F19E8B42301B070004C545C /* ArticleViewController.swift in Sources */,
-				4F19E8B52301B070004C545C /* Seller.swift in Sources */,
-				4F19E8B62301B070004C545C /* TransactionValues.swift in Sources */,
-				4F19E8B72301B070004C545C /* AddArticleViewController.swift in Sources */,
-				4F19E8B82301B070004C545C /* UserService.swift in Sources */,
-				4F19E8B92301B070004C545C /* BookService.swift in Sources */,
-				4F19E8BA2301B070004C545C /* AddNewSellerViewController.swift in Sources */,
-				4F19E8BB2301B070004C545C /* AppDelegate.swift in Sources */,
-				4F19E8BC2301B070004C545C /* SheetSetupViewController.swift in Sources */,
-				4F19E8BD2301B070004C545C /* User.swift in Sources */,
+				4F381FB32301F11C00AB9577 /* LoginViewController.swift in Sources */,
+				4F381FB42301F11C00AB9577 /* Article.swift in Sources */,
+				4F381FB52301F11C00AB9577 /* TransactionService.swift in Sources */,
+				4F381FB62301F11C00AB9577 /* SearchingBookDelegate.swift in Sources */,
+				4F381FB72301F11C00AB9577 /* BuyViewController.swift in Sources */,
+				4F381FB82301F11C00AB9577 /* LabelSheet.swift in Sources */,
+				4F381FB92301F11C00AB9577 /* ScanViewController.swift in Sources */,
+				4F381FBA2301F11C00AB9577 /* SellerService.swift in Sources */,
+				4F381FBB2301F11C00AB9577 /* TransactionActicleListTableViewCell.swift in Sources */,
+				4F381FBC2301F11C00AB9577 /* BrowseArticleTableViewCell.swift in Sources */,
+				4F381FBD2301F11C00AB9577 /* Purse.swift in Sources */,
+				4F381FBE2301F11C00AB9577 /* SetupViewController.swift in Sources */,
+				4F381FBF2301F11C00AB9577 /* Error+extension.swift in Sources */,
+				4F381FC02301F11C00AB9577 /* ScanBookViewController.swift in Sources */,
+				4F381FC12301F11C00AB9577 /* UIViewController+Extension.swift in Sources */,
+				4F381FC22301F11C00AB9577 /* ArticleService.swift in Sources */,
+				4F381FC32301F11C00AB9577 /* BrowseArticleListTableViewController.swift in Sources */,
+				4F381FC42301F11C00AB9577 /* ArticleListTableViewController.swift in Sources */,
+				4F381FC52301F11C00AB9577 /* PurseService.swift in Sources */,
+				4F381FC62301F11C00AB9577 /* SellerViewController.swift in Sources */,
+				4F381FC72301F11C00AB9577 /* SellerListTableViewCell.swift in Sources */,
+				4F381FC82301F11C00AB9577 /* SellerCode.swift in Sources */,
+				4F381FC92301F11C00AB9577 /* InMemoryStorage.swift in Sources */,
+				4F381FCA2301F11C00AB9577 /* Transaction.swift in Sources */,
+				4F381FCB2301F11C00AB9577 /* Book.swift in Sources */,
+				4F381FCC2301F11C00AB9577 /* InfoViewController.swift in Sources */,
+				4F381FCD2301F11C00AB9577 /* ArticleListTableViewCell.swift in Sources */,
+				4F381FCE2301F11C00AB9577 /* SellersListViewController.swift in Sources */,
+				4F381FCF2301F11C00AB9577 /* ArticleViewController.swift in Sources */,
+				4F381FD02301F11C00AB9577 /* Seller.swift in Sources */,
+				4F381FD12301F11C00AB9577 /* TransactionValues.swift in Sources */,
+				4F381FD22301F11C00AB9577 /* AddArticleViewController.swift in Sources */,
+				4F381FD32301F11C00AB9577 /* UserService.swift in Sources */,
+				4F381FD42301F11C00AB9577 /* BookService.swift in Sources */,
+				4F381FD52301F11C00AB9577 /* AddNewSellerViewController.swift in Sources */,
+				4F381FD62301F11C00AB9577 /* AppDelegate.swift in Sources */,
+				4F381FD72301F11C00AB9577 /* SheetSetupViewController.swift in Sources */,
+				4F381FD82301F11C00AB9577 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F19E8DD2301D69E004C545C /* Sources */ = {
+		4F381FEB2301F17E00AB9577 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F19E8DE2301D69E004C545C /* LoginViewController.swift in Sources */,
-				4F19E8DF2301D69E004C545C /* Article.swift in Sources */,
-				4F19E8E02301D69E004C545C /* TransactionService.swift in Sources */,
-				4F19E8E12301D69E004C545C /* SearchingBookDelegate.swift in Sources */,
-				4F19E8E22301D69E004C545C /* BuyViewController.swift in Sources */,
-				4F19E8E32301D69E004C545C /* LabelSheet.swift in Sources */,
-				4F19E8E42301D69E004C545C /* ScanViewController.swift in Sources */,
-				4F19E8E52301D69E004C545C /* SellerService.swift in Sources */,
-				4F19E8E62301D69E004C545C /* TransactionActicleListTableViewCell.swift in Sources */,
-				4F19E8E72301D69E004C545C /* BrowseArticleTableViewCell.swift in Sources */,
-				4F19E8E82301D69E004C545C /* Purse.swift in Sources */,
-				4F19E8E92301D69E004C545C /* SetupViewController.swift in Sources */,
-				4F19E8EA2301D69E004C545C /* Error+extension.swift in Sources */,
-				4F19E8EB2301D69E004C545C /* ScanBookViewController.swift in Sources */,
-				4F19E8EC2301D69E004C545C /* UIViewController+Extension.swift in Sources */,
-				4F19E8ED2301D69E004C545C /* ArticleService.swift in Sources */,
-				4F19E8EE2301D69E004C545C /* BrowseArticleListTableViewController.swift in Sources */,
-				4F19E8EF2301D69E004C545C /* ArticleListTableViewController.swift in Sources */,
-				4F19E8F02301D69E004C545C /* PurseService.swift in Sources */,
-				4F19E8F12301D69E004C545C /* SellerViewController.swift in Sources */,
-				4F19E8F22301D69E004C545C /* SellerListTableViewCell.swift in Sources */,
-				4F19E8F32301D69E004C545C /* SellerCode.swift in Sources */,
-				4F19E8F42301D69E004C545C /* InMemoryStorage.swift in Sources */,
-				4F19E8F52301D69E004C545C /* Transaction.swift in Sources */,
-				4F19E8F62301D69E004C545C /* Book.swift in Sources */,
-				4F19E8F72301D69E004C545C /* InfoViewController.swift in Sources */,
-				4F19E8F82301D69E004C545C /* ArticleListTableViewCell.swift in Sources */,
-				4F19E8F92301D69E004C545C /* SellersListViewController.swift in Sources */,
-				4F19E8FA2301D69E004C545C /* ArticleViewController.swift in Sources */,
-				4F19E8FB2301D69E004C545C /* Seller.swift in Sources */,
-				4F19E8FC2301D69E004C545C /* TransactionValues.swift in Sources */,
-				4F19E8FD2301D69E004C545C /* AddArticleViewController.swift in Sources */,
-				4F19E8FE2301D69E004C545C /* UserService.swift in Sources */,
-				4F19E8FF2301D69E004C545C /* BookService.swift in Sources */,
-				4F19E9002301D69E004C545C /* AddNewSellerViewController.swift in Sources */,
-				4F19E9012301D69E004C545C /* AppDelegate.swift in Sources */,
-				4F19E9022301D69E004C545C /* SheetSetupViewController.swift in Sources */,
-				4F19E9032301D69E004C545C /* User.swift in Sources */,
+				4F381FEC2301F17E00AB9577 /* LoginViewController.swift in Sources */,
+				4F381FED2301F17E00AB9577 /* Article.swift in Sources */,
+				4F381FEE2301F17E00AB9577 /* TransactionService.swift in Sources */,
+				4F381FEF2301F17E00AB9577 /* SearchingBookDelegate.swift in Sources */,
+				4F381FF02301F17E00AB9577 /* BuyViewController.swift in Sources */,
+				4F381FF12301F17E00AB9577 /* LabelSheet.swift in Sources */,
+				4F381FF22301F17E00AB9577 /* ScanViewController.swift in Sources */,
+				4F381FF32301F17E00AB9577 /* SellerService.swift in Sources */,
+				4F381FF42301F17E00AB9577 /* TransactionActicleListTableViewCell.swift in Sources */,
+				4F381FF52301F17E00AB9577 /* BrowseArticleTableViewCell.swift in Sources */,
+				4F381FF62301F17E00AB9577 /* Purse.swift in Sources */,
+				4F381FF72301F17E00AB9577 /* SetupViewController.swift in Sources */,
+				4F381FF82301F17E00AB9577 /* Error+extension.swift in Sources */,
+				4F381FF92301F17E00AB9577 /* ScanBookViewController.swift in Sources */,
+				4F381FFA2301F17E00AB9577 /* UIViewController+Extension.swift in Sources */,
+				4F381FFB2301F17E00AB9577 /* ArticleService.swift in Sources */,
+				4F381FFC2301F17E00AB9577 /* BrowseArticleListTableViewController.swift in Sources */,
+				4F381FFD2301F17E00AB9577 /* ArticleListTableViewController.swift in Sources */,
+				4F381FFE2301F17E00AB9577 /* PurseService.swift in Sources */,
+				4F381FFF2301F17E00AB9577 /* SellerViewController.swift in Sources */,
+				4F3820002301F17E00AB9577 /* SellerListTableViewCell.swift in Sources */,
+				4F3820012301F17E00AB9577 /* SellerCode.swift in Sources */,
+				4F3820022301F17E00AB9577 /* InMemoryStorage.swift in Sources */,
+				4F3820032301F17E00AB9577 /* Transaction.swift in Sources */,
+				4F3820042301F17E00AB9577 /* Book.swift in Sources */,
+				4F3820052301F17E00AB9577 /* InfoViewController.swift in Sources */,
+				4F3820062301F17E00AB9577 /* ArticleListTableViewCell.swift in Sources */,
+				4F3820072301F17E00AB9577 /* SellersListViewController.swift in Sources */,
+				4F3820082301F17E00AB9577 /* ArticleViewController.swift in Sources */,
+				4F3820092301F17E00AB9577 /* Seller.swift in Sources */,
+				4F38200A2301F17E00AB9577 /* TransactionValues.swift in Sources */,
+				4F38200B2301F17E00AB9577 /* AddArticleViewController.swift in Sources */,
+				4F38200C2301F17E00AB9577 /* UserService.swift in Sources */,
+				4F38200D2301F17E00AB9577 /* BookService.swift in Sources */,
+				4F38200E2301F17E00AB9577 /* AddNewSellerViewController.swift in Sources */,
+				4F38200F2301F17E00AB9577 /* AppDelegate.swift in Sources */,
+				4F3820102301F17E00AB9577 /* SheetSetupViewController.swift in Sources */,
+				4F3820112301F17E00AB9577 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +1012,7 @@
 				4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */,
 				4F9E864E22C6431700C9BE1E /* Error+extension.swift in Sources */,
 				4F7AA7EC22EDDBAC001FA860 /* ScanBookViewController.swift in Sources */,
+				4F3820282302EAB000AB9577 /* Notes.swift in Sources */,
 				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
 				4FA05B9A22C25AE300708718 /* ArticleService.swift in Sources */,
 				4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */,
@@ -1017,16 +1052,17 @@
 				4F19E85A2301563A004C545C /* TransactionServiceTestCase.swift in Sources */,
 				4F19E85823014E5B004C545C /* FakeDataSnapshot.swift in Sources */,
 				4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */,
+				4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4F381FA72301DF1D00AB9577 /* PBXTargetDependency */ = {
+		4F3820232302167800AB9577 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4F19E8DB2301D69E004C545C /* BoursobookForTests */;
-			targetProxy = 4F381FA62301DF1D00AB9577 /* PBXContainerItemProxy */;
+			target = 4F381FB02301F11C00AB9577 /* BoursobookForTests */;
+			targetProxy = 4F3820222302167800AB9577 /* PBXContainerItemProxy */;
 		};
 		4FC5135022B13440000FD572 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1066,15 +1102,15 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4F19E8C92301B070004C545C /* Debug */ = {
+		4F381FE52301F11C00AB9577 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */;
+			baseConfigurationReference = BE1CAC10D1219453D3FB0786 /* Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = "Boursobook copy2-Info.plist";
+				INFOPLIST_FILE = "BoursobookForTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1087,15 +1123,15 @@
 			};
 			name = Debug;
 		};
-		4F19E8CA2301B070004C545C /* Release */ = {
+		4F381FE62301F11C00AB9577 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */;
+			baseConfigurationReference = 7A18145339DF743E7B10667E /* Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = "Boursobook copy2-Info.plist";
+				INFOPLIST_FILE = "BoursobookForTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1108,15 +1144,15 @@
 			};
 			name = Release;
 		};
-		4F19E9102301D69E004C545C /* Debug */ = {
+		4F38201E2301F17E00AB9577 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */;
+			baseConfigurationReference = 1A947C37F3BA2F1C58828B63 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = "Boursobook copy3-Info.plist";
+				INFOPLIST_FILE = "BoursobookForTestsFrench-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1129,15 +1165,15 @@
 			};
 			name = Debug;
 		};
-		4F19E9112301D69E004C545C /* Release */ = {
+		4F38201F2301F17E00AB9577 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */;
+			baseConfigurationReference = 1AF60FA6D8E83646897AA4D0 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = "Boursobook copy3-Info.plist";
+				INFOPLIST_FILE = "BoursobookForTestsFrench-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1145,7 +1181,6 @@
 				OTHER_SWIFT_FLAGS = "-DTEST_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.Boursobook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1328,7 +1363,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoursobookForTests.app/BoursobookForTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boursobook.app/Boursobook";
 			};
 			name = Debug;
 		};
@@ -1351,27 +1386,27 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoursobookForTests.app/BoursobookForTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boursobook.app/Boursobook";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F19E8C82301B070004C545C /* Build configuration list for PBXNativeTarget "BoursobookForTestsFrench" */ = {
+		4F381FE42301F11C00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F19E8C92301B070004C545C /* Debug */,
-				4F19E8CA2301B070004C545C /* Release */,
+				4F381FE52301F11C00AB9577 /* Debug */,
+				4F381FE62301F11C00AB9577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F19E90F2301D69E004C545C /* Build configuration list for PBXNativeTarget "BoursobookForTests" */ = {
+		4F38201D2301F17E00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTestsFrench" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F19E9102301D69E004C545C /* Debug */,
-				4F19E9112301D69E004C545C /* Release */,
+				4F38201E2301F17E00AB9577 /* Debug */,
+				4F38201F2301F17E00AB9577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -12,12 +12,12 @@
 		<key>BoursobookForTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>15</integer>
 		</dict>
 		<key>BoursobookForTestsFrench.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>4F19E8952301B070004C545C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F381FB02301F11C00AB9577</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F381FE92301F17E00AB9577</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -16,18 +16,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     override init() {
+        // Select FireBase dataBase depending of testing or production mode
+        guard let testPath = Bundle.main.path(forResource: "GoogleService-Info-forTests",
+                                               ofType: "plist") else {return}
+        guard let productionPath = Bundle.main.path(forResource: "GoogleService-Info",
+                                               ofType: "plist") else {return}
+        var plistPath = productionPath
 
-        #if TEST_VERSION
-            print("TEST_VERSION")
-            guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info-forTests",
-                                                   ofType: "plist") else {return}
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            // select testDatabase for XCTest
+            print("Running TEST_VERSION")
+            print("Using https://boursobookfortests.firebaseio.com ")
+            plistPath = testPath
+
+        } else {
+            #if TEST_VERSION
+            // select testDatabase for scheme for test
+            print("Running TEST_VERSION")
+            print("Using https://boursobookfortests.firebaseio.com ")
+            plistPath = testPath
+
             #else
-            print("NORMAL_VERSION")
-            guard let plistPath = Bundle.main.path(forResource: "GoogleService-Info",
-                                                   ofType: "plist") else {return}
+            // select productionDatabase for scheme for production
+            print("Running NORMAL_VERSION")
+            print("Using https://boursobook.firebaseio.com ")
+            plistPath = productionPath
             #endif
-
-        //FIXME: A voir avec Vincent pourquoi on passe pas par la meme si on coche le target membership
+        }
 
         if let option = FirebaseOptions(contentsOfFile: plistPath) {
             FirebaseApp.configure(options: option)

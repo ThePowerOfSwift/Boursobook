@@ -72,6 +72,7 @@ class TransactionTestCase: XCTestCase {
 
         //When
         guard let transaction = Transaction(snapshot: fakeTransactionDataSnapshot) else {
+            XCTFail("error in init of transaction")
             return
         }
 
@@ -91,11 +92,13 @@ class TransactionTestCase: XCTestCase {
 
         //When
         guard let transaction = Transaction(snapshot: emptyTransactionDataSnapshot) else {
+            XCTAssertTrue(true)
             return
         }
 
         //Then
         XCTAssertNil(transaction)
+        XCTFail("transaction is initialised")
 
     }
 }

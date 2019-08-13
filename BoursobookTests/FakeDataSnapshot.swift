@@ -25,7 +25,7 @@ class FakeTransactionDataSnapshot: DataSnapshot {
 
 class FakePurseDataSnapshot: DataSnapshot {
     //Override the property value of a DataSnapshot for a Purse
-    
+
     override var value: Any? {
         return ["name": "APE 2019",
                 "percentageOnSales": 10.2,

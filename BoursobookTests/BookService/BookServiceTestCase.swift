@@ -149,6 +149,7 @@ class BookServiceTestCase: XCTestCase {
             // Then
             XCTAssertTrue(success)
             XCTAssertNil(error)
+
             XCTAssertEqual(bookVolumeInfo?.title, "Les piliers de la terre")
             expectation.fulfill()
         }
