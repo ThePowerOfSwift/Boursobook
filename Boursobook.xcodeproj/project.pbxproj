@@ -147,7 +147,6 @@
 		4FC5134022B13440000FD572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4FC5134522B13440000FD572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
-		4FC5C931230595DF00BDD28E /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C930230595DF00BDD28E /* GoogleService-Info-production.plist */; };
 		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		D2F54C40FD2A5648E783BA50 /* Pods_BoursobookProduction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B89298C1BD5E23EFCB3EB8 /* Pods_BoursobookProduction.framework */; };
@@ -242,7 +241,6 @@
 		4FC5134E22B13440000FD572 /* BoursobookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoursobookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC5135422B13440000FD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		4FC5C930230595DF00BDD28E /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A2C0A0CB3056EEFE1422274 /* Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; sourceTree = "<group>"; };
@@ -537,7 +535,6 @@
 			children = (
 				4FC5134922B13440000FD572 /* Info.plist */,
 				4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */,
-				4FC5C930230595DF00BDD28E /* GoogleService-Info-production.plist */,
 				4FF1668722C3D9E800236165 /* .gitignore */,
 			);
 			path = "Supporting Files";
@@ -726,7 +723,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FC5C931230595DF00BDD28E /* GoogleService-Info-production.plist in Resources */,
 				4FF1668822C3D9E800236165 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
 				4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */,
