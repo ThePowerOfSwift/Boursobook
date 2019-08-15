@@ -21,7 +21,6 @@
 		4F19E85C2301659D004C545C /* FakeDataBaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
 		4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
-		4F381FAD2301EE5200AB9577 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */; };
 		4F381FB32301F11C00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		4F381FB42301F11C00AB9577 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
 		4F381FB52301F11C00AB9577 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
@@ -63,8 +62,6 @@
 		4F381FDC2301F11C00AB9577 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4F381FDD2301F11C00AB9577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4F381FDE2301F11C00AB9577 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
-		4F381FDF2301F11C00AB9577 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */; };
-		4F381FE02301F11C00AB9577 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */; };
 		4F381FE12301F11C00AB9577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4F381FE22301F11C00AB9577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4F381FEC2301F17E00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
@@ -108,8 +105,6 @@
 		4F3820152301F17E00AB9577 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4F3820162301F17E00AB9577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4F3820172301F17E00AB9577 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
-		4F3820182301F17E00AB9577 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */; };
-		4F3820192301F17E00AB9577 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */; };
 		4F38201A2301F17E00AB9577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4F38201B2301F17E00AB9577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
@@ -137,7 +132,6 @@
 		4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
 		4FA05B8322BD06E100708718 /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
 		4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
-		4FA05B8722BD270100708718 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */; };
 		4FA05B8922BD356500708718 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
 		4FA05B8E22BD43E300708718 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
 		4FA05B9022BD72F300708718 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
@@ -153,6 +147,7 @@
 		4FC5134022B13440000FD572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4FC5134522B13440000FD572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
+		4FC5C931230595DF00BDD28E /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C930230595DF00BDD28E /* GoogleService-Info-production.plist */; };
 		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		D2F54C40FD2A5648E783BA50 /* Pods_BoursobookProduction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B89298C1BD5E23EFCB3EB8 /* Pods_BoursobookProduction.framework */; };
@@ -196,11 +191,9 @@
 		4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataBaseReference.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
-		4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-development.plist"; sourceTree = "<group>"; };
 		4F381FE72301F11C00AB9577 /* BoursobookDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoursobookForTests-Info.plist"; path = "/Users/daviddubez/Dropbox/_00 _ dev/P12_Boursobook/Boursobook/BoursobookForTests-Info.plist"; sourceTree = "<absolute>"; };
 		4F3820202301F17E00AB9577 /* BoursobookDevelopmentFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookDevelopmentFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F3820212301F17E00AB9577 /* BoursobookForTestsFrench-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoursobookForTestsFrench-Info.plist"; path = "/Users/daviddubez/Dropbox/_00 _ dev/P12_Boursobook/Boursobook/BoursobookForTestsFrench-Info.plist"; sourceTree = "<absolute>"; };
 		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
 		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
@@ -229,7 +222,6 @@
 		4FA05B8022BD01C100708718 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		4FA05B8222BD06E100708718 /* SellersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellersListViewController.swift; sourceTree = "<group>"; };
 		4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSellerViewController.swift; sourceTree = "<group>"; };
-		4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
 		4FA05B8822BD356500708718 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListTableViewCell.swift; sourceTree = "<group>"; };
 		4FA05B8F22BD72F300708718 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
@@ -250,6 +242,7 @@
 		4FC5134E22B13440000FD572 /* BoursobookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoursobookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC5135422B13440000FD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4FC5C930230595DF00BDD28E /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A2C0A0CB3056EEFE1422274 /* Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; sourceTree = "<group>"; };
@@ -544,10 +537,8 @@
 			children = (
 				4FC5134922B13440000FD572 /* Info.plist */,
 				4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */,
-				4F3820212301F17E00AB9577 /* BoursobookForTestsFrench-Info.plist */,
+				4FC5C930230595DF00BDD28E /* GoogleService-Info-production.plist */,
 				4FF1668722C3D9E800236165 /* .gitignore */,
-				4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */,
-				4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -714,8 +705,6 @@
 				4F381FDC2301F11C00AB9577 /* .gitignore in Resources */,
 				4F381FDD2301F11C00AB9577 /* LaunchScreen.storyboard in Resources */,
 				4F381FDE2301F11C00AB9577 /* Localizable.strings in Resources */,
-				4F381FDF2301F11C00AB9577 /* GoogleService-Info-development.plist in Resources */,
-				4F381FE02301F11C00AB9577 /* GoogleService-Info-production.plist in Resources */,
 				4F381FE12301F11C00AB9577 /* Assets.xcassets in Resources */,
 				4F381FE22301F11C00AB9577 /* Main.storyboard in Resources */,
 			);
@@ -728,8 +717,6 @@
 				4F3820152301F17E00AB9577 /* .gitignore in Resources */,
 				4F3820162301F17E00AB9577 /* LaunchScreen.storyboard in Resources */,
 				4F3820172301F17E00AB9577 /* Localizable.strings in Resources */,
-				4F3820182301F17E00AB9577 /* GoogleService-Info-development.plist in Resources */,
-				4F3820192301F17E00AB9577 /* GoogleService-Info-production.plist in Resources */,
 				4F38201A2301F17E00AB9577 /* Assets.xcassets in Resources */,
 				4F38201B2301F17E00AB9577 /* Main.storyboard in Resources */,
 			);
@@ -739,11 +726,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC5C931230595DF00BDD28E /* GoogleService-Info-production.plist in Resources */,
 				4FF1668822C3D9E800236165 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
 				4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */,
-				4F381FAD2301EE5200AB9577 /* GoogleService-Info-development.plist in Resources */,
-				4FA05B8722BD270100708718 /* GoogleService-Info-production.plist in Resources */,
 				4FC5134522B13440000FD572 /* Assets.xcassets in Resources */,
 				4FC5134022B13440000FD572 /* Main.storyboard in Resources */,
 			);
