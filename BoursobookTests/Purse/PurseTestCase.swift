@@ -10,7 +10,7 @@ import XCTest
 
 import XCTest
 import Firebase
-@testable import Boursobook
+@testable import BoursobookProduction
 
 class PurseTestCase: XCTestCase {
 
@@ -25,49 +25,48 @@ class PurseTestCase: XCTestCase {
         let name = "APE 2019"
         let percentageOnSales = 10.2
         let administrators = ["me": true]
-        let users = ["me": true]
+        let users = ["me": "me@me.fr"]
         let numberOfArticleRegistered = 13
         let numberOfSellers = 8
         let numberOfArticleSolded = 8
         let numberOfTransaction = 4
         let totalSalesAmount = 12.6
         let totalBenefitOnSalesAmount = 2.4
+        let totalDepositFeeAmount = 2.2
+        let depositFee = Purse.DepositFee(underFifty: 2.0,
+                                          underOneHundred: 4.0,
+                                          underOneHundredFifty: 6.0,
+                                          underTwoHundred: 8.0,
+                                          underTwoHundredFifty: 10.0,
+                                          overTwoHundredFifty: 12.0)
 
-//        "totalDepositFeeAmount": 2.2
-//        let depositFee = Purse.DepositFee(underFifty: 2.0, underOneHundred: <#T##Double#>,
-//        underOneHundredFifty: <#T##Double#>, underTwoHundred: <#T##Double#>, underTwoHundredFifty: <#T##Double#>, overTwoHundredFifty: <#T##Double#>)
-//        "depositFee": ["underFifty": 2.0,
-//        "underOneHundred": 4.0,
-//        "underOneHundredFifty": 6.0,
-//        "underTwoHundred": 8.0,
-//        "underTwoHundredFifty": 10.0,
-//        "overTwoHundredFifty": 12.0],
-
-        
-        
-        let date = "15/01/19"
-        let uniqueID = "4E242432"
-        let amount = 23.4
-        let numberOfArticle = 7
-        let madeByUser = "michel"
-        let articles = ["livre": true]
-        let purseName = "APE 2019"
-        let fakeTransactionDataSnapshot = FakeTransactionDataSnapshot()
+        let fakePurseDataSnapshot = FakePurseDataSnapshot()
 
         //When
-        guard let transaction = Transaction(snapshot: fakeTransactionDataSnapshot) else {
+        guard let purse = Purse(snapshot: fakePurseDataSnapshot) else {
             XCTFail("error in init purse")
             return
         }
 
         //Then
-        XCTAssertEqual(transaction.date, date)
-        XCTAssertEqual(transaction.uniqueID, uniqueID)
-        XCTAssertEqual(transaction.amount, amount)
-        XCTAssertEqual(transaction.numberOfArticle, numberOfArticle)
-        XCTAssertEqual(transaction.madeByUser, madeByUser)
-        XCTAssertEqual(transaction.articles, articles)
-        XCTAssertEqual(transaction.purseName, purseName)
+        XCTAssertEqual(purse.name, name)
+        XCTAssertEqual(purse.percentageOnSales, percentageOnSales)
+        XCTAssertEqual(purse.administrators, administrators)
+        XCTAssertEqual(purse.users, users)
+        XCTAssertEqual(purse.numberOfArticleRegistered, numberOfArticleRegistered)
+        XCTAssertEqual(purse.numberOfSellers, numberOfSellers)
+        XCTAssertEqual(purse.numberOfArticleSolded, numberOfArticleSolded)
+        XCTAssertEqual(purse.numberOfTransaction, numberOfTransaction)
+        XCTAssertEqual(purse.totalSalesAmount, totalSalesAmount)
+        XCTAssertEqual(purse.totalBenefitOnSalesAmount, totalBenefitOnSalesAmount)
+        XCTAssertEqual(purse.totalDepositFeeAmount, totalDepositFeeAmount)
+        XCTAssertEqual(purse.depositFee.underFifty, depositFee.underFifty)
+        XCTAssertEqual(purse.depositFee.underOneHundred, depositFee.underOneHundred)
+        XCTAssertEqual(purse.depositFee.underOneHundredFifty, depositFee.underOneHundredFifty)
+        XCTAssertEqual(purse.depositFee.underTwoHundred, depositFee.underTwoHundred)
+        XCTAssertEqual(purse.depositFee.underTwoHundredFifty, depositFee.underTwoHundredFifty)
+        XCTAssertEqual(purse.depositFee.overTwoHundredFifty, depositFee.overTwoHundredFifty)
+
     }
 
     func testInitPurseWithEmptyDataSnapshotSouldReturnNil() {

@@ -36,7 +36,7 @@ class FakePurseDataSnapshot: DataSnapshot {
                                "underTwoHundredFifty": 10.0,
                                "overTwoHundredFifty": 12.0],
                 "administrators": ["me": true],
-                "users": ["me": true],
+                "users": ["me": "me@me.fr"],
                 "numberOfArticleRegistered": 13,
                 "numberOfSellers": 8,
                 "numberOfArticleSolded": 8,

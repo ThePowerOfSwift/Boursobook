@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Boursobook
+@testable import BoursobookProduction
 
 class LabelSheetTestCase: XCTestCase {
 

@@ -17,28 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     override init() {
         // Select FireBase dataBase depending of testing or production mode
-        guard let testPath = Bundle.main.path(forResource: "GoogleService-Info-forTests",
+        guard let developmentPath = Bundle.main.path(forResource: "GoogleService-Info-development",
                                                ofType: "plist") else {return}
-        guard let productionPath = Bundle.main.path(forResource: "GoogleService-Info",
+        guard let productionPath = Bundle.main.path(forResource: "GoogleService-Info-production",
                                                ofType: "plist") else {return}
         var plistPath = productionPath
 
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             // select testDatabase for XCTest
-            print("Running TEST_VERSION")
+            print("Running DEVELOPMENT_VERSION")
             print("Using https://boursobookfortests.firebaseio.com ")
-            plistPath = testPath
+            plistPath = developmentPath
 
         } else {
             #if TEST_VERSION
             // select testDatabase for scheme for test
-            print("Running TEST_VERSION")
+            print("Running DEVELOPMENT_VERSION")
             print("Using https://boursobookfortests.firebaseio.com ")
-            plistPath = testPath
+            plistPath = developmentPath
 
             #else
             // select productionDatabase for scheme for production
-            print("Running NORMAL_VERSION")
+            print("Running PRODUCTION_VERSION")
             print("Using https://boursobook.firebaseio.com ")
             plistPath = productionPath
             #endif

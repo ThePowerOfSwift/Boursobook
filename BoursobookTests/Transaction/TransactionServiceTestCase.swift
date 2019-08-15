@@ -8,7 +8,7 @@
 
 import XCTest
 import Firebase
-@testable import Boursobook
+@testable import BoursobookProduction
 
 class TransactionServiceTestCase: XCTestCase {
 
@@ -38,6 +38,7 @@ class TransactionServiceTestCase: XCTestCase {
     }
 
     func testRealReadTransactionDataSouldReturnTransactions() {
+
         //Given
         let date = "15/01/19"
         let uniqueID = "fake transaction For test"
@@ -55,7 +56,9 @@ class TransactionServiceTestCase: XCTestCase {
                                       amount: amount, numberOfArticle: numberOfArticle,
                                       madeByUser: madeByUser, articles: articles, purseName: purseName)
 
-        let transactionService = TransactionService(with: Database.database().reference(withPath: "transactions"))
+        let ref = Database.database().reference(withPath: "transactions")
+
+        let transactionService = TransactionService(with: ref)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -78,6 +81,3 @@ class TransactionServiceTestCase: XCTestCase {
         XCTAssertEqual(date, "rien")
     }
 }
-//        faire un test directement sur firebase en creant une transaction
-//        verifier si on travaille sur la test Firebase
-//        et sinon changer les @testable import sur BoursobookTest

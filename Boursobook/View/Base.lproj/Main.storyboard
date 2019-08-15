@@ -2050,13 +2050,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEa-sg-xjc">
-                                                                            <rect key="frame" x="100" y="5.0000000000000018" width="189" height="29.666666666666671"/>
+                                                                            <rect key="frame" x="100" y="5.0000000000000018" width="150" height="29.666666666666671"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,99 €" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apP-Mh-3vL">
-                                                                            <rect key="frame" x="299" y="5.0000000000000018" width="65" height="29.666666666666671"/>
+                                                                            <rect key="frame" x="260" y="5.0000000000000018" width="65" height="29.666666666666671"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="CJ7-9g-etw"/>
                                                                             </constraints>

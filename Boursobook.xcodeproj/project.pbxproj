@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24CCF1DA94450ED6F7BA4321 /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F18894D002D6E3E2DA7C9C /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a */; };
 		4F19E83B22F5F69C004C545C /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
 		4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */; };
 		4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83E22FAF4E9004C545C /* BookServiceTestCase.swift */; };
@@ -22,7 +21,7 @@
 		4F19E85C2301659D004C545C /* FakeDataBaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
 		4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
-		4F381FAD2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
+		4F381FAD2301EE5200AB9577 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */; };
 		4F381FB32301F11C00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		4F381FB42301F11C00AB9577 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
 		4F381FB52301F11C00AB9577 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
@@ -61,12 +60,11 @@
 		4F381FD62301F11C00AB9577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
 		4F381FD72301F11C00AB9577 /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
 		4F381FD82301F11C00AB9577 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
-		4F381FDA2301F11C00AB9577 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
 		4F381FDC2301F11C00AB9577 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4F381FDD2301F11C00AB9577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4F381FDE2301F11C00AB9577 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
-		4F381FDF2301F11C00AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
-		4F381FE02301F11C00AB9577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
+		4F381FDF2301F11C00AB9577 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */; };
+		4F381FE02301F11C00AB9577 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */; };
 		4F381FE12301F11C00AB9577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4F381FE22301F11C00AB9577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4F381FEC2301F17E00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
@@ -107,12 +105,11 @@
 		4F38200F2301F17E00AB9577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
 		4F3820102301F17E00AB9577 /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
 		4F3820112301F17E00AB9577 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
-		4F3820132301F17E00AB9577 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
 		4F3820152301F17E00AB9577 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4F3820162301F17E00AB9577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4F3820172301F17E00AB9577 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
-		4F3820182301F17E00AB9577 /* GoogleService-Info-forTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */; };
-		4F3820192301F17E00AB9577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
+		4F3820182301F17E00AB9577 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */; };
+		4F3820192301F17E00AB9577 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */; };
 		4F38201A2301F17E00AB9577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
 		4F38201B2301F17E00AB9577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
 		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
@@ -140,7 +137,7 @@
 		4FA05B8122BD01C100708718 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
 		4FA05B8322BD06E100708718 /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
 		4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
-		4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info.plist */; };
+		4FA05B8722BD270100708718 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */; };
 		4FA05B8922BD356500708718 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
 		4FA05B8E22BD43E300708718 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
 		4FA05B9022BD72F300708718 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
@@ -158,9 +155,10 @@
 		4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
-		CC5C5A81B7903845658B7944 /* libPods-Boursobook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */; };
-		D93563E27C229C1B2477D2EC /* libPods-Boursobook-BoursobookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */; };
-		DCB5EB214D5A8E6DE4AC8A5D /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBE265992D7902D02891411 /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a */; };
+		D2F54C40FD2A5648E783BA50 /* Pods_BoursobookProduction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B89298C1BD5E23EFCB3EB8 /* Pods_BoursobookProduction.framework */; };
+		D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */; };
+		E16036E200A094F3E8297189 /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */; };
+		E5CE3363084EB405E467E65D /* Pods_BoursobookProduction_BoursobookDevelopment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,10 +179,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A947C37F3BA2F1C58828B63 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig"; sourceTree = "<group>"; };
-		1AF60FA6D8E83646897AA4D0 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig"; sourceTree = "<group>"; };
-		4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ABF2AE86A70D7B951223E35 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig"; sourceTree = "<group>"; };
+		172B6770E3BD2DD917D1F010 /* Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; sourceTree = "<group>"; };
+		2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
 		4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheetTestCase.swift; sourceTree = "<group>"; };
 		4F19E83E22FAF4E9004C545C /* BookServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceTestCase.swift; sourceTree = "<group>"; };
@@ -199,10 +196,10 @@
 		4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataBaseReference.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
-		4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-forTests.plist"; sourceTree = "<group>"; };
-		4F381FE72301F11C00AB9577 /* BoursobookForTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookForTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-development.plist"; sourceTree = "<group>"; };
+		4F381FE72301F11C00AB9577 /* BoursobookDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoursobookForTests-Info.plist"; path = "/Users/daviddubez/Dropbox/_00 _ dev/P12_Boursobook/Boursobook/BoursobookForTests-Info.plist"; sourceTree = "<absolute>"; };
-		4F3820202301F17E00AB9577 /* BoursobookForTestsFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookForTestsFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F3820202301F17E00AB9577 /* BoursobookDevelopmentFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookDevelopmentFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3820212301F17E00AB9577 /* BoursobookForTestsFrench-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoursobookForTestsFrench-Info.plist"; path = "/Users/daviddubez/Dropbox/_00 _ dev/P12_Boursobook/Boursobook/BoursobookForTestsFrench-Info.plist"; sourceTree = "<absolute>"; };
 		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
 		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
@@ -232,7 +229,7 @@
 		4FA05B8022BD01C100708718 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		4FA05B8222BD06E100708718 /* SellersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellersListViewController.swift; sourceTree = "<group>"; };
 		4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSellerViewController.swift; sourceTree = "<group>"; };
-		4FA05B8622BD270100708718 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
 		4FA05B8822BD356500708718 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListTableViewCell.swift; sourceTree = "<group>"; };
 		4FA05B8F22BD72F300708718 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
@@ -244,7 +241,7 @@
 		4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewController.swift; sourceTree = "<group>"; };
 		4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewCell.swift; sourceTree = "<group>"; };
 		4FA05B9F22C3484A00708718 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
-		4FC5133722B13440000FD572 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC5133722B13440000FD572 /* BoursobookProduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookProduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC5133A22B13440000FD572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FC5133F22B13440000FD572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FC5134422B13440000FD572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,14 +252,15 @@
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		57F18894D002D6E3E2DA7C9C /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests-BoursobookForTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EBE265992D7902D02891411 /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A18145339DF743E7B10667E /* Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests/Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig"; sourceTree = "<group>"; };
-		813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
-		8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
-		A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests.release.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests/Pods-Boursobook-BoursobookTests.release.xcconfig"; sourceTree = "<group>"; };
-		BE1CAC10D1219453D3FB0786 /* Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook-BoursobookTests-BoursobookForTests/Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A2C0A0CB3056EEFE1422274 /* Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; sourceTree = "<group>"; };
+		7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction_BoursobookDevelopment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C2E5CDCBC54888F269C293E /* Pods-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81F6E13C0E6BA2A8991066C8 /* Pods-BoursobookProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction.debug.xcconfig"; sourceTree = "<group>"; };
+		82B89298C1BD5E23EFCB3EB8 /* Pods_BoursobookProduction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2499EF21E2BBB77CFCEFC67 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig"; sourceTree = "<group>"; };
+		BE3BA1829B60B2169166A54F /* Pods-BoursobookProduction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction.release.xcconfig"; sourceTree = "<group>"; };
+		D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookTests.release.xcconfig"; path = "Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests.release.xcconfig"; sourceTree = "<group>"; };
+		F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,8 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F381FDA2301F11C00AB9577 /* libPods-Boursobook.a in Frameworks */,
-				24CCF1DA94450ED6F7BA4321 /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a in Frameworks */,
+				E5CE3363084EB405E467E65D /* Pods_BoursobookProduction_BoursobookDevelopment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,8 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F3820132301F17E00AB9577 /* libPods-Boursobook.a in Frameworks */,
-				DCB5EB214D5A8E6DE4AC8A5D /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a in Frameworks */,
+				E16036E200A094F3E8297189 /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC5C5A81B7903845658B7944 /* libPods-Boursobook.a in Frameworks */,
+				D2F54C40FD2A5648E783BA50 /* Pods_BoursobookProduction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D93563E27C229C1B2477D2EC /* libPods-Boursobook-BoursobookTests.a in Frameworks */,
+				D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,10 +302,10 @@
 		30AD75877C3943C28257FDCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E666CBF9F3663A1A33268F9 /* libPods-Boursobook.a */,
-				4D877242AB14F081DFE90F13 /* libPods-Boursobook-BoursobookTests.a */,
-				57F18894D002D6E3E2DA7C9C /* libPods-Boursobook-BoursobookTests-BoursobookForTests.a */,
-				6EBE265992D7902D02891411 /* libPods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.a */,
+				2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */,
+				82B89298C1BD5E23EFCB3EB8 /* Pods_BoursobookProduction.framework */,
+				7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */,
+				F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -461,10 +457,10 @@
 		4FC5133822B13440000FD572 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FC5133722B13440000FD572 /* Boursobook.app */,
+				4FC5133722B13440000FD572 /* BoursobookProduction.app */,
 				4FC5134E22B13440000FD572 /* BoursobookTests.xctest */,
-				4F381FE72301F11C00AB9577 /* BoursobookForTests.app */,
-				4F3820202301F17E00AB9577 /* BoursobookForTestsFrench.app */,
+				4F381FE72301F11C00AB9577 /* BoursobookDevelopment.app */,
+				4F3820202301F17E00AB9577 /* BoursobookDevelopmentFrench.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -550,8 +546,8 @@
 				4F381FE82301F11C00AB9577 /* BoursobookForTests-Info.plist */,
 				4F3820212301F17E00AB9577 /* BoursobookForTestsFrench-Info.plist */,
 				4FF1668722C3D9E800236165 /* .gitignore */,
-				4FA05B8622BD270100708718 /* GoogleService-Info.plist */,
-				4F381FAC2301EE5200AB9577 /* GoogleService-Info-forTests.plist */,
+				4FA05B8622BD270100708718 /* GoogleService-Info-production.plist */,
+				4F381FAC2301EE5200AB9577 /* GoogleService-Info-development.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -568,14 +564,14 @@
 		52F8EC04C1FA26C604F0A847 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */,
-				8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */,
-				A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */,
-				B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */,
-				BE1CAC10D1219453D3FB0786 /* Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig */,
-				7A18145339DF743E7B10667E /* Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig */,
-				1A947C37F3BA2F1C58828B63 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig */,
-				1AF60FA6D8E83646897AA4D0 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig */,
+				81F6E13C0E6BA2A8991066C8 /* Pods-BoursobookProduction.debug.xcconfig */,
+				BE3BA1829B60B2169166A54F /* Pods-BoursobookProduction.release.xcconfig */,
+				172B6770E3BD2DD917D1F010 /* Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig */,
+				5A2C0A0CB3056EEFE1422274 /* Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig */,
+				0ABF2AE86A70D7B951223E35 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig */,
+				B2499EF21E2BBB77CFCEFC67 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig */,
+				7C2E5CDCBC54888F269C293E /* Pods-BoursobookTests.debug.xcconfig */,
+				D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -583,71 +579,75 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F381FB02301F11C00AB9577 /* BoursobookForTests */ = {
+		4F381FB02301F11C00AB9577 /* BoursobookDevelopment */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F381FE42301F11C00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTests" */;
+			buildConfigurationList = 4F381FE42301F11C00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookDevelopment" */;
 			buildPhases = (
 				4F381FB12301F11C00AB9577 /* [CP] Check Pods Manifest.lock */,
 				4F381FB22301F11C00AB9577 /* Sources */,
 				4F381FD92301F11C00AB9577 /* Frameworks */,
 				4F381FDB2301F11C00AB9577 /* Resources */,
 				4F381FE32301F11C00AB9577 /* ShellScript */,
+				64329A32CC7CF03B682297D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BoursobookForTests;
+			name = BoursobookDevelopment;
 			productName = Boursobook;
-			productReference = 4F381FE72301F11C00AB9577 /* BoursobookForTests.app */;
+			productReference = 4F381FE72301F11C00AB9577 /* BoursobookDevelopment.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4F381FE92301F17E00AB9577 /* BoursobookForTestsFrench */ = {
+		4F381FE92301F17E00AB9577 /* BoursobookDevelopmentFrench */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F38201D2301F17E00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTestsFrench" */;
+			buildConfigurationList = 4F38201D2301F17E00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookDevelopmentFrench" */;
 			buildPhases = (
 				4F381FEA2301F17E00AB9577 /* [CP] Check Pods Manifest.lock */,
 				4F381FEB2301F17E00AB9577 /* Sources */,
 				4F3820122301F17E00AB9577 /* Frameworks */,
 				4F3820142301F17E00AB9577 /* Resources */,
 				4F38201C2301F17E00AB9577 /* ShellScript */,
+				14298DB22782769E48E4E14C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BoursobookForTestsFrench;
+			name = BoursobookDevelopmentFrench;
 			productName = Boursobook;
-			productReference = 4F3820202301F17E00AB9577 /* BoursobookForTestsFrench.app */;
+			productReference = 4F3820202301F17E00AB9577 /* BoursobookDevelopmentFrench.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4FC5133622B13440000FD572 /* Boursobook */ = {
+		4FC5133622B13440000FD572 /* BoursobookProduction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FC5135722B13440000FD572 /* Build configuration list for PBXNativeTarget "Boursobook" */;
+			buildConfigurationList = 4FC5135722B13440000FD572 /* Build configuration list for PBXNativeTarget "BoursobookProduction" */;
 			buildPhases = (
 				348FE0054C0AFF77C94E5E41 /* [CP] Check Pods Manifest.lock */,
 				4FC5133322B13440000FD572 /* Sources */,
 				4FC5133422B13440000FD572 /* Frameworks */,
 				4FC5133522B13440000FD572 /* Resources */,
 				4FC5135D22B155A1000FD572 /* ShellScript */,
+				571B00CD061B9D568A5453AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Boursobook;
+			name = BoursobookProduction;
 			productName = Boursobook;
-			productReference = 4FC5133722B13440000FD572 /* Boursobook.app */;
+			productReference = 4FC5133722B13440000FD572 /* BoursobookProduction.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4FC5134D22B13440000FD572 /* BoursobookTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FC5135A22B13440000FD572 /* Build configuration list for PBXNativeTarget "BoursobookTests" */;
 			buildPhases = (
-				FA218A92C63455AA3F85A304 /* [CP] Check Pods Manifest.lock */,
+				C4BE6D1DB790D90D31735699 /* [CP] Check Pods Manifest.lock */,
 				4FC5134A22B13440000FD572 /* Sources */,
 				4FC5134B22B13440000FD572 /* Frameworks */,
 				4FC5134C22B13440000FD572 /* Resources */,
+				0A691F1F882B3D87159328B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -698,10 +698,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4FC5133622B13440000FD572 /* Boursobook */,
+				4FC5133622B13440000FD572 /* BoursobookProduction */,
 				4FC5134D22B13440000FD572 /* BoursobookTests */,
-				4F381FB02301F11C00AB9577 /* BoursobookForTests */,
-				4F381FE92301F17E00AB9577 /* BoursobookForTestsFrench */,
+				4F381FB02301F11C00AB9577 /* BoursobookDevelopment */,
+				4F381FE92301F17E00AB9577 /* BoursobookDevelopmentFrench */,
 			);
 		};
 /* End PBXProject section */
@@ -714,8 +714,8 @@
 				4F381FDC2301F11C00AB9577 /* .gitignore in Resources */,
 				4F381FDD2301F11C00AB9577 /* LaunchScreen.storyboard in Resources */,
 				4F381FDE2301F11C00AB9577 /* Localizable.strings in Resources */,
-				4F381FDF2301F11C00AB9577 /* GoogleService-Info-forTests.plist in Resources */,
-				4F381FE02301F11C00AB9577 /* GoogleService-Info.plist in Resources */,
+				4F381FDF2301F11C00AB9577 /* GoogleService-Info-development.plist in Resources */,
+				4F381FE02301F11C00AB9577 /* GoogleService-Info-production.plist in Resources */,
 				4F381FE12301F11C00AB9577 /* Assets.xcassets in Resources */,
 				4F381FE22301F11C00AB9577 /* Main.storyboard in Resources */,
 			);
@@ -728,8 +728,8 @@
 				4F3820152301F17E00AB9577 /* .gitignore in Resources */,
 				4F3820162301F17E00AB9577 /* LaunchScreen.storyboard in Resources */,
 				4F3820172301F17E00AB9577 /* Localizable.strings in Resources */,
-				4F3820182301F17E00AB9577 /* GoogleService-Info-forTests.plist in Resources */,
-				4F3820192301F17E00AB9577 /* GoogleService-Info.plist in Resources */,
+				4F3820182301F17E00AB9577 /* GoogleService-Info-development.plist in Resources */,
+				4F3820192301F17E00AB9577 /* GoogleService-Info-production.plist in Resources */,
 				4F38201A2301F17E00AB9577 /* Assets.xcassets in Resources */,
 				4F38201B2301F17E00AB9577 /* Main.storyboard in Resources */,
 			);
@@ -742,8 +742,8 @@
 				4FF1668822C3D9E800236165 /* .gitignore in Resources */,
 				4FC5134822B13440000FD572 /* LaunchScreen.storyboard in Resources */,
 				4F9E863F22C6239A00C9BE1E /* Localizable.strings in Resources */,
-				4F381FAD2301EE5200AB9577 /* GoogleService-Info-forTests.plist in Resources */,
-				4FA05B8722BD270100708718 /* GoogleService-Info.plist in Resources */,
+				4F381FAD2301EE5200AB9577 /* GoogleService-Info-development.plist in Resources */,
+				4FA05B8722BD270100708718 /* GoogleService-Info-production.plist in Resources */,
 				4FC5134522B13440000FD572 /* Assets.xcassets in Resources */,
 				4FC5134022B13440000FD572 /* Main.storyboard in Resources */,
 			);
@@ -762,22 +762,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		348FE0054C0AFF77C94E5E41 /* [CP] Check Pods Manifest.lock */ = {
+		0A691F1F882B3D87159328B8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14298DB22782769E48E4E14C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		348FE0054C0AFF77C94E5E41 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BoursobookProduction-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -789,17 +819,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-BoursobookTests-BoursobookForTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BoursobookProduction-BoursobookDevelopment-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -811,11 +837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -828,17 +850,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -850,11 +868,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -867,11 +881,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -879,22 +889,52 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		FA218A92C63455AA3F85A304 /* [CP] Check Pods Manifest.lock */ = {
+		571B00CD061B9D568A5453AA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64329A32CC7CF03B682297D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4BE6D1DB790D90D31735699 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-BoursobookTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BoursobookTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1061,12 +1101,12 @@
 /* Begin PBXTargetDependency section */
 		4F3820232302167800AB9577 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4F381FB02301F11C00AB9577 /* BoursobookForTests */;
+			target = 4F381FB02301F11C00AB9577 /* BoursobookDevelopment */;
 			targetProxy = 4F3820222302167800AB9577 /* PBXContainerItemProxy */;
 		};
 		4FC5135022B13440000FD572 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4FC5133622B13440000FD572 /* Boursobook */;
+			target = 4FC5133622B13440000FD572 /* BoursobookProduction */;
 			targetProxy = 4FC5134F22B13440000FD572 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1104,7 +1144,7 @@
 /* Begin XCBuildConfiguration section */
 		4F381FE52301F11C00AB9577 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE1CAC10D1219453D3FB0786 /* Pods-Boursobook-BoursobookTests-BoursobookForTests.debug.xcconfig */;
+			baseConfigurationReference = 172B6770E3BD2DD917D1F010 /* Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
@@ -1125,7 +1165,7 @@
 		};
 		4F381FE62301F11C00AB9577 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A18145339DF743E7B10667E /* Pods-Boursobook-BoursobookTests-BoursobookForTests.release.xcconfig */;
+			baseConfigurationReference = 5A2C0A0CB3056EEFE1422274 /* Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
@@ -1146,7 +1186,7 @@
 		};
 		4F38201E2301F17E00AB9577 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A947C37F3BA2F1C58828B63 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.debug.xcconfig */;
+			baseConfigurationReference = 0ABF2AE86A70D7B951223E35 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
@@ -1167,7 +1207,7 @@
 		};
 		4F38201F2301F17E00AB9577 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AF60FA6D8E83646897AA4D0 /* Pods-Boursobook-BoursobookTests-BoursobookForTests-BoursobookForTestsFrench.release.xcconfig */;
+			baseConfigurationReference = B2499EF21E2BBB77CFCEFC67 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
@@ -1306,7 +1346,7 @@
 		};
 		4FC5135822B13440000FD572 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 813F4306188365DBAB3021C8 /* Pods-Boursobook.debug.xcconfig */;
+			baseConfigurationReference = 81F6E13C0E6BA2A8991066C8 /* Pods-BoursobookProduction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
@@ -1326,7 +1366,7 @@
 		};
 		4FC5135922B13440000FD572 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D022CBC4A8285CA0CF03575 /* Pods-Boursobook.release.xcconfig */;
+			baseConfigurationReference = BE3BA1829B60B2169166A54F /* Pods-BoursobookProduction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
@@ -1346,12 +1386,14 @@
 		};
 		4FC5135B22B13440000FD572 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7F3402AA12D40CFB68DB2FD /* Pods-Boursobook-BoursobookTests.debug.xcconfig */;
+			baseConfigurationReference = 7C2E5CDCBC54888F269C293E /* Pods-BoursobookTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BoursobookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1363,18 +1405,20 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boursobook.app/Boursobook";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoursobookProduction.app/BoursobookProduction";
 			};
 			name = Debug;
 		};
 		4FC5135C22B13440000FD572 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B28ACC20EA47B1C48EF11AD0 /* Pods-Boursobook-BoursobookTests.release.xcconfig */;
+			baseConfigurationReference = D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BoursobookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1386,14 +1430,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boursobook.app/Boursobook";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoursobookProduction.app/BoursobookProduction";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F381FE42301F11C00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTests" */ = {
+		4F381FE42301F11C00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookDevelopment" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F381FE52301F11C00AB9577 /* Debug */,
@@ -1402,7 +1446,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F38201D2301F17E00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookForTestsFrench" */ = {
+		4F38201D2301F17E00AB9577 /* Build configuration list for PBXNativeTarget "BoursobookDevelopmentFrench" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F38201E2301F17E00AB9577 /* Debug */,
@@ -1420,7 +1464,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FC5135722B13440000FD572 /* Build configuration list for PBXNativeTarget "Boursobook" */ = {
+		4FC5135722B13440000FD572 /* Build configuration list for PBXNativeTarget "BoursobookProduction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FC5135822B13440000FD572 /* Debug */,
