@@ -50,7 +50,7 @@ class Seller: Equatable {
                 let phoneNumberValue = snapshotValue["phoneNumber"] as? String,
                 let codeValue = snapshotValue["code"] as? String,
                 let createdByValue = snapshotValue["createdBy"] as? String,
-                let purseValue = snapshotValue["purse"] as? String,
+                let purseValue = snapshotValue["purseName"] as? String,
                 let articleSoldedValue = snapshotValue["articleSolded"] as? Int,
                 let articleRegisteredValue = snapshotValue["articleRegistered"] as? Int,
                 let orderNumberValue = snapshotValue["orderNumber"] as? Int,

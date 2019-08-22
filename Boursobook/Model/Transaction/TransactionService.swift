@@ -10,41 +10,42 @@ import Foundation
 import Firebase
 
 class TransactionService {
-    // Manage the "transactions" database on FireBase
+    // Manage the "transactions" database on a remote database
 
     // MARK: Properties
-    private let reference: DatabaseReference
-
-    init(with reference: DatabaseReference) {
-        self.reference = reference
-    }
-
+    private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .transaction
+    private var transactionRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
     static let transactionUpdatedNotification =
         Notification.Name("TransactionService.transactionUpdated")
 
+    // MARK: Initialisation
+    init() {}
+    init(transactionRemoteDataBaseRequest: RemoteDatabaseRequest) {
+        self.transactionRemoteDataBaseRequest = transactionRemoteDataBaseRequest
+   }
+
     // MARK: Function
     func create(transaction: Transaction) {
-        let transactionRef = reference.child(transaction.uniqueID)
-        let values: [String: Any] = ["date": transaction.date, "uniqueID": transaction.uniqueID,
-                                     "amount": transaction.amount, "numberOfArticle": transaction.numberOfArticle,
-                                     "madeByUser": transaction.madeByUser, "articles": transaction.articles,
-                                     "purseName": transaction.purseName]
-        transactionRef.setValue(values)
+        // Create a transaction in the remote database
+        transactionRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: transaction)
     }
 
     func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Transaction]) -> Void) {
-        // Query transactions from FireBase for one Purse
-        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
-            var newTransaction: [Transaction] = []
+        // Query transactions from remote database for one Purse
 
-            for child in snapshot.children {
-                if let childValue = child as? DataSnapshot {
-                    if let transaction = Transaction(snapshot: childValue) {
-                        newTransaction.append(transaction)
-                    }
-                }
-            }
-            completionHandler(true, newTransaction)
+    transactionRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase,
+                                                           for: purse) { (done, transactionReaded) in
+            completionHandler(done, transactionReaded)
         }
+    }
+
+    func stopListen() {
+        //Stop the listening of the transactions
+        transactionRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
+    }
+
+    func remove(transaction: Transaction) {
+        // Delete a transaction in the remote database
+        transactionRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: transaction)
     }
 }

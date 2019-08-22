@@ -9,7 +9,8 @@
 import Foundation
 import Firebase
 
-class Transaction {
+class Transaction: RemoteDataBaseModel {
+
     var date: String
     var uniqueID: String
     var amount: Double
@@ -41,7 +42,7 @@ class Transaction {
         self.purseName = purseName
     }
 
-    init?(snapshot: DataSnapshot) {
+    required init?(snapshot: DataSnapshot) {
         guard   let snapshotValue = snapshot.value as? [String: AnyObject],
                 let dateValue = snapshotValue["date"] as? String,
                 let uniqueIDValue = snapshotValue["uniqueID"] as? String,
@@ -60,5 +61,13 @@ class Transaction {
         madeByUser = madeByValue
         articles = articlesValues
         purseName = purseNameValue
+    }
+
+    func setValuesForRemoteDataBase() -> [String: Any] {
+        let values: [String: Any] = ["date": date, "uniqueID": uniqueID,
+                                     "amount": amount, "numberOfArticle": numberOfArticle,
+                                     "madeByUser": madeByUser, "articles": articles,
+                                     "purseName": purseName]
+        return values
     }
 }

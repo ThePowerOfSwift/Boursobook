@@ -10,6 +10,7 @@ import XCTest
 import Firebase
 @testable import BoursobookProduction
 
+// MARK: Test in local
 class TransactionServiceTestCase: XCTestCase {
 
     override func setUp() {
@@ -20,7 +21,9 @@ class TransactionServiceTestCase: XCTestCase {
 
     func testReadTransactionDataSouldReturnTransactions() {
         //Given
-        let fakeTransactionService = TransactionService(with: MockDatabaseReference())
+        let fakeTransactionService = TransactionService(
+            transactionRemoteDataBaseRequest: RemoteDatabaseRequestMock(snapshot: FakeTransactionDataSnapshot()))
+
         guard let purse = Purse(snapshot: FakePurseDataSnapshot()) else {
             XCTFail("error in init purse")
             return}
@@ -36,6 +39,8 @@ class TransactionServiceTestCase: XCTestCase {
         }
         wait(for: [expectaion], timeout: 0.5)
     }
+
+// MARK: Test with firebase
 
     func testRealReadTransactionDataSouldReturnTransactions() {
 
@@ -56,15 +61,30 @@ class TransactionServiceTestCase: XCTestCase {
                                       amount: amount, numberOfArticle: numberOfArticle,
                                       madeByUser: madeByUser, articles: articles, purseName: purseName)
 
-        let ref = Database.database().reference(withPath: "transactions")
+        let transactionService = TransactionService()
 
-        let transactionService = TransactionService(with: ref)
+        let firstExpectation = XCTestExpectation(description: "Wait for reading.")
+
+        // Confirm if a transaction with uniqueID "fake transaction For test" doesn't exist
+        transactionService.readAndListenData(for: purse) { (done, transactionsReaded) in
+            if done {
+                for transaction in transactionsReaded where transaction.uniqueID == uniqueID {
+                    XCTFail("error transaxaction allready exist")
+                }
+            }
+            XCTAssertTrue(done)
+            transactionService.stopListen()
+            print("initial state verified")
+            firstExpectation.fulfill()
+        }
+        wait(for: [firstExpectation], timeout: 5.0)
 
         //When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
 
+        let secondExpectation = XCTestExpectation(description: "Wait for create and reading.")
         transactionService.create(transaction: transaction)
         transactionService.readAndListenData(for: purse) { (done, transactionsReaded) in
+
             //Then
             if done {
                 for transaction in transactionsReaded where transaction.uniqueID == uniqueID {
@@ -74,10 +94,28 @@ class TransactionServiceTestCase: XCTestCase {
                 }
             }
             XCTAssertTrue(done)
-            XCTAssertFalse(done)
-            expectation.fulfill()
+            print("creation and read verified")
+            transactionService.stopListen()
+            secondExpectation.fulfill()
         }
-        wait(for: [expectation], timeout: 5.0)
-        XCTAssertEqual(date, "rien")
+        wait(for: [secondExpectation], timeout: 5.0)
+
+        transactionService.remove(transaction: transaction)
+
+        let finalExpectation = XCTestExpectation(description: "Wait for deleting and reading.")
+        transactionService.readAndListenData(for: purse) { (done, transactionsReaded) in
+
+            //Then
+            if done {
+                for transaction in transactionsReaded where transaction.uniqueID == uniqueID {
+                    XCTFail("error transaxaction allready exist")
+                }
+            }
+            XCTAssertTrue(done)
+            print("final state verified")
+            transactionService.stopListen()
+            finalExpectation.fulfill()
+        }
+        wait(for: [finalExpectation], timeout: 5.0)
     }
 }

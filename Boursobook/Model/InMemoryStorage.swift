@@ -26,7 +26,7 @@ class InMemoryStorage {
     private var articleService = ArticleService()
 
     private(set) var transactions: [Transaction] = []
-    private var transactionService = TransactionService(with: Database.database().reference(withPath: "transactions"))
+    private var transactionService = TransactionService()
 
     private(set) var currentPurse: Purse?
     private(set) var currentUser: User?

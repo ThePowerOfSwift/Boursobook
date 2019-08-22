@@ -21,7 +21,7 @@ class SellerService {
         let values: [String: Any] = ["firstName": seller.firstName, "familyName": seller.familyName,
                                      "code": seller.code,
                                      "email": seller.email, "phoneNumber": seller.phoneNumber,
-                                     "createdBy": seller.createdBy, "purse": seller.purseName,
+                                     "createdBy": seller.createdBy, "purseName": seller.purseName,
                                      "articleSolded": 0, "articleRegistered": 0,
                                      "depositFeeAmount": 0, "salesAmount": 0, "orderNumber": 0,
                                      "refundDone": false, "refundDate": "", "refundBy": ""]
@@ -34,7 +34,7 @@ class SellerService {
 
     func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Seller]) -> Void) {
         // Query sellers from FireBase for one Purse
-        reference.queryOrdered(byChild: "purse").queryEqual(toValue: purse.name).observe(.value) { snapshot in
+        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
             var newSellers: [Seller] = []
 
             for child in snapshot.children {

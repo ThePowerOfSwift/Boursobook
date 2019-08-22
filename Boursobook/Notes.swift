@@ -13,10 +13,19 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
+    - J'ai essayer de donner une seule responsabilité par classe et d'injecter des dépendance pour
+    que le code ne depende pas des framework.
+    Par contre, dans les classes "model" j'implemente des fonctions "setValuesForRemoteDatabase"
+    et "init(snapchot)" pour se conformer à mon protocole par contre l'implementation des fonctions
+    dans les classes dépande de l'utilation de firebase. C'est bon ????
     - Voir la meilleure facon de faire 2 versions avec fichiers ou config differentes
     - Pourquoi une double compilation de boursobook et boursobooktest avec meme erreurs ?
     - difference en debug et release ?
     - Pod Install ????
+    - Pourquoi on ne peut importer que des targets dans les tests ?
+    - Comment on peut identifier dans le code les portions
+    qui ne sont pas testées
+ 
  
  */
 

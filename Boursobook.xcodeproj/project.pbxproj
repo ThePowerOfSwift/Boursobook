@@ -20,6 +20,15 @@
 		4F19E85A2301563A004C545C /* TransactionServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E8592301563A004C545C /* TransactionServiceTestCase.swift */; };
 		4F19E85C2301659D004C545C /* FakeDataBaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
+		4F1B5737230B3550000C7276 /* RemoteDatabaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA36A1230AFA8600D70489 /* RemoteDatabaseReference.swift */; };
+		4F1B5738230B3552000C7276 /* RemoteDatabaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA36A1230AFA8600D70489 /* RemoteDatabaseReference.swift */; };
+		4F1B573A230BDDEF000C7276 /* TransactionStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */; };
+		4F1B573B230BDDEF000C7276 /* TransactionStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */; };
+		4F1B573C230BDDEF000C7276 /* TransactionStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */; };
+		4F1B573E230D2ED8000C7276 /* FireBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */; };
+		4F1B573F230D2ED8000C7276 /* FireBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */; };
+		4F1B5740230D2ED8000C7276 /* FireBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */; };
+		4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */; };
 		4F1E66D122DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
 		4F381FB32301F11C00AB9577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		4F381FB42301F11C00AB9577 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
@@ -153,6 +162,13 @@
 		4FC5C93923059C8E00BDD28E /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */; };
 		4FC5C93A23059C8F00BDD28E /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */; };
 		4FC5C93B23059C8F00BDD28E /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */; };
+		4FC5C93D2305BF8800BDD28E /* RemoteDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */; };
+		4FC5C93E2305BF8800BDD28E /* RemoteDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */; };
+		4FC5C93F2305BF8800BDD28E /* RemoteDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */; };
+		4FDA369D230A963A00D70489 /* RemoteDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */; };
+		4FDA369E230A96AE00D70489 /* RemoteDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */; };
+		4FDA369F230A96AE00D70489 /* RemoteDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */; };
+		4FDA36A2230AFA8600D70489 /* RemoteDatabaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA36A1230AFA8600D70489 /* RemoteDatabaseReference.swift */; };
 		4FF1668822C3D9E800236165 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4FF1668C22C4C7FC00236165 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		D2F54C40FD2A5648E783BA50 /* Pods_BoursobookProduction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B89298C1BD5E23EFCB3EB8 /* Pods_BoursobookProduction.framework */; };
@@ -195,6 +211,9 @@
 		4F19E8592301563A004C545C /* TransactionServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceTestCase.swift; sourceTree = "<group>"; };
 		4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataBaseReference.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
+		4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorageManager.swift; sourceTree = "<group>"; };
+		4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRequest.swift; sourceTree = "<group>"; };
+		4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRequestMock.swift; sourceTree = "<group>"; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
 		4F381FE72301F11C00AB9577 /* BoursobookDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3820202301F17E00AB9577 /* BoursobookDevelopmentFrench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoursobookDevelopmentFrench.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +267,9 @@
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4FC5C934230599C600BDD28E /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
 		4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-development.plist"; sourceTree = "<group>"; };
+		4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRequest.swift; sourceTree = "<group>"; };
+		4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataBaseModel.swift; sourceTree = "<group>"; };
+		4FDA36A1230AFA8600D70489 /* RemoteDatabaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseReference.swift; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A2C0A0CB3056EEFE1422274 /* Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.release.xcconfig"; sourceTree = "<group>"; };
@@ -363,6 +385,7 @@
 				4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */,
 				4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */,
 				4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */,
+				4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -482,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				4F19E84122FB25FB004C545C /* URLSessionFake.swift */,
+				4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */,
 				4F19E84322FB26E6004C545C /* FakeResponseData.swift */,
 				4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */,
 				4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */,
@@ -506,6 +530,7 @@
 				4F9E864C22C6386300C9BE1E /* Article */,
 				4F9E864D22C6431700C9BE1E /* Error+extension.swift */,
 				4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */,
+				4FDA36A0230AFA5700D70489 /* Remote Database */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,6 +571,17 @@
 				4FF1668722C3D9E800236165 /* .gitignore */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FDA36A0230AFA5700D70489 /* Remote Database */ = {
+			isa = PBXGroup;
+			children = (
+				4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */,
+				4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */,
+				4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */,
+				4FDA36A1230AFA8600D70489 /* RemoteDatabaseReference.swift */,
+			);
+			path = "Remote Database";
 			sourceTree = "<group>";
 		};
 		4FF1668D22C4D23B00236165 /* Other */ = {
@@ -954,9 +990,13 @@
 				4F381FBA2301F11C00AB9577 /* SellerService.swift in Sources */,
 				4F381FBB2301F11C00AB9577 /* TransactionActicleListTableViewCell.swift in Sources */,
 				4F381FBC2301F11C00AB9577 /* BrowseArticleTableViewCell.swift in Sources */,
+				4F1B5737230B3550000C7276 /* RemoteDatabaseReference.swift in Sources */,
 				4F381FBD2301F11C00AB9577 /* Purse.swift in Sources */,
+				4FC5C93E2305BF8800BDD28E /* RemoteDatabaseRequest.swift in Sources */,
 				4F381FBE2301F11C00AB9577 /* SetupViewController.swift in Sources */,
 				4F381FBF2301F11C00AB9577 /* Error+extension.swift in Sources */,
+				4FDA369E230A96AE00D70489 /* RemoteDataBaseModel.swift in Sources */,
+				4F1B573B230BDDEF000C7276 /* TransactionStorageManager.swift in Sources */,
 				4F381FC02301F11C00AB9577 /* ScanBookViewController.swift in Sources */,
 				4F381FC12301F11C00AB9577 /* UIViewController+Extension.swift in Sources */,
 				4F381FC22301F11C00AB9577 /* ArticleService.swift in Sources */,
@@ -964,6 +1004,7 @@
 				4F381FC42301F11C00AB9577 /* ArticleListTableViewController.swift in Sources */,
 				4F381FC52301F11C00AB9577 /* PurseService.swift in Sources */,
 				4F381FC62301F11C00AB9577 /* SellerViewController.swift in Sources */,
+				4F1B573F230D2ED8000C7276 /* FireBaseRequest.swift in Sources */,
 				4F381FC72301F11C00AB9577 /* SellerListTableViewCell.swift in Sources */,
 				4F381FC82301F11C00AB9577 /* SellerCode.swift in Sources */,
 				4F381FC92301F11C00AB9577 /* InMemoryStorage.swift in Sources */,
@@ -999,9 +1040,13 @@
 				4F381FF32301F17E00AB9577 /* SellerService.swift in Sources */,
 				4F381FF42301F17E00AB9577 /* TransactionActicleListTableViewCell.swift in Sources */,
 				4F381FF52301F17E00AB9577 /* BrowseArticleTableViewCell.swift in Sources */,
+				4F1B5738230B3552000C7276 /* RemoteDatabaseReference.swift in Sources */,
 				4F381FF62301F17E00AB9577 /* Purse.swift in Sources */,
+				4FC5C93F2305BF8800BDD28E /* RemoteDatabaseRequest.swift in Sources */,
 				4F381FF72301F17E00AB9577 /* SetupViewController.swift in Sources */,
 				4F381FF82301F17E00AB9577 /* Error+extension.swift in Sources */,
+				4FDA369F230A96AE00D70489 /* RemoteDataBaseModel.swift in Sources */,
+				4F1B573C230BDDEF000C7276 /* TransactionStorageManager.swift in Sources */,
 				4F381FF92301F17E00AB9577 /* ScanBookViewController.swift in Sources */,
 				4F381FFA2301F17E00AB9577 /* UIViewController+Extension.swift in Sources */,
 				4F381FFB2301F17E00AB9577 /* ArticleService.swift in Sources */,
@@ -1009,6 +1054,7 @@
 				4F381FFD2301F17E00AB9577 /* ArticleListTableViewController.swift in Sources */,
 				4F381FFE2301F17E00AB9577 /* PurseService.swift in Sources */,
 				4F381FFF2301F17E00AB9577 /* SellerViewController.swift in Sources */,
+				4F1B5740230D2ED8000C7276 /* FireBaseRequest.swift in Sources */,
 				4F3820002301F17E00AB9577 /* SellerListTableViewCell.swift in Sources */,
 				4F3820012301F17E00AB9577 /* SellerCode.swift in Sources */,
 				4F3820022301F17E00AB9577 /* InMemoryStorage.swift in Sources */,
@@ -1044,10 +1090,12 @@
 				4FA05B9022BD72F300708718 /* SellerService.swift in Sources */,
 				4F7AA7E522E05418001FA860 /* TransactionActicleListTableViewCell.swift in Sources */,
 				4F7AA7E322DF8E94001FA860 /* BrowseArticleTableViewCell.swift in Sources */,
+				4FDA36A2230AFA8600D70489 /* RemoteDatabaseReference.swift in Sources */,
 				4F6C1C3922CE2437004C9BF3 /* Purse.swift in Sources */,
 				4F8B454E22C9FBE1005FD099 /* SetupViewController.swift in Sources */,
 				4F9E864E22C6431700C9BE1E /* Error+extension.swift in Sources */,
 				4F7AA7EC22EDDBAC001FA860 /* ScanBookViewController.swift in Sources */,
+				4FC5C93D2305BF8800BDD28E /* RemoteDatabaseRequest.swift in Sources */,
 				4F3820282302EAB000AB9577 /* Notes.swift in Sources */,
 				4FA05B9422BD880200708718 /* UIViewController+Extension.swift in Sources */,
 				4FA05B9A22C25AE300708718 /* ArticleService.swift in Sources */,
@@ -1056,7 +1104,9 @@
 				4F6C1C3E22CF29E0004C9BF3 /* PurseService.swift in Sources */,
 				4FA05B7922BCFE3900708718 /* SellerViewController.swift in Sources */,
 				4FA05B8E22BD43E300708718 /* SellerListTableViewCell.swift in Sources */,
+				4FDA369D230A963A00D70489 /* RemoteDataBaseModel.swift in Sources */,
 				4FA05B9222BD83F700708718 /* SellerCode.swift in Sources */,
+				4F1B573A230BDDEF000C7276 /* TransactionStorageManager.swift in Sources */,
 				4F6C1C4022D4F2FC004C9BF3 /* InMemoryStorage.swift in Sources */,
 				4F6C1C3C22CE294C004C9BF3 /* Transaction.swift in Sources */,
 				4F7AA7EF22EDE162001FA860 /* Book.swift in Sources */,
@@ -1068,6 +1118,7 @@
 				4F7AA7EA22EAFBEC001FA860 /* TransactionValues.swift in Sources */,
 				4FA05B9622C2400E00708718 /* AddArticleViewController.swift in Sources */,
 				4F9E864922C636EB00C9BE1E /* UserService.swift in Sources */,
+				4F1B573E230D2ED8000C7276 /* FireBaseRequest.swift in Sources */,
 				4F7AA7F122EF44E7001FA860 /* BookService.swift in Sources */,
 				4FA05B8522BD197E00708718 /* AddNewSellerViewController.swift in Sources */,
 				4FC5133B22B13440000FD572 /* AppDelegate.swift in Sources */,
@@ -1086,6 +1137,7 @@
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
 				4F19E84422FB26E6004C545C /* FakeResponseData.swift in Sources */,
 				4F19E85A2301563A004C545C /* TransactionServiceTestCase.swift in Sources */,
+				4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */,
 				4F19E85823014E5B004C545C /* FakeDataSnapshot.swift in Sources */,
 				4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */,
 				4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */,
