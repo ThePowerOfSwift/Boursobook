@@ -23,13 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                ofType: "plist") else {return}
         var plistPath = productionPath
 
-        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
-            // select testDatabase for XCTest
-            print("Running DEVELOPMENT_VERSION")
-            print("Using https://boursobookfortests.firebaseio.com ")
-            plistPath = developmentPath
-
-        } else {
             #if TEST_VERSION
             // select testDatabase for scheme for test
             print("Running DEVELOPMENT_VERSION")
@@ -42,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Using https://boursobook.firebaseio.com ")
             plistPath = productionPath
             #endif
-        }
 
         if let option = FirebaseOptions(contentsOfFile: plistPath) {
             FirebaseApp.configure(options: option)

@@ -8,7 +8,7 @@
 
 import XCTest
 import Firebase
-@testable import BoursobookProduction
+@testable import Boursobook
 
 // MARK: Test in local
 class TransactionServiceTestCase: XCTestCase {

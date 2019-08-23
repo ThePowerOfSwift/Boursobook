@@ -8,10 +8,13 @@
 
 import Foundation
 import Firebase
-@testable import BoursobookProduction
+@testable import Boursobook
 
 struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
-    
+    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Bool]) {
+
+    }
+
     var snapshot: FakeTransactionDataSnapshot
 
     // Create objects "Model" in FireBase
@@ -36,7 +39,7 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
     }
 
     // Delete object "Model" from FireBase for a Purse
-    func remove<Model>(dataNode: RemoteDataBaseReference.Node, model: Model) where Model : RemoteDataBaseModel {
+    func remove<Model>(dataNode: RemoteDataBaseReference.Node, model: Model) where Model: RemoteDataBaseModel {
     }
 
 }

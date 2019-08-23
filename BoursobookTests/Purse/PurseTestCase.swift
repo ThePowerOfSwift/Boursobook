@@ -10,7 +10,7 @@ import XCTest
 
 import XCTest
 import Firebase
-@testable import BoursobookProduction
+@testable import Boursobook
 
 class PurseTestCase: XCTestCase {
 

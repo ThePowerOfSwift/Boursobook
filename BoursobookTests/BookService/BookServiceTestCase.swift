@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import BoursobookProduction
+@testable import Boursobook
 
 class BookServiceTestCase: XCTestCase {
 

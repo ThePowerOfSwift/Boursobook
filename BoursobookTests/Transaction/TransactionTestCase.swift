@@ -9,7 +9,7 @@
 import XCTest
 import Firebase
 
-@testable import BoursobookProduction
+@testable import Boursobook
 
 class TransactionTestCase: XCTestCase {
 
