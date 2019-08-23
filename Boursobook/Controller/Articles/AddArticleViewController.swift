@@ -97,11 +97,15 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
         let sortValue = Article.sort[sortValueIndex]
 
+        let codeValue = codeOfSeller + String(format: "%03d", orderNumberValue)
+        let uniqueIDValue = codeValue + " " + UUID().description
+
         if let currentPurse = InMemoryStorage.shared.currentPurse {
             let article = Article(title: titleValue, sort: sortValue, author: authorValue,
                                   description: descriptionValue, purseName: currentPurse.name,
-                                  isbn: isbnValue, code: codeOfSeller + String(format: "%03d", orderNumberValue),
-                                  price: priceValue, sellerCode: codeOfSeller, solded: false)
+                                  isbn: isbnValue, code: codeValue,
+                                  price: priceValue, sellerCode: codeOfSeller, solded: false,
+                                  uniqueID: uniqueIDValue)
             InMemoryStorage.shared.addArticle(article, for: codeOfSeller)
             self.navigationController?.popViewController(animated: true)
         }

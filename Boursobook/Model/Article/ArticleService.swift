@@ -10,53 +10,45 @@ import Foundation
 import Firebase
 
 class ArticleService {
-    // Manage the "articles" database on FireBase
+    // Manage the "articles" database on a remote database
 
     // MARK: - Properties
-    let reference = Database.database().reference(withPath: "articles")
+    private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .article
+    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
 
     // MARK: - Functions
     func create(article: Article) {
-
-        let articleRef = reference.child(article.code)
-        let values: [String: Any] = ["title": article.title,
-                                     "sort": article.sort, "author": article.author,
-                                     "description": article.description, "purseName": article.purseName,
-                                     "isbn": article.isbn, "price": article.price, "solded": article.solded,
-                                     "sellerCode": article.sellerCode]
-
-        articleRef.setValue(values)
+        // Create a article in the remote database
+        articleRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: article)
     }
 
     func remove(article: Article) {
-        reference.child(article.code).removeValue()
+        // Delete a transaction in the remote database
+        articleRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: article)
     }
 
     func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Article]) -> Void) {
-        // Query articles from FireBase for one Purse
-        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
-            var newArticles: [Article] = []
-
-            for child in snapshot.children {
-                if let childValue = child as? DataSnapshot {
-                    if let article = Article(snapshot: childValue) {
-                        newArticles.append(article)
-                    }
-                }
-            }
-            completionHandler(true, newArticles)
+        // Query articles from remote database for one Purse
+        
+        articleRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase,
+                                                       for: purse) { (done, articlesReaded) in
+                                                        completionHandler(done, articlesReaded)
         }
     }
 
+    func stopListen() {
+        //Stop the listening of the articles
+        articleRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
+    }
+
     func updateSoldedList(list: [String: Bool] ) {
+        // Update the field "solded" to true for the list of articles
         var childUpdate = [String: Bool]()
 
         for (articleCode, _) in list {
             childUpdate.updateValue(true, forKey: "/\(articleCode)/solded/")
         }
 
-        reference.updateChildValues(childUpdate)
+        articleRemoteDataBaseRequest.updateChildValues(dataNode: locationInRemoteDataBase, childUpdates: childUpdate)
     }
 }
-// TODO:         - tests à faire
-//           - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)

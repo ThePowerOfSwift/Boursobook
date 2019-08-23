@@ -15,8 +15,6 @@ class TransactionService {
     // MARK: Properties
     private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .transaction
     private var transactionRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
-    static let transactionUpdatedNotification =
-        Notification.Name("TransactionService.transactionUpdated")
 
     // MARK: Initialisation
     init() {}

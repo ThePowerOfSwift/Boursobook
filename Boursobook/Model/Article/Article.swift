@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class Article {
+class Article: RemoteDataBaseModel {
 
     // MARK: - Properties
     var title: String
@@ -22,12 +22,15 @@ class Article {
     var price: Double
     var sellerCode: String
     var solded: Bool
+    var uniqueID: String
 
     static let sort = ["Book", "Comic", "Novel", "Guide", "Game", "Compact Disk", "DVD", "Video Game", "Other"]
 
  // MARK: - Initialisation
     init(title: String, sort: String, author: String, description: String,
-         purseName: String, isbn: String, code: String, price: Double, sellerCode: String, solded: Bool) {
+         purseName: String, isbn: String, code: String,
+         price: Double, sellerCode: String, solded: Bool,
+         uniqueID: String) {
         self.title = title
         self.sort = sort
         self.author = author
@@ -38,13 +41,14 @@ class Article {
         self.price = price
         self.sellerCode = sellerCode
         self.solded = solded
+        self.uniqueID = uniqueID
     }
 
-    init?(snapshot: DataSnapshot) {
-        code = snapshot.key
+    required init?(snapshot: DataSnapshot) {
         guard
             let snapshotValue = snapshot.value as? [String: AnyObject],
                 let titleValue = snapshotValue["title"] as? String,
+                let codeValue = snapshotValue["code"] as? String,
                 let sortValue = snapshotValue["sort"] as? String,
                 let authorValue = snapshotValue["author"] as? String,
                 let descriptionValue = snapshotValue["description"] as? String,
@@ -52,11 +56,13 @@ class Article {
                 let isbnValue = snapshotValue["isbn"] as? String,
                 let priceValue = snapshotValue["price"] as? Double,
                 let soldedValue = snapshotValue["solded"] as? Bool,
+                let uniqueIDValue = snapshotValue["uniqueID"] as? String,
                 let sellerCodeValue = snapshotValue["sellerCode"] as? String else {
             return nil
         }
 
         title = titleValue
+        code = codeValue
         sort = sortValue
         author = authorValue
         description = descriptionValue
@@ -65,10 +71,21 @@ class Article {
         price = priceValue
         solded = soldedValue
         sellerCode = sellerCodeValue
+        uniqueID = uniqueIDValue
+    }
 
+    func setValuesForRemoteDataBase() -> [String: Any] {
+        let values: [String: Any] = ["title": title,
+                                     "code": code,
+                                     "sort": sort,
+                                     "author": sort,
+                                     "description": description,
+                                     "purseName": purseName,
+                                     "isbn": isbn,
+                                     "price": price,
+                                     "solded": solded,
+                                     "uniqueID": uniqueID,
+                                     "sellerCode": sellerCode]
+        return values
     }
 }
-
-// TODO:         - gerer la generaltion du code
-//         - generer le qrcode
-//          - tests à faire

@@ -27,9 +27,14 @@ protocol RemoteDatabaseRequest {
     Request to create an "Model" objet in the remote database
      */
     func create<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node, model: Model)
-    
+
     /**
      Request to delete an "Model" objet in the remote database
      */
     func remove<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node, model: Model)
+
+    /**
+     Request to update differents child Value of objets in the remote database
+     */
+    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Bool])
 }
