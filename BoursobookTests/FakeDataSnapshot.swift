@@ -23,6 +23,24 @@ class FakeTransactionDataSnapshot: DataSnapshot {
     }
 }
 
+class FakeArticleDataSnapshot: DataSnapshot {
+    //Override the property value of a DataSnapshot for a Article
+
+    override var value: Any? {
+        return ["title": "titre article",
+                "sort": "Book",
+                "author": "DURANS",
+                "description": "un livre sympa",
+                "purseName": "APE 2019",
+                "isbn": "1234567890123",
+                "code": "AAAA 0001",
+                "price": 2.4,
+                "sellerCode": "AAAA",
+                "solded": true,
+                "uniqueID": "23456643RRRRR"]
+    }
+}
+
 class FakePurseDataSnapshot: DataSnapshot {
     //Override the property value of a DataSnapshot for a Purse
 

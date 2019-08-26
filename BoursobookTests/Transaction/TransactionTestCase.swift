@@ -102,4 +102,26 @@ class TransactionTestCase: XCTestCase {
         XCTFail("transaction is initialised")
 
     }
+
+    func testSetValuesSouldReturnCorrectValues() {
+        //Given
+        let fakeTransactionDataSnapshot = FakeTransactionDataSnapshot()
+
+        guard let transaction = Transaction(snapshot: fakeTransactionDataSnapshot) else {
+            XCTFail("error in init of transaction")
+            return
+        }
+
+        //When
+        let values = transaction.setValuesForRemoteDataBase()
+
+        //Then
+        XCTAssertEqual(values["date"] as? String, "15/01/19")
+        XCTAssertEqual(values["uniqueID"] as? String, "4E242432")
+        XCTAssertEqual(values["amount"] as? Double, 23.4)
+        XCTAssertEqual(values["numberOfArticle"] as? Int, 7)
+        XCTAssertEqual(values["madeByUser"] as? String, "michel")
+        XCTAssertEqual(values["articles"] as? [String: Bool], ["livre": true])
+        XCTAssertEqual(values["purseName"] as? String, "APE 2019")
+    }
 }

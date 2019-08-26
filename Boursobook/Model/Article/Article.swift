@@ -78,7 +78,7 @@ class Article: RemoteDataBaseModel {
         let values: [String: Any] = ["title": title,
                                      "code": code,
                                      "sort": sort,
-                                     "author": sort,
+                                     "author": author,
                                      "description": description,
                                      "purseName": purseName,
                                      "isbn": isbn,
