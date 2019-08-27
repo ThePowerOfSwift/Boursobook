@@ -14,7 +14,7 @@ class FakeTransactionDataSnapshot: DataSnapshot {
 
     override var value: Any? {
         return ["date": "15/01/19",
-                "uniqueID": "4E242432",
+                "uniqueID": "ID Transaction - fake transaction For test",
                 "amount": 23.4,
                 "numberOfArticle": 7,
                 "madeByUser": "michel",
@@ -36,8 +36,8 @@ class FakeArticleDataSnapshot: DataSnapshot {
                 "code": "AAAA 0001",
                 "price": 2.4,
                 "sellerCode": "AAAA",
-                "solded": true,
-                "uniqueID": "23456643RRRRR"]
+                "solded": false,
+                "uniqueID": "ID Article - fake article For test"]
     }
 }
 

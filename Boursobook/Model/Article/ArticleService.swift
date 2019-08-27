@@ -16,6 +16,12 @@ class ArticleService {
     private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .article
     private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
 
+    // MARK: Initialisation
+    init() {}
+    init(articleRemoteDataBaseRequest: RemoteDatabaseRequest) {
+        self.articleRemoteDataBaseRequest = articleRemoteDataBaseRequest
+    }
+
     // MARK: - Functions
     func create(article: Article) {
         // Create a article in the remote database
@@ -23,13 +29,13 @@ class ArticleService {
     }
 
     func remove(article: Article) {
-        // Delete a transaction in the remote database
+        // Delete an article in the remote database
         articleRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: article)
     }
 
     func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Article]) -> Void) {
         // Query articles from remote database for one Purse
-        
+
         articleRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase,
                                                        for: purse) { (done, articlesReaded) in
                                                         completionHandler(done, articlesReaded)

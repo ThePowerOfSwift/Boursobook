@@ -63,7 +63,7 @@ class TransactionTestCase: XCTestCase {
     func testInitTransactionWithDataSnapshotSouldReturnTransaction() {
         //Given
         let date = "15/01/19"
-        let uniqueID = "4E242432"
+        let uniqueID = "ID Transaction - fake transaction For test"
         let amount = 23.4
         let numberOfArticle = 7
         let madeByUser = "michel"
@@ -117,7 +117,7 @@ class TransactionTestCase: XCTestCase {
 
         //Then
         XCTAssertEqual(values["date"] as? String, "15/01/19")
-        XCTAssertEqual(values["uniqueID"] as? String, "4E242432")
+        XCTAssertEqual(values["uniqueID"] as? String, "ID Transaction - fake transaction For test")
         XCTAssertEqual(values["amount"] as? Double, 23.4)
         XCTAssertEqual(values["numberOfArticle"] as? Int, 7)
         XCTAssertEqual(values["madeByUser"] as? String, "michel")

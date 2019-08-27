@@ -33,6 +33,27 @@ class Purse {
         var overTwoHundredFifty: Double
     }
 
+    // MARK: - Initialisation
+    init(name: String, numberOfArticleRegistered: Int, numberOfSellers: Int,
+         numberOfArticleSolded: Int, numberOfTransaction: Int,
+         percentageOnSales: Double, depositFee: DepositFee,
+         totalSalesAmount: Double, totalBenefitOnSalesAmount: Double,
+         totalDepositFeeAmount: Double, administrators: [String: Bool],
+         users: [String: String]) {
+        self.name = name
+        self.numberOfArticleRegistered = numberOfArticleRegistered
+        self.numberOfSellers = numberOfSellers
+        self.numberOfArticleSolded = numberOfArticleSolded
+        self.numberOfTransaction = numberOfTransaction
+        self.percentageOnSales = percentageOnSales
+        self.depositFee = depositFee
+        self.totalSalesAmount = totalSalesAmount
+        self.totalBenefitOnSalesAmount = totalBenefitOnSalesAmount
+        self.totalDepositFeeAmount = totalDepositFeeAmount
+        self.administrators = administrators
+        self.users = users
+    }
+
     init?(snapshot: DataSnapshot) {
         guard   let snapshotValue = snapshot.value as? [String: AnyObject],
                 let nameValue = snapshotValue["name"] as? String,

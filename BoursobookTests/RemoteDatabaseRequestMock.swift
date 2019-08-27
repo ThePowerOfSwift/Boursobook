@@ -15,7 +15,7 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
 
     }
 
-    var snapshot: FakeTransactionDataSnapshot
+    var snapshot: DataSnapshot
 
     // Create objects "Model" in FireBase
     func create<Model>(dataNode: RemoteDataBaseReference.Node, model: Model) where Model: RemoteDataBaseModel {

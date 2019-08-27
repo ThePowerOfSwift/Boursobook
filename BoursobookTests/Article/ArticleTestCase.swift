@@ -65,8 +65,8 @@ class ArticleTestCase: XCTestCase {
         let code = "AAAA 0001"
         let price = 2.4
         let sellerCode = "AAAA"
-        let sold = true
-        let uniqueID = "23456643RRRRR"
+        let sold = false
+        let uniqueID = "ID Article - fake article For test"
 
         let fakeArticleDataSnapshot = FakeArticleDataSnapshot()
 
@@ -128,7 +128,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(values["code"] as? String, "AAAA 0001")
         XCTAssertEqual(values["price"] as? Double, 2.4)
         XCTAssertEqual(values["sellerCode"] as? String, "AAAA")
-        XCTAssertEqual(values["solded"] as? Bool, true)
-        XCTAssertEqual(values["uniqueID"] as? String, "23456643RRRRR")
+        XCTAssertEqual(values["solded"] as? Bool, false)
+        XCTAssertEqual(values["uniqueID"] as? String, "ID Article - fake article For test")
     }
 }
