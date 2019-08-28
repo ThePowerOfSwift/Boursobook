@@ -116,7 +116,3 @@ class ArticleListTableViewController: UITableViewController {
     }
 }
 
-// TODO :       - faire une tri des article suivant leur type
-//              - afficher que les articles qui ne sont pas vendus
-//              - gerer le format du prix
-//              - Revoir la mise en forme de la cellule

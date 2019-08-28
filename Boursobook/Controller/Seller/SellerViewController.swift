@@ -202,14 +202,3 @@ extension SellerViewController {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
-
-// TODO:    - Mettre la posibilité de modifier les informations des vendeurs
-//          - Imprimer la liste des articles vendus et restants PDF
-//              avec les prix de ventes / montants revenants au vendeur
-//          - Calculer forfait d'insription en fonction du nombre d'article
-//              ( et creer une vente fictive pour enregister transaction
-//          - #### Mettre a jour le montant de desposit fee dans la purse #####
-//          - Mettre les chiffres au format
-//          - Traiter la partie pour la restitution des livres
-//          - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes (et taille avec des mm)
-//          - tester generation plusieurs pages d'étiquettes

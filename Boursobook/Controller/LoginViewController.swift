@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func didTapLoginAsGuest(_ sender: Any) {
+    @IBAction func didTapCreateNewPurse(_ sender: Any) {
         displayAlert(message: NSLocalizedString("Sorry, it's note possible yet !", comment: ""),
                      title: NSLocalizedString("Error !", comment: ""))
 
@@ -80,11 +80,3 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
-// TODO:    - faire disparaitre le login si on est déja logé
-//          - Gestion des mots de passe et des fonction save et login
-//          - Login as a guest ??
-//          - gestion de l'appli offligne
-//          - message si on est pas connecté et que l'on peut pas telecharger les données
-//          - verifier toutes les tailles d'iphones
-// TODO:    - Mettre à jour les string du storyboard
-//             - separer les storyboard

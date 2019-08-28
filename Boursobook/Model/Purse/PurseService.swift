@@ -10,70 +10,62 @@ import Foundation
 import Firebase
 
 class PurseService {
-    // Manage the "purses" database on FireBase
+    // Manage the "purses" database on a remote database
 
     // MARK: Properties
-    let reference = Database.database().reference(withPath: "purses")
+    private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .purse
+    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
+
+    // MARK: Initialisation
+    init() {}
+    init(purseRemoteDataBaseRequest: RemoteDatabaseRequest) {
+        self.purseRemoteDataBaseRequest = purseRemoteDataBaseRequest
+    }
 
     // MARK: Function
-    func createNew(name: String, percentageOnSales: Double, depositFee: Purse.DepositFee ) {
-        // create a new purse
-        let purseRef = reference.child(name)
-        let purseValues: [String: Any] = [
-            "name": name,
-            "percentageOnSales": 0,
-            "numberOfArticleRegistered": 0,
-            "numberOfSellers": 0,
-            "numberOfArticleSolded": 0,
-            "numberOfTransaction": 0,
-            "totalSalesAmount": 0,
-            "totalBenefitOnSalesAmount": 0,
-            "totalDepositFeeAmount": 0
-            ]
-        purseRef.setValue(purseValues)
-        let depositRef = purseRef.child("depositFee")
-        let depositValues: [String: Any] = [
-            "underFifty": depositFee.underFifty,
-            "underOneHundred": depositFee.underOneHundred,
-            "underOneHundredFifty": depositFee.underOneHundredFifty,
-            "underTwoHundred": depositFee.underTwoHundred,
-            "underTwoHundredFifty": depositFee.underTwoHundredFifty,
-            "overTwoHundredFifty": depositFee.overTwoHundredFifty
-        ]
-        depositRef.setValue(depositValues)
+    func create(purse: Purse) {
+        // Create a purse in the remote database
+        purseRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: purse)
+    }
+
+    func remove(purse: Purse) {
+        // Delete an purse in the remote database
+        purseRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: purse)
     }
 
     func readAndListenData(completionHandler: @escaping (Bool, [Purse]) -> Void) {
-        //download value from FireBase
-        reference.observe(.value) { snapshot in
-            var newPurse: [Purse] = []
+        // Query purses from remote database
 
-            for child in snapshot.children {
-                if let childValue = child as? DataSnapshot {
-                    if let purse = Purse(snapshot: childValue) {
-                        newPurse.append(purse)
-                    }
-                }
-            }
-            completionHandler(true, newPurse)
+        purseRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase) { (done, pursesReaded) in
+                                                        completionHandler(done, pursesReaded)
         }
     }
 
-    func setupRates(purseName: String, percentage: Double, depositFee: Purse.DepositFee) {
-        let newValues = ["percentageOnSales": percentage]
-        let newChildValues = ["underFifty": depositFee.underFifty,
-                              "underOneHundred": depositFee.underOneHundred,
-                              "underOneHundredFifty": depositFee.underOneHundredFifty,
-                              "underTwoHundred": depositFee.underTwoHundred,
-                              "underTwoHundredFifty": depositFee.underTwoHundredFifty,
-                              "overTwoHundredFifty": depositFee.overTwoHundredFifty]
-        reference.child(purseName).updateChildValues(newValues)
-        reference.child(purseName).child("depositFee").updateChildValues(newChildValues)
+    func stopListen() {
+        //Stop the listening of the purses
+        purseRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
     }
 
-    func updateNumberOfSeller(with number: Int, for purseName: String) {
-        // add a number to the number of seller for the purse
-        reference.child(purseName).runTransactionBlock ({ (currentData) -> TransactionResult in
+    func setupRates(purse: Purse, percentage: Double, depositFee: Purse.DepositFee) {
+        // set the rates for the purse
+        purse.percentageOnSales = percentage
+        purse.depositFee = depositFee
+        let purseNewValues = purse.setValuesForRemoteDataBase()
+
+        var childUpdate = [String: Any]()
+        for (key, value) in purseNewValues {
+            childUpdate.updateValue(value, forKey: "/\(purse.uniqueID)/\(key)/")
+        }
+
+        purseRemoteDataBaseRequest.updateChildValues(dataNode: locationInRemoteDataBase, childUpdates: childUpdate)
+    }
+
+    func updateNumberOfSeller(with number: Int, for purse: Purse) {
+        // add number to the number of seller for the purse
+        // FIXME: injection dependance à faire
+
+        let reference = Database.database().reference(withPath: locationInRemoteDataBase.rawValue)
+        reference.child(purse.uniqueID).runTransactionBlock ({ (currentData) -> TransactionResult in
 
             if var purse = currentData.value as? [String: AnyObject] {
                 var numberOfSeller = purse["numberOfSellers"] as? Int ?? 0
@@ -93,9 +85,12 @@ class PurseService {
         })
     }
 
-    func updateNumberOfArticleRegistered(with number: Int, for purseName: String) {
+    func updateNumberOfArticleRegistered(with number: Int, for purse: Purse) {
         // add a number to the number of article registered for the purse
-        reference.child(purseName).runTransactionBlock ({ (currentData) -> TransactionResult in
+        // FIXME: injection dependance à faire
+
+        let reference = Database.database().reference(withPath: locationInRemoteDataBase.rawValue)
+        reference.child(purse.uniqueID).runTransactionBlock ({ (currentData) -> TransactionResult in
 
             if var purse = currentData.value as? [String: AnyObject] {
                 var numberOfArticleRegistered = purse["numberOfArticleRegistered"] as? Int ?? 0
@@ -115,12 +110,14 @@ class PurseService {
         })
     }
 
-    func updateValuesAfterTransactionWith(for purseName: String, benefit: Double,
+    func updateValuesAfterTransactionWith(for purse: Purse, benefit: Double,
                                           salesAmount: Double, articleSolded: Int,
                                           numberTransaction: Int) {
         // Update liste of values of seller after the validation of a transaction
+        // FIXME: injection dependance à faire
 
-            reference.child(purseName).runTransactionBlock ({ (currentData) -> TransactionResult in
+        let reference = Database.database().reference(withPath: locationInRemoteDataBase.rawValue)
+        reference.child(purse.uniqueID).runTransactionBlock ({ (currentData) -> TransactionResult in
 
                 if var purse = currentData.value as? [String: AnyObject] {
                     var totalBenefitOnSalesAmount = purse["totalBenefitOnSalesAmount"] as? Double ?? 0
@@ -151,7 +148,3 @@ class PurseService {
             })
     }
 }
-
-// TODO:    - Voir si on crée 2 purse avec le meme nom
-//          - voir ce qui se passe si pas de reseau et pas d'acces ???
-//          - Gerer l'erreur si aucun purse est retenue? 

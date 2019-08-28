@@ -20,6 +20,26 @@ struct FireBaseRequest: RemoteDatabaseRequest {
         transactionRef.setValue(values)
     }
 
+    // Query objects "Model" from FireBase
+    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
+                                                       completionHandler: @escaping (Bool, [Model]) -> Void) {
+
+        let reference = Database.database().reference(withPath: dataNode.rawValue)
+
+        reference.observe(.value) { snapshot in
+            var newModel: [Model] = []
+
+            for child in snapshot.children {
+                if let childValue = child as? DataSnapshot {
+                    if let model = Model(snapshot: childValue) {
+                        newModel.append(model)
+                    }
+                }
+            }
+            completionHandler(true, newModel)
+        }
+    }
+
     // Query objects "Model" from FireBase for a Purse
     func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
                                                        for purse: Purse,
@@ -54,8 +74,9 @@ struct FireBaseRequest: RemoteDatabaseRequest {
     }
 
     // Update differents childValue of object on FireBase
-    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String : Bool]) {
+    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Any]) {
         let reference = Database.database().reference(withPath: dataNode.rawValue)
         reference.updateChildValues(childUpdates)
     }
+
 }

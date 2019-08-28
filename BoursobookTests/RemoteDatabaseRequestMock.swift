@@ -11,8 +11,17 @@ import Firebase
 @testable import Boursobook
 
 struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
-    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Bool]) {
+    func readAndListenData<Model>(dataNode: RemoteDataBaseReference.Node,
+                                  completionHandler: @escaping (Bool, [Model]) -> Void)
+        where Model: RemoteDataBaseModel {
+        //FIXME: a implementer
+    }
+    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Any]) {
+        //FIXME: a implementer
+    }
 
+    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Bool]) {
+        //FIXME: a implementer - pourquoi doublon ?
     }
 
     var snapshot: DataSnapshot

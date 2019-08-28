@@ -46,6 +46,7 @@ class FakePurseDataSnapshot: DataSnapshot {
 
     override var value: Any? {
         return ["name": "APE 2019",
+                "uniqueID": "APE 2019 UNIQUEID",
                 "percentageOnSales": 10.2,
                 "depositFee": ["underFifty": 2.0,
                                "underOneHundred": 4.0,
@@ -53,6 +54,27 @@ class FakePurseDataSnapshot: DataSnapshot {
                                "underTwoHundred": 8.0,
                                "underTwoHundredFifty": 10.0,
                                "overTwoHundredFifty": 12.0],
+                "administrators": ["me": true],
+                "users": ["me": "me@me.fr"],
+                "numberOfArticleRegistered": 13,
+                "numberOfSellers": 8,
+                "numberOfArticleSolded": 8,
+                "numberOfTransaction": 4,
+                "totalSalesAmount": 12.6,
+                "totalBenefitOnSalesAmount": 2.4,
+                "totalDepositFeeAmount": 2.2
+        ]
+    }
+}
+
+class FakePurseWrongDepositFeeDataSnapshot: DataSnapshot {
+    //Override the property value of a DataSnapshot for a Purse with wrong depositFee
+
+    override var value: Any? {
+        return ["name": "APE 2019",
+                "uniqueID": "APE 2019 UNIQUEID",
+                "percentageOnSales": 10.2,
+                "depositFee": ["me": true],
                 "administrators": ["me": true],
                 "users": ["me": "me@me.fr"],
                 "numberOfArticleRegistered": 13,

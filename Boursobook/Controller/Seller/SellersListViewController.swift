@@ -117,4 +117,3 @@ class SellersListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 }
-// TODO:    - Voir pourquoi le unwind segue ne fonctionne pas lorsque j'efface l'utilisateur loggé

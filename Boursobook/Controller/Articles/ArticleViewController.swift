@@ -104,5 +104,3 @@ class ArticleViewController: UIViewController {
         }
     }
 }
-
-// TODO:    - arrondir les angles de l'étiquette

@@ -19,4 +19,3 @@ class SellerCode {
         return list
     }
 }
-// TODO:           - tests à faire

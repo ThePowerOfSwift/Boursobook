@@ -9,8 +9,10 @@
 import Foundation
 
 struct RemoteDataBaseReference {
+    /// the node where elements are store
     enum Node: String {
         case transaction = "transactions"
         case article = "articles"
+        case purse = "purses"
     }
 }

@@ -107,7 +107,7 @@ class InMemoryStorage {
         if let currentPurse = self.currentPurse {
             currentPurse.percentageOnSales = percentage
             currentPurse.depositFee = depositFee
-            purseService.setupRates(purseName: currentPurse.name,
+            purseService.setupRates(purse: currentPurse,
                                     percentage: currentPurse.percentageOnSales,
                                     depositFee: currentPurse.depositFee)
         }
@@ -139,7 +139,7 @@ extension InMemoryStorage {
         sellers.append(seller)
 
         // Update purse
-        purseService.updateNumberOfSeller(with: 1, for: currentPurse.name)
+        purseService.updateNumberOfSeller(with: 1, for: currentPurse)
         currentPurse.numberOfSellers += 1
 
     }
@@ -162,7 +162,7 @@ extension InMemoryStorage {
         sellers.remove(at: index)
 
          // Update purse
-        purseService.updateNumberOfSeller(with: -1, for: currentPurse.name)
+        purseService.updateNumberOfSeller(with: -1, for: currentPurse)
         currentPurse.numberOfSellers -= 1
 
     }
@@ -234,7 +234,7 @@ extension InMemoryStorage {
 
         // Update purse
         guard let currentPurse = currentPurse else {return}
-        purseService.updateNumberOfArticleRegistered(with: 1, for: currentPurse.name)
+        purseService.updateNumberOfArticleRegistered(with: 1, for: currentPurse)
         currentPurse.numberOfArticleRegistered += 1
     }
 
@@ -260,7 +260,7 @@ extension InMemoryStorage {
 
         // Update purse
         guard let currentPurse = currentPurse else {return}
-        purseService.updateNumberOfArticleRegistered(with: -1, for: currentPurse.name)
+        purseService.updateNumberOfArticleRegistered(with: -1, for: currentPurse)
         currentPurse.numberOfArticleRegistered -= 1
 
     }
@@ -407,7 +407,7 @@ extension InMemoryStorage {
 
         // Update current purse in fireBase
         purseService.updateValuesAfterTransactionWith(
-            for: purse.name,
+            for: purse,
             benefit: currentTransaction.amount * purseBenefitRate,
             salesAmount: currentTransaction.amount,
             articleSolded: currentTransaction.numberOfArticle,
@@ -422,8 +422,3 @@ extension InMemoryStorage {
         setCurrentTransaction()
     }
 }
-
-// TODO:    - gestion de l'appli offligne
-//          - Posibilité de choisir la purse si un user est inscrit sur plusieurs
-//          - valider l'entrée dans l'appli meme s'il n'y a pas de seller, de article ou de transactions
-//          - mettre un message si on peux pas se loger à cause de pas de puse, pas d'id....

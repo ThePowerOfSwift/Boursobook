@@ -56,7 +56,7 @@
         <!--Login-->
         <scene sceneID="CYW-1F-NQB">
             <objects>
-                <viewController id="Pdl-xX-com" customClass="LoginViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pdl-xX-com" customClass="LoginViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AiN-Uz-Xzi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,11 +114,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="vx0-2n-iM6"/>
                                                 </constraints>
-                                                <state key="normal" title="Login as a guest">
+                                                <state key="normal" title="Create a new purse">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapLoginAsGuest:" destination="Pdl-xX-com" eventType="touchUpInside" id="v4e-gD-BoZ"/>
+                                                    <action selector="didTapCreateNewPurse:" destination="Pdl-xX-com" eventType="touchUpInside" id="v4e-gD-BoZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -162,7 +162,7 @@
         <!--Sellers-->
         <scene sceneID="kpM-4h-SP1">
             <objects>
-                <tableViewController id="t6O-Bi-VIR" customClass="SellersListViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="t6O-Bi-VIR" customClass="SellersListViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="gs3-cp-tLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SellerListTableViewCell" rowHeight="80" id="kex-lI-CdT" customClass="SellerListTableViewCell" customModule="BoursobookDevelopment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SellerListTableViewCell" rowHeight="80" id="kex-lI-CdT" customClass="SellerListTableViewCell" customModule="Boursobook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kex-lI-CdT" id="RMc-4x-Nlv">
@@ -315,7 +315,7 @@
         <!--Add Seller-->
         <scene sceneID="j3b-yD-cT4">
             <objects>
-                <viewController title="Add Seller" id="28c-9Z-gna" customClass="AddNewSellerViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Seller" id="28c-9Z-gna" customClass="AddNewSellerViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="caN-BW-OH5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -500,7 +500,7 @@
         <!--Seller-->
         <scene sceneID="OoQ-Ji-5Q2">
             <objects>
-                <viewController title="Seller" id="hyR-5s-AiI" customClass="SellerViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Seller" id="hyR-5s-AiI" customClass="SellerViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eI5-lz-0YH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -928,7 +928,7 @@
         <!--Information-->
         <scene sceneID="e3J-D8-2Au">
             <objects>
-                <viewController id="sTZ-cc-FZX" customClass="InfoViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sTZ-cc-FZX" customClass="InfoViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XAz-Me-9yN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1203,7 +1203,7 @@
         <!--Setup View Controller-->
         <scene sceneID="mHV-qy-QAD">
             <objects>
-                <viewController id="pGv-eA-uXX" customClass="SetupViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pGv-eA-uXX" customClass="SetupViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xeZ-pe-iXh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1580,7 +1580,7 @@
         <!--Sheet Setup View Controller-->
         <scene sceneID="FGQ-og-Vq0">
             <objects>
-                <viewController id="cbq-hX-S7H" customClass="SheetSetupViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cbq-hX-S7H" customClass="SheetSetupViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5dy-if-gwG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1893,7 +1893,7 @@
         <!--sale-->
         <scene sceneID="q3W-Sr-SRB">
             <objects>
-                <viewController id="fDO-Yd-UI6" customClass="BuyViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fDO-Yd-UI6" customClass="BuyViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnZ-Qd-KRf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2035,7 +2035,7 @@
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="OUK-Kx-a6d"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionActicleListCell" rowHeight="40" id="1d5-Kh-HXF" customClass="TransactionActicleListTableViewCell" customModule="BoursobookDevelopment" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionActicleListCell" rowHeight="40" id="1d5-Kh-HXF" customClass="TransactionActicleListTableViewCell" customModule="Boursobook" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="335" height="40"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1d5-Kh-HXF" id="C3s-mf-cre">
@@ -2052,13 +2052,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEa-sg-xjc">
-                                                                            <rect key="frame" x="100" y="5.0000000000000018" width="150" height="29.666666666666671"/>
+                                                                            <rect key="frame" x="100" y="5.0000000000000018" width="375" height="29.666666666666671"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99,99 €" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apP-Mh-3vL">
-                                                                            <rect key="frame" x="260" y="5.0000000000000018" width="65" height="29.666666666666671"/>
+                                                                            <rect key="frame" x="485" y="5.0000000000000018" width="65" height="29.666666666666671"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="CJ7-9g-etw"/>
                                                                             </constraints>
@@ -2183,7 +2183,7 @@
         <!--Scan View Controller-->
         <scene sceneID="Be3-Su-aHK">
             <objects>
-                <viewController id="Cz9-yI-NJc" customClass="ScanViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cz9-yI-NJc" customClass="ScanViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M0o-W8-lDo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2264,14 +2264,14 @@
         <!--Browse Article List Table View Controller-->
         <scene sceneID="gsm-It-4de">
             <objects>
-                <tableViewController id="cIH-DB-jiP" customClass="BrowseArticleListTableViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cIH-DB-jiP" customClass="BrowseArticleListTableViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="ibf-FO-7dt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.82496184110000004" green="0.43052911760000001" blue="0.23130673169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="browseArticleCell" id="vH9-y3-DuY" customClass="BrowseArticleTableViewCell" customModule="BoursobookDevelopment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="browseArticleCell" id="vH9-y3-DuY" customClass="BrowseArticleTableViewCell" customModule="Boursobook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vH9-y3-DuY" id="aB9-em-NZ4">
@@ -2352,7 +2352,7 @@
         <!--Scan Book View Controller-->
         <scene sceneID="KeO-bA-c9G">
             <objects>
-                <viewController id="jPQ-zV-a5H" customClass="ScanBookViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jPQ-zV-a5H" customClass="ScanBookViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDy-iP-yaO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2441,7 +2441,7 @@
         <!--Article List Table View Controller-->
         <scene sceneID="FQo-oQ-Z15">
             <objects>
-                <tableViewController id="tf2-vp-ynE" customClass="ArticleListTableViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="tf2-vp-ynE" customClass="ArticleListTableViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="3fX-hz-ccB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2467,7 +2467,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleListCell" rowHeight="80" id="TlY-LQ-Chv" customClass="ArticleListTableViewCell" customModule="BoursobookDevelopment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleListCell" rowHeight="80" id="TlY-LQ-Chv" customClass="ArticleListTableViewCell" customModule="Boursobook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TlY-LQ-Chv" id="gTG-W7-EnC">
@@ -2570,7 +2570,7 @@
         <!--Add Article-->
         <scene sceneID="EaG-hA-gRM">
             <objects>
-                <viewController title="Add Article" id="1b3-Ox-quZ" customClass="AddArticleViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Article" id="1b3-Ox-quZ" customClass="AddArticleViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SLE-AY-RwX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2821,7 +2821,7 @@
         <!--Article-->
         <scene sceneID="Eyj-0u-oMh">
             <objects>
-                <viewController title="Article" id="33M-Ia-7Eh" customClass="ArticleViewController" customModule="BoursobookDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Article" id="33M-Ia-7Eh" customClass="ArticleViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="63k-x3-lUk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

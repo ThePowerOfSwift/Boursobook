@@ -192,8 +192,3 @@ class SetupViewController: UIViewController {
 
     }
 }
-// TODO:    - Ajouter le reglage pour la page d'impression
-//           - Verouiller l'acces aux régalges si c'est pas delphine ????
-//           - Mettre des valuers avec virgules pour voir si le format passe`
-//          - metter une verification au max à 100% sur le pourcentage
-//          - attention a la gestion du clavier (ne cache pas les textes)

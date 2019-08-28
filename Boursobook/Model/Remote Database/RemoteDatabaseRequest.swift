@@ -12,6 +12,12 @@ import Foundation
 protocol RemoteDatabaseRequest {
 
     /**
+     Request to read and listen "Model" data from remote
+     */
+    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
+                                                       completionHandler: @escaping (Bool, [Model]) -> Void)
+
+    /**
     Request to read and listen "Model" data from remote filtered by purse
      */
     func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
@@ -36,5 +42,6 @@ protocol RemoteDatabaseRequest {
     /**
      Request to update differents child Value of objets in the remote database
      */
-    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Bool])
+    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Any])
+
 }

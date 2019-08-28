@@ -149,4 +149,3 @@ extension AddNewSellerViewController: UITextFieldDelegate {
         setCode()
     }
 }
-// TODO:    - Controle du format correct du tel et du mail

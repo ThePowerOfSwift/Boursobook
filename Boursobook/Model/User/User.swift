@@ -12,4 +12,3 @@ struct User {
     var uid: String
     var email: String
 }
-// TODO:    - Test à faire

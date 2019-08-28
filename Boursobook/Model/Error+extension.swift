@@ -20,4 +20,3 @@ extension Error {
         }
     }
 }
-// TODO:    - Test à faire

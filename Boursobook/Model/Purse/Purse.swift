@@ -9,8 +9,9 @@
 import Foundation
 import Firebase
 
-class Purse {
+class Purse: RemoteDataBaseModel {
     var name: String
+    var uniqueID: String
 
     var numberOfArticleRegistered = 0
     var numberOfSellers = 0
@@ -34,13 +35,14 @@ class Purse {
     }
 
     // MARK: - Initialisation
-    init(name: String, numberOfArticleRegistered: Int, numberOfSellers: Int,
+    init(name: String, uniqueID: String, numberOfArticleRegistered: Int, numberOfSellers: Int,
          numberOfArticleSolded: Int, numberOfTransaction: Int,
          percentageOnSales: Double, depositFee: DepositFee,
          totalSalesAmount: Double, totalBenefitOnSalesAmount: Double,
          totalDepositFeeAmount: Double, administrators: [String: Bool],
          users: [String: String]) {
         self.name = name
+        self.uniqueID = uniqueID
         self.numberOfArticleRegistered = numberOfArticleRegistered
         self.numberOfSellers = numberOfSellers
         self.numberOfArticleSolded = numberOfArticleSolded
@@ -54,9 +56,10 @@ class Purse {
         self.users = users
     }
 
-    init?(snapshot: DataSnapshot) {
+    required init?(snapshot: DataSnapshot) {
         guard   let snapshotValue = snapshot.value as? [String: AnyObject],
                 let nameValue = snapshotValue["name"] as? String,
+                let uniqueIDValue = snapshotValue["uniqueID"] as? String,
                 let percentageOnSalesValue = snapshotValue["percentageOnSales"] as? Double,
                 let depositFeeData = snapshotValue["depositFee"] as? [String: AnyObject],
                 let administratorsValue = snapshotValue["administrators"] as? [String: Bool],
@@ -81,6 +84,7 @@ class Purse {
         }
 
         name = nameValue
+        uniqueID = uniqueIDValue
         percentageOnSales = percentageOnSalesValue
         numberOfArticleRegistered = numberOfArticleRegisteredValue
         numberOfSellers = numberOfSellersValue
@@ -101,4 +105,26 @@ class Purse {
         users = usersValue
     }
 
+    func setValuesForRemoteDataBase() -> [String: Any] {
+        let depositFeeValues: [String: Any] = ["underFifty": depositFee.underFifty,
+                                               "underOneHundred": depositFee.underOneHundred,
+                                               "underOneHundredFifty": depositFee.underOneHundredFifty,
+                                               "underTwoHundred": depositFee.underTwoHundred,
+                                               "underTwoHundredFifty": depositFee.underTwoHundredFifty,
+                                               "overTwoHundredFifty": depositFee.overTwoHundredFifty]
+        let values: [String: Any] = ["name": name,
+                                     "uniqueID": uniqueID,
+                                     "percentageOnSales": percentageOnSales,
+                                     "administrators": administrators,
+                                     "users": users,
+                                     "numberOfArticleRegistered": numberOfArticleRegistered,
+                                     "numberOfSellers": numberOfSellers,
+                                     "numberOfArticleSolded": numberOfArticleSolded,
+                                     "numberOfTransaction": numberOfTransaction,
+                                     "totalSalesAmount": totalSalesAmount,
+                                     "totalBenefitOnSalesAmount": totalBenefitOnSalesAmount,
+                                     "totalDepositFeeAmount": totalDepositFeeAmount,
+                                     "depositFee": depositFeeValues]
+        return values
+    }
 }

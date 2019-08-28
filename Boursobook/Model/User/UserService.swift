@@ -108,6 +108,3 @@ extension UserService {
         case other = "Sorry, there is an error !"
     }
 }
-// TODO:    - Test à faire
-//           - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)
-//          - Ajouter l'user crée dans la purse en cours (id et mail)

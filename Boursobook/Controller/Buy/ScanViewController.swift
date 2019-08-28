@@ -144,7 +144,3 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         }
     }
 }
-
-// TODO:    - Gerer optionnel videoPreviewLayer ???
-//          - Voir probleme affichage de la camera
-//          - faire implementation pour ajouter un article manuellement

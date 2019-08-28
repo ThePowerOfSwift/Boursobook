@@ -192,5 +192,3 @@ extension AddArticleViewController: UITextFieldDelegate {
         }
     }
 }
-// TODO:    - Gerer le format du prix / et celui de l'isbn
-//          - probleme avec certain livre error in JSONDECODER

@@ -53,6 +53,7 @@ class FakeData {
                                              overTwoHundredFifty: 12.0)
 
     static let purse = Purse(name: "APE 2019",
+                             uniqueID: "APE 2019 UNIQUEID",
                              numberOfArticleRegistered: 13,
                              numberOfSellers: 8,
                              numberOfArticleSolded: 8,

@@ -89,7 +89,3 @@ class Seller: Equatable {
         return false
     }
 }
-// TODO:          - tests à faire
-//                 - calcul des articles à vendre et vendus
-//                  - probleme de la fonction nextnumber si on supprime des articles et qu'on en crée d'autre après
-//                  - Mettre les zero dans le numero d'ordre
