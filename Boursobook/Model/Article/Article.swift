@@ -21,7 +21,7 @@ class Article: RemoteDataBaseModel {
     var code: String
     var price: Double
     var sellerCode: String
-    var solded: Bool
+    var sold: Bool
     var uniqueID: String
 
     static let sort = ["Book", "Comic", "Novel", "Guide", "Game", "Compact Disk", "DVD", "Video Game", "Other"]
@@ -29,7 +29,7 @@ class Article: RemoteDataBaseModel {
  // MARK: - Initialisation
     init(title: String, sort: String, author: String, description: String,
          purseName: String, isbn: String, code: String,
-         price: Double, sellerCode: String, solded: Bool,
+         price: Double, sellerCode: String, sold: Bool,
          uniqueID: String) {
         self.title = title
         self.sort = sort
@@ -40,7 +40,7 @@ class Article: RemoteDataBaseModel {
         self.code = code
         self.price = price
         self.sellerCode = sellerCode
-        self.solded = solded
+        self.sold = sold
         self.uniqueID = uniqueID
     }
 
@@ -55,7 +55,7 @@ class Article: RemoteDataBaseModel {
                 let purseNameValue = snapshotValue["purseName"] as? String,
                 let isbnValue = snapshotValue["isbn"] as? String,
                 let priceValue = snapshotValue["price"] as? Double,
-                let soldedValue = snapshotValue["solded"] as? Bool,
+                let soldValue = snapshotValue["sold"] as? Bool,
                 let uniqueIDValue = snapshotValue["uniqueID"] as? String,
                 let sellerCodeValue = snapshotValue["sellerCode"] as? String else {
             return nil
@@ -69,7 +69,7 @@ class Article: RemoteDataBaseModel {
         purseName = purseNameValue
         isbn = isbnValue
         price = priceValue
-        solded = soldedValue
+        sold = soldValue
         sellerCode = sellerCodeValue
         uniqueID = uniqueIDValue
     }
@@ -83,7 +83,7 @@ class Article: RemoteDataBaseModel {
                                      "purseName": purseName,
                                      "isbn": isbn,
                                      "price": price,
-                                     "solded": solded,
+                                     "sold": sold,
                                      "uniqueID": uniqueID,
                                      "sellerCode": sellerCode]
         return values

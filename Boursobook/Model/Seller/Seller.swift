@@ -20,7 +20,7 @@ class Seller: Equatable {
     let createdBy: String
     let purseName: String
 
-    var articleSolded = 0
+    var articlesold = 0
     var articleRegistered = 0
     var orderNumber = 0
     var depositFeeAmount: Double = 0
@@ -51,7 +51,7 @@ class Seller: Equatable {
                 let codeValue = snapshotValue["code"] as? String,
                 let createdByValue = snapshotValue["createdBy"] as? String,
                 let purseValue = snapshotValue["purseName"] as? String,
-                let articleSoldedValue = snapshotValue["articleSolded"] as? Int,
+                let articlesoldValue = snapshotValue["articlesold"] as? Int,
                 let articleRegisteredValue = snapshotValue["articleRegistered"] as? Int,
                 let orderNumberValue = snapshotValue["orderNumber"] as? Int,
                 let depositFeeAmountValue = snapshotValue["depositFeeAmount"] as? Double,
@@ -69,7 +69,7 @@ class Seller: Equatable {
         code = codeValue
         createdBy = createdByValue
         purseName = purseValue
-        articleSolded = articleSoldedValue
+        articlesold = articlesoldValue
         articleRegistered = articleRegisteredValue
         orderNumber = orderNumberValue
         depositFeeAmount = depositFeeAmountValue

@@ -47,12 +47,12 @@ class ArticleService {
         articleRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
     }
 
-    func updateSoldedList(list: [String: Bool] ) {
-        // Update the field "solded" to true for the list of articles
+    func updatesoldList(list: [String: Bool] ) {
+        // Update the field "sold" to true for the list of articles
         var childUpdate = [String: Bool]()
 
         for (articleCode, _) in list {
-            childUpdate.updateValue(true, forKey: "/\(articleCode)/solded/")
+            childUpdate.updateValue(true, forKey: "/\(articleCode)/sold/")
         }
 
         articleRemoteDataBaseRequest.updateChildValues(dataNode: locationInRemoteDataBase, childUpdates: childUpdate)

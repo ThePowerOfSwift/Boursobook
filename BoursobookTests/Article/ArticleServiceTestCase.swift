@@ -120,7 +120,7 @@ class ArticleServiceTestCase: XCTestCase {
                 for article in articlesReaded
                     where article.uniqueID == self.firstArticleNotSold.uniqueID
                         || article.uniqueID == self.secondArticleNotSold.uniqueID {
-                        XCTAssertEqual(article.solded, false)
+                        XCTAssertEqual(article.sold, false)
                 }
             }
             XCTAssertTrue(done)
@@ -132,7 +132,7 @@ class ArticleServiceTestCase: XCTestCase {
         //When
         // Update the two articles in FireBase and test if they are sold after
         let secondExpectation = XCTestExpectation(description: "Wait for updating and reading.")
-        articleService.updateSoldedList(list: updateList)
+        articleService.updatesoldList(list: updateList)
         articleService.readAndListenData(for: testPurse) { (done, articlesReaded) in
 
             //Then
@@ -140,7 +140,7 @@ class ArticleServiceTestCase: XCTestCase {
                 for article in articlesReaded
                     where article.uniqueID == self.firstArticleNotSold.uniqueID
                         || article.uniqueID == self.secondArticleNotSold.uniqueID {
-                        XCTAssertEqual(article.solded, true)
+                        XCTAssertEqual(article.sold, true)
                 }
             }
             XCTAssertTrue(done)

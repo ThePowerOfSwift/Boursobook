@@ -15,7 +15,7 @@ class SellerListTableViewCell: UITableViewCell {
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var registerdArticle: UILabel!
-    @IBOutlet weak var soldedArticleLabel: UILabel!
+    @IBOutlet weak var soldArticleLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +33,6 @@ class SellerListTableViewCell: UITableViewCell {
         codeLabel.text = seller.code
         firstNameLabel.text = seller.firstName
         registerdArticle.text = String(seller.articleRegistered)
-        soldedArticleLabel.text = String(seller.articleSolded)
+        soldArticleLabel.text = String(seller.articlesold)
     }
 }

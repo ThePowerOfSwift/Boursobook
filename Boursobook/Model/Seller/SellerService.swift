@@ -22,7 +22,7 @@ class SellerService {
                                      "code": seller.code,
                                      "email": seller.email, "phoneNumber": seller.phoneNumber,
                                      "createdBy": seller.createdBy, "purseName": seller.purseName,
-                                     "articleSolded": 0, "articleRegistered": 0,
+                                     "articlesold": 0, "articleRegistered": 0,
                                      "depositFeeAmount": 0, "salesAmount": 0, "orderNumber": 0,
                                      "refundDone": false, "refundDate": "", "refundBy": ""]
         sellerRef.setValue(values)
@@ -89,13 +89,13 @@ class SellerService {
 
                 if var seller = currentData.value as? [String: AnyObject] {
                     var salesAmount = seller["salesAmount"] as? Double ?? 0
-                    var articleSolded = seller["articleSolded"] as? Int ?? 0
+                    var articlesold = seller["articlesold"] as? Int ?? 0
 
                     salesAmount += values.amount
-                    articleSolded += values.number
+                    articlesold += values.number
 
                     seller["salesAmount"] = salesAmount as AnyObject?
-                    seller["articleSolded"] = articleSolded as AnyObject?
+                    seller["articlesold"] = articlesold as AnyObject?
 
                     // Set value and report transaction success
                     currentData.value = seller

@@ -36,7 +36,7 @@ class FakeArticleDataSnapshot: DataSnapshot {
                 "code": "AAAA 0001",
                 "price": 2.4,
                 "sellerCode": "AAAA",
-                "solded": false,
+                "sold": false,
                 "uniqueID": "ID Article - fake article For test"]
     }
 }
@@ -58,7 +58,7 @@ class FakePurseDataSnapshot: DataSnapshot {
                 "users": ["me": "me@me.fr"],
                 "numberOfArticleRegistered": 13,
                 "numberOfSellers": 8,
-                "numberOfArticleSolded": 8,
+                "numberOfArticlesold": 8,
                 "numberOfTransaction": 4,
                 "totalSalesAmount": 12.6,
                 "totalBenefitOnSalesAmount": 2.4,
@@ -79,7 +79,7 @@ class FakePurseWrongDepositFeeDataSnapshot: DataSnapshot {
                 "users": ["me": "me@me.fr"],
                 "numberOfArticleRegistered": 13,
                 "numberOfSellers": 8,
-                "numberOfArticleSolded": 8,
+                "numberOfArticlesold": 8,
                 "numberOfTransaction": 4,
                 "totalSalesAmount": 12.6,
                 "totalBenefitOnSalesAmount": 2.4,

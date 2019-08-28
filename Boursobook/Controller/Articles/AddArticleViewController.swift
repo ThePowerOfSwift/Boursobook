@@ -104,7 +104,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
             let article = Article(title: titleValue, sort: sortValue, author: authorValue,
                                   description: descriptionValue, purseName: currentPurse.name,
                                   isbn: isbnValue, code: codeValue,
-                                  price: priceValue, sellerCode: codeOfSeller, solded: false,
+                                  price: priceValue, sellerCode: codeOfSeller, sold: false,
                                   uniqueID: uniqueIDValue)
             InMemoryStorage.shared.addArticle(article, for: codeOfSeller)
             self.navigationController?.popViewController(animated: true)

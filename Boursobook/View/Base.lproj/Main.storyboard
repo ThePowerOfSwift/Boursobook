@@ -168,12 +168,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="4Xj-9y-FXz">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="4Xj-9y-FXz">
                             <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3UM-l8-0GR">
-                                    <rect key="frame" x="169" y="3.6666666666666679" width="37" height="37"/>
+                                    <rect key="frame" x="169" y="109.66666666666669" width="37" height="37"/>
                                     <color key="color" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </activityIndicatorView>
                             </subviews>
@@ -283,7 +283,7 @@
                                     <outlet property="familyNameLabel" destination="eOr-kc-G5H" id="Buc-HV-s56"/>
                                     <outlet property="firstNameLabel" destination="VcR-Kt-oRG" id="rdi-BJ-GFB"/>
                                     <outlet property="registerdArticle" destination="eKw-94-JP8" id="Snl-fd-lTL"/>
-                                    <outlet property="soldedArticleLabel" destination="Sue-ka-R4I" id="SHa-8d-oxa"/>
+                                    <outlet property="soldArticleLabel" destination="Sue-ka-R4I" id="SHa-8d-oxa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -680,7 +680,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-5z-hvf">
                                                 <rect key="frame" x="0.0" y="286" width="335" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of article solded :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3L-SZ-5WR">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of article sold :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3L-SZ-5WR">
                                                         <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -893,7 +893,7 @@
                         <outlet property="familyNameLabel" destination="tgm-x8-29Z" id="T3w-gp-927"/>
                         <outlet property="firstNameLabel" destination="UnQ-Cw-Rhd" id="C6j-yj-es5"/>
                         <outlet property="numberOfArticleRegisteredLabel" destination="IOf-A9-aGy" id="DAF-m2-TaC"/>
-                        <outlet property="numberOfArticleSoldedLabel" destination="rbd-Ex-7IZ" id="e0W-Nl-rfC"/>
+                        <outlet property="numberOfArticlesoldLabel" destination="rbd-Ex-7IZ" id="e0W-Nl-rfC"/>
                         <outlet property="numberReturnedCheckedSwitch" destination="cLY-av-CGI" id="zZw-hd-KSr"/>
                         <outlet property="numerOfArticleToReturnLabel" destination="7fc-8S-TZH" id="WAB-se-cdD"/>
                         <outlet property="phoneLabel" destination="uJr-8p-H4D" id="II6-o0-N7E"/>
@@ -1054,7 +1054,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5PU-i1-tTS">
                                                 <rect key="frame" x="0.0" y="272" width="335" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of articles solded :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZp-PL-Hyz">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of articles sold :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZp-PL-Hyz">
                                                         <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1187,7 +1187,7 @@
                     <connections>
                         <outlet property="currentPurseLabel" destination="Yxs-RE-Vk7" id="F1d-HL-YBh"/>
                         <outlet property="numberOfArticleRecordedLabel" destination="wVX-eu-1ER" id="RCt-MG-4Gx"/>
-                        <outlet property="numberOfArticleSoldedLabel" destination="75b-ZZ-ZBY" id="j6i-Ks-jcc"/>
+                        <outlet property="numberOfArticlesoldLabel" destination="75b-ZZ-ZBY" id="j6i-Ks-jcc"/>
                         <outlet property="numberOfSalesLabel" destination="cms-Yq-afG" id="9ol-3D-abe"/>
                         <outlet property="numberOfSellerLabel" destination="lsf-fx-sZM" id="h0a-Zp-FJq"/>
                         <outlet property="totalAmountOfSalesLabel" destination="lw3-VV-SNm" id="PBZ-cQ-y2p"/>
@@ -2447,12 +2447,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.82496184110000004" green="0.43052911760000001" blue="0.23130673169999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="XEa-Ud-v3p">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="XEa-Ud-v3p">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="articles of :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFX-Yq-cp7">
-                                    <rect key="frame" x="260" y="10" width="85" height="24"/>
+                                    <rect key="frame" x="260" y="10" width="85" height="236"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>

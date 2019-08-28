@@ -39,7 +39,7 @@ class BrowseArticleListTableViewController: UITableViewController {
 
     // MARK: - functions
     @objc func updateValues() {
-        articlesToDisplay = InMemoryStorage.shared.filterNoSoldedArticles()
+        articlesToDisplay = InMemoryStorage.shared.filterNosoldArticles()
         for (articleCode, _) in InMemoryStorage.shared.currentTransaction.articles {
             for (index, article) in articlesToDisplay.enumerated() where article.code == articleCode {
                 articlesToDisplay.remove(at: index)

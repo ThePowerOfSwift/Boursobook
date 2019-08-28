@@ -274,9 +274,9 @@ extension InMemoryStorage {
         return filteredList
     }
 
-    func filterNoSoldedArticles() -> [Article] {
+    func filterNosoldArticles() -> [Article] {
         var filteredList = [Article]()
-        for article in articles where article.solded == false {
+        for article in articles where article.sold == false {
             filteredList.append(article)
         }
         return filteredList
@@ -358,7 +358,7 @@ extension InMemoryStorage {
     }
 
     func validCurrentTransaction() {
-        // set articles to solded, calculate amounts
+        // set articles to sold, calculate amounts
         // save the transaction
 
         var transacationValuesBySeller = [String: TransactionValues]()
@@ -370,8 +370,8 @@ extension InMemoryStorage {
         // Update articles
         for (code, _) in currentTransaction.articles {
             for article in articles where article.code == code {
-                // Update article to solded  state in localMemory
-                article.solded = true
+                // Update article to sold  state in localMemory
+                article.sold = true
 
                 let values = TransactionValues(amount: (article.price * sellerBenefitRate), number: 1)
 
@@ -386,14 +386,14 @@ extension InMemoryStorage {
             }
         }
 
-        // update list of article to solded State in FireBase
-        articleService.updateSoldedList(list: currentTransaction.articles)
+        // update list of article to sold State in FireBase
+        articleService.updatesoldList(list: currentTransaction.articles)
 
         // Update sellers in local Memory
         for (sellerCode, values) in transacationValuesBySeller {
             for seller in sellers where sellerCode == seller.code {
                 seller.salesAmount += values.amount
-                seller.articleSolded += values.number
+                seller.articlesold += values.number
             }
         }
         // Update sellers in firebase
@@ -402,7 +402,7 @@ extension InMemoryStorage {
         // Update current purse in local Memory
         purse.totalBenefitOnSalesAmount += currentTransaction.amount * purseBenefitRate
         purse.totalSalesAmount += currentTransaction.amount
-        purse.numberOfArticleSolded += currentTransaction.numberOfArticle
+        purse.numberOfArticlesold += currentTransaction.numberOfArticle
         purse.numberOfTransaction += 1
 
         // Update current purse in fireBase
@@ -410,7 +410,7 @@ extension InMemoryStorage {
             for: purse,
             benefit: currentTransaction.amount * purseBenefitRate,
             salesAmount: currentTransaction.amount,
-            articleSolded: currentTransaction.numberOfArticle,
+            articlesold: currentTransaction.numberOfArticle,
             numberTransaction: 1)
 
         // Update current transaction in local Memory

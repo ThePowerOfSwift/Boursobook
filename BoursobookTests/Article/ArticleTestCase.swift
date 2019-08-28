@@ -38,7 +38,7 @@ class ArticleTestCase: XCTestCase {
                               purseName: purseName, isbn: isbn,
                               code: code, price: price,
                               sellerCode: sellerCode,
-                              solded: sold, uniqueID: uniqueID)
+                              sold: sold, uniqueID: uniqueID)
 
         //Then
         XCTAssertEqual(article.title, title)
@@ -50,7 +50,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.code, code)
         XCTAssertEqual(article.price, price)
         XCTAssertEqual(article.sellerCode, sellerCode)
-        XCTAssertEqual(article.solded, sold )
+        XCTAssertEqual(article.sold, sold )
         XCTAssertEqual(article.uniqueID, uniqueID)
     }
 
@@ -86,7 +86,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.code, code)
         XCTAssertEqual(article.price, price)
         XCTAssertEqual(article.sellerCode, sellerCode)
-        XCTAssertEqual(article.solded, sold )
+        XCTAssertEqual(article.sold, sold )
         XCTAssertEqual(article.uniqueID, uniqueID)
     }
 
@@ -128,7 +128,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(values["code"] as? String, "AAAA 0001")
         XCTAssertEqual(values["price"] as? Double, 2.4)
         XCTAssertEqual(values["sellerCode"] as? String, "AAAA")
-        XCTAssertEqual(values["solded"] as? Bool, false)
+        XCTAssertEqual(values["sold"] as? Bool, false)
         XCTAssertEqual(values["uniqueID"] as? String, "ID Article - fake article For test")
     }
 }

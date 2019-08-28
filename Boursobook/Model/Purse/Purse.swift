@@ -15,7 +15,7 @@ class Purse: RemoteDataBaseModel {
 
     var numberOfArticleRegistered = 0
     var numberOfSellers = 0
-    var numberOfArticleSolded = 0
+    var numberOfArticlesold = 0
     var numberOfTransaction = 0
     var percentageOnSales: Double
     var depositFee: DepositFee
@@ -36,7 +36,7 @@ class Purse: RemoteDataBaseModel {
 
     // MARK: - Initialisation
     init(name: String, uniqueID: String, numberOfArticleRegistered: Int, numberOfSellers: Int,
-         numberOfArticleSolded: Int, numberOfTransaction: Int,
+         numberOfArticlesold: Int, numberOfTransaction: Int,
          percentageOnSales: Double, depositFee: DepositFee,
          totalSalesAmount: Double, totalBenefitOnSalesAmount: Double,
          totalDepositFeeAmount: Double, administrators: [String: Bool],
@@ -45,7 +45,7 @@ class Purse: RemoteDataBaseModel {
         self.uniqueID = uniqueID
         self.numberOfArticleRegistered = numberOfArticleRegistered
         self.numberOfSellers = numberOfSellers
-        self.numberOfArticleSolded = numberOfArticleSolded
+        self.numberOfArticlesold = numberOfArticlesold
         self.numberOfTransaction = numberOfTransaction
         self.percentageOnSales = percentageOnSales
         self.depositFee = depositFee
@@ -66,7 +66,7 @@ class Purse: RemoteDataBaseModel {
                 let usersValue = snapshotValue["users"] as? [String: String],
                 let numberOfArticleRegisteredValue = snapshotValue["numberOfArticleRegistered"] as? Int,
                 let numberOfSellersValue = snapshotValue["numberOfSellers"] as? Int,
-                let numberOfArticleSoldedValue = snapshotValue["numberOfArticleSolded"] as? Int,
+                let numberOfArticlesoldValue = snapshotValue["numberOfArticlesold"] as? Int,
                 let numberOfTransactionValue = snapshotValue["numberOfTransaction"] as? Int,
                 let totalSalesAmountValue = snapshotValue["totalSalesAmount"] as? Double,
             let totalBenefitOnSalesAmountValue = snapshotValue["totalBenefitOnSalesAmount"] as? Double,
@@ -88,7 +88,7 @@ class Purse: RemoteDataBaseModel {
         percentageOnSales = percentageOnSalesValue
         numberOfArticleRegistered = numberOfArticleRegisteredValue
         numberOfSellers = numberOfSellersValue
-        numberOfArticleSolded = numberOfArticleSoldedValue
+        numberOfArticlesold = numberOfArticlesoldValue
         numberOfTransaction = numberOfTransactionValue
         totalBenefitOnSalesAmount = totalBenefitOnSalesAmountValue
         totalSalesAmount = totalSalesAmountValue
@@ -119,7 +119,7 @@ class Purse: RemoteDataBaseModel {
                                      "users": users,
                                      "numberOfArticleRegistered": numberOfArticleRegistered,
                                      "numberOfSellers": numberOfSellers,
-                                     "numberOfArticleSolded": numberOfArticleSolded,
+                                     "numberOfArticlesold": numberOfArticlesold,
                                      "numberOfTransaction": numberOfTransaction,
                                      "totalSalesAmount": totalSalesAmount,
                                      "totalBenefitOnSalesAmount": totalBenefitOnSalesAmount,

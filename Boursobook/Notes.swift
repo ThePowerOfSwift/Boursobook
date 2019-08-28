@@ -17,7 +17,7 @@ import Foundation
             - ajouter titre et ISBN sur le QR Code
  
             - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
-            - corriger solded par sold
+            - corriger sold par sold
             - voir ce qui se passe si pas de reseau et pas d'acces ???
             - Verifier le bon coverage des tests
             - test en release si la base prod fonctionne

@@ -62,7 +62,7 @@ class AddNewSellerViewController: UIViewController {
         let seller = Seller(familyName: familyNameValue, firstName: firstNameValue, email: emailValue,
                             phoneNumber: phoneNumberValue, code: code,
                             createdBy: userLogIn.email, purseName: currentPurse.name)
-        //FIXME: mettre le uniqueID = code + unique ID UUID
+            //FIXME: mettre le uniqueID = code + unique ID UUID
         InMemoryStorage.shared.addSeller(seller)
 
         self.navigationController?.popViewController(animated: true)

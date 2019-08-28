@@ -111,7 +111,7 @@ class PurseService {
     }
 
     func updateValuesAfterTransactionWith(for purse: Purse, benefit: Double,
-                                          salesAmount: Double, articleSolded: Int,
+                                          salesAmount: Double, articlesold: Int,
                                           numberTransaction: Int) {
         // Update liste of values of seller after the validation of a transaction
         // FIXME: injection dependance à faire
@@ -122,17 +122,17 @@ class PurseService {
                 if var purse = currentData.value as? [String: AnyObject] {
                     var totalBenefitOnSalesAmount = purse["totalBenefitOnSalesAmount"] as? Double ?? 0
                     var totalSalesAmount = purse["totalSalesAmount"] as? Double ?? 0
-                    var numberOfArticleSolded = purse["numberOfArticleSolded"] as? Int ?? 0
+                    var numberOfArticlesold = purse["numberOfArticlesold"] as? Int ?? 0
                     var numberOfTransaction = purse["numberOfTransaction"] as? Int ?? 0
 
                     totalBenefitOnSalesAmount += benefit
                     totalSalesAmount += salesAmount
-                    numberOfArticleSolded += articleSolded
+                    numberOfArticlesold += articlesold
                     numberOfTransaction += numberTransaction
 
                     purse["totalBenefitOnSalesAmount"] = totalBenefitOnSalesAmount as AnyObject?
                     purse["totalSalesAmount"] = totalSalesAmount as AnyObject?
-                    purse["numberOfArticleSolded"] = numberOfArticleSolded as AnyObject?
+                    purse["numberOfArticlesold"] = numberOfArticlesold as AnyObject?
                     purse["numberOfTransaction"] = numberOfTransaction as AnyObject?
 
                     // Set value and report transaction success

@@ -29,7 +29,7 @@ class PurseTestCase: XCTestCase {
         let users = ["me": "me@me.fr"]
         let numberOfArticleRegistered = 13
         let numberOfSellers = 8
-        let numberOfArticleSolded = 8
+        let numberOfArticlesold = 8
         let numberOfTransaction = 4
         let totalSalesAmount = 12.6
         let totalBenefitOnSalesAmount = 2.4
@@ -40,7 +40,7 @@ class PurseTestCase: XCTestCase {
 
         //When
         let purse = Purse(name: name, uniqueID: uniqueID, numberOfArticleRegistered: numberOfArticleRegistered,
-                          numberOfSellers: numberOfSellers, numberOfArticleSolded: numberOfArticleSolded,
+                          numberOfSellers: numberOfSellers, numberOfArticlesold: numberOfArticlesold,
                           numberOfTransaction: numberOfTransaction, percentageOnSales: percentageOnSales,
                           depositFee: depositFee, totalSalesAmount: totalSalesAmount,
                           totalBenefitOnSalesAmount: totalBenefitOnSalesAmount,
@@ -55,7 +55,7 @@ class PurseTestCase: XCTestCase {
         XCTAssertEqual(purse.users, users)
         XCTAssertEqual(purse.numberOfArticleRegistered, numberOfArticleRegistered)
         XCTAssertEqual(purse.numberOfSellers, numberOfSellers)
-        XCTAssertEqual(purse.numberOfArticleSolded, numberOfArticleSolded)
+        XCTAssertEqual(purse.numberOfArticlesold, numberOfArticlesold)
         XCTAssertEqual(purse.numberOfTransaction, numberOfTransaction)
         XCTAssertEqual(purse.totalSalesAmount, totalSalesAmount)
         XCTAssertEqual(purse.totalBenefitOnSalesAmount, totalBenefitOnSalesAmount)
@@ -77,7 +77,7 @@ class PurseTestCase: XCTestCase {
         let users = ["me": "me@me.fr"]
         let numberOfArticleRegistered = 13
         let numberOfSellers = 8
-        let numberOfArticleSolded = 8
+        let numberOfArticlesold = 8
         let numberOfTransaction = 4
         let totalSalesAmount = 12.6
         let totalBenefitOnSalesAmount = 2.4
@@ -105,7 +105,7 @@ class PurseTestCase: XCTestCase {
         XCTAssertEqual(purse.users, users)
         XCTAssertEqual(purse.numberOfArticleRegistered, numberOfArticleRegistered)
         XCTAssertEqual(purse.numberOfSellers, numberOfSellers)
-        XCTAssertEqual(purse.numberOfArticleSolded, numberOfArticleSolded)
+        XCTAssertEqual(purse.numberOfArticlesold, numberOfArticlesold)
         XCTAssertEqual(purse.numberOfTransaction, numberOfTransaction)
         XCTAssertEqual(purse.totalSalesAmount, totalSalesAmount)
         XCTAssertEqual(purse.totalBenefitOnSalesAmount, totalBenefitOnSalesAmount)

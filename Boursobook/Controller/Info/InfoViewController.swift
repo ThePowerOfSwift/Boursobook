@@ -16,7 +16,7 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var currentPurseLabel: UILabel!
     @IBOutlet weak var numberOfSellerLabel: UILabel!
     @IBOutlet weak var numberOfArticleRecordedLabel: UILabel!
-    @IBOutlet weak var numberOfArticleSoldedLabel: UILabel!
+    @IBOutlet weak var numberOfArticlesoldLabel: UILabel!
     @IBOutlet weak var numberOfSalesLabel: UILabel!
     @IBOutlet weak var totalAmountOfSalesLabel: UILabel!
     @IBOutlet weak var totalAmountOfSubscriptionLabel: UILabel!
@@ -51,7 +51,7 @@ class InfoViewController: UIViewController {
             currentPurseLabel.text = currentPurse.name
             numberOfSellerLabel.text = String(currentPurse.numberOfSellers)
             numberOfArticleRecordedLabel.text = String(currentPurse.numberOfArticleRegistered)
-            numberOfArticleSoldedLabel.text = String(currentPurse.numberOfArticleSolded)
+            numberOfArticlesoldLabel.text = String(currentPurse.numberOfArticlesold)
             numberOfSalesLabel.text = String(currentPurse.numberOfTransaction)
             totalAmountOfSalesLabel.text = String(currentPurse.totalSalesAmount)
             totalAmountOfSubscriptionLabel.text = String(currentPurse.totalDepositFeeAmount)

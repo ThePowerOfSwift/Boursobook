@@ -22,7 +22,7 @@ class FakeData {
                                         code: "AAAA 0001",
                                         price: 2.4,
                                         sellerCode: "AAAA",
-                                        solded: false,
+                                        sold: false,
                                         uniqueID: "ID Article - first fake article For test")
 
     static let secondArticleNotSold = Article(title: "titre second article",
@@ -34,7 +34,7 @@ class FakeData {
                                              code: "BBBB 0003",
                                              price: 3.0,
                                              sellerCode: "BBBB",
-                                             solded: false,
+                                             sold: false,
                                              uniqueID: "ID Second Article - fake article For test")
 
     static let transaction = Transaction(date: "15/01/19",
@@ -56,7 +56,7 @@ class FakeData {
                              uniqueID: "APE 2019 UNIQUEID",
                              numberOfArticleRegistered: 13,
                              numberOfSellers: 8,
-                             numberOfArticleSolded: 8,
+                             numberOfArticlesold: 8,
                              numberOfTransaction: 4,
                              percentageOnSales: 14.5,
                              depositFee: FakeData.depositFee,

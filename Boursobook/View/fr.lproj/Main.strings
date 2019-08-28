@@ -65,8 +65,8 @@
 /* Class = "UILabel"; text = "Code :"; ObjectID = "HoC-uD-s10"; */
 "HoC-uD-s10.text" = "Code :";
 
-/* Class = "UILabel"; text = "Number of article solded :"; ObjectID = "I3L-SZ-5WR"; */
-"I3L-SZ-5WR.text" = "Number of article solded :";
+/* Class = "UILabel"; text = "Number of article sold :"; ObjectID = "I3L-SZ-5WR"; */
+"I3L-SZ-5WR.text" = "Number of article sold :";
 
 /* Class = "UILabel"; text = "999"; ObjectID = "IOf-A9-aGy"; */
 "IOf-A9-aGy.text" = "999";

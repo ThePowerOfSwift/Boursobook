@@ -21,7 +21,7 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var createdByLabel: UILabel!
-    @IBOutlet weak var numberOfArticleSoldedLabel: UILabel!
+    @IBOutlet weak var numberOfArticlesoldLabel: UILabel!
     @IBOutlet weak var numberOfArticleRegisteredLabel: UILabel!
     @IBOutlet weak var amountDepositFeeLabel: UILabel!
     @IBOutlet weak var amountOfSalesLabel: UILabel!
@@ -70,9 +70,9 @@ class SellerViewController: UIViewController {
             createdByLabel.text = displayedSeller.createdBy
             numberOfArticleRegisteredLabel.text = String(displayedSeller.articleRegistered)
             amountDepositFeeLabel.text = String(displayedSeller.depositFeeAmount)
-            numberOfArticleSoldedLabel.text = String(displayedSeller.articleSolded)
+            numberOfArticlesoldLabel.text = String(displayedSeller.articlesold)
             amountOfSalesLabel.text = String(displayedSeller.salesAmount)
-            numerOfArticleToReturnLabel.text = String(displayedSeller.articleRegistered - displayedSeller.articleSolded)
+            numerOfArticleToReturnLabel.text = String(displayedSeller.articleRegistered - displayedSeller.articlesold)
         }
     }
 
