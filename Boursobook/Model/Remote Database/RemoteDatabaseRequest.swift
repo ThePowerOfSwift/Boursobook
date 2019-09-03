@@ -12,11 +12,34 @@ import Foundation
 protocol RemoteDatabaseRequest {
 
     /**
-     Request to read and listen "Model" data from remote
+     Request to read and listen changes of "Model" data from remote database in a collection
+     with a query for Model that meet a certain condition
      */
-    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
-                                                       completionHandler: @escaping (Bool, [Model]) -> Void)
+    func readAndListenData<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
+                                                       condition: RemoteDataBase.Condition,
+                                                       completionHandler: @escaping (Error?, [Model]?) -> Void)
 
+    /**
+     Request to read and listen changes of "Model" data from remote database in a collection
+     */
+    func readAndListenData<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
+                                                       completionHandler: @escaping (Error?, [Model]?) -> Void)
+
+    /**
+     Request to create an "Model" objet in the remote database
+     */
+    func create<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
+                                            model: Model,
+                                            completionHandler: @escaping (Error?) -> Void)
+
+    /**
+     Request to get "Model" data from remote database in a collection only once
+     */
+    func get<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
+                                         completionHandler: @escaping (Error?, [Model]?) -> Void)
+
+/*
+    
     /**
     Request to read and listen "Model" data from remote filtered by purse
      */
@@ -29,11 +52,7 @@ protocol RemoteDatabaseRequest {
      */
     func stopListen(dataNode: RemoteDataBaseReference.Node)
 
-    /**
-    Request to create an "Model" objet in the remote database
-     */
-    func create<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node, model: Model)
-
+   
     /**
      Request to delete an "Model" objet in the remote database
      */
@@ -44,4 +63,5 @@ protocol RemoteDatabaseRequest {
      */
     func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Any])
 
+ */
 }

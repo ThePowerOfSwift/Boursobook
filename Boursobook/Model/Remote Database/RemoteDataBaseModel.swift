@@ -10,11 +10,11 @@ import Foundation
 import Firebase
 
 protocol RemoteDataBaseModel {
+
     // MARK: - Properties
     var uniqueID: String {get}
+    var dictionary: [String: Any] {get}
 
     // MARK: - Initialisation
-    init?(snapshot: DataSnapshot)
-
-    func setValuesForRemoteDataBase() -> [String: Any]
+    init?(dictionary: [String: Any])
 }

@@ -13,30 +13,84 @@ class InMemoryStorage {
 // manage the storage in the app memory
 
     // MARK: - Properties
-
     static var shared = InMemoryStorage()
 
     private(set) var purses: [Purse] = []
-    private var purseService = PurseService()
-
-    private(set) var sellers: [Seller] = []
-    private var sellerService = SellerService()
-
-    private(set) var articles: [Article] = []
-    private var articleService = ArticleService()
-
-    private(set) var transactions: [Transaction] = []
-    private var transactionService = TransactionService()
-
-    private(set) var currentPurse: Purse?
-    private(set) var currentUser: User?
-    private(set) var currentTransaction = Transaction()
-
-    var onSellerUpdate: (() -> ())?
+    private let purseAPI = PurseAPI()
+    var onPurseUpdate: (() -> Void)?
 
     private init() {
     }
 
+    // MARK: - Functions for purses
+    func loadPurses(callBack: @escaping (Error?) -> Void) {
+        // Load all the purses that have current user as User
+        purseAPI.loadPursesFor(user: UserService.shared.userLogIn) { (error, pursesLoaded) in
+            if let error = error {
+                callBack(error)
+            } else {
+                guard let pursesLoaded = pursesLoaded else {
+                    callBack(IMSError.other)
+                    return
+                }
+                self.purses = pursesLoaded
+                self.onPurseUpdate?()
+                callBack(nil)
+            }
+        }
+    }
+
+    func createPurse(name: String, callBack: @escaping (Error?) -> Void) {
+        // Create a new purse with the current user as administrator
+        purseAPI.createPurse(name: name, user: UserService.shared.userLogIn) { (error) in
+            if let error = error {
+                callBack(error)
+            } else {
+                callBack(nil)
+            }
+        }
+    }
+
+    func isPurseNameExist(name: String, callBack: @escaping (Error?, Bool) -> Void) {
+        // Check in list of purse if a name exist
+        purseAPI.getExistingPurseName { (error, purseNames) in
+            if let error = error {
+                callBack(error, false)
+            } else {
+                guard let purseNames = purseNames else {
+                    callBack(IMSError.other, false)
+                    return
+                }
+                if purseNames.contains(name) {
+                    callBack(nil, true)
+                } else {
+                    callBack(nil, false)
+                }
+            }
+        }
+    }
+
+    //--------------------------------------
+    //FIXME : a suprimer en dessous
+    // ----------------------------------------
+
+    private var purseService = PurseService()
+
+    private(set) var sellers: [Seller] = []
+    private var sellerService = SellerService()
+    
+    private(set) var articles: [Article] = []
+    private var articleService = ArticleService()
+    
+    private(set) var transactions: [Transaction] = []
+    private var transactionService = TransactionService()
+    
+    private(set) var currentPurse: Purse?
+    
+    private(set) var currentTransaction = Transaction()
+
+    var onSellerUpdate: (() -> Void)?
+    
     static let pursesUpdatedNotification =
         Notification.Name("InMemoryStorage.pursesUpdated")
     static let sellerUpdatedNotification =
@@ -420,5 +474,16 @@ extension InMemoryStorage {
         transactionService.create(transaction: currentTransaction)
 
         setCurrentTransaction()
+    }
+}
+
+extension InMemoryStorage {
+    /**
+     'IMSError' is the error type returned by InMemoryStorage.
+     It encompasses a few different types of errors, each with
+     their own associated reasons.
+     */
+    enum IMSError: String, Error {
+        case other = "Sorry, there is an error !"
     }
 }

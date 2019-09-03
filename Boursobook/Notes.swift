@@ -17,9 +17,11 @@ import Foundation
             - ajouter titre et ISBN sur le QR Code
  
             - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
+                (est ce que j'arrete la syncho sur chaque VC? )
             - corriger sold par sold
             - voir ce qui se passe si pas de reseau et pas d'acces ???
             - Verifier le bon coverage des tests
+            - verifier avec l'affichage en IPhone 4S si pas erreur
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
 //          - Supprimer tous les messages d'alertes dans la console
@@ -27,6 +29,14 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
+ - Dans FireBaseRequest ligne 35 : je sors de la fonction si je trouve un seul element que je n'arrive pas à
+ initialiser ?? meilleure methode ??
+ - difference entre callBack et completionHandler ?
+ - La DB est free pour un certain montant. Comment je fais si il
+ y a plus de connexion ? Je valide l'acces par mail, je facture le
+ compte ??  Je fais payer su l'app store un montant en fonction
+ de la limite de la base ??
+ 
  -  Comment on traite les erreurs si les transactions sur firebase renvoient une erreur?
  on relance la fonction ? on efface les enregistrements?? RX ??
 
@@ -126,6 +136,8 @@ import Foundation
  - Mettre des valuers avec virgules pour voir si le format passe`
  - metter une verification au max à 100% sur le pourcentage
  - attention a la gestion du clavier (ne cache pas les textes)
+ - implementer la fonction "add new user" pour donner l'autorisation
+ a un utilisateur inscrit d'acceder à la purse
  
  */
 

@@ -11,17 +11,115 @@ import Firebase
 
 struct FireBaseRequest: RemoteDatabaseRequest {
 
-    // Create objects "Model" in FireBase
-    func create<Model>(dataNode: RemoteDataBaseReference.Node, model: Model) where Model: RemoteDataBaseModel {
-        let reference = Database.database().reference(withPath: dataNode.rawValue)
-        let transactionRef = reference.child(model.uniqueID)
-        let values = model.setValuesForRemoteDataBase()
+    // Initialise instance for FireStone
+    let firestoneDatabase = Firestore.firestore()
 
-        transactionRef.setValue(values)
+    // Query and listen objects "Model" from FireBase in a collection
+    func readAndListenData<Model>(collection: RemoteDataBase.Collection,
+                                  completionHandler: @escaping (Error?, [Model]?) -> Void)
+                                    where Model: RemoteDataBaseModel {
+        firestoneDatabase.collection(collection.rawValue).addSnapshotListener { (modelSnapshot, error) in
+
+            guard let modelSnapshot = modelSnapshot else {
+                if let error = error {
+                    completionHandler(error, nil)
+                } else {
+                completionHandler(RemoteDataBase.RDBError.other, nil)
+                }
+                return
+            }
+            let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
+                if let model = Model(dictionary: document.data()) {
+                    return model
+                } else {
+                    completionHandler(RemoteDataBase.RDBError.cantInitModel, nil)
+                    return nil
+                }
+            })
+            let models = modelValues.compactMap { $0 }
+            completionHandler(nil, models)
+        }
     }
 
+    // Query and listen objects "Model" from FireBase in a collection
+    // with a query for Model that meet a certain condition
+    func readAndListenData<Model>(collection: RemoteDataBase.Collection,
+                                  condition: RemoteDataBase.Condition,
+                                  completionHandler: @escaping (Error?, [Model]?) -> Void)
+                                    where Model: RemoteDataBaseModel {
+        firestoneDatabase.collection(collection.rawValue)
+                    .whereField(condition.key, isEqualTo: condition.value)
+                    .addSnapshotListener { (modelSnapshot, error) in
+
+            guard let modelSnapshot = modelSnapshot else {
+                if let error = error {
+                    completionHandler(error, nil)
+                } else {
+                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                }
+                return
+            }
+            let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
+                if let model = Model(dictionary: document.data()) {
+                    return model
+                } else {
+                    completionHandler(RemoteDataBase.RDBError.cantInitModel, nil)
+                    return nil
+                }
+            })
+            let models = modelValues.compactMap { $0 }
+            completionHandler(nil, models)
+        }
+    }
+
+    // Create objects "Model" in FireBase
+    func create<Model>(collection: RemoteDataBase.Collection,
+                       model: Model,
+                       completionHandler: @escaping (Error?) -> Void)
+                        where Model: RemoteDataBaseModel {
+        firestoneDatabase.collection(collection.rawValue).document(model.uniqueID)
+            .setData(model.dictionary) { (error) in
+            if let error = error {
+                completionHandler(error)
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+    
+    // Get only Once objects "Model" from FireBase in a collection
+    func get<Model>(collection: RemoteDataBase.Collection,
+                    completionHandler: @escaping (Error?, [Model]?) -> Void)
+                        where Model: RemoteDataBaseModel {
+        firestoneDatabase.collection(collection.rawValue).getDocuments() { (modelSnapshot, error) in
+            
+            guard let modelSnapshot = modelSnapshot else {
+                if let error = error {
+                    completionHandler(error, nil)
+                } else {
+                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                }
+                return
+            }
+            let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
+                if let model = Model(dictionary: document.data()) {
+                    return model
+                } else {
+                    completionHandler(RemoteDataBase.RDBError.cantInitModel, nil)
+                    return nil
+                }
+            })
+            let models = modelValues.compactMap { $0 }
+            completionHandler(nil, models)
+        }
+    }
+
+    //FIXME: supprimer code en dessous
+/*
+ 
+
     // Query objects "Model" from FireBase
-    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
+    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBase.collection,
                                                        completionHandler: @escaping (Bool, [Model]) -> Void) {
 
         let reference = Database.database().reference(withPath: dataNode.rawValue)
@@ -41,7 +139,7 @@ struct FireBaseRequest: RemoteDatabaseRequest {
     }
 
     // Query objects "Model" from FireBase for a Purse
-    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
+    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBase.collection,
                                                        for purse: Purse,
                                                        completionHandler: @escaping (Bool, [Model]) -> Void) {
 
@@ -62,21 +160,22 @@ struct FireBaseRequest: RemoteDatabaseRequest {
     }
 
     //Stop the listening of the transactions
-    func stopListen(dataNode: RemoteDataBaseReference.Node) {
+    func stopListen(dataNode: RemoteDataBase.collection) {
         let reference = Database.database().reference(withPath: dataNode.rawValue)
         reference.removeAllObservers()
     }
 
     // Delete object "Model" from FireBase for a Purse
-    func remove<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node, model: Model) {
+    func remove<Model: RemoteDataBaseModel>(dataNode: RemoteDataBase.collection, model: Model) {
         let reference = Database.database().reference(withPath: dataNode.rawValue)
         reference.child(model.uniqueID).removeValue()
     }
 
     // Update differents childValue of object on FireBase
-    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Any]) {
+    func updateChildValues(dataNode: RemoteDataBase.collection, childUpdates: [String: Any]) {
         let reference = Database.database().reference(withPath: dataNode.rawValue)
         reference.updateChildValues(childUpdates)
     }
+ */
 
 }

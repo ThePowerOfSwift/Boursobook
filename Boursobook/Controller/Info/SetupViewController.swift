@@ -145,50 +145,7 @@ class SetupViewController: UIViewController {
     }
 
     private func addNewUser() {
-        let alert = UIAlertController(title: NSLocalizedString("Register", comment: ""),
-                                      message: NSLocalizedString("New user", comment: ""),
-                                      preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: NSLocalizedString("Save", comment: ""),
-                                       style: .default) { _ in
-                                        guard let emailTextFieldValue = alert.textFields?[0].text else {
-                                            return
-                                        }
-                                        guard let passwordTextFieldValue = alert.textFields?[1].text else {
-                                            return
-                                        }
-
-                                    UserService.shared.createUser(email: emailTextFieldValue,
-                                                                      password: passwordTextFieldValue,
-                                                                      callBack: { (error) in
-                                                                        if let error = error {
-                                                                        self.displayAlert(message: error.message,
-                                                                        title: NSLocalizedString("Error !",
-                                                                        comment: ""))
-                                                                        } else {
-                                                                            self.displayAlert(message:
-                                    NSLocalizedString("An email has been send to the new user !", comment: ""),
-                                    title: NSLocalizedString("It's ok !", comment: ""))
-                                                                        }
-                                        })
-        }
-
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
-                                         style: .default)
-
-        alert.addTextField { textEmail in
-            textEmail.placeholder = NSLocalizedString("Enter your email", comment: "")
-            textEmail.keyboardType = .emailAddress
-        }
-
-        alert.addTextField { textPassword in
-            textPassword.isSecureTextEntry = true
-            textPassword.placeholder = NSLocalizedString("Enter your password", comment: "")
-        }
-
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-
-        present(alert, animated: true, completion: nil)
-
+        displayAlert(message: NSLocalizedString("Sorry, it's note possible yet !", comment: ""),
+                     title: NSLocalizedString("Error !", comment: ""))
     }
 }

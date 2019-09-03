@@ -13,7 +13,7 @@ class ArticleService {
     // Manage the "articles" database on a remote database
 
     // MARK: - Properties
-    private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .article
+    private let locationInRemoteDataBase: RemoteDataBase.Collection = .article
     private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
 
     // MARK: Initialisation
@@ -25,26 +25,33 @@ class ArticleService {
     // MARK: - Functions
     func create(article: Article) {
         // Create a article in the remote database
-        articleRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: article)
+       
+        //FIXME: a implementer
+//        articleRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: article)
     }
 
     func remove(article: Article) {
         // Delete an article in the remote database
-        articleRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: article)
+       
+        //FIXME: a implementer
+//        articleRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: article)
     }
 
     func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Article]) -> Void) {
         // Query articles from remote database for one Purse
 
-        articleRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase,
-                                                       for: purse) { (done, articlesReaded) in
-                                                        completionHandler(done, articlesReaded)
-        }
+       //FIXME: a implementer
+//        articleRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase,
+//                                                       for: purse) { (done, articlesReaded) in
+//                                                        completionHandler(done, articlesReaded)
+//        }
     }
 
     func stopListen() {
         //Stop the listening of the articles
-        articleRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
+       
+        //FIXME: a implementer
+//        articleRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
     }
 
     func updatesoldList(list: [String: Bool] ) {
@@ -55,6 +62,7 @@ class ArticleService {
             childUpdate.updateValue(true, forKey: "/\(articleCode)/sold/")
         }
 
-        articleRemoteDataBaseRequest.updateChildValues(dataNode: locationInRemoteDataBase, childUpdates: childUpdate)
+        //FIXME: a implementer
+//        articleRemoteDataBaseRequest.updateChildValues(dataNode: locationInRemoteDataBase, childUpdates: childUpdate)
     }
 }

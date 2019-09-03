@@ -29,7 +29,10 @@
 "Are you sure delete alla seller ?" = "Etes vous sur de vouloir effacer ce vendeur et tous ces articles ?";
 "Please check the number !" = "Merci de vérifier le nombre d'article !";
 "Nothing To Save !" = "Il n'y a rien a sauvegarder !";
-
+"New purse was created" = "Une nouvelle bourse a été créée";
+"Done !" = "Fait !";
+"New purse création" = "Création de la nouvelle bourse";
+"Enter the name" = "Entrez le nom";
 
 // InfoViewController
 "Register" = "Enregistrement";
@@ -59,3 +62,5 @@
 "error in API response !" = "erreur dans la réponse de l'API !";
 "Please, fill correctly all the values !" = "SVP, remplissez correctement toutes les valeurs !";
 "We advise you to create a landscape label !" = "Nous vous conseillons de creer une étiquette en paysage !";
+"Unable to intialize type !" = "Impossible d'initialiser le type !";
+"Sorry, but the name allready exist !" = "Désolé, le nom existe déja !";

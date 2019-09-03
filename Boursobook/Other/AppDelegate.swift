@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     override init() {
+
         // Select FireBase dataBase depending of testing or production mode
         guard let developmentPath = Bundle.main.path(forResource: "GoogleService-Info-development",
                                                ofType: "plist") else {return}

@@ -56,33 +56,43 @@ class Purse: RemoteDataBaseModel {
         self.users = users
     }
 
-    required init?(snapshot: DataSnapshot) {
-        guard   let snapshotValue = snapshot.value as? [String: AnyObject],
-                let nameValue = snapshotValue["name"] as? String,
-                let uniqueIDValue = snapshotValue["uniqueID"] as? String,
-                let percentageOnSalesValue = snapshotValue["percentageOnSales"] as? Double,
-                let depositFeeData = snapshotValue["depositFee"] as? [String: AnyObject],
-                let administratorsValue = snapshotValue["administrators"] as? [String: Bool],
-                let usersValue = snapshotValue["users"] as? [String: String],
-                let numberOfArticleRegisteredValue = snapshotValue["numberOfArticleRegistered"] as? Int,
-                let numberOfSellersValue = snapshotValue["numberOfSellers"] as? Int,
-                let numberOfArticlesoldValue = snapshotValue["numberOfArticlesold"] as? Int,
-                let numberOfTransactionValue = snapshotValue["numberOfTransaction"] as? Int,
-                let totalSalesAmountValue = snapshotValue["totalSalesAmount"] as? Double,
-            let totalBenefitOnSalesAmountValue = snapshotValue["totalBenefitOnSalesAmount"] as? Double,
-                let totalDepositFeeAmountValue = snapshotValue["totalDepositFeeAmount"] as? Double else {
-            return nil
+    init(name: String, uniqueID: String, administrators: [String: Bool], users: [String: String]) {
+        self.name = name
+        self.uniqueID = uniqueID
+        self.administrators = administrators
+        self.users = users
+        let depositFee = DepositFee(underFifty: 0, underOneHundred: 2, underOneHundredFifty: 4, underTwoHundred: 6, underTwoHundredFifty: 8, overTwoHundredFifty: 10)
+        self.depositFee = depositFee
+        self.percentageOnSales = 10
+    }
+
+    required init?(dictionary: [String : Any]) {
+        guard
+            let nameValue = dictionary["name"] as? String,
+            let uniqueIDValue = dictionary["uniqueID"] as? String,
+            let percentageOnSalesValue = dictionary["percentageOnSales"] as? Double,
+            let depositFeeData = dictionary["depositFee"] as? [String: AnyObject],
+            let administratorsValue = dictionary["administrators"] as? [String: Bool],
+            let usersValue = dictionary["users"] as? [String: String],
+            let numberOfArticleRegisteredValue = dictionary["numberOfArticleRegistered"] as? Int,
+            let numberOfSellersValue = dictionary["numberOfSellers"] as? Int,
+            let numberOfArticlesoldValue = dictionary["numberOfArticlesold"] as? Int,
+            let numberOfTransactionValue = dictionary["numberOfTransaction"] as? Int,
+            let totalSalesAmountValue = dictionary["totalSalesAmount"] as? Double,
+            let totalBenefitOnSalesAmountValue = dictionary["totalBenefitOnSalesAmount"] as? Double,
+            let totalDepositFeeAmountValue = dictionary["totalDepositFeeAmount"] as? Double else {
+                return nil
         }
 
         guard   let underFiftyValue = depositFeeData["underFifty"] as? Double,
-                let underOneHundredValue = depositFeeData["underOneHundred"] as? Double,
-                let underOneHundredFiftyValue = depositFeeData["underOneHundredFifty"] as? Double,
-                let underTwoHundredValue = depositFeeData["underTwoHundred"] as? Double,
-                let underTwoHundredFiftyValue = depositFeeData["underTwoHundredFifty"] as? Double,
-                let overTwoHundredFiftyValue = depositFeeData["overTwoHundredFifty"] as? Double else {
-            return nil
+            let underOneHundredValue = depositFeeData["underOneHundred"] as? Double,
+            let underOneHundredFiftyValue = depositFeeData["underOneHundredFifty"] as? Double,
+            let underTwoHundredValue = depositFeeData["underTwoHundred"] as? Double,
+            let underTwoHundredFiftyValue = depositFeeData["underTwoHundredFifty"] as? Double,
+            let overTwoHundredFiftyValue = depositFeeData["overTwoHundredFifty"] as? Double else {
+                return nil
         }
-
+        
         name = nameValue
         uniqueID = uniqueIDValue
         percentageOnSales = percentageOnSalesValue
@@ -93,19 +103,19 @@ class Purse: RemoteDataBaseModel {
         totalBenefitOnSalesAmount = totalBenefitOnSalesAmountValue
         totalSalesAmount = totalSalesAmountValue
         totalDepositFeeAmount = totalDepositFeeAmountValue
-
+        
         depositFee = DepositFee(underFifty: underFiftyValue,
                                 underOneHundred: underOneHundredValue,
                                 underOneHundredFifty: underOneHundredFiftyValue,
                                 underTwoHundred: underTwoHundredValue,
                                 underTwoHundredFifty: underTwoHundredFiftyValue,
                                 overTwoHundredFifty: overTwoHundredFiftyValue)
-
+        
         administrators = administratorsValue
         users = usersValue
     }
 
-    func setValuesForRemoteDataBase() -> [String: Any] {
+    var dictionary: [String: Any] {
         let depositFeeValues: [String: Any] = ["underFifty": depositFee.underFifty,
                                                "underOneHundred": depositFee.underOneHundred,
                                                "underOneHundredFifty": depositFee.underOneHundredFifty,

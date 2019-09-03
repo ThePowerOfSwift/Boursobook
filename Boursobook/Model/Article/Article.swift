@@ -24,6 +24,21 @@ class Article: RemoteDataBaseModel {
     var sold: Bool
     var uniqueID: String
 
+    var dictionary: [String: Any] {
+        let values: [String: Any] = ["title": title,
+                                     "code": code,
+                                     "sort": sort,
+                                     "author": author,
+                                     "description": description,
+                                     "purseName": purseName,
+                                     "isbn": isbn,
+                                     "price": price,
+                                     "sold": sold,
+                                     "uniqueID": uniqueID,
+                                     "sellerCode": sellerCode]
+        return values
+    }
+
     static let sort = ["Book", "Comic", "Novel", "Guide", "Game", "Compact Disk", "DVD", "Video Game", "Other"]
 
  // MARK: - Initialisation
@@ -44,23 +59,22 @@ class Article: RemoteDataBaseModel {
         self.uniqueID = uniqueID
     }
 
-    required init?(snapshot: DataSnapshot) {
+    required init?(dictionary: [String : Any]) {
         guard
-            let snapshotValue = snapshot.value as? [String: AnyObject],
-                let titleValue = snapshotValue["title"] as? String,
-                let codeValue = snapshotValue["code"] as? String,
-                let sortValue = snapshotValue["sort"] as? String,
-                let authorValue = snapshotValue["author"] as? String,
-                let descriptionValue = snapshotValue["description"] as? String,
-                let purseNameValue = snapshotValue["purseName"] as? String,
-                let isbnValue = snapshotValue["isbn"] as? String,
-                let priceValue = snapshotValue["price"] as? Double,
-                let soldValue = snapshotValue["sold"] as? Bool,
-                let uniqueIDValue = snapshotValue["uniqueID"] as? String,
-                let sellerCodeValue = snapshotValue["sellerCode"] as? String else {
-            return nil
+            let titleValue = dictionary["title"] as? String,
+            let codeValue = dictionary["code"] as? String,
+            let sortValue = dictionary["sort"] as? String,
+            let authorValue = dictionary["author"] as? String,
+            let descriptionValue = dictionary["description"] as? String,
+            let purseNameValue = dictionary["purseName"] as? String,
+            let isbnValue = dictionary["isbn"] as? String,
+            let priceValue = dictionary["price"] as? Double,
+            let soldValue = dictionary["sold"] as? Bool,
+            let uniqueIDValue = dictionary["uniqueID"] as? String,
+            let sellerCodeValue = dictionary["sellerCode"] as? String else {
+                return nil
         }
-
+        
         title = titleValue
         code = codeValue
         sort = sortValue
@@ -72,20 +86,5 @@ class Article: RemoteDataBaseModel {
         sold = soldValue
         sellerCode = sellerCodeValue
         uniqueID = uniqueIDValue
-    }
-
-    func setValuesForRemoteDataBase() -> [String: Any] {
-        let values: [String: Any] = ["title": title,
-                                     "code": code,
-                                     "sort": sort,
-                                     "author": author,
-                                     "description": description,
-                                     "purseName": purseName,
-                                     "isbn": isbn,
-                                     "price": price,
-                                     "sold": sold,
-                                     "uniqueID": uniqueID,
-                                     "sellerCode": sellerCode]
-        return values
     }
 }

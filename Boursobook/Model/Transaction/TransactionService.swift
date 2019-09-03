@@ -13,7 +13,7 @@ class TransactionService {
     // Manage the "transactions" database on a remote database
 
     // MARK: Properties
-    private let locationInRemoteDataBase: RemoteDataBaseReference.Node = .transaction
+    private let locationInRemoteDataBase: RemoteDataBase.Collection = .transaction
     private var transactionRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
 
     // MARK: Initialisation
@@ -25,25 +25,22 @@ class TransactionService {
     // MARK: Function
     func create(transaction: Transaction) {
         // Create a transaction in the remote database
-        transactionRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: transaction)
+        //FIXME: a implementer
     }
 
     func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Transaction]) -> Void) {
         // Query transactions from remote database for one Purse
 
-    transactionRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase,
-                                                           for: purse) { (done, transactionReaded) in
-            completionHandler(done, transactionReaded)
-        }
+    //FIXME: a implementer
     }
 
     func stopListen() {
         //Stop the listening of the transactions
-        transactionRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
+        //FIXME: a implementer
     }
 
     func remove(transaction: Transaction) {
         // Delete a transaction in the remote database
-        transactionRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: transaction)
+        //FIXME: a implementer
     }
 }

@@ -38,6 +38,10 @@
 "Are you sure delete alla seller ?" = "Are you sure you want to delete this seller and all these articles ?";
 "Please check the number !" = "Please check the number !";
 "Nothing To Save !" = "Nothing To Save !";
+"New purse was created" = "New purse was created";
+"Done !" = "Done !";
+"New purse création" = "New purse création";
+"Enter the name" = "Enter the name";
 
 //Error
 "Please enter a stronger password !" = "Please enter a stronger password !";
@@ -58,3 +62,5 @@
 "error in API response !" = "error in API response !";
 "Please, fill correctly all the values !" = "Please, fill correctly all the values !";
 "We advise you to create a landscape label !" = "We advise you to create a landscape label !";
+"Unable to intialize type !" = "Unable to intialize type !";
+"Sorry, but the name allready exist !" = "Sorry, but the name allready exist !";
