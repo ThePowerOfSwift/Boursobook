@@ -59,7 +59,7 @@ class Article: RemoteDataBaseModel {
         self.uniqueID = uniqueID
     }
 
-    required init?(dictionary: [String : Any]) {
+    required init?(dictionary: [String: Any]) {
         guard
             let titleValue = dictionary["title"] as? String,
             let codeValue = dictionary["code"] as? String,
@@ -74,7 +74,7 @@ class Article: RemoteDataBaseModel {
             let sellerCodeValue = dictionary["sellerCode"] as? String else {
                 return nil
         }
-        
+
         title = titleValue
         code = codeValue
         sort = sortValue

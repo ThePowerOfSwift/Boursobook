@@ -60,7 +60,7 @@ class TransactionTestCase: XCTestCase {
         XCTAssertEqual(transaction.purseName, purseName)
     }
 
-    func testInitTransactionWithDataSnapshotSouldReturnTransaction() {
+    func testInitTransactionWithDictionarySouldReturnTransaction() {
         //Given
         let date = "15/01/19"
         let uniqueID = "ID Transaction - fake transaction For test"
@@ -69,10 +69,10 @@ class TransactionTestCase: XCTestCase {
         let madeByUser = "michel"
         let articles = ["livre": true]
         let purseName = "APE 2019"
-        let fakeTransactionDataSnapshot = FakeTransactionDataSnapshot()
+        let fakeTransactionDataDictionary = FakeDataDictionary().transaction
 
         //When
-        guard let transaction = Transaction(snapshot: fakeTransactionDataSnapshot) else {
+        guard let transaction = Transaction(dictionary: fakeTransactionDataDictionary) else {
             XCTFail("error in init of transaction")
             return
         }
@@ -87,12 +87,12 @@ class TransactionTestCase: XCTestCase {
         XCTAssertEqual(transaction.purseName, purseName)
     }
 
-    func testInitTransactionWithEmptyDataSnapshotSouldReturnNil() {
+    func testInitTransactionWithEmptyDictionarySouldReturnNil() {
         //Given
-        let emptyTransactionDataSnapshot = DataSnapshot()
+        let fakeemptyDataDictionary = FakeDataDictionary().empty
 
         //When
-        guard let transaction = Transaction(snapshot: emptyTransactionDataSnapshot) else {
+        guard let transaction = Transaction(dictionary: fakeemptyDataDictionary) else {
             XCTAssertTrue(true)
             return
         }
@@ -103,25 +103,32 @@ class TransactionTestCase: XCTestCase {
 
     }
 
-    func testSetValuesSouldReturnCorrectValues() {
+    func testGetDictionarySouldReturnGoodValues() {
         //Given
-        let fakeTransactionDataSnapshot = FakeTransactionDataSnapshot()
-
-        guard let transaction = Transaction(snapshot: fakeTransactionDataSnapshot) else {
-            XCTFail("error in init of transaction")
-            return
-        }
+        let fakeTransactionDataDictionary = FakeDataDictionary().transaction
+        let articlesfake = fakeTransactionDataDictionary["articles"] as? [String: Bool] ?? ["string": false]
 
         //When
-        let values = transaction.setValuesForRemoteDataBase()
+        guard let transaction = Transaction(dictionary: fakeTransactionDataDictionary) else {
+            XCTFail("error in init Transaction")
+            return
+        }
+        var dictionaryValues = transaction.dictionary
+        let articlesValues = dictionaryValues["articles"] as? [String: Bool] ?? ["": true]
 
         //Then
-        XCTAssertEqual(values["date"] as? String, "15/01/19")
-        XCTAssertEqual(values["uniqueID"] as? String, "ID Transaction - fake transaction For test")
-        XCTAssertEqual(values["amount"] as? Double, 23.4)
-        XCTAssertEqual(values["numberOfArticle"] as? Int, 7)
-        XCTAssertEqual(values["madeByUser"] as? String, "michel")
-        XCTAssertEqual(values["articles"] as? [String: Bool], ["livre": true])
-        XCTAssertEqual(values["purseName"] as? String, "APE 2019")
+        XCTAssertEqual(dictionaryValues["date"] as? String, fakeTransactionDataDictionary["date"] as? String)
+        XCTAssertEqual(dictionaryValues["uniqueID"] as? String, fakeTransactionDataDictionary["uniqueID"] as? String)
+        XCTAssertEqual(dictionaryValues["madeByUser"] as? String,
+                       fakeTransactionDataDictionary["madeByUser"] as? String)
+        XCTAssertEqual(dictionaryValues["purseName"] as? String, fakeTransactionDataDictionary["purseName"] as? String)
+
+        XCTAssertEqual(dictionaryValues["amount"] as? Double, fakeTransactionDataDictionary["amount"] as? Double)
+
+        XCTAssertEqual(dictionaryValues["numberOfArticle"] as? Int,
+                       fakeTransactionDataDictionary["numberOfArticle"] as? Int)
+
+        XCTAssertEqual(articlesValues, articlesfake)
+
     }
 }

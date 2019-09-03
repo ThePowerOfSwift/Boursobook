@@ -58,11 +58,12 @@ class AddNewSellerViewController: UIViewController {
                          title: NSLocalizedString("Error !", comment: ""))
             return
         }
-
+        let uniqueIDValue = code + " " + UUID().description
         let seller = Seller(familyName: familyNameValue, firstName: firstNameValue, email: emailValue,
                             phoneNumber: phoneNumberValue, code: code,
-                            createdBy: userLogIn.email, purseName: currentPurse.name)
-            //FIXME: mettre le uniqueID = code + unique ID UUID
+                            createdBy: userLogIn.email, purseName: currentPurse.name,
+                            uniqueID: uniqueIDValue, refundDate: "nil", refundBy: "nil")
+
         InMemoryStorage.shared.addSeller(seller)
 
         self.navigationController?.popViewController(animated: true)

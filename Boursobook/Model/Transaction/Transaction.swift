@@ -50,7 +50,7 @@ class Transaction: RemoteDataBaseModel {
         self.purseName = purseName
     }
 
-    required init?(dictionary: [String : Any]) {
+    required init?(dictionary: [String: Any]) {
         guard
             let dateValue = dictionary["date"] as? String,
             let uniqueIDValue = dictionary["uniqueID"] as? String,

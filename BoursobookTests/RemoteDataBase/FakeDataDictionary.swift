@@ -1,18 +1,20 @@
 //
-//  FakeDataSnapshot.swift
+//  FakeDataDictionary.swift
 //  BoursobookTests
 //
-//  Created by David Dubez on 12/08/2019.
+//  Created by David Dubez on 03/09/2019.
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-class FakeTransactionDataSnapshot: DataSnapshot {
-    //Override the property value of a DataSnapshot for a Transaction
+class FakeDataDictionary {
+    var empty: [String: Any] {
+        return [:]
+    }
 
-    override var value: Any? {
+    var transaction: [String: Any] {
         return ["date": "15/01/19",
                 "uniqueID": "ID Transaction - fake transaction For test",
                 "amount": 23.4,
@@ -21,12 +23,8 @@ class FakeTransactionDataSnapshot: DataSnapshot {
                 "articles": ["livre": true],
                 "purseName": "APE 2019"]
     }
-}
 
-class FakeArticleDataSnapshot: DataSnapshot {
-    //Override the property value of a DataSnapshot for a Article
-
-    override var value: Any? {
+    var article: [String: Any] {
         return ["title": "titre article",
                 "sort": "Book",
                 "author": "DURANS",
@@ -39,12 +37,8 @@ class FakeArticleDataSnapshot: DataSnapshot {
                 "sold": false,
                 "uniqueID": "ID Article - fake article For test"]
     }
-}
 
-class FakePurseDataSnapshot: DataSnapshot {
-    //Override the property value of a DataSnapshot for a Purse
-
-    override var value: Any? {
+    var purse: [String: Any] {
         return ["name": "APE 2019",
                 "uniqueID": "APE 2019 UNIQUEID",
                 "percentageOnSales": 10.2,
@@ -65,12 +59,8 @@ class FakePurseDataSnapshot: DataSnapshot {
                 "totalDepositFeeAmount": 2.2
         ]
     }
-}
 
-class FakePurseWrongDepositFeeDataSnapshot: DataSnapshot {
-    //Override the property value of a DataSnapshot for a Purse with wrong depositFee
-
-    override var value: Any? {
+    var wrongPurse: [String: Any] {
         return ["name": "APE 2019",
                 "uniqueID": "APE 2019 UNIQUEID",
                 "percentageOnSales": 10.2,
@@ -85,5 +75,24 @@ class FakePurseWrongDepositFeeDataSnapshot: DataSnapshot {
                 "totalBenefitOnSalesAmount": 2.4,
                 "totalDepositFeeAmount": 2.2
         ]
+    }
+
+    var seller: [String: Any] {
+        return ["familyName": "Dupond",
+                "firstName": "Gerad",
+                "email": "g.dupond@free.fr",
+                "phoneNumber": "0123456789",
+                "code": "DUPG",
+                "createdBy": "michel@me.com",
+                "purseName": "APE 2019",
+                "uniqueID": "diuzhdbfp djdjdj",
+                "articlesold": 23,
+                "articleRegistered": 42,
+                "orderNumber": 47,
+                "depositFeeAmount": 2.9,
+                "salesAmount": 39.3,
+                "refundDone": true,
+                "refundDate": "14/05/18",
+                "refundBy": "jeannine@aol.fr"]
     }
 }

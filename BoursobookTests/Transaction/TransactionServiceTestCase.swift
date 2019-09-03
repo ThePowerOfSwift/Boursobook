@@ -11,6 +11,18 @@ import Firebase
 @testable import Boursobook
 
 class TransactionServiceTestCase: XCTestCase {
+    
+    let testPurse = FakeData.purse
+    
+    override func setUp() {
+    }
+    
+    override func tearDown() {
+    }
+}
+
+/*
+class TransactionServiceTestCase: XCTestCase {
 
     let testPurse = FakeData.purse
 
@@ -103,3 +115,4 @@ class TransactionServiceTestCase: XCTestCase {
         wait(for: [finalExpectation], timeout: 5.0)
     }
 }
+*/

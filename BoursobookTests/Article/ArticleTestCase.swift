@@ -54,7 +54,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.uniqueID, uniqueID)
     }
 
-    func testInitArticleWithDataSnapshotSouldReturnArticle() {
+    func testInitArticleWithDictionarySouldReturnArticle() {
         //Given
         let title = "titre article"
         let sort = "Book"
@@ -68,10 +68,10 @@ class ArticleTestCase: XCTestCase {
         let sold = false
         let uniqueID = "ID Article - fake article For test"
 
-        let fakeArticleDataSnapshot = FakeArticleDataSnapshot()
+        let articleDataDictionary = FakeDataDictionary().article
 
         //When
-        guard let article = Article(snapshot: fakeArticleDataSnapshot) else {
+        guard let article = Article(dictionary: articleDataDictionary) else {
             XCTFail("error in init of article")
             return
         }
@@ -90,12 +90,12 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.uniqueID, uniqueID)
     }
 
-    func testInitArticleWithEmptyDataSnapshotSouldReturnNil() {
+    func testInitArticleWithEmptyDictionarySouldReturnNil() {
         //Given
-        let emptyArticleDataSnapshot = DataSnapshot()
+        let emptyDataDictionary = FakeDataDictionary().empty
 
         //When
-        guard let article = Article(snapshot: emptyArticleDataSnapshot) else {
+        guard let article = Article(dictionary: emptyDataDictionary) else {
             XCTAssertTrue(true)
             return
         }
@@ -106,29 +106,30 @@ class ArticleTestCase: XCTestCase {
 
     }
 
-    func testSetValuesSouldReturnCorrectValues() {
+    func testGetDictionarySouldReturnGoodValues() {
         //Given
-        let fakeArticleDataSnapshot = FakeArticleDataSnapshot()
-
-        guard let article = Article(snapshot: fakeArticleDataSnapshot) else {
-            XCTFail("error in init of article")
-            return
-        }
+        let fakeArticleDataDictionary = FakeDataDictionary().article
 
         //When
-        let values = article.setValuesForRemoteDataBase()
+        guard let article = Article(dictionary: fakeArticleDataDictionary) else {
+        XCTFail("error in init article")
+        return
+        }
+        var dictionaryValues = article.dictionary
 
         //Then
-        XCTAssertEqual(values["title"] as? String, "titre article")
-        XCTAssertEqual(values["sort"] as? String, "Book")
-        XCTAssertEqual(values["author"] as? String, "DURANS")
-        XCTAssertEqual(values["description"] as? String, "un livre sympa")
-        XCTAssertEqual(values["purseName"] as? String, "APE 2019")
-        XCTAssertEqual(values["isbn"] as? String, "1234567890123")
-        XCTAssertEqual(values["code"] as? String, "AAAA 0001")
-        XCTAssertEqual(values["price"] as? Double, 2.4)
-        XCTAssertEqual(values["sellerCode"] as? String, "AAAA")
-        XCTAssertEqual(values["sold"] as? Bool, false)
-        XCTAssertEqual(values["uniqueID"] as? String, "ID Article - fake article For test")
-    }
+        XCTAssertEqual(dictionaryValues["title"] as? String, fakeArticleDataDictionary["title"] as? String)
+        XCTAssertEqual(dictionaryValues["sort"] as? String, fakeArticleDataDictionary["sort"] as? String)
+        XCTAssertEqual(dictionaryValues["author"] as? String, fakeArticleDataDictionary["author"] as? String)
+        XCTAssertEqual(dictionaryValues["description"] as? String, fakeArticleDataDictionary["description"] as? String)
+        XCTAssertEqual(dictionaryValues["purseName"] as? String, fakeArticleDataDictionary["purseName"] as? String)
+        XCTAssertEqual(dictionaryValues["isbn"] as? String, fakeArticleDataDictionary["isbn"] as? String)
+        XCTAssertEqual(dictionaryValues["code"] as? String, fakeArticleDataDictionary["code"] as? String)
+        XCTAssertEqual(dictionaryValues["sellerCode"] as? String, fakeArticleDataDictionary["sellerCode"] as? String)
+        XCTAssertEqual(dictionaryValues["uniqueID"] as? String, fakeArticleDataDictionary["uniqueID"] as? String)
+
+        XCTAssertEqual(dictionaryValues["price"] as? Double, fakeArticleDataDictionary["price"] as? Double)
+
+        XCTAssertEqual(dictionaryValues["sold"] as? Bool, fakeArticleDataDictionary["sold"] as? Bool)
+        }
 }

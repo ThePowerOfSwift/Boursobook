@@ -12,6 +12,16 @@ import Firebase
 
 class ArticleServiceTestCase: XCTestCase {
 
+    override func setUp() {
+    }
+    
+    override func tearDown() {
+    }
+}
+
+/*
+class ArticleServiceTestCase: XCTestCase {
+
     let testPurse = FakeData.purse
     let testArticle = FakeData.firstArticleNotSold
     let firstArticleNotSold = FakeData.firstArticleNotSold
@@ -170,3 +180,4 @@ class ArticleServiceTestCase: XCTestCase {
         wait(for: [finalExpectation], timeout: 5.0)
     }
 }
+ */

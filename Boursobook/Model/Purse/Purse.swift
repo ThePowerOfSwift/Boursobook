@@ -61,12 +61,14 @@ class Purse: RemoteDataBaseModel {
         self.uniqueID = uniqueID
         self.administrators = administrators
         self.users = users
-        let depositFee = DepositFee(underFifty: 0, underOneHundred: 2, underOneHundredFifty: 4, underTwoHundred: 6, underTwoHundredFifty: 8, overTwoHundredFifty: 10)
+        let depositFee = DepositFee(underFifty: 0, underOneHundred: 2,
+                                    underOneHundredFifty: 4, underTwoHundred: 6,
+                                    underTwoHundredFifty: 8, overTwoHundredFifty: 10)
         self.depositFee = depositFee
         self.percentageOnSales = 10
     }
 
-    required init?(dictionary: [String : Any]) {
+    required init?(dictionary: [String: Any]) {
         guard
             let nameValue = dictionary["name"] as? String,
             let uniqueIDValue = dictionary["uniqueID"] as? String,
@@ -92,7 +94,7 @@ class Purse: RemoteDataBaseModel {
             let overTwoHundredFiftyValue = depositFeeData["overTwoHundredFifty"] as? Double else {
                 return nil
         }
-        
+
         name = nameValue
         uniqueID = uniqueIDValue
         percentageOnSales = percentageOnSalesValue
@@ -103,14 +105,14 @@ class Purse: RemoteDataBaseModel {
         totalBenefitOnSalesAmount = totalBenefitOnSalesAmountValue
         totalSalesAmount = totalSalesAmountValue
         totalDepositFeeAmount = totalDepositFeeAmountValue
-        
+
         depositFee = DepositFee(underFifty: underFiftyValue,
                                 underOneHundred: underOneHundredValue,
                                 underOneHundredFifty: underOneHundredFiftyValue,
                                 underTwoHundred: underTwoHundredValue,
                                 underTwoHundredFifty: underTwoHundredFiftyValue,
                                 overTwoHundredFifty: overTwoHundredFiftyValue)
-        
+
         administrators = administratorsValue
         users = usersValue
     }

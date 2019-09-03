@@ -15,9 +15,7 @@
 		4F19E84622FB27EC004C545C /* WrongBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E84522FB27EC004C545C /* WrongBook.json */; };
 		4F19E84822FB281B004C545C /* CorrectBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E84722FB281B004C545C /* CorrectBook.json */; };
 		4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */; };
-		4F19E85823014E5B004C545C /* FakeDataSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */; };
 		4F19E85A2301563A004C545C /* TransactionServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E8592301563A004C545C /* TransactionServiceTestCase.swift */; };
-		4F19E85C2301659D004C545C /* FakeDataBaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
 		4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */; };
 		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
@@ -75,9 +73,10 @@
 		4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E84231A969B00C6718A /* SelectPurseViewController.swift */; };
 		4F815E87231A97E100C6718A /* PurseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E86231A97E100C6718A /* PurseAPI.swift */; };
 		4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */; };
+		4F815E8E231E4F3800C6718A /* SellerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E8D231E4F3800C6718A /* SellerTestCase.swift */; };
+		4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */; };
 		4FD11C592313D9CC00FB9F94 /* ArticleServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C582313D9CC00FB9F94 /* ArticleServiceTestCase.swift */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
-		4FD11C5D23150A4600FB9F94 /* PurseServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5C23150A4600FB9F94 /* PurseServiceTestCase.swift */; };
 		B075DBC3AB114D135F172428 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBAFB9C5890D68F6E261587 /* Pods_Boursobook.framework */; };
 		D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */; };
 /* End PBXBuildFile section */
@@ -107,9 +106,7 @@
 		4F19E84722FB281B004C545C /* CorrectBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CorrectBook.json; sourceTree = "<group>"; };
 		4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTestCase.swift; sourceTree = "<group>"; };
 		4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSetupViewController.swift; sourceTree = "<group>"; };
-		4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataSnapshot.swift; sourceTree = "<group>"; };
 		4F19E8592301563A004C545C /* TransactionServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionServiceTestCase.swift; sourceTree = "<group>"; };
-		4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataBaseReference.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
 		4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorageManager.swift; sourceTree = "<group>"; };
 		4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRequest.swift; sourceTree = "<group>"; };
@@ -133,6 +130,8 @@
 		4F815E84231A969B00C6718A /* SelectPurseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPurseViewController.swift; sourceTree = "<group>"; };
 		4F815E86231A97E100C6718A /* PurseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPI.swift; sourceTree = "<group>"; };
 		4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseListTableViewCell.swift; sourceTree = "<group>"; };
+		4F815E8D231E4F3800C6718A /* SellerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTestCase.swift; sourceTree = "<group>"; };
+		4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataDictionary.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 		4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRequest.swift; sourceTree = "<group>"; };
 		4FD11C582313D9CC00FB9F94 /* ArticleServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleServiceTestCase.swift; sourceTree = "<group>"; };
 		4FD11C5A231472C200FB9F94 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
-		4FD11C5C23150A4600FB9F94 /* PurseServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseServiceTestCase.swift; sourceTree = "<group>"; };
 		4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataBaseModel.swift; sourceTree = "<group>"; };
 		4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -264,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				4F3820242302ADE600AB9577 /* PurseTestCase.swift */,
-				4FD11C5C23150A4600FB9F94 /* PurseServiceTestCase.swift */,
 			);
 			path = Purse;
 			sourceTree = "<group>";
@@ -314,6 +311,33 @@
 				4F7AA7F022EF44E7001FA860 /* BookService.swift */,
 			);
 			path = Book;
+			sourceTree = "<group>";
+		};
+		4F815E8A231E4E4E00C6718A /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				4F19E84122FB25FB004C545C /* URLSessionFake.swift */,
+				4F19E84322FB26E6004C545C /* FakeResponseData.swift */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		4F815E8B231E4E9A00C6718A /* RemoteDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */,
+				4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */,
+				4FD11C5A231472C200FB9F94 /* FakeData.swift */,
+			);
+			path = RemoteDataBase;
+			sourceTree = "<group>";
+		};
+		4F815E8C231E4F0F00C6718A /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				4F815E8D231E4F3800C6718A /* SellerTestCase.swift */,
+			);
+			path = Seller;
 			sourceTree = "<group>";
 		};
 		4F9E864A22C6383D00C9BE1E /* User */ = {
@@ -411,15 +435,12 @@
 		4FC5135122B13440000FD572 /* BoursobookTests */ = {
 			isa = PBXGroup;
 			children = (
-				4F19E84122FB25FB004C545C /* URLSessionFake.swift */,
-				4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */,
-				4F19E84322FB26E6004C545C /* FakeResponseData.swift */,
-				4F19E85723014E5B004C545C /* FakeDataSnapshot.swift */,
-				4FD11C5A231472C200FB9F94 /* FakeData.swift */,
-				4F19E85B2301659D004C545C /* FakeDataBaseReference.swift */,
+				4F815E8B231E4E9A00C6718A /* RemoteDataBase */,
 				4F3820262302ADEC00AB9577 /* Purse */,
+				4F815E8C231E4F0F00C6718A /* Seller */,
 				4F16C726230FE77400063B95 /* Article */,
 				4F19E84E22FC4AEC004C545C /* Transaction */,
+				4F815E8A231E4E4E00C6718A /* URLSession */,
 				4F19E84022FAF503004C545C /* BookService */,
 				4FC5135422B13440000FD572 /* Info.plist */,
 				4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */,
@@ -771,18 +792,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */,
 				4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */,
-				4F19E85C2301659D004C545C /* FakeDataBaseReference.swift in Sources */,
 				4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */,
-				4FD11C5D23150A4600FB9F94 /* PurseServiceTestCase.swift in Sources */,
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
 				4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */,
+				4F815E8E231E4F3800C6718A /* SellerTestCase.swift in Sources */,
 				4FD11C592313D9CC00FB9F94 /* ArticleServiceTestCase.swift in Sources */,
 				4F19E84422FB26E6004C545C /* FakeResponseData.swift in Sources */,
 				4F19E85A2301563A004C545C /* TransactionServiceTestCase.swift in Sources */,
 				4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */,
 				4F16C728230FE79B00063B95 /* ArticleTestCase.swift in Sources */,
-				4F19E85823014E5B004C545C /* FakeDataSnapshot.swift in Sources */,
 				4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */,
 				4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */,
 			);
