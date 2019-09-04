@@ -25,14 +25,14 @@ class ArticleService {
     // MARK: - Functions
     func create(article: Article) {
         // Create a article in the remote database
-       
+
         //FIXME: a implementer
 //        articleRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: article)
     }
 
     func remove(article: Article) {
         // Delete an article in the remote database
-       
+
         //FIXME: a implementer
 //        articleRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: article)
     }
@@ -49,7 +49,7 @@ class ArticleService {
 
     func stopListen() {
         //Stop the listening of the articles
-       
+
         //FIXME: a implementer
 //        articleRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
     }

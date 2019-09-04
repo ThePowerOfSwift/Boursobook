@@ -115,4 +115,3 @@ class ArticleListTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 }
-

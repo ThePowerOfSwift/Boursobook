@@ -38,14 +38,14 @@ protocol RemoteDatabaseRequest {
     func get<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
                                          completionHandler: @escaping (Error?, [Model]?) -> Void)
 
-/*
-    
     /**
-    Request to read and listen "Model" data from remote filtered by purse
+     Request to delete an "Model" objet in the remote database in a collection
      */
-    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node,
-                                                       for purse: Purse,
-                                                       completionHandler: @escaping (Bool, [Model]) -> Void)
+    func remove<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
+                                            model: Model,
+                                            completionHandler: @escaping (Error?) -> Void)
+
+/*
 
     /**
      Request to stop listening "Model" objet in the remote database
@@ -53,11 +53,7 @@ protocol RemoteDatabaseRequest {
     func stopListen(dataNode: RemoteDataBaseReference.Node)
 
    
-    /**
-     Request to delete an "Model" objet in the remote database
-     */
-    func remove<Model: RemoteDataBaseModel>(dataNode: RemoteDataBaseReference.Node, model: Model)
-
+    
     /**
      Request to update differents child Value of objets in the remote database
      */

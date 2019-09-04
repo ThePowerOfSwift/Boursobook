@@ -20,24 +20,8 @@ struct FireBaseRequest: RemoteDatabaseRequest {
                                     where Model: RemoteDataBaseModel {
         firestoneDatabase.collection(collection.rawValue).addSnapshotListener { (modelSnapshot, error) in
 
-            guard let modelSnapshot = modelSnapshot else {
-                if let error = error {
-                    completionHandler(error, nil)
-                } else {
-                completionHandler(RemoteDataBase.RDBError.other, nil)
-                }
-                return
-            }
-            let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
-                if let model = Model(dictionary: document.data()) {
-                    return model
-                } else {
-                    completionHandler(RemoteDataBase.RDBError.cantInitModel, nil)
-                    return nil
-                }
-            })
-            let models = modelValues.compactMap { $0 }
-            completionHandler(nil, models)
+            let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot, queryError: error)
+            completionHandler(response.0, response.1)
         }
     }
 
@@ -51,24 +35,9 @@ struct FireBaseRequest: RemoteDatabaseRequest {
                     .whereField(condition.key, isEqualTo: condition.value)
                     .addSnapshotListener { (modelSnapshot, error) in
 
-            guard let modelSnapshot = modelSnapshot else {
-                if let error = error {
-                    completionHandler(error, nil)
-                } else {
-                    completionHandler(RemoteDataBase.RDBError.other, nil)
-                }
-                return
-            }
-            let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
-                if let model = Model(dictionary: document.data()) {
-                    return model
-                } else {
-                    completionHandler(RemoteDataBase.RDBError.cantInitModel, nil)
-                    return nil
-                }
-            })
-            let models = modelValues.compactMap { $0 }
-            completionHandler(nil, models)
+                        let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot,
+                                                                               queryError: error)
+                        completionHandler(response.0, response.1)
         }
     }
 
@@ -86,31 +55,51 @@ struct FireBaseRequest: RemoteDatabaseRequest {
             }
         }
     }
-    
+
     // Get only Once objects "Model" from FireBase in a collection
     func get<Model>(collection: RemoteDataBase.Collection,
                     completionHandler: @escaping (Error?, [Model]?) -> Void)
                         where Model: RemoteDataBaseModel {
-        firestoneDatabase.collection(collection.rawValue).getDocuments() { (modelSnapshot, error) in
-            
-            guard let modelSnapshot = modelSnapshot else {
+        firestoneDatabase.collection(collection.rawValue).getDocuments { (modelSnapshot, error) in
+
+            let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot, queryError: error)
+            completionHandler(response.0, response.1)
+        }
+    }
+
+    // Create objects "Model" in FireBase
+    func remove<Model>(collection: RemoteDataBase.Collection,
+                       model: Model,
+                       completionHandler: @escaping (Error?) -> Void)
+                            where Model: RemoteDataBaseModel {
+        firestoneDatabase.collection(collection.rawValue).document(model.uniqueID)
+            .delete { (error) in
                 if let error = error {
-                    completionHandler(error, nil)
+                    completionHandler(error)
                 } else {
-                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                    completionHandler(nil)
                 }
-                return
+        }
+    }
+
+    // manage the response of firebase with a query of array of document
+    private func manageResponse<Model: RemoteDataBaseModel>(querySnapshot: QuerySnapshot?,
+                                                            queryError: Error?) -> (Error?, [Model]?) {
+        if let error = queryError {
+            return(error, nil)
+        } else {
+            guard let modelSnapshot = querySnapshot else {
+                return(RemoteDataBase.RDBError.other, nil)
             }
             let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
                 if let model = Model(dictionary: document.data()) {
                     return model
                 } else {
-                    completionHandler(RemoteDataBase.RDBError.cantInitModel, nil)
                     return nil
                 }
             })
             let models = modelValues.compactMap { $0 }
-            completionHandler(nil, models)
+            return(nil, models)
         }
     }
 

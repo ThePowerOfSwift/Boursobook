@@ -42,7 +42,7 @@ class InMemoryStorage {
 
     func createPurse(name: String, callBack: @escaping (Error?) -> Void) {
         // Create a new purse with the current user as administrator
-        purseAPI.createPurse(name: name, user: UserService.shared.userLogIn) { (error) in
+        purseAPI.createPurse(name: name, user: UserService.shared.userLogIn) { (error, _) in
             if let error = error {
                 callBack(error)
             } else {
@@ -78,19 +78,19 @@ class InMemoryStorage {
 
     private(set) var sellers: [Seller] = []
     private var sellerService = SellerService()
-    
+
     private(set) var articles: [Article] = []
     private var articleService = ArticleService()
-    
+
     private(set) var transactions: [Transaction] = []
     private var transactionService = TransactionService()
-    
+
     private(set) var currentPurse: Purse?
-    
+
     private(set) var currentTransaction = Transaction()
 
     var onSellerUpdate: (() -> Void)?
-    
+
     static let pursesUpdatedNotification =
         Notification.Name("InMemoryStorage.pursesUpdated")
     static let sellerUpdatedNotification =

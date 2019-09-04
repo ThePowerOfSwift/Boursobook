@@ -29,6 +29,7 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
+ - Comment je peux tester la classe inMemoryStorage (dependance ??) est ce que les fonctions ne sont pas redondantes avec purseAPI ??
  - Dans FireBaseRequest ligne 35 : je sors de la fonction si je trouve un seul element que je n'arrive pas à
  initialiser ?? meilleure methode ??
  - difference entre callBack et completionHandler ?
@@ -37,8 +38,6 @@ import Foundation
  compte ??  Je fais payer su l'app store un montant en fonction
  de la limite de la base ??
  
- -  Comment on traite les erreurs si les transactions sur firebase renvoient une erreur?
- on relance la fonction ? on efface les enregistrements?? RX ??
 
  */
 
@@ -168,12 +167,8 @@ import Foundation
  
  */
 
-
-
 // MARK: - VC
 /*
  -
  
  */
-
-

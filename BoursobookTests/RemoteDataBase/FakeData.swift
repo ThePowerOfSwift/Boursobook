@@ -66,4 +66,10 @@ class FakeData {
                              administrators: ["me": true],
                              users: ["me": "me@me.fr"])
 
+    static let user = User(uid: "uid of user me", email: "me@me.fr")
+
+    // MARK: - Error
+    class FakeError: Error {}
+    static let error = FakeError()
+
 }

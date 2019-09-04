@@ -64,9 +64,9 @@ class PurseAPI {
         }
     }
 
-    func createPurse(name: String, user: User?, completionHandler: @escaping (Error?) -> Void) {
+    func createPurse(name: String, user: User?, completionHandler: @escaping (Error?, Purse?) -> Void) {
         guard let user = user else {
-            completionHandler(PAPIError.other)
+            completionHandler(PAPIError.other, nil)
             return
         }
         let uniqueID = name + " " + UUID().description
@@ -74,11 +74,24 @@ class PurseAPI {
                              administrators: [user.email: true], users: [user.email: user.uid])
         purseRemoteDataBaseRequest.create(collection: remoteDataBaseCollection, model: newPurse) { (error) in
             if let error = error {
+                completionHandler(error, nil)
+            } else {
+                completionHandler(nil, newPurse)
+            }
+        }
+    }
+
+    func removePurse(purse: Purse, completionHandler: @escaping (Error?) -> Void) {
+
+        purseRemoteDataBaseRequest.remove(collection: remoteDataBaseCollection,
+                                          model: purse,
+                                          completionHandler: { (error) in
+            if let error = error {
                 completionHandler(error)
             } else {
                 completionHandler(nil)
             }
-        }
+        })
     }
 }
 
