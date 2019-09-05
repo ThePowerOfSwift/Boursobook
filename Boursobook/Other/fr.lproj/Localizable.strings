@@ -43,6 +43,7 @@
 "Enter your password" = "Entrez votre mot de passe";
 "An email has been send to the new user !" = "Un email a été envoyé à l'utilisateur";
 "Are you sure you want to log out ?" = "Etes vous sur de vouloir vous déconnecter ?";
+"Are you sure you want to change the current purse ?" = "Etes vous sur de vouloir quitter cette bourse ?";
 
 //Error
 "Please enter a stronger password !" = "Entrez un mot de passe plus sûr !";

@@ -68,6 +68,17 @@ class InMemoryStorage {
 
     }
 
+    func resetDataForCurrentPurse() {
+        // Reset all the data in local memory
+        // Stop listeners
+
+        //FIXME : arreter la surveillance de tous les sellers, transactions, article
+        currentPurse = nil
+        sellers = []
+        articles = []
+        transactions = []
+    }
+
     // MARK: - Functions for purses
     func loadPurses(callBack: @escaping (Error?) -> Void) {
         // Load all the purses that have current user as User

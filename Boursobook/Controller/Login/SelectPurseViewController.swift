@@ -17,7 +17,7 @@ class SelectPurseViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var selectPurseStackView: UIStackView!
     @IBOutlet weak var selectPurseActivityIndicator: UIActivityIndicatorView!
-    
+
     // MARK: IBAction
     @IBAction func didTapCreatePurse(_ sender: UIButton) {
         self.toogleCreateActivity(loading: true)
@@ -31,7 +31,11 @@ class SelectPurseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyleOfVC()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        purseListTableView.reloadData()
         InMemoryStorage.shared.onPurseUpdate = { () in
             self.purseListTableView.reloadData()
         }
@@ -42,17 +46,17 @@ class SelectPurseViewController: UIViewController {
         purseListTableView.layer.cornerRadius = 10
     }
 
-    func toogleCreateActivity(loading: Bool) {
+    private func toogleCreateActivity(loading: Bool) {
         createActivityIndicator.isHidden = !loading
         createNewPurseButton.isHidden = loading
     }
 
-    func toogleSelectActivity(loading: Bool) {
+    private func toogleSelectActivity(loading: Bool) {
         selectPurseActivityIndicator.isHidden = !loading
         selectPurseStackView.isHidden = loading
     }
 
-    func setStyleOfVC() {
+    private func setStyleOfVC() {
         purseListTableView.layer.cornerRadius = 10
         logOutButton.layer.cornerRadius = 10
     }

@@ -69,20 +69,10 @@ ou je peux faire les implementataion directement dans les VC?
 // MARK: - InMemoryStorage
 /*
  - gestion de l'appli offligne
- - Posibilité de choisir la purse si un user est inscrit sur plusieurs
  - valider l'entrée dans l'appli meme s'il n'y a pas de seller, de article ou de transactions
- - mettre un message si on peux pas se loger à cause de pas de purse, pas d'id....
  
  */
 
-// MARK: - LoginVC
-/*
- - gerer la fonction pour creer une nouvelle purse
- - verifier qu'on ne peux pas creer une purse avec un nom deja existant
- - uniqueID pour la purse = name + UUID
- - si un utilisateur a plusieur purse, choisir la purse en question
- 
-*/
 // MARK: - AddNewSellerVC
 /*
  - Controle du format correct du tel et du mail

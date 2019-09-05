@@ -20,30 +20,34 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var numberOfSalesLabel: UILabel!
     @IBOutlet weak var totalAmountOfSalesLabel: UILabel!
     @IBOutlet weak var totalAmountOfSubscriptionLabel: UILabel!
+    @IBOutlet weak var changePurseButton: UIButton!
 
     // MARK: - IBActions
+    @IBAction func didTapChangePurseButton(_ sender: UIButton) {
+        confirmChangePurse()
+    }
 
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.pursesUpdatedNotification,
-                                               object: nil)
+        setStyleOfVC()
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.pursesUpdatedNotification,
-                                                  object: nil)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        InMemoryStorage.shared.stopPurseListen()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateValues()
+        InMemoryStorage.shared.onPurseUpdate = { () in
+            self.updateValues()
+        }
     }
 
     // MARK: - functions
-    @objc private func updateValues() {
+    private func updateValues() {
         userLogInLabel.text = UserService.shared.userLogIn?.email
         userLogInIDLabel.text = UserService.shared.userLogIn?.uid
 
@@ -57,9 +61,28 @@ class InfoViewController: UIViewController {
             totalAmountOfSubscriptionLabel.text = String(currentPurse.totalDepositFeeAmount)
         }
     }
-}
 
-// TODO:    - Ajouter un bouton pour acces liste transaction
-//          - Ajouter bouton liste articles totaux
-//          - Ajouter un contact pour mailing list
-//          - Afficher qu'un email a bien été envoye à l'emeil du la création
+    private func setStyleOfVC() {
+        changePurseButton.layer.cornerRadius = 10
+    }
+
+    private func confirmChangePurse() {
+        let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
+                                      message: NSLocalizedString("Are you sure you want to change the current purse ?",
+                                                                 comment: ""),
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                         style: .default)
+        let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
+            self.changePurse()
+        }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func changePurse() {
+        InMemoryStorage.shared.resetDataForCurrentPurse()
+        self.dismiss(animated: true, completion: nil)
+    }
+}

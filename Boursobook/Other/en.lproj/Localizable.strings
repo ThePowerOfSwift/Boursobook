@@ -43,6 +43,7 @@
 "New purse création" = "New purse création";
 "Enter the name" = "Enter the name";
 "Are you sure you want to log out ?" = "Are you sure you want to log out ?";
+"Are you sure you want to change the current purse ?" = "Are you sure you want to change the current purse ?";
 
 //Error
 "Please enter a stronger password !" = "Please enter a stronger password !";
