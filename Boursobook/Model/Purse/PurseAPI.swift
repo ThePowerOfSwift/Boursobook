@@ -93,6 +93,10 @@ class PurseAPI {
             }
         })
     }
+
+    func stopListen() {
+        purseRemoteDataBaseRequest.stopListen(collection: remoteDataBaseCollection)
+    }
 }
 
 extension PurseAPI {

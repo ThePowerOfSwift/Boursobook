@@ -18,8 +18,54 @@ class InMemoryStorage {
     private(set) var purses: [Purse] = []
     private let purseAPI = PurseAPI()
     var onPurseUpdate: (() -> Void)?
+    private(set) var currentPurse: Purse?
+
+    private(set) var sellers: [Seller] = []
+    private let sellerAPI = SellerAPI()
+    var onSellerUpdate: (() -> Void)?
+
+    private(set) var articles: [Article] = []
+    private let articleAPI = ArticleAPI()
+    var onArticleUpdate: (() -> Void)?
 
     private init() {
+    }
+
+    // MARK: - Common Functions
+    func loadUsefulDataFor(purse: Purse, completionHandler: @escaping (Error?) -> Void) {
+        // Load all the nedded data in local Memory corresponding to the selected purse
+        // Set the seleted purse as current purse
+
+        var isFirstLoadingData = true
+        currentPurse = purse
+
+        if isFirstLoadingData {
+            self.loadSellers { (error) in
+                if let error = error {
+                    completionHandler(error)
+                }
+                if isFirstLoadingData {
+                    self.loadArticles(callBack: { (error) in
+                        if let error = error {
+                            completionHandler(error)
+                        }
+                        isFirstLoadingData = false
+                        completionHandler(nil)
+                    })
+                }
+            }
+        }
+
+    //FIXME: promises 
+    //    self.setPurses()
+    //        .then {
+    //            self.setSellers()
+    //        }
+    //        .then {
+    //            self.setArticle
+    //        }
+    // --> RxSwift => Reactive Programming
+
     }
 
     // MARK: - Functions for purses
@@ -70,26 +116,58 @@ class InMemoryStorage {
         }
     }
 
+    func stopPurseListen() {
+        purseAPI.stopListen()
+    }
+
+    // MARK: - Functions for sellers
+    func loadSellers(callBack: @escaping (Error?) -> Void) {
+        // Load all the sellers that have current purse as purse
+        sellerAPI.loadSellersFor(purse: currentPurse) { (error, sellersLoaded) in
+            if let error = error {
+                callBack(error)
+            } else {
+                guard let sellersLoaded = sellersLoaded else {
+                    callBack(IMSError.other)
+                    return
+                }
+                self.sellers = sellersLoaded
+                self.onSellerUpdate?()
+                callBack(nil)
+            }
+        }
+    }
+
+    // MARK: - Functions for articles
+    func loadArticles(callBack: @escaping (Error?) -> Void) {
+        // Load all the articles that have current purse as purse
+        articleAPI.loadArticlesFor(purse: currentPurse) { (error, articlesLoaded) in
+            if let error = error {
+                callBack(error)
+            } else {
+                guard let articlesLoaded = articlesLoaded else {
+                    callBack(IMSError.other)
+                    return
+                }
+                self.articles = articlesLoaded
+                self.onArticleUpdate?()
+                callBack(nil)
+            }
+        }
+    }
+
     //--------------------------------------
     //FIXME : a suprimer en dessous
     // ----------------------------------------
 
     private var purseService = PurseService()
-
-    private(set) var sellers: [Seller] = []
     private var sellerService = SellerService()
-
-    private(set) var articles: [Article] = []
     private var articleService = ArticleService()
 
     private(set) var transactions: [Transaction] = []
     private var transactionService = TransactionService()
 
-    private(set) var currentPurse: Purse?
-
     private(set) var currentTransaction = Transaction()
-
-    var onSellerUpdate: (() -> Void)?
 
     static let pursesUpdatedNotification =
         Notification.Name("InMemoryStorage.pursesUpdated")
@@ -101,61 +179,6 @@ class InMemoryStorage {
         Notification.Name("InMemoryStorage.transactionUpdated")
 
     // MARK: - Functions PURSES
-
-    func setPursesData(completionHandler: @escaping (Bool) -> Void) {
-        // set purses data from fireBase
-        var isSettingPurse = true
-
-        self.setPurses { (done) in
-            if done && isSettingPurse {
-                self.setSellers(completionHandler: { (done) in
-                    if done && isSettingPurse {
-                        self.setArticle(completionHandler: { (done) in
-                            if done && isSettingPurse {
-                                self.setTransaction(completionHandler: { (done) in
-                                    if done && isSettingPurse {
-                                        isSettingPurse = false
-                                        completionHandler(true)
-                                    }
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        }
-    }
-    //FIXME: promises
-//    self.setPurses()
-//        .then {
-//            self.setSellers()
-//        }
-//        .then {
-//            self.setArticle
-//        }
-
-    // --> RxSwift => Reactive Programming
-
-    func setPurses(completionHandler: @escaping (Bool) -> Void) {
-        // Query purses
-        purseService.readAndListenData { (done, readedPurses) in
-            if done {
-                self.purses = readedPurses
-                self.setCurrentPurse()
-                NotificationCenter.default.post(name: InMemoryStorage.pursesUpdatedNotification, object: nil)
-                completionHandler(true)
-            }
-        }
-    }
-    func setCurrentPurse() {
-        // choose the purse corresponding to the user
-        guard let userLogIn = UserService.shared.userLogIn else {
-            return
-        }
-        for purse in purses where purse.users[userLogIn.uid] != nil {
-            self.currentPurse = purse
-        }
-    }
 
     func setupCurrentPurseRates(percentage: Double, depositFee: Purse.DepositFee) {
         if let currentPurse = self.currentPurse {
@@ -170,19 +193,7 @@ class InMemoryStorage {
 
 // MARK: - Functions SELLERS
 extension InMemoryStorage {
-    func setSellers(completionHandler: @escaping (Bool) -> Void) {
-        // Query sellers for the current purse
-        guard let currentPurse = currentPurse else {return}
-        sellerService.readAndListenData(for: currentPurse) { (done, readedSellers) in
-            if done {
-                self.sellers = readedSellers
-                //FIXME:
-                //self.onSellerUpdate?()
-                NotificationCenter.default.post(name: InMemoryStorage.sellerUpdatedNotification, object: nil)
-                completionHandler(true)
-            }
-        }
-    }
+
     func addSeller(_ seller: Seller) {
         // add seller to list of seller, update Firebase
         // and update datas on the current purse
@@ -258,17 +269,7 @@ extension InMemoryStorage {
 
 // MARK: - Functions ARTICLES
 extension InMemoryStorage {
-    func setArticle(completionHandler: @escaping (Bool) -> Void) {
-        // Query articles for the current purse
-        guard let currentPurse = currentPurse else {return}
-        articleService.readAndListenData(for: currentPurse) { (done, readedArticle) in
-            if done {
-                self.articles = readedArticle
-                NotificationCenter.default.post(name: InMemoryStorage.articleUpdatedNotification, object: nil)
-                completionHandler(true)
-            }
-        }
-    }
+    
 
     func addArticle(_ article: Article, for codeOfSeller: String) {
         // add article to list of article, update Firebase

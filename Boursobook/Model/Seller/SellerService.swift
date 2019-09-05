@@ -35,22 +35,6 @@ class SellerService {
 //        reference.child(seller.code).removeValue()
     }
 
-    func readAndListenData(for purse: Purse, completionHandler: @escaping (Bool, [Seller]) -> Void) {
-//        // Query sellers from FireBase for one Purse
-//        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
-//            var newSellers: [Seller] = []
-//
-//            for child in snapshot.children {
-//                if let childValue = child as? DataSnapshot {
-//                    if let seller = Seller(snapshot: childValue) {
-//                        newSellers.append(seller)
-//                    }
-//                }
-//            }
-//            completionHandler(true, newSellers)
-//        }
-    }
-
     func updateArticlesCounters(for codeOfSeller: String,
                                 numberArticleRegistered: Int,
                                 numberOrder: Int) {

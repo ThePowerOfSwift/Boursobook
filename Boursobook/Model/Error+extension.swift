@@ -23,6 +23,10 @@ extension Error {
             return NSLocalizedString(errorType.rawValue, comment: "")
         } else if let errorType = self as? RemoteDataBase.RDBError {
             return NSLocalizedString(errorType.rawValue, comment: "")
+        } else if let errorType = self as? SellerAPI.SAPIError {
+            return NSLocalizedString(errorType.rawValue, comment: "")
+        } else if let errorType = self as? ArticleAPI.AAPIError {
+            return NSLocalizedString(errorType.rawValue, comment: "")
         } else {
             return "\(NSLocalizedString("Error !", comment: ""))" + "\n" + String(describing: self)
         }

@@ -16,11 +16,13 @@ import Foundation
             - Verifier la generation de la page des QRCode
             - ajouter titre et ISBN sur le QR Code
  
+            - Probleme de stop listen
             - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
                 (est ce que j'arrete la syncho sur chaque VC? )
             - corriger sold par sold
             - voir ce qui se passe si pas de reseau et pas d'acces ???
             - Verifier le bon coverage des tests
+            - test et dependance de la classe UserService
             - verifier avec l'affichage en IPhone 4S si pas erreur
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
@@ -29,7 +31,9 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
- - Comment je peux tester la classe inMemoryStorage (dependance ??) est ce que les fonctions ne sont pas redondantes avec purseAPI ??
+ - Comment je peux tester la classe inMemoryStorage (dependance ??) est ce que les fonctions
+ ne sont pas redondantes avec purseAPI ?? Est ce que cette classe est utille
+ou je peux faire les implementataion directement dans les VC?
  - Dans FireBaseRequest ligne 35 : je sors de la fonction si je trouve un seul element que je n'arrive pas à
  initialiser ?? meilleure methode ??
  - difference entre callBack et completionHandler ?

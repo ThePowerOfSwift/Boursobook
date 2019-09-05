@@ -103,62 +103,22 @@ struct FireBaseRequest: RemoteDatabaseRequest {
         }
     }
 
+    func stopListen(collection: RemoteDataBase.Collection) {
+        let reference = firestoneDatabase.collection(collection.rawValue).addSnapshotListener { (_, _) in
+        }
+        reference.remove()
+    }
+    
+
     //FIXME: supprimer code en dessous
 /*
  
 
-    // Query objects "Model" from FireBase
-    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBase.collection,
-                                                       completionHandler: @escaping (Bool, [Model]) -> Void) {
 
-        let reference = Database.database().reference(withPath: dataNode.rawValue)
 
-        reference.observe(.value) { snapshot in
-            var newModel: [Model] = []
 
-            for child in snapshot.children {
-                if let childValue = child as? DataSnapshot {
-                    if let model = Model(snapshot: childValue) {
-                        newModel.append(model)
-                    }
-                }
-            }
-            completionHandler(true, newModel)
-        }
-    }
 
-    // Query objects "Model" from FireBase for a Purse
-    func readAndListenData<Model: RemoteDataBaseModel>(dataNode: RemoteDataBase.collection,
-                                                       for purse: Purse,
-                                                       completionHandler: @escaping (Bool, [Model]) -> Void) {
-
-        let reference = Database.database().reference(withPath: dataNode.rawValue)
-
-        reference.queryOrdered(byChild: "purseName").queryEqual(toValue: purse.name).observe(.value) { snapshot in
-            var newModel: [Model] = []
-
-            for child in snapshot.children {
-                if let childValue = child as? DataSnapshot {
-                    if let model = Model(snapshot: childValue) {
-                        newModel.append(model)
-                    }
-                }
-            }
-            completionHandler(true, newModel)
-        }
-    }
-
-    //Stop the listening of the transactions
-    func stopListen(dataNode: RemoteDataBase.collection) {
-        let reference = Database.database().reference(withPath: dataNode.rawValue)
-        reference.removeAllObservers()
-    }
-
-    // Delete object "Model" from FireBase for a Purse
-    func remove<Model: RemoteDataBaseModel>(dataNode: RemoteDataBase.collection, model: Model) {
-        let reference = Database.database().reference(withPath: dataNode.rawValue)
-        reference.child(model.uniqueID).removeValue()
-    }
+   
 
     // Update differents childValue of object on FireBase
     func updateChildValues(dataNode: RemoteDataBase.collection, childUpdates: [String: Any]) {

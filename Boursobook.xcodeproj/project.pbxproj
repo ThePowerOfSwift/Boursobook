@@ -76,6 +76,10 @@
 		4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */; };
 		4F815E92231E714800C6718A /* PurseAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E91231E714800C6718A /* PurseAPITestCase.swift */; };
 		4F815E94231EC10000C6718A /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E93231EC10000C6718A /* PrivateKey.swift */; };
+		4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E952320FEF400C6718A /* SellerAPI.swift */; };
+		4F815E982321024B00C6718A /* SellerAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E972321024B00C6718A /* SellerAPITestCase.swift */; };
+		4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9923210C8400C6718A /* ArticleAPI.swift */; };
+		4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
 		B075DBC3AB114D135F172428 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBAFB9C5890D68F6E261587 /* Pods_Boursobook.framework */; };
 		D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */; };
@@ -133,6 +137,10 @@
 		4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataDictionary.swift; sourceTree = "<group>"; };
 		4F815E91231E714800C6718A /* PurseAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPITestCase.swift; sourceTree = "<group>"; };
 		4F815E93231EC10000C6718A /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		4F815E952320FEF400C6718A /* SellerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPI.swift; sourceTree = "<group>"; };
+		4F815E972321024B00C6718A /* SellerAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCase.swift; sourceTree = "<group>"; };
+		4F815E9923210C8400C6718A /* ArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPI.swift; sourceTree = "<group>"; };
+		4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPITestCase.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -221,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				4F16C727230FE79B00063B95 /* ArticleTestCase.swift */,
+				4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				4F815E8D231E4F3800C6718A /* SellerTestCase.swift */,
+				4F815E972321024B00C6718A /* SellerAPITestCase.swift */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -352,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA05B8822BD356500708718 /* Seller.swift */,
+				4F815E952320FEF400C6718A /* SellerAPI.swift */,
 				4FA05B9122BD83F700708718 /* SellerCode.swift */,
 				4FA05B8F22BD72F300708718 /* SellerService.swift */,
 			);
@@ -362,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA05B9722C24AC200708718 /* Article.swift */,
+				4F815E9923210C8400C6718A /* ArticleAPI.swift */,
 				4FA05B9922C25AE300708718 /* ArticleService.swift */,
 			);
 			path = Article;
@@ -745,6 +757,7 @@
 				4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */,
 				4F6B76F523100CB10028EA97 /* BuyViewController.swift in Sources */,
 				4F6B76F623100CB10028EA97 /* LabelSheet.swift in Sources */,
+				4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */,
 				4F6B76F723100CB10028EA97 /* ScanViewController.swift in Sources */,
 				4F6B76F823100CB10028EA97 /* SellerService.swift in Sources */,
 				4F6B76F923100CB10028EA97 /* TransactionActicleListTableViewCell.swift in Sources */,
@@ -777,6 +790,7 @@
 				4F6B771223100CB10028EA97 /* ArticleViewController.swift in Sources */,
 				4F6B771323100CB10028EA97 /* Seller.swift in Sources */,
 				4F6B771423100CB10028EA97 /* TransactionValues.swift in Sources */,
+				4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */,
 				4F6B771523100CB10028EA97 /* AddArticleViewController.swift in Sources */,
 				4F6B771623100CB10028EA97 /* UserService.swift in Sources */,
 				4F6B771723100CB10028EA97 /* FireBaseRequest.swift in Sources */,
@@ -794,6 +808,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */,
+				4F815E982321024B00C6718A /* SellerAPITestCase.swift in Sources */,
 				4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */,
 				4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */,
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
@@ -803,6 +818,7 @@
 				4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */,
 				4F16C728230FE79B00063B95 /* ArticleTestCase.swift in Sources */,
 				4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */,
+				4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */,
 				4F815E92231E714800C6718A /* PurseAPITestCase.swift in Sources */,
 				4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */,
 			);

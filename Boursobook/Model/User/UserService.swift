@@ -92,6 +92,16 @@ class UserService {
         }
     }
 
+    func signOut(callBack: @escaping (Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            callBack(signOutError)
+        }
+        callBack(nil)
+        self.userLogIn = nil
+    }
+
 }
 
 extension UserService {

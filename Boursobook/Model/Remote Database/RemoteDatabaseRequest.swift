@@ -45,6 +45,11 @@ protocol RemoteDatabaseRequest {
                                             model: Model,
                                             completionHandler: @escaping (Error?) -> Void)
 
+    /**
+     Request to stop listening "Model" objet in the remote database
+     */
+    func stopListen(collection: RemoteDataBase.Collection)
+
 /*
 
     /**

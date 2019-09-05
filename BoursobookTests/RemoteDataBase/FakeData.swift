@@ -66,6 +66,12 @@ class FakeData {
                              administrators: ["me": true],
                              users: ["me": "me@me.fr"])
 
+    static let seller = Seller(familyName: "Dupond",
+                               firstName: "Gerad",
+                               email: "g.dupond@free.fr",
+                               phoneNumber: "0123456789",
+                               code: "DUPG", createdBy: "michel@me.com", purseName: "APE 2019", uniqueID: "diuzhdbfp djdjdj", refundDate: "14/05/18", refundBy: "jeannine@aol.fr")
+
     static let user = User(uid: "uid of user me", email: "me@me.fr")
 
     // MARK: - Error

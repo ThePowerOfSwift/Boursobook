@@ -74,11 +74,15 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
     func remove<Model>(collection: RemoteDataBase.Collection,
                        model: Model,
                        completionHandler: @escaping (Error?) -> Void)
-                            where Model : RemoteDataBaseModel {
+                            where Model: RemoteDataBaseModel {
                                 if let error = error {
                                     completionHandler(error)
                                 } else {
                                     completionHandler(nil)
                                 }
+    }
+
+    func stopListen(collection: RemoteDataBase.Collection) {
+
     }
 }

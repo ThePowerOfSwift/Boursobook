@@ -15,8 +15,9 @@ struct RemoteDataBase {
         case transaction = "transactions"
         case article = "articles"
         case purse = "purses"
+        case seller = "sellers"
     }
-    
+
     // Elements for performing query
     struct Condition {
         var key: String

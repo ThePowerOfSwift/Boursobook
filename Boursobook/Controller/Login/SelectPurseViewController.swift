@@ -12,13 +12,19 @@ class SelectPurseViewController: UIViewController {
 
     // MARK: IBOutlet
     @IBOutlet weak var purseListTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var createActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var createNewPurseButton: UIButton!
-
+    @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var selectPurseStackView: UIStackView!
+    @IBOutlet weak var selectPurseActivityIndicator: UIActivityIndicatorView!
+    
     // MARK: IBAction
     @IBAction func didTapCreatePurse(_ sender: UIButton) {
-        self.toogleActivity(logging: true)
+        self.toogleCreateActivity(loading: true)
         choosePurseName()
+    }
+    @IBAction func didTapLogOutButton(_ sender: UIButton) {
+        confirmLogOut()
     }
 
     // MARK: OverRide
@@ -36,13 +42,19 @@ class SelectPurseViewController: UIViewController {
         purseListTableView.layer.cornerRadius = 10
     }
 
-    func toogleActivity(logging: Bool) {
-        activityIndicator.isHidden = !logging
-        createNewPurseButton.isHidden = logging
+    func toogleCreateActivity(loading: Bool) {
+        createActivityIndicator.isHidden = !loading
+        createNewPurseButton.isHidden = loading
+    }
+
+    func toogleSelectActivity(loading: Bool) {
+        selectPurseActivityIndicator.isHidden = !loading
+        selectPurseStackView.isHidden = loading
     }
 
     func setStyleOfVC() {
         purseListTableView.layer.cornerRadius = 10
+        logOutButton.layer.cornerRadius = 10
     }
 
     private func choosePurseName() {
@@ -59,7 +71,7 @@ class SelectPurseViewController: UIViewController {
 
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .default) { _ in
-                                            self.toogleActivity(logging: false)
+                                            self.toogleCreateActivity(loading: false)
         }
 
         alert.addTextField { textName in
@@ -82,7 +94,7 @@ class SelectPurseViewController: UIViewController {
                     title: NSLocalizedString(
                         "Error !", comment: ""))
             } else if exist {
-                self.toogleActivity(logging: false)
+                self.toogleCreateActivity(loading: false)
                 self.displayAlert(message:
                     NSLocalizedString(
                         "Sorry, but the name allready exist !",
@@ -96,13 +108,40 @@ class SelectPurseViewController: UIViewController {
 
     private func createNewPurse(name: String) {
         InMemoryStorage.shared.createPurse(name: name) { (error) in
-            self.toogleActivity(logging: false)
+            self.toogleCreateActivity(loading: false)
             if let error = error {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
                                   title: NSLocalizedString("Error !", comment: ""))
             } else {
                 self.displayAlert(message: NSLocalizedString("New purse was created", comment: ""),
                                   title: NSLocalizedString("Done !", comment: ""))
+            }
+        }
+    }
+
+    private func confirmLogOut() {
+        let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
+                                      message: NSLocalizedString("Are you sure you want to log out ?",
+                                                                 comment: ""),
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                         style: .default)
+        let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
+            self.logOut()
+        }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func logOut() {
+        UserService.shared.signOut { (error) in
+            if let error = error {
+                self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
+                                  title: NSLocalizedString("Error !", comment: ""))
+            } else {
+                InMemoryStorage.shared.stopPurseListen()
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -130,5 +169,20 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
         cell.configure(with: purse)
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toogleSelectActivity(loading: true)
+        let selectedPurse = InMemoryStorage.shared.purses[indexPath.row]
+
+        InMemoryStorage.shared.loadUsefulDataFor(purse: selectedPurse) { (error) in
+            self.toogleSelectActivity(loading: false)
+            if let error = error {
+                self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
+                                  title: NSLocalizedString("Error !", comment: ""))
+            } else {
+                self.performSegue(withIdentifier: "segueToInfo", sender: nil)
+            }
+        }
     }
 }
