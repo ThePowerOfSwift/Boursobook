@@ -11,6 +11,9 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
+    // MARK: Properties
+    let userAPI = UserAPI()
+
     // MARK: IBOutlets
     @IBOutlet weak var loginEmailTextField: UITextField!
     @IBOutlet weak var loginPasswordTextField: UITextField!
@@ -46,22 +49,14 @@ class LoginViewController: UIViewController {
 
     func login(identifiant: String, password: String) {
         toogleActivity(logging: true)
-        UserService.shared.signInUser(email: identifiant, password: password) { (error) in
+        userAPI.signInUser(email: identifiant, password: password) { (error, userLogIn) in
+            self.toogleActivity(logging: false)
             if let error = error {
-                self.toogleActivity(logging: false)
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
                                   title: NSLocalizedString("Error !", comment: ""))
             } else {
-                InMemoryStorage.shared.loadPurses(callBack: { (error) in
-                    if let error = error {
-                        self.toogleActivity(logging: false)
-                        self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
-                                          title: NSLocalizedString("Error !", comment: ""))
-                    } else {
-                        self.toogleActivity(logging: false)
-                        self.performSegue(withIdentifier: "segueToSelectPurse", sender: nil)
-                    }
-                })
+                InMemoryStorage.shared.userLogIn = userLogIn
+                self.performSegue(withIdentifier: "segueToSelectPurse", sender: nil)
             }
         }
     }
@@ -90,23 +85,23 @@ class LoginViewController: UIViewController {
                                             self.toogleActivity(logging: false)
                                             return
                                         }
-                                        UserService.shared.createUser(email: emailTextFieldValue,
-                                                                      password: passwordTextFieldValue,
-                                                                      callBack: { (error) in
-                                                                        if let error = error {
-                                                                            self.toogleActivity(logging: false)
-                                                                            self.displayAlert(
-                                                                                message: error.message,
-                                                                                title: NSLocalizedString(
-                                                                                    "Error !", comment: ""))
-                                                                        } else {
-                                                                            self.toogleActivity(logging: false)
-                                                                            self.displayAlert(message:
-                                                                NSLocalizedString(
-                                                                    "An email has been send to the new user !",
-                                                                                                  comment: ""),
-                                                                title: NSLocalizedString("It's ok !", comment: ""))
-                                                                        }
+                                        self.userAPI.createUser(email: emailTextFieldValue, password: passwordTextFieldValue, completionHandler: { (error, userCreated) in
+                                            self.toogleActivity(logging: false)
+                                            if let error = error {
+                                                self.displayAlert(
+                                                    message: error.message,
+                                                    title: NSLocalizedString(
+                                                        "Error !", comment: ""))
+                                            } else {
+                                                self.displayAlert(message:
+                                                    NSLocalizedString(
+                                                        "An email has been send to the new user !",
+                                                        comment: ""),
+                                                                  title: NSLocalizedString("It's ok !", comment: ""))
+                                                if let userCreated = userCreated {
+                                                    self.loginEmailTextField.text = userCreated.email
+                                                }
+                                            }
                                         })
         }
 
@@ -129,8 +124,8 @@ class LoginViewController: UIViewController {
         alert.addAction(cancelAction)
 
         present(alert, animated: true, completion: nil)
-
     }
+
 }
 
 // MARK: - KEYBOARD

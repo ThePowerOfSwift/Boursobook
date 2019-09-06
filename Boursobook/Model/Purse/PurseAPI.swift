@@ -13,7 +13,7 @@ class PurseAPI {
 
     // MARK: Properties
     private let remoteDataBaseCollection: RemoteDataBase.Collection = .purse
-    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
+    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
 
     // MARK: Initialisation
     init() {}
@@ -29,7 +29,7 @@ class PurseAPI {
             completionHandler(PAPIError.other, nil)
             return
         }
-             let condition = RemoteDataBase.Condition(key: "users", value: [user.email: user.uid])
+             let condition = RemoteDataBase.Condition(key: "users", value: [user.email: user.uniqueID])
 
         purseRemoteDataBaseRequest.readAndListenData(collection: remoteDataBaseCollection,
                                                      condition: condition) { (error, loadedPurses: [Purse]? ) in
@@ -71,7 +71,7 @@ class PurseAPI {
         }
         let uniqueID = name + " " + UUID().description
         let newPurse = Purse(name: name, uniqueID: uniqueID,
-                             administrators: [user.email: true], users: [user.email: user.uid])
+                             administrators: [user.email: true], users: [user.email: user.uniqueID])
         purseRemoteDataBaseRequest.create(collection: remoteDataBaseCollection, model: newPurse) { (error) in
             if let error = error {
                 completionHandler(error, nil)

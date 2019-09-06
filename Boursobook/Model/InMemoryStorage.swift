@@ -14,6 +14,13 @@ class InMemoryStorage {
 
     // MARK: - Properties
     static var shared = InMemoryStorage()
+    var userLogIn: User?
+    var inWorkingPurseName: String?
+
+    private init() {
+    }
+
+    // -----------------------------
 
     private(set) var purses: [Purse] = []
     private let purseAPI = PurseAPI()
@@ -27,9 +34,6 @@ class InMemoryStorage {
     private(set) var articles: [Article] = []
     private let articleAPI = ArticleAPI()
     var onArticleUpdate: (() -> Void)?
-
-    private init() {
-    }
 
     // MARK: - Common Functions
     func loadUsefulDataFor(purse: Purse, completionHandler: @escaping (Error?) -> Void) {
@@ -82,7 +86,7 @@ class InMemoryStorage {
     // MARK: - Functions for purses
     func loadPurses(callBack: @escaping (Error?) -> Void) {
         // Load all the purses that have current user as User
-        purseAPI.loadPursesFor(user: UserService.shared.userLogIn) { (error, pursesLoaded) in
+        purseAPI.loadPursesFor(user: InMemoryStorage.shared.userLogIn) { (error, pursesLoaded) in
             if let error = error {
                 callBack(error)
             } else {
@@ -99,7 +103,7 @@ class InMemoryStorage {
 
     func createPurse(name: String, callBack: @escaping (Error?) -> Void) {
         // Create a new purse with the current user as administrator
-        purseAPI.createPurse(name: name, user: UserService.shared.userLogIn) { (error, _) in
+        purseAPI.createPurse(name: name, user: InMemoryStorage.shared.userLogIn) { (error, _) in
             if let error = error {
                 callBack(error)
             } else {
@@ -280,7 +284,6 @@ extension InMemoryStorage {
 
 // MARK: - Functions ARTICLES
 extension InMemoryStorage {
-    
 
     func addArticle(_ article: Article, for codeOfSeller: String) {
         // add article to list of article, update Firebase
@@ -380,7 +383,7 @@ extension InMemoryStorage {
 
     func setCurrentTransaction() {
         // set a new transaction corresponding to the user and the purse
-        guard let userLogIn = UserService.shared.userLogIn else {
+        guard let userLogIn = InMemoryStorage.shared.userLogIn else {
             return
         }
         guard let currentPurse = currentPurse else {

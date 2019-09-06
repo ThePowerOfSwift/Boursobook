@@ -10,6 +10,11 @@ import UIKit
 
 class SelectPurseViewController: UIViewController {
 
+    // MARK: Properties
+    var userPurses = [Purse]()
+    let purseAPI = PurseAPI()
+    let userAPI = UserAPI()
+
     // MARK: IBOutlet
     @IBOutlet weak var purseListTableView: UITableView!
     @IBOutlet weak var createActivityIndicator: UIActivityIndicatorView!
@@ -42,9 +47,6 @@ class SelectPurseViewController: UIViewController {
     }
 
     // MARK: Functions
-    private func setStyleTableView() {
-        purseListTableView.layer.cornerRadius = 10
-    }
 
     private func toogleCreateActivity(loading: Bool) {
         createActivityIndicator.isHidden = !loading
@@ -59,6 +61,7 @@ class SelectPurseViewController: UIViewController {
     private func setStyleOfVC() {
         purseListTableView.layer.cornerRadius = 10
         logOutButton.layer.cornerRadius = 10
+        addGradientTo(view: purseListTableView)
     }
 
     private func choosePurseName() {
@@ -139,7 +142,7 @@ class SelectPurseViewController: UIViewController {
     }
 
     private func logOut() {
-        UserService.shared.signOut { (error) in
+        userAPI.signOut { (error) in
             if let error = error {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
                                   title: NSLocalizedString("Error !", comment: ""))
@@ -148,6 +151,25 @@ class SelectPurseViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+    }
+
+    func addGradientTo(view: UIView) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = CGRect(origin: CGPoint.zero, size: view.bounds.size)
+        view.layer.addSublayer(gradientLayer)
+
+        let newColors = [UIColor.white.cgColor, UIColor.green.cgColor]
+        let colorsAnimation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.colors))
+        colorsAnimation.fromValue = gradientLayer.colors
+        colorsAnimation.toValue = newColors
+        colorsAnimation.duration = 5.0
+        colorsAnimation.delegate = self
+        colorsAnimation.fillMode = .forwards
+        colorsAnimation.isRemovedOnCompletion = false
+        gradientLayer.add(colorsAnimation, forKey: "colors")
     }
 
     // MARK: - Navigation
@@ -161,7 +183,7 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return InMemoryStorage.shared.purses.count
+        return userPurses.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -169,7 +191,7 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
                                                        for: indexPath) as? PurseListTableViewCell else {
                                                         return UITableViewCell()
         }
-        let purse = InMemoryStorage.shared.purses[indexPath.row]
+        let purse = userPurses[indexPath.row]
         cell.configure(with: purse)
 
         return cell
@@ -177,7 +199,7 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         toogleSelectActivity(loading: true)
-        let selectedPurse = InMemoryStorage.shared.purses[indexPath.row]
+        let selectedPurse = userPurses[indexPath.row]
 
         InMemoryStorage.shared.loadUsefulDataFor(purse: selectedPurse) { (error) in
             self.toogleSelectActivity(loading: false)
@@ -187,6 +209,15 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
             } else {
                 self.performSegue(withIdentifier: "segueToInfo", sender: nil)
             }
+        }
+    }
+}
+
+// MARK: - Animation
+extension SelectPurseViewController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+
         }
     }
 }

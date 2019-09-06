@@ -48,8 +48,8 @@ class InfoViewController: UIViewController {
 
     // MARK: - functions
     private func updateValues() {
-        userLogInLabel.text = UserService.shared.userLogIn?.email
-        userLogInIDLabel.text = UserService.shared.userLogIn?.uid
+        userLogInLabel.text = InMemoryStorage.shared.userLogIn?.email
+        userLogInIDLabel.text = InMemoryStorage.shared.userLogIn?.uniqueID
 
         if let currentPurse = InMemoryStorage.shared.currentPurse {
             currentPurseLabel.text = currentPurse.name

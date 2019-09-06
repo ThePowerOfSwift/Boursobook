@@ -39,17 +39,11 @@ class SellersListViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UserService.shared.listenAuthentication { (login) in
-            if !login {
-              self.performSegue(withIdentifier: "unwindToLogin", sender: self)
-            }
-        }
         updateValues()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UserService.shared.stopListenAuthentification()
     }
 
     // MARK: - functions

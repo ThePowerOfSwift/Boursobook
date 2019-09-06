@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Protocol for manage remote database requests
+// Protocol for manage remote database requests for data
 protocol RemoteDatabaseRequest {
 
     /**

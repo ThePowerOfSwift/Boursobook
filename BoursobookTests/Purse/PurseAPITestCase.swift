@@ -265,11 +265,12 @@ class PurseAPITestCase: XCTestCase {
 
     // MARK: Test with real remote DataBase FIREBASE
     func testCreateRealPurseSouldSucceed() {
+        let userAPI = UserAPI()
         let purseAPI = PurseAPI()
 
         // Login into FireBase
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        UserService.shared.signInUser(email: PrivateKey.userMail, password: PrivateKey.userPassword) { (error) in
+        userAPI.signInUser(email: PrivateKey.userMail, password: PrivateKey.userPassword) { (error, _) in
             if error != nil {
                 XCTFail("error whin login")
             } else {

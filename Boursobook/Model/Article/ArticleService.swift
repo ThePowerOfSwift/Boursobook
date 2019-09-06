@@ -14,7 +14,7 @@ class ArticleService {
 
     // MARK: - Properties
     private let locationInRemoteDataBase: RemoteDataBase.Collection = .article
-    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
+    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
 
     // MARK: Initialisation
     init() {}

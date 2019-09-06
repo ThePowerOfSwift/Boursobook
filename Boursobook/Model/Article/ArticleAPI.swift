@@ -13,7 +13,7 @@ class ArticleAPI {
     
     // MARK: Properties
     private let remoteDataBaseCollection: RemoteDataBase.Collection = .article
-    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
+    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
 
     // MARK: Initialisation
     init() {}

@@ -32,7 +32,7 @@ class AddNewSellerViewController: UIViewController {
 
     // MARK: - Function
     private func saveSeller() {
-        guard let userLogIn = UserService.shared.userLogIn,
+        guard let userLogIn = InMemoryStorage.shared.userLogIn,
             let currentPurse = InMemoryStorage.shared.currentPurse else {
                 return
         }

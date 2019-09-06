@@ -19,36 +19,37 @@ import Foundation
             - Probleme de stop listen
             - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
                 (est ce que j'arrete la syncho sur chaque VC? )
-            - corriger sold par sold
+            
+            - mettre un message d'alerte pour dire que l'on a pas de reseau
             - voir ce qui se passe si pas de reseau et pas d'acces ???
             - Verifier le bon coverage des tests
             - test et dependance de la classe UserService
             - verifier avec l'affichage en IPhone 4S si pas erreur
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
-//          - Supprimer tous les messages d'alertes dans la console
+            - Supprimer tous les messages d'alertes dans la console
+ 
+            - Creer une limite pour le nombre de données par utilisateur et donc de faire payer un abonement
 */
 
 // MARK: - A voir avec Vincent
 /*
- - Comment je peux tester la classe inMemoryStorage (dependance ??) est ce que les fonctions
+ - pas de singleton dans InMemory storage
+ - je passe les infos entre controleur en utilisant prepare forsgue
+ - j'apelle les classes ..API directement dans les VC
+ 
+ Comment je peux tester la classe inMemoryStorage (dependance ??) est ce que les fonctions
  ne sont pas redondantes avec purseAPI ?? Est ce que cette classe est utille
 ou je peux faire les implementataion directement dans les VC?
  - Dans FireBaseRequest ligne 35 : je sors de la fonction si je trouve un seul element que je n'arrive pas à
  initialiser ?? meilleure methode ??
- - difference entre callBack et completionHandler ?
- - La DB est free pour un certain montant. Comment je fais si il
- y a plus de connexion ? Je valide l'acces par mail, je facture le
- compte ??  Je fais payer su l'app store un montant en fonction
- de la limite de la base ??
- 
-
+ - Comment on passe des infos entre tabview ???
  */
 
-// MARK: - UserService
+
+// MARK: - UserAPI
 /*
- - verifier qu'on cree pas 2 fois la meme instance (meme purse ....)
- - Ajouter l'user crée dans la purse en cours (id et mail)
+ - ecouter si l'utilisateur est toujours loger et sortir de l'appli si non
  
  */
 
@@ -146,7 +147,7 @@ ou je peux faire les implementataion directement dans les VC?
 // MARK: - LoginVC
 /*
  - faire disparaitre le login si on est déja logé
- - Gestion des mots de passe et des fonction save et login
+ - Utiliser KeyChain pour sauvegarder le mot de passe 
  - gestion de l'appli offligne
  - message si on est pas connecté et que l'on peut pas telecharger les données
  - verifier toutes les tailles d'iphones

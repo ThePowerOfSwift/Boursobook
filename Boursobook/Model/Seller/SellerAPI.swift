@@ -13,7 +13,7 @@ class SellerAPI {
 
     // MARK: Properties
     private let remoteDataBaseCollection: RemoteDataBase.Collection = .seller
-    private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseRequest()
+    private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
 
     // MARK: Initialisation
     init() {}

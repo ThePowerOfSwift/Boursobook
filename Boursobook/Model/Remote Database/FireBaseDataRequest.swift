@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct FireBaseRequest: RemoteDatabaseRequest {
+struct FireBaseDataRequest: RemoteDatabaseRequest {
 
     // Initialise instance for FireStone
     let firestoneDatabase = Firestore.firestore()
@@ -91,14 +91,7 @@ struct FireBaseRequest: RemoteDatabaseRequest {
             guard let modelSnapshot = querySnapshot else {
                 return(RemoteDataBase.RDBError.other, nil)
             }
-            let modelValues = modelSnapshot.documents.map({ (document) -> Model? in
-                if let model = Model(dictionary: document.data()) {
-                    return model
-                } else {
-                    return nil
-                }
-            })
-            let models = modelValues.compactMap { $0 }
+            let models: [Model] = modelSnapshot.documents.compactMap { $0.data().toModel() }
             return(nil, models)
         }
     }
@@ -108,18 +101,10 @@ struct FireBaseRequest: RemoteDatabaseRequest {
         }
         reference.remove()
     }
-    
 
     //FIXME: supprimer code en dessous
 /*
  
-
-
-
-
-
-   
-
     // Update differents childValue of object on FireBase
     func updateChildValues(dataNode: RemoteDataBase.collection, childUpdates: [String: Any]) {
         let reference = Database.database().reference(withPath: dataNode.rawValue)
@@ -127,4 +112,10 @@ struct FireBaseRequest: RemoteDatabaseRequest {
     }
  */
 
+}
+
+extension Dictionary where Key == String, Value == Any {
+    func toModel<Model: RemoteDataBaseModel>() -> Model? {
+        return Model(dictionary: self)
+    }
 }

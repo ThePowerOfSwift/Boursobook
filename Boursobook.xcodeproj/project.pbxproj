@@ -55,8 +55,7 @@
 		4F6B771323100CB10028EA97 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
 		4F6B771423100CB10028EA97 /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
 		4F6B771523100CB10028EA97 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9522C2400E00708718 /* AddArticleViewController.swift */; };
-		4F6B771623100CB10028EA97 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864822C636EB00C9BE1E /* UserService.swift */; };
-		4F6B771723100CB10028EA97 /* FireBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */; };
+		4F6B771723100CB10028EA97 /* FireBaseDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */; };
 		4F6B771823100CB10028EA97 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
 		4F6B771923100CB10028EA97 /* AddNewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */; };
 		4F6B771A23100CB10028EA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
@@ -80,6 +79,14 @@
 		4F815E982321024B00C6718A /* SellerAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E972321024B00C6718A /* SellerAPITestCase.swift */; };
 		4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9923210C8400C6718A /* ArticleAPI.swift */; };
 		4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */; };
+		4F815E9E23215A4D00C6718A /* RemoteAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */; };
+		4F815EA023215B8300C6718A /* FireBaseAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9F23215B8300C6718A /* FireBaseAuthenticationRequest.swift */; };
+		4F815EA523215F3000C6718A /* RemoteAuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EA423215F3000C6718A /* RemoteAuthenticationModel.swift */; };
+		4F815EA72322418E00C6718A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EA62322418E00C6718A /* UserAPI.swift */; };
+		4F815EA92322475800C6718A /* RemoteAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EA82322475800C6718A /* RemoteAuthentication.swift */; };
+		4F815EAE2322576C00C6718A /* UserTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAD2322576C00C6718A /* UserTestCase.swift */; };
+		4F815EB02322591500C6718A /* UserAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAF2322591500C6718A /* UserAPITestCase.swift */; };
+		4F815EB2232259F800C6718A /* RemoteAuthenticationRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
 		B075DBC3AB114D135F172428 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBAFB9C5890D68F6E261587 /* Pods_Boursobook.framework */; };
 		D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */; };
@@ -112,7 +119,7 @@
 		4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSetupViewController.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
 		4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorageManager.swift; sourceTree = "<group>"; };
-		4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseRequest.swift; sourceTree = "<group>"; };
+		4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseDataRequest.swift; sourceTree = "<group>"; };
 		4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRequestMock.swift; sourceTree = "<group>"; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
 		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
@@ -141,6 +148,14 @@
 		4F815E972321024B00C6718A /* SellerAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCase.swift; sourceTree = "<group>"; };
 		4F815E9923210C8400C6718A /* ArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPI.swift; sourceTree = "<group>"; };
 		4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPITestCase.swift; sourceTree = "<group>"; };
+		4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationRequest.swift; sourceTree = "<group>"; };
+		4F815E9F23215B8300C6718A /* FireBaseAuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAuthenticationRequest.swift; sourceTree = "<group>"; };
+		4F815EA423215F3000C6718A /* RemoteAuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationModel.swift; sourceTree = "<group>"; };
+		4F815EA62322418E00C6718A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		4F815EA82322475800C6718A /* RemoteAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthentication.swift; sourceTree = "<group>"; };
+		4F815EAD2322576C00C6718A /* UserTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestCase.swift; sourceTree = "<group>"; };
+		4F815EAF2322591500C6718A /* UserAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPITestCase.swift; sourceTree = "<group>"; };
+		4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationRequestMock.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -148,7 +163,6 @@
 		4F9E864222C6239F00C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9E864522C6289000C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4F9E864622C636B100C9BE1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4F9E864822C636EB00C9BE1E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4F9E864D22C6431700C9BE1E /* Error+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extension.swift"; sourceTree = "<group>"; };
 		4FA05B7422BCFD4900708718 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4FA05B7822BCFE3900708718 /* SellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerViewController.swift; sourceTree = "<group>"; };
@@ -309,7 +323,8 @@
 			children = (
 				4F7AA7E722E2F683001FA860 /* LabelSheet.swift */,
 			);
-			path = LabelSheet;
+			name = LabelSheet;
+			path = ../../LabelSheet;
 			sourceTree = "<group>";
 		};
 		4F7AA7ED22EDE100001FA860 /* Book */ = {
@@ -330,14 +345,15 @@
 			path = URLSession;
 			sourceTree = "<group>";
 		};
-		4F815E8B231E4E9A00C6718A /* RemoteDataBase */ = {
+		4F815E8B231E4E9A00C6718A /* Remote */ = {
 			isa = PBXGroup;
 			children = (
 				4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */,
+				4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */,
 				4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */,
 				4FD11C5A231472C200FB9F94 /* FakeData.swift */,
 			);
-			path = RemoteDataBase;
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		4F815E8C231E4F0F00C6718A /* Seller */ = {
@@ -349,11 +365,31 @@
 			path = Seller;
 			sourceTree = "<group>";
 		};
+		4F815EA323215E1B00C6718A /* Remote Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */,
+				4F815EA82322475800C6718A /* RemoteAuthentication.swift */,
+				4F815EA423215F3000C6718A /* RemoteAuthenticationModel.swift */,
+				4F815E9F23215B8300C6718A /* FireBaseAuthenticationRequest.swift */,
+			);
+			path = "Remote Authentication";
+			sourceTree = "<group>";
+		};
+		4F815EAA2322573400C6718A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4F815EAD2322576C00C6718A /* UserTestCase.swift */,
+				4F815EAF2322591500C6718A /* UserAPITestCase.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		4F9E864A22C6383D00C9BE1E /* User */ = {
 			isa = PBXGroup;
 			children = (
 				4F9E864622C636B100C9BE1E /* User.swift */,
-				4F9E864822C636EB00C9BE1E /* UserService.swift */,
+				4F815EA62322418E00C6718A /* UserAPI.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -446,7 +482,8 @@
 		4FC5135122B13440000FD572 /* BoursobookTests */ = {
 			isa = PBXGroup;
 			children = (
-				4F815E8B231E4E9A00C6718A /* RemoteDataBase */,
+				4F815EAA2322573400C6718A /* User */,
+				4F815E8B231E4E9A00C6718A /* Remote */,
 				4F3820262302ADEC00AB9577 /* Purse */,
 				4F815E8C231E4F0F00C6718A /* Seller */,
 				4F16C726230FE77400063B95 /* Article */,
@@ -471,6 +508,7 @@
 				4F9E864C22C6386300C9BE1E /* Article */,
 				4F9E864D22C6431700C9BE1E /* Error+extension.swift */,
 				4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */,
+				4F815EA323215E1B00C6718A /* Remote Authentication */,
 				4FDA36A0230AFA5700D70489 /* Remote Database */,
 			);
 			path = Model;
@@ -521,7 +559,7 @@
 			children = (
 				4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */,
 				4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */,
-				4F1B573D230D2ED8000C7276 /* FireBaseRequest.swift */,
+				4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */,
 				4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */,
 			);
 			path = "Remote Database";
@@ -758,16 +796,20 @@
 				4F6B76F523100CB10028EA97 /* BuyViewController.swift in Sources */,
 				4F6B76F623100CB10028EA97 /* LabelSheet.swift in Sources */,
 				4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */,
+				4F815EA92322475800C6718A /* RemoteAuthentication.swift in Sources */,
 				4F6B76F723100CB10028EA97 /* ScanViewController.swift in Sources */,
+				4F815EA023215B8300C6718A /* FireBaseAuthenticationRequest.swift in Sources */,
 				4F6B76F823100CB10028EA97 /* SellerService.swift in Sources */,
 				4F6B76F923100CB10028EA97 /* TransactionActicleListTableViewCell.swift in Sources */,
 				4F6B76FA23100CB10028EA97 /* BrowseArticleTableViewCell.swift in Sources */,
 				4F6B76FB23100CB10028EA97 /* RemoteDatabase.swift in Sources */,
+				4F815EA523215F3000C6718A /* RemoteAuthenticationModel.swift in Sources */,
 				4F6B76FC23100CB10028EA97 /* Purse.swift in Sources */,
 				4F6B76FD23100CB10028EA97 /* SetupViewController.swift in Sources */,
 				4F6B76FE23100CB10028EA97 /* Error+extension.swift in Sources */,
 				4F6B76FF23100CB10028EA97 /* ScanBookViewController.swift in Sources */,
 				4F6B770023100CB10028EA97 /* RemoteDatabaseRequest.swift in Sources */,
+				4F815E9E23215A4D00C6718A /* RemoteAuthenticationRequest.swift in Sources */,
 				4F6B770123100CB10028EA97 /* Notes.swift in Sources */,
 				4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */,
 				4F6B770223100CB10028EA97 /* UIViewController+Extension.swift in Sources */,
@@ -782,6 +824,7 @@
 				4F6B770A23100CB10028EA97 /* SellerCode.swift in Sources */,
 				4F6B770B23100CB10028EA97 /* TransactionStorageManager.swift in Sources */,
 				4F6B770C23100CB10028EA97 /* InMemoryStorage.swift in Sources */,
+				4F815EA72322418E00C6718A /* UserAPI.swift in Sources */,
 				4F6B770D23100CB10028EA97 /* Transaction.swift in Sources */,
 				4F6B770E23100CB10028EA97 /* Book.swift in Sources */,
 				4F6B770F23100CB10028EA97 /* InfoViewController.swift in Sources */,
@@ -792,8 +835,7 @@
 				4F6B771423100CB10028EA97 /* TransactionValues.swift in Sources */,
 				4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */,
 				4F6B771523100CB10028EA97 /* AddArticleViewController.swift in Sources */,
-				4F6B771623100CB10028EA97 /* UserService.swift in Sources */,
-				4F6B771723100CB10028EA97 /* FireBaseRequest.swift in Sources */,
+				4F6B771723100CB10028EA97 /* FireBaseDataRequest.swift in Sources */,
 				4F6B771823100CB10028EA97 /* BookService.swift in Sources */,
 				4F6B771923100CB10028EA97 /* AddNewSellerViewController.swift in Sources */,
 				4F6B771A23100CB10028EA97 /* AppDelegate.swift in Sources */,
@@ -812,12 +854,15 @@
 				4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */,
 				4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */,
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
+				4F815EB02322591500C6718A /* UserAPITestCase.swift in Sources */,
 				4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */,
 				4F815E8E231E4F3800C6718A /* SellerTestCase.swift in Sources */,
 				4F19E84422FB26E6004C545C /* FakeResponseData.swift in Sources */,
 				4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */,
 				4F16C728230FE79B00063B95 /* ArticleTestCase.swift in Sources */,
 				4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */,
+				4F815EAE2322576C00C6718A /* UserTestCase.swift in Sources */,
+				4F815EB2232259F800C6718A /* RemoteAuthenticationRequestMock.swift in Sources */,
 				4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */,
 				4F815E92231E714800C6718A /* PurseAPITestCase.swift in Sources */,
 				4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */,

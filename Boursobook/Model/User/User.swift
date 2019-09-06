@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct User {
-    var uid: String
+struct User: RemoteAuthenticationModel {
+
+    var uniqueID: String
     var email: String
+
+    init(email: String, uniqueID: String) {
+        self.email = email
+        self.uniqueID = uniqueID
+    }
 }

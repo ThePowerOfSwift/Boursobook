@@ -72,7 +72,7 @@ class FakeData {
                                phoneNumber: "0123456789",
                                code: "DUPG", createdBy: "michel@me.com", purseName: "APE 2019", uniqueID: "diuzhdbfp djdjdj", refundDate: "14/05/18", refundBy: "jeannine@aol.fr")
 
-    static let user = User(uid: "uid of user me", email: "me@me.fr")
+    static let user = User(email: "me@me.fr", uniqueID: "uid of user me")
 
     // MARK: - Error
     class FakeError: Error {}
