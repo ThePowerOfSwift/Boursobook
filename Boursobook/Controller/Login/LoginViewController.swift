@@ -85,7 +85,9 @@ class LoginViewController: UIViewController {
                                             self.toogleActivity(logging: false)
                                             return
                                         }
-                                        self.userAPI.createUser(email: emailTextFieldValue, password: passwordTextFieldValue, completionHandler: { (error, userCreated) in
+                                        self.userAPI.createUser(email: emailTextFieldValue,
+                                                                password: passwordTextFieldValue,
+                                                                completionHandler: { (error, userCreated) in
                                             self.toogleActivity(logging: false)
                                             if let error = error {
                                                 self.displayAlert(

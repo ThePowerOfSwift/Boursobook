@@ -12,8 +12,7 @@ class PurseAPI {
     // Manage the acces of "purses" data
 
     // MARK: Properties
-    private let remoteDataBaseCollection: RemoteDataBase.Collection = .purse
-    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
+    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .purse)
 
     // MARK: Initialisation
     init() {}
@@ -31,8 +30,7 @@ class PurseAPI {
         }
              let condition = RemoteDataBase.Condition(key: "users", value: [user.email: user.uniqueID])
 
-        purseRemoteDataBaseRequest.readAndListenData(collection: remoteDataBaseCollection,
-                                                     condition: condition) { (error, loadedPurses: [Purse]? ) in
+        purseRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedPurses: [Purse]? ) in
             if let error = error {
                 completionHandler(error, nil)
             } else {
@@ -45,8 +43,26 @@ class PurseAPI {
         }
     }
 
+    func loadPurse(name: String, completionHandler: @escaping (Error?, Purse?) -> Void) {
+        // Query a purse from database with a name
+
+        let condition = RemoteDataBase.Condition(key: "name", value: name)
+
+        purseRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedPurses: [Purse]? ) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedPurses = loadedPurses else {
+                    completionHandler(PAPIError.other, nil)
+                    return
+                }
+                completionHandler(nil, loadedPurses.first)
+            }
+        }
+    }
+
     func getExistingPurseName(completionHandler: @escaping (Error?, [String]?) -> Void) {
-        purseRemoteDataBaseRequest.get(collection: remoteDataBaseCollection) { (error, loadedPurses: [Purse]?) in
+        purseRemoteDataBaseRequest.get { (error, loadedPurses: [Purse]?) in
             var purseNameList = [String]()
 
             if let error = error {
@@ -72,7 +88,7 @@ class PurseAPI {
         let uniqueID = name + " " + UUID().description
         let newPurse = Purse(name: name, uniqueID: uniqueID,
                              administrators: [user.email: true], users: [user.email: user.uniqueID])
-        purseRemoteDataBaseRequest.create(collection: remoteDataBaseCollection, model: newPurse) { (error) in
+        purseRemoteDataBaseRequest.create(model: newPurse) { (error) in
             if let error = error {
                 completionHandler(error, nil)
             } else {
@@ -83,8 +99,7 @@ class PurseAPI {
 
     func removePurse(purse: Purse, completionHandler: @escaping (Error?) -> Void) {
 
-        purseRemoteDataBaseRequest.remove(collection: remoteDataBaseCollection,
-                                          model: purse,
+        purseRemoteDataBaseRequest.remove(model: purse,
                                           completionHandler: { (error) in
             if let error = error {
                 completionHandler(error)
@@ -95,7 +110,7 @@ class PurseAPI {
     }
 
     func stopListen() {
-        purseRemoteDataBaseRequest.stopListen(collection: remoteDataBaseCollection)
+        purseRemoteDataBaseRequest.stopListen()
     }
 }
 

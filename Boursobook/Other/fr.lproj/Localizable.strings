@@ -67,3 +67,4 @@
 "Unable to intialize type !" = "Impossible d'initialiser le type !";
 "Sorry, but the name allready exist !" = "Désolé, le nom existe déja !";
 "There was a problem in sending email ! " = "Il y a eu un problème dans l'envoi de l'email ";
+"Sorry , but you must Login !" = "Désolé, mais vous devez vous enregistrer !";

@@ -10,6 +10,10 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    // MARK: Properties
+    let purseAPI = PurseAPI()
+    var purseToDisplay: Purse?
+
     // MARK: - IBOutlets
     @IBOutlet weak var userLogInLabel: UILabel!
     @IBOutlet weak var userLogInIDLabel: UILabel!
@@ -35,30 +39,54 @@ class InfoViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        InMemoryStorage.shared.stopPurseListen()
+        purseAPI.stopListen()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateValues()
-        InMemoryStorage.shared.onPurseUpdate = { () in
-            self.updateValues()
-        }
+        loadPurseToDisplay()
+    }
+
+    deinit {
+        purseAPI.stopListen()
     }
 
     // MARK: - functions
+
+    func loadPurseToDisplay() {
+        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        purseAPI.loadPurse(name: purseName) { (error, loadedPurse) in
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let purse = loadedPurse else {
+                    return
+                }
+                self.purseToDisplay = purse
+                self.updateValues()
+            }
+        }
+
+    }
+
     private func updateValues() {
         userLogInLabel.text = InMemoryStorage.shared.userLogIn?.email
         userLogInIDLabel.text = InMemoryStorage.shared.userLogIn?.uniqueID
 
-        if let currentPurse = InMemoryStorage.shared.currentPurse {
-            currentPurseLabel.text = currentPurse.name
-            numberOfSellerLabel.text = String(currentPurse.numberOfSellers)
-            numberOfArticleRecordedLabel.text = String(currentPurse.numberOfArticleRegistered)
-            numberOfArticlesoldLabel.text = String(currentPurse.numberOfArticlesold)
-            numberOfSalesLabel.text = String(currentPurse.numberOfTransaction)
-            totalAmountOfSalesLabel.text = String(currentPurse.totalSalesAmount)
-            totalAmountOfSubscriptionLabel.text = String(currentPurse.totalDepositFeeAmount)
+        if let purse = purseToDisplay {
+            currentPurseLabel.text = purse.name
+            numberOfSellerLabel.text = String(purse.numberOfSellers)
+            numberOfArticleRecordedLabel.text = String(purse.numberOfArticleRegistered)
+            numberOfArticlesoldLabel.text = String(purse.numberOfArticlesold)
+            numberOfSalesLabel.text = String(purse.numberOfTransaction)
+            totalAmountOfSalesLabel.text = String(purse.totalSalesAmount)
+            totalAmountOfSubscriptionLabel.text = String(purse.totalDepositFeeAmount)
         }
     }
 
@@ -82,7 +110,7 @@ class InfoViewController: UIViewController {
     }
 
     private func changePurse() {
-        InMemoryStorage.shared.resetDataForCurrentPurse()
+        purseToDisplay = nil
         self.dismiss(animated: true, completion: nil)
     }
 }

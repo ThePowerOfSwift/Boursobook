@@ -40,10 +40,17 @@ class SelectPurseViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadPurseFor(user: InMemoryStorage.shared.userLogIn)
         purseListTableView.reloadData()
-        InMemoryStorage.shared.onPurseUpdate = { () in
-            self.purseListTableView.reloadData()
-        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        purseAPI.stopListen()
+    }
+
+    deinit {
+        purseAPI.stopListen()
     }
 
     // MARK: Functions
@@ -53,7 +60,7 @@ class SelectPurseViewController: UIViewController {
         createNewPurseButton.isHidden = loading
     }
 
-    private func toogleSelectActivity(loading: Bool) {
+    private func toogleSearchingPurse(loading: Bool) {
         selectPurseActivityIndicator.isHidden = !loading
         selectPurseStackView.isHidden = loading
     }
@@ -61,7 +68,31 @@ class SelectPurseViewController: UIViewController {
     private func setStyleOfVC() {
         purseListTableView.layer.cornerRadius = 10
         logOutButton.layer.cornerRadius = 10
-        addGradientTo(view: purseListTableView)
+    }
+
+    private func loadPurseFor(user: User?) {
+        guard let userLogIn = user else {
+            self.displayAlert(message: NSLocalizedString("Sorry , but you must Login !", comment: ""),
+                              title: NSLocalizedString("Done !", comment: ""))
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        toogleSearchingPurse(loading: true)
+        purseAPI.loadPursesFor(user: userLogIn) { (error, userPurses) in
+            self.toogleSearchingPurse(loading: false)
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let userPurses = userPurses else {
+                    return
+                }
+                self.userPurses = userPurses
+                self.purseListTableView.reloadData()
+            }
+        }
     }
 
     private func choosePurseName() {
@@ -94,27 +125,29 @@ class SelectPurseViewController: UIViewController {
     }
 
     private func validChosenPurseName(name: String) {
-        InMemoryStorage.shared.isPurseNameExist(name: name) { (error, exist) in
+        purseAPI.getExistingPurseName { (error, purseNameList) in
             if let error = error {
                 self.displayAlert(
                     message: error.message,
                     title: NSLocalizedString(
                         "Error !", comment: ""))
-            } else if exist {
-                self.toogleCreateActivity(loading: false)
-                self.displayAlert(message:
-                    NSLocalizedString(
-                        "Sorry, but the name allready exist !",
-                        comment: ""),
-                                  title: NSLocalizedString("Error !", comment: ""))
-            } else {
-                self.createNewPurse(name: name)
+            } else if let purseNames = purseNameList {
+                if purseNames.contains(name) {
+                    self.toogleCreateActivity(loading: false)
+                    self.displayAlert(message:
+                        NSLocalizedString(
+                            "Sorry, but the name allready exist !",
+                            comment: ""),
+                                      title: NSLocalizedString("Error !", comment: ""))
+                } else {
+                    self.createNewPurse(name: name)
+                }
             }
         }
     }
 
     private func createNewPurse(name: String) {
-        InMemoryStorage.shared.createPurse(name: name) { (error) in
+        purseAPI.createPurse(name: name, user: InMemoryStorage.shared.userLogIn) { (error, _) in
             self.toogleCreateActivity(loading: false)
             if let error = error {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
@@ -147,32 +180,10 @@ class SelectPurseViewController: UIViewController {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
                                   title: NSLocalizedString("Error !", comment: ""))
             } else {
-                InMemoryStorage.shared.stopPurseListen()
                 self.dismiss(animated: true, completion: nil)
             }
         }
     }
-
-    func addGradientTo(view: UIView) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = CGRect(origin: CGPoint.zero, size: view.bounds.size)
-        view.layer.addSublayer(gradientLayer)
-
-        let newColors = [UIColor.white.cgColor, UIColor.green.cgColor]
-        let colorsAnimation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.colors))
-        colorsAnimation.fromValue = gradientLayer.colors
-        colorsAnimation.toValue = newColors
-        colorsAnimation.duration = 5.0
-        colorsAnimation.delegate = self
-        colorsAnimation.fillMode = .forwards
-        colorsAnimation.isRemovedOnCompletion = false
-        gradientLayer.add(colorsAnimation, forKey: "colors")
-    }
-
-    // MARK: - Navigation
 
 }
 
@@ -198,26 +209,7 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        toogleSelectActivity(loading: true)
-        let selectedPurse = userPurses[indexPath.row]
-
-        InMemoryStorage.shared.loadUsefulDataFor(purse: selectedPurse) { (error) in
-            self.toogleSelectActivity(loading: false)
-            if let error = error {
-                self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
-                                  title: NSLocalizedString("Error !", comment: ""))
-            } else {
-                self.performSegue(withIdentifier: "segueToInfo", sender: nil)
-            }
-        }
-    }
-}
-
-// MARK: - Animation
-extension SelectPurseViewController: CAAnimationDelegate {
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        if flag {
-
-        }
+        InMemoryStorage.shared.inWorkingPurseName = userPurses[indexPath.row].name
+        self.performSegue(withIdentifier: "segueToInfo", sender: nil)
     }
 }

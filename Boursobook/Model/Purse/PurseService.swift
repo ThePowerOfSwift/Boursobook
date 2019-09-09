@@ -14,7 +14,7 @@ class PurseService {
 
     // MARK: Properties
     private let locationInRemoteDataBase: RemoteDataBase.Collection = .purse
-    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
+    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .purse)
 
     // MARK: Initialisation
     init() {}

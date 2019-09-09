@@ -13,17 +13,16 @@ class PurseListTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var purseNameLabel: UILabel!
 
-    
     // MARK: - Override
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
     // MARK: - Functions
     func configure(with purse: Purse) {
         purseNameLabel.text = purse.name

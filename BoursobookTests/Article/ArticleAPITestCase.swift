@@ -23,7 +23,7 @@ class ArticleAPITestCase: XCTestCase {
     func testLoadNoPurseWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: goodData)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -42,7 +42,7 @@ class ArticleAPITestCase: XCTestCase {
 
     func testLoadNoDataWithNoErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -62,7 +62,7 @@ class ArticleAPITestCase: XCTestCase {
     func testLoadDataWithErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: FakeData.error,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error,
                                                                   data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
@@ -86,7 +86,7 @@ class ArticleAPITestCase: XCTestCase {
     func testLoadDataWithNoErrorSouldReturnData() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil,
                                                                   data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 

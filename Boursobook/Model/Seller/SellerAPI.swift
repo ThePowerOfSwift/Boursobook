@@ -13,7 +13,7 @@ class SellerAPI {
 
     // MARK: Properties
     private let remoteDataBaseCollection: RemoteDataBase.Collection = .seller
-    private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
+    private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .seller)
 
     // MARK: Initialisation
     init() {}
@@ -31,8 +31,7 @@ class SellerAPI {
         }
         let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
 
-        sellerRemoteDataBaseRequest.readAndListenData(collection: remoteDataBaseCollection,
-                                                     condition: condition) { (error, loadedSellers: [Seller]? ) in
+        sellerRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedSellers: [Seller]? ) in
                                                         if let error = error {
                                                             completionHandler(error, nil)
                                                         } else {

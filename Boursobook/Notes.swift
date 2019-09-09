@@ -16,7 +16,7 @@ import Foundation
             - Verifier la generation de la page des QRCode
             - ajouter titre et ISBN sur le QR Code
  
-            - Probleme de stop listen
+ 
             - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
                 (est ce que j'arrete la syncho sur chaque VC? )
             
@@ -32,20 +32,23 @@ import Foundation
             - Creer une limite pour le nombre de données par utilisateur et donc de faire payer un abonement
 */
 
+// MARK: - A faire plus tard
+/*
+    - animation par gradient quand ça cherche
+ */
+
 // MARK: - A voir avec Vincent
 /*
  - pas de singleton dans InMemory storage
  - je passe les infos entre controleur en utilisant prepare forsgue
  - j'apelle les classes ..API directement dans les VC
  
- Comment je peux tester la classe inMemoryStorage (dependance ??) est ce que les fonctions
- ne sont pas redondantes avec purseAPI ?? Est ce que cette classe est utille
-ou je peux faire les implementataion directement dans les VC?
- - Dans FireBaseRequest ligne 35 : je sors de la fonction si je trouve un seul element que je n'arrive pas à
- initialiser ?? meilleure methode ??
- - Comment on passe des infos entre tabview ???
+ 
+- Pourquoi sur les tests de API,  le completionHandler(PAPIError.other, nil) n'est pas marqué tester alors que oui ? Return ??
+ - Comment on passe des infos entre tabview ??? Comment je peux passer un info entre le SelectPurseVC
+ et le InfoVC avec prepareforsegue alors que le VC de destination c'est le TabBarControler??
+ 
  */
-
 
 // MARK: - UserAPI
 /*

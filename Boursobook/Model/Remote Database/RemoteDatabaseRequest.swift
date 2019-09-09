@@ -12,52 +12,46 @@ import Foundation
 protocol RemoteDatabaseRequest {
 
     /**
-     Request to read and listen changes of "Model" data from remote database in a collection
+    The collection where seaching documents "Model"
+     */
+    var collection: RemoteDataBase.Collection { get }
+
+    /**
+     Request to read and listen changes of "Model" data from remote database
      with a query for Model that meet a certain condition
      */
-    func readAndListenData<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
-                                                       condition: RemoteDataBase.Condition,
+    func readAndListenData<Model: RemoteDataBaseModel>(condition: RemoteDataBase.Condition,
                                                        completionHandler: @escaping (Error?, [Model]?) -> Void)
 
     /**
-     Request to read and listen changes of "Model" data from remote database in a collection
+     Request to read and listen changes of "Model" data from remote databasen
      */
-    func readAndListenData<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
-                                                       completionHandler: @escaping (Error?, [Model]?) -> Void)
+    func readAndListenData<Model: RemoteDataBaseModel>(completionHandler: @escaping (Error?, [Model]?) -> Void)
 
     /**
      Request to create an "Model" objet in the remote database
      */
-    func create<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
-                                            model: Model,
+    func create<Model: RemoteDataBaseModel>(model: Model,
                                             completionHandler: @escaping (Error?) -> Void)
 
     /**
-     Request to get "Model" data from remote database in a collection only once
+     Request to get "Model" data from remote database  only once
      */
-    func get<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
-                                         completionHandler: @escaping (Error?, [Model]?) -> Void)
+    func get<Model: RemoteDataBaseModel>(completionHandler: @escaping (Error?, [Model]?) -> Void)
 
     /**
-     Request to delete an "Model" objet in the remote database in a collection
+     Request to delete an "Model" objet in the remote database
      */
-    func remove<Model: RemoteDataBaseModel>(collection: RemoteDataBase.Collection,
-                                            model: Model,
+    func remove<Model: RemoteDataBaseModel>(model: Model,
                                             completionHandler: @escaping (Error?) -> Void)
 
     /**
      Request to stop listening "Model" objet in the remote database
      */
-    func stopListen(collection: RemoteDataBase.Collection)
+    func stopListen()
 
 /*
 
-    /**
-     Request to stop listening "Model" objet in the remote database
-     */
-    func stopListen(dataNode: RemoteDataBaseReference.Node)
-
-   
     
     /**
      Request to update differents child Value of objets in the remote database

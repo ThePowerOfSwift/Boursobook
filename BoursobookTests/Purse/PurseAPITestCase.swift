@@ -20,10 +20,10 @@ class PurseAPITestCase: XCTestCase {
     }
 
     // MARK: Test in local with mock
-    func testLoadNoUserWithDataWithNoErrorSouldReturnError() {
+    func testLoadForNoUserWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.purse]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: goodData)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: goodData)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -40,9 +40,9 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
-    func testLoadNoDataWithNoErrorSouldReturnError() {
+    func testLoadForNoDataWithNoErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -59,10 +59,10 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
-    func testLoadDataWithErrorSouldReturnError() {
+    func testLoadForDataWithErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.purse]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: FakeData.error,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error,
                                                                   data: goodData)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
@@ -83,10 +83,10 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
-    func testLoadDataWithNoErrorSouldReturnData() {
+    func testLoadForDataWithNoErrorSouldReturnData() {
         //Given
         let goodData = [FakeData.purse]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil,
                                                                   data: goodData)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
@@ -108,7 +108,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testCreateNoUserWithNoErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -127,7 +127,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testCreateWithUserWithErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: FakeData.error, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -149,7 +149,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testCreateWithUserWithNoErrorSouldReturnSucceed() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -166,7 +166,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testGetExistingWithNoDataWithErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: FakeData.error, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -188,7 +188,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testGetExistingWithNoDataWithNoErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -208,7 +208,7 @@ class PurseAPITestCase: XCTestCase {
     func testGetExistingWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.purse]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: goodData)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: goodData)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -229,7 +229,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testRemoveWithErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: FakeData.error, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -249,7 +249,7 @@ class PurseAPITestCase: XCTestCase {
 
     func testRemoveWithNoErrorSouldReturnSucceed() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -263,6 +263,74 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+    func testLoadNoDataWithNoErrorSouldReturnError() {
+        //Given
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
+        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakePurseAPI.loadPurse(name: "name") { (error, loadedPurse) in
+
+            //Then
+            XCTAssertNil(loadedPurse)
+            if let error = error {
+                XCTAssertEqual(error.message, "Sorry, there is an error !")
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testLoadDataWithErrorSouldReturnError() {
+        //Given
+        let goodData = [FakeData.purse]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error,
+                                                                  data: goodData)
+        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakePurseAPI.loadPurse(name: "name") { (error, loadedPurse) in
+
+            //Then
+            XCTAssertNil(loadedPurse)
+            if let error = error {
+                XCTAssertEqual(error.message, """
+                                                Error !
+                                                BoursobookTests.FakeData.FakeError
+                                                """)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testLoadDataWithNoErrorSouldReturnData() {
+        //Given
+        let goodData = [FakeData.purse]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil,
+                                                                  data: goodData)
+        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakePurseAPI.loadPurse(name: "name") { (error, loadedPurse) in
+
+            //Then
+            XCTAssertNil(error)
+            guard let purse = loadedPurse else {
+                XCTFail("error is nil")
+                return
+            }
+            XCTAssertEqual(purse.uniqueID, goodData[0].uniqueID)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+}
+
+extension PurseAPITestCase {
     // MARK: Test with real remote DataBase FIREBASE
     func testCreateRealPurseSouldSucceed() {
         let userAPI = UserAPI()

@@ -13,7 +13,7 @@ class ArticleAPI {
     
     // MARK: Properties
     private let remoteDataBaseCollection: RemoteDataBase.Collection = .article
-    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest()
+    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .article)
 
     // MARK: Initialisation
     init() {}
@@ -31,8 +31,7 @@ class ArticleAPI {
         }
         let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
 
-        articleRemoteDataBaseRequest.readAndListenData(collection: remoteDataBaseCollection,
-                                                      condition: condition) { (error, loadedArticles: [Article]? ) in
+        articleRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedArticles: [Article]? ) in
                                                         if let error = error {
                                                             completionHandler(error, nil)
                                                         } else {

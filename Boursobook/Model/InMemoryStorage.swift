@@ -21,6 +21,8 @@ class InMemoryStorage {
     }
 
     // -----------------------------
+     // -----------------------------
+     // -----------------------------
 
     private(set) var purses: [Purse] = []
     private let purseAPI = PurseAPI()
@@ -70,69 +72,6 @@ class InMemoryStorage {
     //        }
     // --> RxSwift => Reactive Programming
 
-    }
-
-    func resetDataForCurrentPurse() {
-        // Reset all the data in local memory
-        // Stop listeners
-
-        //FIXME : arreter la surveillance de tous les sellers, transactions, article
-        currentPurse = nil
-        sellers = []
-        articles = []
-        transactions = []
-    }
-
-    // MARK: - Functions for purses
-    func loadPurses(callBack: @escaping (Error?) -> Void) {
-        // Load all the purses that have current user as User
-        purseAPI.loadPursesFor(user: InMemoryStorage.shared.userLogIn) { (error, pursesLoaded) in
-            if let error = error {
-                callBack(error)
-            } else {
-                guard let pursesLoaded = pursesLoaded else {
-                    callBack(IMSError.other)
-                    return
-                }
-                self.purses = pursesLoaded
-                self.onPurseUpdate?()
-                callBack(nil)
-            }
-        }
-    }
-
-    func createPurse(name: String, callBack: @escaping (Error?) -> Void) {
-        // Create a new purse with the current user as administrator
-        purseAPI.createPurse(name: name, user: InMemoryStorage.shared.userLogIn) { (error, _) in
-            if let error = error {
-                callBack(error)
-            } else {
-                callBack(nil)
-            }
-        }
-    }
-
-    func isPurseNameExist(name: String, callBack: @escaping (Error?, Bool) -> Void) {
-        // Check in list of purse if a name exist
-        purseAPI.getExistingPurseName { (error, purseNames) in
-            if let error = error {
-                callBack(error, false)
-            } else {
-                guard let purseNames = purseNames else {
-                    callBack(IMSError.other, false)
-                    return
-                }
-                if purseNames.contains(name) {
-                    callBack(nil, true)
-                } else {
-                    callBack(nil, false)
-                }
-            }
-        }
-    }
-
-    func stopPurseListen() {
-        purseAPI.stopListen()
     }
 
     // MARK: - Functions for sellers

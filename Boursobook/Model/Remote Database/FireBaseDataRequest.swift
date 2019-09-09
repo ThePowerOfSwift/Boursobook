@@ -9,44 +9,52 @@
 import Foundation
 import Firebase
 
-struct FireBaseDataRequest: RemoteDatabaseRequest {
+class FireBaseDataRequest: RemoteDatabaseRequest {
 
-    // Initialise instance for FireStone
-    let firestoneDatabase = Firestore.firestore()
+    var collection: RemoteDataBase.Collection
+
+    init(collection: RemoteDataBase.Collection) {
+        self.collection = collection
+    }
+
+    // Initialise a query for the collection in FireStone
+    var firestoneCollectionReference: CollectionReference {
+        return  Firestore.firestore().collection(collection.rawValue)
+    }
+
+    var listeners = [ListenerRegistration]()
 
     // Query and listen objects "Model" from FireBase in a collection
-    func readAndListenData<Model>(collection: RemoteDataBase.Collection,
-                                  completionHandler: @escaping (Error?, [Model]?) -> Void)
+    func readAndListenData<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
                                     where Model: RemoteDataBaseModel {
-        firestoneDatabase.collection(collection.rawValue).addSnapshotListener { (modelSnapshot, error) in
+        let globalListener = firestoneCollectionReference.addSnapshotListener { (modelSnapshot, error) in
 
             let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot, queryError: error)
             completionHandler(response.0, response.1)
         }
+        listeners.append(globalListener)
     }
 
     // Query and listen objects "Model" from FireBase in a collection
     // with a query for Model that meet a certain condition
-    func readAndListenData<Model>(collection: RemoteDataBase.Collection,
-                                  condition: RemoteDataBase.Condition,
+    func readAndListenData<Model>(condition: RemoteDataBase.Condition,
                                   completionHandler: @escaping (Error?, [Model]?) -> Void)
                                     where Model: RemoteDataBaseModel {
-        firestoneDatabase.collection(collection.rawValue)
-                    .whereField(condition.key, isEqualTo: condition.value)
+        let conditionListener = firestoneCollectionReference.whereField(condition.key, isEqualTo: condition.value)
                     .addSnapshotListener { (modelSnapshot, error) in
 
                         let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot,
                                                                                queryError: error)
                         completionHandler(response.0, response.1)
         }
+        listeners.append(conditionListener)
     }
 
     // Create objects "Model" in FireBase
-    func create<Model>(collection: RemoteDataBase.Collection,
-                       model: Model,
+    func create<Model>(model: Model,
                        completionHandler: @escaping (Error?) -> Void)
                         where Model: RemoteDataBaseModel {
-        firestoneDatabase.collection(collection.rawValue).document(model.uniqueID)
+        firestoneCollectionReference.document(model.uniqueID)
             .setData(model.dictionary) { (error) in
             if let error = error {
                 completionHandler(error)
@@ -57,10 +65,9 @@ struct FireBaseDataRequest: RemoteDatabaseRequest {
     }
 
     // Get only Once objects "Model" from FireBase in a collection
-    func get<Model>(collection: RemoteDataBase.Collection,
-                    completionHandler: @escaping (Error?, [Model]?) -> Void)
+    func get<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
                         where Model: RemoteDataBaseModel {
-        firestoneDatabase.collection(collection.rawValue).getDocuments { (modelSnapshot, error) in
+        firestoneCollectionReference.getDocuments { (modelSnapshot, error) in
 
             let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot, queryError: error)
             completionHandler(response.0, response.1)
@@ -68,11 +75,10 @@ struct FireBaseDataRequest: RemoteDatabaseRequest {
     }
 
     // Create objects "Model" in FireBase
-    func remove<Model>(collection: RemoteDataBase.Collection,
-                       model: Model,
+    func remove<Model>(model: Model,
                        completionHandler: @escaping (Error?) -> Void)
                             where Model: RemoteDataBaseModel {
-        firestoneDatabase.collection(collection.rawValue).document(model.uniqueID)
+        firestoneCollectionReference.document(model.uniqueID)
             .delete { (error) in
                 if let error = error {
                     completionHandler(error)
@@ -96,10 +102,10 @@ struct FireBaseDataRequest: RemoteDatabaseRequest {
         }
     }
 
-    func stopListen(collection: RemoteDataBase.Collection) {
-        let reference = firestoneDatabase.collection(collection.rawValue).addSnapshotListener { (_, _) in
+    func stopListen() {
+        for listener in listeners {
+            listener.remove()
         }
-        reference.remove()
     }
 
     //FIXME: supprimer code en dessous
