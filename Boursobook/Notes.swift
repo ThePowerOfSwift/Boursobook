@@ -35,6 +35,8 @@ import Foundation
 // MARK: - A faire plus tard
 /*
     - animation par gradient quand ça cherche
+    - Faire fonction "email oublié"
+    - faire une barre avec des lettre pour chercher plus vite les utilisateur (UserList TVC)
  */
 
 // MARK: - A voir avec Vincent
@@ -44,7 +46,8 @@ import Foundation
  - j'apelle les classes ..API directement dans les VC
  
  
-- Pourquoi sur les tests de API,  le completionHandler(PAPIError.other, nil) n'est pas marqué tester alors que oui ? Return ??
+- Pourquoi sur les tests de API,  le completionHandler(PAPIError.other, nil)
+ n'est pas marqué tester alors que oui ? Return ??
  - Comment on passe des infos entre tabview ??? Comment je peux passer un info entre le SelectPurseVC
  et le InfoVC avec prepareforsegue alors que le VC de destination c'est le TabBarControler??
  
@@ -128,13 +131,9 @@ import Foundation
 
 // MARK: - SetupVC
 /*
- - Ajouter le reglage pour la page d'impression
- - Verouiller l'acces aux régalges si c'est pas delphine ????
- - Mettre des valuers avec virgules pour voir si le format passe`
- - metter une verification au max à 100% sur le pourcentage
+ 
  - attention a la gestion du clavier (ne cache pas les textes)
- - implementer la fonction "add new user" pour donner l'autorisation
- a un utilisateur inscrit d'acceder à la purse
+
  
  */
 
@@ -143,12 +142,12 @@ import Foundation
  - Ajouter un bouton pour acces liste transaction
  - Ajouter bouton liste articles totaux
  - Ajouter un contact pour mailing list
- - Afficher qu'un email a bien été envoye à l'emeil du la création
  
  */
 
 // MARK: - LoginVC
 /*
+ - Gestion du clavier
  - faire disparaitre le login si on est déja logé
  - Utiliser KeyChain pour sauvegarder le mot de passe 
  - gestion de l'appli offligne

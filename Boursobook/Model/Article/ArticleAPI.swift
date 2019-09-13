@@ -31,7 +31,7 @@ class ArticleAPI {
         }
         let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
 
-        articleRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedArticles: [Article]? ) in
+        articleRemoteDataBaseRequest.readAndListenData(conditionInField: condition) { (error, loadedArticles: [Article]? ) in
                                                         if let error = error {
                                                             completionHandler(error, nil)
                                                         } else {

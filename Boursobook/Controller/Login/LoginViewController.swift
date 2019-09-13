@@ -12,6 +12,7 @@ import Firebase
 class LoginViewController: UIViewController {
 
     // MARK: Properties
+    let userAuthAPI = UserAuthAPI()
     let userAPI = UserAPI()
 
     // MARK: IBOutlets
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func didTapRegister(_ sender: Any) {
-        registerNewUser()
+        displayAlertRegisterNewUser()
     }
 
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
@@ -49,7 +50,7 @@ class LoginViewController: UIViewController {
 
     func login(identifiant: String, password: String) {
         toogleActivity(logging: true)
-        userAPI.signInUser(email: identifiant, password: password) { (error, userLogIn) in
+        userAuthAPI.signInUser(email: identifiant, password: password) { (error, userLogIn) in
             self.toogleActivity(logging: false)
             if let error = error {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
@@ -70,7 +71,7 @@ class LoginViewController: UIViewController {
          loginButton.layer.cornerRadius = 10
     }
 
-    private func registerNewUser() {
+    private func displayAlertRegisterNewUser() {
         toogleActivity(logging: true)
         let alert = UIAlertController(title: NSLocalizedString("Register", comment: ""),
                                       message: NSLocalizedString("New user", comment: ""),
@@ -85,26 +86,8 @@ class LoginViewController: UIViewController {
                                             self.toogleActivity(logging: false)
                                             return
                                         }
-                                        self.userAPI.createUser(email: emailTextFieldValue,
-                                                                password: passwordTextFieldValue,
-                                                                completionHandler: { (error, userCreated) in
-                                            self.toogleActivity(logging: false)
-                                            if let error = error {
-                                                self.displayAlert(
-                                                    message: error.message,
-                                                    title: NSLocalizedString(
-                                                        "Error !", comment: ""))
-                                            } else {
-                                                self.displayAlert(message:
-                                                    NSLocalizedString(
-                                                        "An email has been send to the new user !",
-                                                        comment: ""),
-                                                                  title: NSLocalizedString("It's ok !", comment: ""))
-                                                if let userCreated = userCreated {
-                                                    self.loginEmailTextField.text = userCreated.email
-                                                }
-                                            }
-                                        })
+                                        self.registerNewUser(email: emailTextFieldValue,
+                                                             password: passwordTextFieldValue)
         }
 
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
@@ -128,6 +111,38 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
+    private func registerNewUser(email: String, password: String) {
+        self.userAuthAPI.createUser(email: email,
+                                password: password,
+                                completionHandler: { (error, userCreated) in
+                                    self.toogleActivity(logging: false)
+                                    if let error = error {
+                                        self.displayAlert(
+                                            message: error.message,
+                                            title: NSLocalizedString(
+                                                "Error !", comment: ""))
+                                    } else {
+                                        self.displayAlert(message:
+                                            NSLocalizedString(
+                                                "An email has been send to the new user !",
+                                                comment: ""),
+                                                          title: NSLocalizedString("It's ok !", comment: ""))
+                                        if let userCreated = userCreated {
+                                            self.loginEmailTextField.text = userCreated.email
+                                            self.saveUserInDataBase(user: userCreated)
+                                        }
+                                    }
+        })
+    }
+
+    private func saveUserInDataBase(user: User) {
+        userAPI.save(user: user) { (error) in
+            if let error = error {
+                self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
+                                  title: NSLocalizedString("Error !", comment: ""))
+            }
+        }
+    }
 }
 
 // MARK: - KEYBOARD

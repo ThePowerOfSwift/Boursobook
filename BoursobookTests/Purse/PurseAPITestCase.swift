@@ -333,7 +333,7 @@ class PurseAPITestCase: XCTestCase {
 extension PurseAPITestCase {
     // MARK: Test with real remote DataBase FIREBASE
     func testCreateRealPurseSouldSucceed() {
-        let userAPI = UserAPI()
+        let userAPI = UserAuthAPI()
         let purseAPI = PurseAPI()
 
         // Login into FireBase

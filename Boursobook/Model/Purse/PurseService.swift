@@ -23,47 +23,7 @@ class PurseService {
     }
 
     // MARK: Function
-    func create(purse: Purse) {
-        // Create a purse in the remote database
-//        purseRemoteDataBaseRequest.create(dataNode: locationInRemoteDataBase, model: purse)
-        //FIXME: a implementer
-    }
 
-    func remove(purse: Purse) {
-        // Delete an purse in the remote database
-//        purseRemoteDataBaseRequest.remove(dataNode: locationInRemoteDataBase, model: purse)
-        //FIXME: a implementer
-    }
-
-    func readAndListenData(completionHandler: @escaping (Bool, [Purse]) -> Void) {
-        // Query purses from remote database
-
-//        purseRemoteDataBaseRequest.readAndListenData(dataNode: locationInRemoteDataBase) { (done, pursesReaded) in
-//                                                        completionHandler(done, pursesReaded)
-//        }
-        //FIXME: a implementer
-    }
-
-    func stopListen() {
-        //Stop the listening of the purses
-//        purseRemoteDataBaseRequest.stopListen(dataNode: locationInRemoteDataBase)
-//FIXME: a implementer
-    }
-
-    func setupRates(purse: Purse, percentage: Double, depositFee: Purse.DepositFee) {
-        // set the rates for the purse
-//        purse.percentageOnSales = percentage
-//        purse.depositFee = depositFee
-//        let purseNewValues = purse.setValuesForRemoteDataBase()
-//
-//        var childUpdate = [String: Any]()
-//        for (key, value) in purseNewValues {
-//            childUpdate.updateValue(value, forKey: "/\(purse.uniqueID)/\(key)/")
-//        }
-
-//        purseRemoteDataBaseRequest.updateChildValues(dataNode: locationInRemoteDataBase, childUpdates: childUpdate)
-        //FIXME: a implementer
-    }
 
     func updateNumberOfSeller(with number: Int, for purse: Purse) {
         // add number to the number of seller for the purse

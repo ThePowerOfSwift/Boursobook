@@ -31,7 +31,7 @@ class SellerAPI {
         }
         let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
 
-        sellerRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedSellers: [Seller]? ) in
+        sellerRemoteDataBaseRequest.readAndListenData(conditionInField: condition) { (error, loadedSellers: [Seller]? ) in
                                                         if let error = error {
                                                             completionHandler(error, nil)
                                                         } else {

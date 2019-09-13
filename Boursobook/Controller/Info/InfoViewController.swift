@@ -37,14 +37,14 @@ class InfoViewController: UIViewController {
         setStyleOfVC()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        purseAPI.stopListen()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadPurseToDisplay()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        purseAPI.stopListen()
     }
 
     deinit {
@@ -53,7 +53,7 @@ class InfoViewController: UIViewController {
 
     // MARK: - functions
 
-    func loadPurseToDisplay() {
+    private func loadPurseToDisplay() {
         guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
             self.dismiss(animated: true, completion: nil)
             return
@@ -113,4 +113,7 @@ class InfoViewController: UIViewController {
         purseToDisplay = nil
         self.dismiss(animated: true, completion: nil)
     }
+
+    // MARK: - Navigation
+    @IBAction func unwindToInfoVC(segue: UIStoryboardSegue) { }
 }

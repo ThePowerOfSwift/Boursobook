@@ -36,11 +36,12 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
     }
 
     // Query and listen objects "Model" from FireBase in a collection
-    // with a query for Model that meet a certain condition
-    func readAndListenData<Model>(condition: RemoteDataBase.Condition,
+    // with a query for Model that meet a certain condition present in a array of a field
+    func readAndListenData<Model>(conditionInArray: RemoteDataBase.Condition,
                                   completionHandler: @escaping (Error?, [Model]?) -> Void)
                                     where Model: RemoteDataBaseModel {
-        let conditionListener = firestoneCollectionReference.whereField(condition.key, isEqualTo: condition.value)
+        let conditionListener = firestoneCollectionReference.whereField(conditionInArray.key,
+                                                                        arrayContains: conditionInArray.value)
                     .addSnapshotListener { (modelSnapshot, error) in
 
                         let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot,
@@ -48,6 +49,22 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
                         completionHandler(response.0, response.1)
         }
         listeners.append(conditionListener)
+    }
+
+    // Query and listen objects "Model" from FireBase in a collection
+    // with a query for Model that meet a certain condition
+    func readAndListenData<Model>(conditionInField: RemoteDataBase.Condition,
+                                  completionHandler: @escaping (Error?, [Model]?) -> Void)
+                                    where Model: RemoteDataBaseModel {
+            let conditionListener = firestoneCollectionReference.whereField(conditionInField.key,
+                                                                            isEqualTo: conditionInField.value)
+                .addSnapshotListener { (modelSnapshot, error) in
+
+                    let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot,
+                                                                           queryError: error)
+                    completionHandler(response.0, response.1)
+            }
+            listeners.append(conditionListener)
     }
 
     // Create objects "Model" in FireBase
@@ -88,6 +105,45 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
         }
     }
 
+    // Stop listening values changing
+    func stopListen() {
+        for listener in listeners {
+            listener.remove()
+        }
+    }
+
+    // Update differents childValue of object on FireBase
+    func updateValues<Model>(model: Model,
+                             updates: [String: Any],
+                             completionHandler: @escaping (Error?) -> Void)
+                                where Model: RemoteDataBaseModel {
+                                    firestoneCollectionReference.document(model.uniqueID)
+                                        .updateData(updates) { (error) in
+                                            if let error = error {
+                                                completionHandler(error)
+                                            } else {
+                                                completionHandler(nil)
+                                            }
+                                    }
+
+    }
+
+    // Set differents childValue of object on FireBase
+    func setValues<Model>(model: Model,
+                          values: [String: Any],
+                          completionHandler: @escaping (Error?) -> Void)
+                            where Model: RemoteDataBaseModel {
+
+                                firestoneCollectionReference.document(model.uniqueID)
+                                    .setData(values) { (error) in
+                                        if let error = error {
+                                            completionHandler(error)
+                                        } else {
+                                            completionHandler(nil)
+                                        }
+                                }
+    }
+
     // manage the response of firebase with a query of array of document
     private func manageResponse<Model: RemoteDataBaseModel>(querySnapshot: QuerySnapshot?,
                                                             queryError: Error?) -> (Error?, [Model]?) {
@@ -101,23 +157,6 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
             return(nil, models)
         }
     }
-
-    func stopListen() {
-        for listener in listeners {
-            listener.remove()
-        }
-    }
-
-    //FIXME: supprimer code en dessous
-/*
- 
-    // Update differents childValue of object on FireBase
-    func updateChildValues(dataNode: RemoteDataBase.collection, childUpdates: [String: Any]) {
-        let reference = Database.database().reference(withPath: dataNode.rawValue)
-        reference.updateChildValues(childUpdates)
-    }
- */
-
 }
 
 extension Dictionary where Key == String, Value == Any {

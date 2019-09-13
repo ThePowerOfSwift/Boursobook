@@ -2,55 +2,47 @@
 //  UserAPI.swift
 //  Boursobook
 //
-//  Created by David Dubez on 06/09/2019.
+//  Created by David Dubez on 09/09/2019.
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
 import Foundation
 
 class UserAPI {
-    // Manage the acces of "user" authentication
+    // Manage the acces of "users" data
 
     // MARK: Properties
-    private var userRemoteAuthenticationRequest: RemoteAuthenticationRequest = FireBaseAuthenticationRequest()
+    private var userRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .user)
 
     // MARK: Initialisation
     init() {}
-    init(userRemoteAuthenticationRequest: RemoteAuthenticationRequest) {
-        self.userRemoteAuthenticationRequest = userRemoteAuthenticationRequest
+    init(userRemoteDataBaseRequest: RemoteDatabaseRequest) {
+        self.userRemoteDataBaseRequest = userRemoteDataBaseRequest
     }
 
     // MARK: Functions
-    func signInUser(email: String, password: String, completionHandler: @escaping (Error?, User?) -> Void) {
-        userRemoteAuthenticationRequest.signInUser(email: email, password: password) { (error, userLogin: User?) in
+    func readUsers(completionHandler: @escaping (Error?, [User]?) -> Void) {
+        // Query all the users
+
+        userRemoteDataBaseRequest.get { (error, loadedUsers: [User]?) in
             if let error = error {
                 completionHandler(error, nil)
             } else {
-                guard let userLogin = userLogin else {
+                guard let list = loadedUsers else {
                     completionHandler(UAPIError.other, nil)
                     return
                 }
-                completionHandler(nil, userLogin)
+                completionHandler(nil, list)
             }
         }
     }
 
-    func createUser(email: String, password: String, completionHandler: @escaping (Error?, User?) -> Void) {
-        userRemoteAuthenticationRequest.createUser(email: email, password: password) { (error, userLogin: User?) in
-            if let error = error {
-                completionHandler(error, nil)
-            } else {
-                guard let userLogin = userLogin else {
-                    completionHandler(UAPIError.other, nil)
-                    return
-                }
-                completionHandler(nil, userLogin)
-            }
+    func save(user: User?, completionHandler: @escaping (Error?) -> Void) {
+        guard let user = user else {
+            completionHandler(UAPIError.other)
+            return
         }
-    }
-
-    func signOut(completionHandler: @escaping (Error?) -> Void) {
-        userRemoteAuthenticationRequest.signOut { (error) in
+        userRemoteDataBaseRequest.create(model: user) { (error) in
             if let error = error {
                 completionHandler(error)
             } else {
@@ -58,6 +50,7 @@ class UserAPI {
             }
         }
     }
+
 }
 
 extension UserAPI {
@@ -70,3 +63,4 @@ extension UserAPI {
         case other = "Sorry, there is an error !"
     }
 }
+

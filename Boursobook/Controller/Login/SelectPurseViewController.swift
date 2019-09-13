@@ -13,7 +13,7 @@ class SelectPurseViewController: UIViewController {
     // MARK: Properties
     var userPurses = [Purse]()
     let purseAPI = PurseAPI()
-    let userAPI = UserAPI()
+    let userAPI = UserAuthAPI()
 
     // MARK: IBOutlet
     @IBOutlet weak var purseListTableView: UITableView!

@@ -23,7 +23,7 @@ class Purse: RemoteDataBaseModel {
     var totalBenefitOnSalesAmount: Double = 0
     var totalDepositFeeAmount: Double = 0
     var administrators: [String: Bool]
-    var users: [String: String]
+    var users: [String]
 
     struct DepositFee {
         var underFifty: Double
@@ -40,7 +40,7 @@ class Purse: RemoteDataBaseModel {
          percentageOnSales: Double, depositFee: DepositFee,
          totalSalesAmount: Double, totalBenefitOnSalesAmount: Double,
          totalDepositFeeAmount: Double, administrators: [String: Bool],
-         users: [String: String]) {
+         users: [String]) {
         self.name = name
         self.uniqueID = uniqueID
         self.numberOfArticleRegistered = numberOfArticleRegistered
@@ -56,7 +56,7 @@ class Purse: RemoteDataBaseModel {
         self.users = users
     }
 
-    init(name: String, uniqueID: String, administrators: [String: Bool], users: [String: String]) {
+    init(name: String, uniqueID: String, administrators: [String: Bool], users: [String]) {
         self.name = name
         self.uniqueID = uniqueID
         self.administrators = administrators
@@ -75,7 +75,7 @@ class Purse: RemoteDataBaseModel {
             let percentageOnSalesValue = dictionary["percentageOnSales"] as? Double,
             let depositFeeData = dictionary["depositFee"] as? [String: AnyObject],
             let administratorsValue = dictionary["administrators"] as? [String: Bool],
-            let usersValue = dictionary["users"] as? [String: String],
+            let usersValue = dictionary["users"] as? [String],
             let numberOfArticleRegisteredValue = dictionary["numberOfArticleRegistered"] as? Int,
             let numberOfSellersValue = dictionary["numberOfSellers"] as? Int,
             let numberOfArticlesoldValue = dictionary["numberOfArticlesold"] as? Int,

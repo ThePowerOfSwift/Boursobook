@@ -18,9 +18,16 @@ protocol RemoteDatabaseRequest {
 
     /**
      Request to read and listen changes of "Model" data from remote database
-     with a query for Model that meet a certain condition
+     with a query for Model that meet a certain condition present in a array of a field
      */
-    func readAndListenData<Model: RemoteDataBaseModel>(condition: RemoteDataBase.Condition,
+    func readAndListenData<Model: RemoteDataBaseModel>(conditionInArray: RemoteDataBase.Condition,
+                                                       completionHandler: @escaping (Error?, [Model]?) -> Void)
+
+    /**
+     Request to read and listen changes of "Model" data from remote database
+     with a query for Model that meet a certain condition present in one field
+     */
+    func readAndListenData<Model: RemoteDataBaseModel>(conditionInField: RemoteDataBase.Condition,
                                                        completionHandler: @escaping (Error?, [Model]?) -> Void)
 
     /**
@@ -50,13 +57,18 @@ protocol RemoteDatabaseRequest {
      */
     func stopListen()
 
-/*
-
-    
     /**
-     Request to update differents child Value of objets in the remote database
+     Request to update differents values of objets in the remote database
      */
-    func updateChildValues(dataNode: RemoteDataBaseReference.Node, childUpdates: [String: Any])
+    func updateValues<Model: RemoteDataBaseModel>(model: Model,
+                                                  updates: [String: Any],
+                                                  completionHandler: @escaping (Error?) -> Void)
 
- */
+    /**
+     Request to set differents values of objets in the remote database
+     */
+    func setValues<Model: RemoteDataBaseModel>(model: Model,
+                                               values: [String: Any],
+                                               completionHandler: @escaping (Error?) -> Void)
+
 }

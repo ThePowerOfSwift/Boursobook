@@ -1,5 +1,5 @@
 //
-//  UserAPITestCase.swift
+//  UserAuthAPITestCase.swift
 //  BoursobookTests
 //
 //  Created by David Dubez on 06/09/2019.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Boursobook
 
-class UserAPITestCase: XCTestCase {
+class UserAuthAPITestCase: XCTestCase {
 
     override func setUp() {
     }
@@ -20,7 +20,7 @@ class UserAPITestCase: XCTestCase {
     func testSignInWithNoDataWithErrorSouldReturnError() {
     //Given
     let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: nil)
-    let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+    let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
     //When
     let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -43,7 +43,7 @@ class UserAPITestCase: XCTestCase {
         //Given
         let goodData = FakeData.user
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: goodData)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -65,7 +65,7 @@ class UserAPITestCase: XCTestCase {
     func testSignInWithNoDataWithNoErrorSouldReturnError() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: nil, data: nil)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -85,7 +85,7 @@ class UserAPITestCase: XCTestCase {
         //Given
         let goodData = FakeData.user
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: nil, data: goodData)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -107,7 +107,7 @@ class UserAPITestCase: XCTestCase {
     func testCreateUserWithNoDataWithErrorSouldReturnError() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: nil)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -130,7 +130,7 @@ class UserAPITestCase: XCTestCase {
         //Given
         let goodData = FakeData.user
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: goodData)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -152,7 +152,7 @@ class UserAPITestCase: XCTestCase {
     func testCreateUserWithNoDataWithNoErrorSouldReturnError() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: nil, data: nil)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -172,7 +172,7 @@ class UserAPITestCase: XCTestCase {
         //Given
         let goodData = FakeData.user
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: nil, data: goodData)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -194,7 +194,7 @@ class UserAPITestCase: XCTestCase {
     func testSignOutWithErrorSouldReturnError() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: nil)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -215,7 +215,7 @@ class UserAPITestCase: XCTestCase {
     func testSignOutWithNoErrorSouldReturnNil() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: nil, data: nil)
-        let fakeUserAPI = UserAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
+        let fakeUserAPI = UserAuthAPI(userRemoteAuthenticationRequest: remoteAuthenticationRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -231,7 +231,7 @@ class UserAPITestCase: XCTestCase {
     // MARK: Test with real remote Authentication with FIREBASE
     func testSignIntWithGoodUserSouldReturnSuccess() {
         //Given
-        let userAPI = UserAPI()
+        let userAPI = UserAuthAPI()
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")

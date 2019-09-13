@@ -28,9 +28,9 @@ class PurseAPI {
             completionHandler(PAPIError.other, nil)
             return
         }
-             let condition = RemoteDataBase.Condition(key: "users", value: [user.email: user.uniqueID])
+             let condition = RemoteDataBase.Condition(key: "users", value: user.email)
 
-        purseRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedPurses: [Purse]? ) in
+        purseRemoteDataBaseRequest.readAndListenData(conditionInArray: condition) { (error, loadedPurses: [Purse]? ) in
             if let error = error {
                 completionHandler(error, nil)
             } else {
@@ -48,7 +48,7 @@ class PurseAPI {
 
         let condition = RemoteDataBase.Condition(key: "name", value: name)
 
-        purseRemoteDataBaseRequest.readAndListenData(condition: condition) { (error, loadedPurses: [Purse]? ) in
+        purseRemoteDataBaseRequest.readAndListenData(conditionInField: condition) { (error, loadedPurses: [Purse]? ) in
             if let error = error {
                 completionHandler(error, nil)
             } else {
@@ -87,7 +87,7 @@ class PurseAPI {
         }
         let uniqueID = name + " " + UUID().description
         let newPurse = Purse(name: name, uniqueID: uniqueID,
-                             administrators: [user.email: true], users: [user.email: user.uniqueID])
+                             administrators: [user.email: true], users: [user.email])
         purseRemoteDataBaseRequest.create(model: newPurse) { (error) in
             if let error = error {
                 completionHandler(error, nil)
@@ -112,6 +112,45 @@ class PurseAPI {
     func stopListen() {
         purseRemoteDataBaseRequest.stopListen()
     }
+
+    func setRates(purse: Purse, percentage: Double,
+                  depositFee: Purse.DepositFee,
+                  completionHandler: @escaping (Error?) -> Void) {
+
+        var updatedfields = [String: Any]()
+        updatedfields.updateValue(percentage, forKey: "percentageOnSales")
+        updatedfields.updateValue(depositFee.underFifty, forKey: "depositFee.underFifty")
+        updatedfields.updateValue(depositFee.underOneHundred, forKey: "depositFee.underOneHundred")
+        updatedfields.updateValue(depositFee.underOneHundredFifty, forKey: "depositFee.underOneHundredFifty")
+        updatedfields.updateValue(depositFee.underTwoHundred, forKey: "depositFee.underTwoHundred")
+        updatedfields.updateValue(depositFee.underTwoHundredFifty, forKey: "depositFee.underTwoHundredFifty")
+        updatedfields.updateValue(depositFee.overTwoHundredFifty, forKey: "depositFee.overTwoHundredFifty")
+
+        purseRemoteDataBaseRequest.updateValues(model: purse, updates: updatedfields) { (error) in
+            if let error = error {
+                completionHandler(error)
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+
+    func addUserFor(purse: Purse, user: User,
+                    completionHandler: @escaping (Error?) -> Void) {
+
+        var updatedUsers = purse.users
+        updatedUsers.append(user.email)
+
+        let updatedfields = ["users": updatedUsers]
+        purseRemoteDataBaseRequest.updateValues(model: purse, updates: updatedfields) { (error) in
+            if let error = error {
+                completionHandler(error)
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+
 }
 
 extension PurseAPI {

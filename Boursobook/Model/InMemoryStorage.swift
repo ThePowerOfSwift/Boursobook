@@ -134,15 +134,6 @@ class InMemoryStorage {
 
     // MARK: - Functions PURSES
 
-    func setupCurrentPurseRates(percentage: Double, depositFee: Purse.DepositFee) {
-        if let currentPurse = self.currentPurse {
-            currentPurse.percentageOnSales = percentage
-            currentPurse.depositFee = depositFee
-            purseService.setupRates(purse: currentPurse,
-                                    percentage: currentPurse.percentageOnSales,
-                                    depositFee: currentPurse.depositFee)
-        }
-    }
 }
 
 // MARK: - Functions SELLERS

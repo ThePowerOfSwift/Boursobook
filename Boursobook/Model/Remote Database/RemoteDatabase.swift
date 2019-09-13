@@ -16,6 +16,7 @@ struct RemoteDataBase {
         case article = "articles"
         case purse = "purses"
         case seller = "sellers"
+        case user = "users"
     }
 
     // Elements for performing query

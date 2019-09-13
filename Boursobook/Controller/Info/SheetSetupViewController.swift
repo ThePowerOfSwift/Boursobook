@@ -20,6 +20,9 @@ class SheetSetupViewController: UIViewController {
     @IBOutlet weak var labelSpacingXInMMTextField: UITextField!
     @IBOutlet weak var labelSpacingYInMMTextField: UITextField!
 
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+
     // MARK: - IBActions
     @IBAction func didTapSaveButton(_ sender: Any) {
         saveLabelSheetSetup()
@@ -34,6 +37,7 @@ class SheetSetupViewController: UIViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyleOfVC()
         updateValues()
     }
 
@@ -107,7 +111,11 @@ class SheetSetupViewController: UIViewController {
             return nil
         }
     }
-    // MARK: - Navigation
+
+    private func setStyleOfVC() {
+        saveButton.layer.cornerRadius = 10
+        cancelButton.layer.cornerRadius = 10
+    }
 
 }
 

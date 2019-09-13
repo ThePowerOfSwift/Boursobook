@@ -10,6 +10,11 @@ import UIKit
 
 class SetupViewController: UIViewController {
 
+    // MARK: - Properties
+    var isConfiguring = false
+    let purseAPI = PurseAPI()
+    var purseToDisplay: Purse?
+
     // MARK: - IBOutlets
     @IBOutlet weak var percentageOnSalesDisplayLabel: UILabel!
     @IBOutlet weak var percentageOnSalesSetupLabel: UITextField!
@@ -30,63 +35,110 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var actionButtonStackView: UIStackView!
     @IBOutlet weak var configSheetStackView: UIStackView!
 
+    @IBOutlet weak var changeAmountsButton: UIButton!
+    @IBOutlet weak var addNewUserButton: UIButton!
+    @IBOutlet weak var configLabelSheetButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+
     // MARK: - IBActions
     @IBAction func didTapAddNewUser(_ sender: Any) {
-       addNewUser()
+        if userIsAdministrator() {
+            addNewUser()
+        } else {
+            displayAlert(message: NSLocalizedString("Sorry, You are not administrator of this purse", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
+        }
     }
+
     @IBAction func didTapChangeAmountButton(_ sender: Any) {
-        setDisplay(isConfiguring: true)
+        if userIsAdministrator() {
+            setDisplay(isConfiguring: true)
+        } else {
+            displayAlert(message: NSLocalizedString("Sorry, You are not administrator of this purse", comment: ""),
+                         title: NSLocalizedString("Error !", comment: ""))
+        }
     }
     @IBAction func didTapConfirmButton(_ sender: Any) {
         saveValues()
-        updateValues()
-        setDisplay(isConfiguring: false)
     }
     @IBAction func didTapCancelButton(_ sender: Any) {
         updateValues()
         setDisplay(isConfiguring: false)
     }
 
-    // MARK: - Properties
-    var isConfiguring = false
-
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyleOfVC()
         setDisplay(isConfiguring: false)
-        updateValues()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.pursesUpdatedNotification,
-                                               object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadPurseToDisplay()
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.pursesUpdatedNotification,
-                                                  object: nil)
+        purseAPI.stopListen()
     }
 
     // MARK: - Functions
-    @objc private func updateValues() {
-        if let currentPurse = InMemoryStorage.shared.currentPurse {
-            percentageOnSalesDisplayLabel.text = String(currentPurse.percentageOnSales) + " %"
-            percentageOnSalesSetupLabel.text = String(currentPurse.percentageOnSales)
-            underFiftyDisplayLabel.text = String(currentPurse.depositFee.underFifty)
-            underFiftySetupLabel.text = String(currentPurse.depositFee.underFifty)
-            underOneHundredDisplayLabel.text = String(currentPurse.depositFee.underOneHundred)
-            underOneHundredSetupLabel.text = String(currentPurse.depositFee.underOneHundred)
-            underOneHundredFiftyDisplayLabel.text = String(currentPurse.depositFee.underOneHundredFifty)
-            underOneHundredFiftySetupLabel.text = String(currentPurse.depositFee.underOneHundredFifty)
-            underTwoHundredDisplayLabel.text = String(currentPurse.depositFee.underTwoHundred)
-            underTwoHundredSetupLabel.text = String(currentPurse.depositFee.underTwoHundred)
-            underTwoHundredFiftyDisplayLabel.text = String(currentPurse.depositFee.underTwoHundredFifty)
-            underTwoHundredFiftySetupLabel.text = String(currentPurse.depositFee.underTwoHundredFifty)
-            overTwoHundredFiftyDisplayLabel.text = String(currentPurse.depositFee.overTwoHundredFifty)
-            overTwoHundredFiftySetupLabel.text = String(currentPurse.depositFee.overTwoHundredFifty)
+
+    private func loadPurseToDisplay() {
+        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        purseAPI.loadPurse(name: purseName) { (error, loadedPurse) in
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let purse = loadedPurse else {
+                    return
+                }
+                self.purseToDisplay = purse
+                self.updateValues()
+            }
         }
     }
 
+    private func updateValues() {
+        if let purse = purseToDisplay {
+            percentageOnSalesDisplayLabel.text = formatDiplayedNumber(purse.percentageOnSales)
+            percentageOnSalesSetupLabel.text = formatDiplayedNumber(purse.percentageOnSales)
+            underFiftyDisplayLabel.text = formatDiplayedNumber(purse.depositFee.underFifty)
+            underFiftySetupLabel.text = formatDiplayedNumber(purse.depositFee.underFifty)
+            underOneHundredDisplayLabel.text = formatDiplayedNumber(purse.depositFee.underOneHundred)
+            underOneHundredSetupLabel.text = formatDiplayedNumber(purse.depositFee.underOneHundred)
+            underOneHundredFiftyDisplayLabel.text = formatDiplayedNumber(purse.depositFee.underOneHundredFifty)
+            underOneHundredFiftySetupLabel.text = formatDiplayedNumber(purse.depositFee.underOneHundredFifty)
+            underTwoHundredDisplayLabel.text = formatDiplayedNumber(purse.depositFee.underTwoHundred)
+            underTwoHundredSetupLabel.text = formatDiplayedNumber(purse.depositFee.underTwoHundred)
+            underTwoHundredFiftyDisplayLabel.text = formatDiplayedNumber(purse.depositFee.underTwoHundredFifty)
+            underTwoHundredFiftySetupLabel.text = formatDiplayedNumber(purse.depositFee.underTwoHundredFifty)
+            overTwoHundredFiftyDisplayLabel.text = formatDiplayedNumber(purse.depositFee.overTwoHundredFifty)
+            overTwoHundredFiftySetupLabel.text = formatDiplayedNumber(purse.depositFee.overTwoHundredFifty)
+        }
+    }
+
+    private func userIsAdministrator() -> Bool {
+        guard let purse = purseToDisplay, let user = InMemoryStorage.shared.userLogIn else {
+            return false
+        }
+        for (key, value) in purse.administrators {
+            if key == user.email && value == true {
+               return true
+            }
+        }
+        return false
+    }
+
     private func setDisplay(isConfiguring: Bool) {
+
         percentageOnSalesDisplayLabel.isHidden = isConfiguring
         underFiftyDisplayLabel.isHidden = isConfiguring
         underOneHundredDisplayLabel.isHidden = isConfiguring
@@ -111,26 +163,20 @@ class SetupViewController: UIViewController {
     }
 
     private func saveValues() {
-        guard   let percentageOnSalesSetupText = percentageOnSalesSetupLabel.text,
-                let underFiftySetupText = underFiftySetupLabel.text,
-                let underOneHundredSetupText = underOneHundredSetupLabel.text,
-                let underOneHundredFiftySetupText = underOneHundredFiftySetupLabel.text,
-                let underTwoHundredSetupText = underTwoHundredSetupLabel.text,
-                let underTwoHundredFiftySetupText = underTwoHundredFiftySetupLabel.text,
-                let overTwoHundredFiftySetupText = overTwoHundredFiftySetupLabel.text
-                else {
-                    return
-        }
 
-        guard   let percentageOnSalesValue = Double(percentageOnSalesSetupText),
-                let underFiftySetupValue = Double(underFiftySetupText),
-                let underOneHundredSetupValue = Double(underOneHundredSetupText),
-                let underOneHundredFiftySetupValue = Double(underOneHundredFiftySetupText),
-                let underTwoHundredSetupValue = Double(underTwoHundredSetupText),
-                let underTwoHundredFiftySetupValue = Double(underTwoHundredFiftySetupText),
-                let overTwoHundredFiftySetupValue = Double(overTwoHundredFiftySetupText) else {
+        guard   let percentageOnSalesValue = valueForTextField(percentageOnSalesSetupLabel),
+                let underFiftySetupValue = valueForTextField(underFiftySetupLabel),
+                let underOneHundredSetupValue = valueForTextField(underOneHundredSetupLabel),
+                let underOneHundredFiftySetupValue = valueForTextField(underOneHundredFiftySetupLabel),
+                let underTwoHundredSetupValue = valueForTextField(underTwoHundredSetupLabel),
+                let underTwoHundredFiftySetupValue = valueForTextField(underTwoHundredFiftySetupLabel),
+                let overTwoHundredFiftySetupValue = valueForTextField(overTwoHundredFiftySetupLabel) else {
             displayAlert(message: NSLocalizedString("Incorrect amount !", comment: ""),
                          title: NSLocalizedString("Error !", comment: ""))
+            return
+        }
+
+        guard let purse = purseToDisplay else {
             return
         }
 
@@ -140,12 +186,55 @@ class SetupViewController: UIViewController {
                                           underTwoHundred: underTwoHundredSetupValue,
                                           underTwoHundredFifty: underTwoHundredFiftySetupValue,
                                           overTwoHundredFifty: overTwoHundredFiftySetupValue)
-        InMemoryStorage.shared.setupCurrentPurseRates(percentage: percentageOnSalesValue, depositFee: depositFee)
 
+        purseAPI.setRates(purse: purse, percentage: percentageOnSalesValue,
+                          depositFee: depositFee) { (error) in
+                            if let error = error {
+                                self.displayAlert(
+                                    message: error.message,
+                                    title: NSLocalizedString(
+                                        "Error !", comment: ""))
+                            } else {
+                                self.updateValues()
+                                self.setDisplay(isConfiguring: false)
+                            }
+        }
     }
 
     private func addNewUser() {
-        displayAlert(message: NSLocalizedString("Sorry, it's note possible yet !", comment: ""),
-                     title: NSLocalizedString("Error !", comment: ""))
+        self.performSegue(withIdentifier: "segueToUserList", sender: nil)
+    }
+
+    private func setStyleOfVC() {
+        changeAmountsButton.layer.cornerRadius = 10
+        addNewUserButton.layer.cornerRadius = 10
+        configLabelSheetButton.layer.cornerRadius = 10
+        confirmButton.layer.cornerRadius = 10
+        cancelButton.layer.cornerRadius = 10
+    }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber
+        } else {
+            return nil
+        }
+    }
+
+    private func valueForTextField(_ textField: UITextField) -> Double? {
+        guard let textFieldValue = textField.text else {
+            return nil
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.number(from: textFieldValue) {
+            return Double(truncating: formattedNumber)
+        } else {
+            return nil
+        }
     }
 }

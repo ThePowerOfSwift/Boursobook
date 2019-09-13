@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: RemoteAuthenticationModel {
+struct User: RemoteAuthenticationModel, RemoteDataBaseModel {
 
     var uniqueID: String
     var email: String
@@ -16,5 +16,21 @@ struct User: RemoteAuthenticationModel {
     init(email: String, uniqueID: String) {
         self.email = email
         self.uniqueID = uniqueID
+    }
+
+    init?(dictionary: [String: Any]) {
+        guard let uniqueIDValue = dictionary["uniqueID"] as? String,
+            let emailValue = dictionary["email"] as? String else {
+        return nil
+        }
+
+        uniqueID = uniqueIDValue
+        email = emailValue
+    }
+
+    var dictionary: [String: Any] {
+        let values: [String: Any] = ["uniqueID": uniqueID,
+                                     "email": email]
+        return values
     }
 }
