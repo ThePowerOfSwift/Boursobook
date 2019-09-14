@@ -148,6 +148,10 @@ class LoginViewController: UIViewController {
 // MARK: - KEYBOARD
 extension LoginViewController: UITextFieldDelegate {
 
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        resignAllTextField()
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == loginEmailTextField {
             loginPasswordTextField.becomeFirstResponder()
@@ -156,5 +160,10 @@ extension LoginViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+
+    private func resignAllTextField() {
+        loginEmailTextField.resignFirstResponder()
+        loginPasswordTextField.resignFirstResponder()
     }
 }

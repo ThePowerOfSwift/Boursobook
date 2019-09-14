@@ -22,10 +22,7 @@ class SellersListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
-        //FIXME:
-        //InMemoryStorage.shared.onSellerUpdate = { () in
-         //   self.updateValues()
-        //}
+
         NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
                                                name: InMemoryStorage.sellerUpdatedNotification,
                                                object: nil)

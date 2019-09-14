@@ -10,7 +10,7 @@ import Foundation
 
 struct PrivateKey {
     // Storage of private key
-    
+
     static let userMail = "ddubez@free.fr"
     static let userPassword = "azertyu"
 }

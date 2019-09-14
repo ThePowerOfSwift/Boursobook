@@ -9,7 +9,7 @@
 import UIKit
 
 class PurseListTableViewCell: UITableViewCell {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var purseNameLabel: UILabel!
 

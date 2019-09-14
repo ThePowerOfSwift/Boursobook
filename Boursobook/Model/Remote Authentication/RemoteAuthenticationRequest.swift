@@ -10,7 +10,7 @@ import Foundation
 
 // Protocol for manage remote Authentication requests
 protocol RemoteAuthenticationRequest {
-    
+
     /**
      Request to sign in user with an email and a password
      */

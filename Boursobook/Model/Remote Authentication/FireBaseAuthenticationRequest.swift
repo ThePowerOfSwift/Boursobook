@@ -38,9 +38,12 @@ struct FireBaseAuthenticationRequest: RemoteAuthenticationRequest {
             }
         }
     }
-    
+
     // Create an user with FireBase authentication and send an email
-    func createUser<Model>(email: String, password: String, callBack: @escaping (Error?, Model?) -> Void) where Model : RemoteAuthenticationModel {
+    func createUser<Model>(email: String,
+                           password: String,
+                           callBack: @escaping (Error?, Model?) -> Void)
+                                where Model: RemoteAuthenticationModel {
         Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
             if let error = error {
                 if let errorCode = AuthErrorCode(rawValue: error._code) {

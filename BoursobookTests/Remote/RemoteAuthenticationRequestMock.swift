@@ -16,7 +16,7 @@ struct RemoteAuthenticationRequestMock: RemoteAuthenticationRequest {
 
     func signInUser<Model>(email: String, password: String,
                            callBack: @escaping (Error?, Model?) -> Void)
-                                where Model : RemoteAuthenticationModel {
+                                where Model: RemoteAuthenticationModel {
         if let error = error {
             callBack(error, nil)
         } else {
@@ -30,7 +30,7 @@ struct RemoteAuthenticationRequestMock: RemoteAuthenticationRequest {
 
     func createUser<Model>(email: String, password: String,
                            callBack: @escaping (Error?, Model?) -> Void)
-                                where Model : RemoteAuthenticationModel {
+                                where Model: RemoteAuthenticationModel {
         if let error = error {
             callBack(error, nil)
         } else {

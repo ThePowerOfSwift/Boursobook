@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RemoteAuthenticationModel {
-    
+
     // MARK: - Properties
     var uniqueID: String {get}
     var email: String {get}

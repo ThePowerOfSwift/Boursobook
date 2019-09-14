@@ -91,8 +91,8 @@
 		4FCF6AF92326A01700C71C11 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF82326A01700C71C11 /* UserListTableViewController.swift */; };
 		4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AFA2326A0E100C71C11 /* UserListTableViewCell.swift */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
-		B075DBC3AB114D135F172428 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBAFB9C5890D68F6E261587 /* Pods_Boursobook.framework */; };
-		D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */; };
+		6D2060DCCDA6BE60A4FB81F7 /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */; };
+		76E351846A766040C9A316A2 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +109,7 @@
 		0ABF2AE86A70D7B951223E35 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.debug.xcconfig"; sourceTree = "<group>"; };
 		1104027D79BE5C839A2ACB5E /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		172B6770E3BD2DD917D1F010 /* Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; sourceTree = "<group>"; };
-		2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F16C727230FE79B00063B95 /* ArticleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTestCase.swift; sourceTree = "<group>"; };
 		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
 		4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheetTestCase.swift; sourceTree = "<group>"; };
@@ -207,9 +207,9 @@
 		7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction_BoursobookDevelopment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2E5CDCBC54888F269C293E /* Pods-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81F6E13C0E6BA2A8991066C8 /* Pods-BoursobookProduction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction.debug.xcconfig"; sourceTree = "<group>"; };
-		9FBAFB9C5890D68F6E261587 /* Pods_Boursobook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boursobook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2499EF21E2BBB77CFCEFC67 /* Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench/Pods-BoursobookProduction-BoursobookDevelopment-BoursobookDevelopmentFrench.release.xcconfig"; sourceTree = "<group>"; };
 		BE3BA1829B60B2169166A54F /* Pods-BoursobookProduction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction.release.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction/Pods-BoursobookProduction.release.xcconfig"; sourceTree = "<group>"; };
+		C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boursobook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookTests.release.xcconfig"; path = "Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests.release.xcconfig"; sourceTree = "<group>"; };
 		F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -219,7 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B075DBC3AB114D135F172428 /* Pods_Boursobook.framework in Frameworks */,
+				76E351846A766040C9A316A2 /* Pods_Boursobook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D33C7EDD37AD27B57635D8CD /* Pods_BoursobookTests.framework in Frameworks */,
+				6D2060DCCDA6BE60A4FB81F7 /* Pods_BoursobookTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,10 +237,10 @@
 		30AD75877C3943C28257FDCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2534CDAB8C6A2D55595436E4 /* Pods_BoursobookTests.framework */,
 				7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */,
 				F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */,
-				9FBAFB9C5890D68F6E261587 /* Pods_Boursobook.framework */,
+				C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */,
+				4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -612,7 +612,7 @@
 				4F6B771D23100CB10028EA97 /* Frameworks */,
 				4F6B771F23100CB10028EA97 /* Resources */,
 				4F6B772723100CB10028EA97 /* ShellScript */,
-				4F6B772823100CB10028EA97 /* [CP] Embed Pods Frameworks */,
+				9786B43B49031B39B6B88148 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -631,7 +631,7 @@
 				4FC5134A22B13440000FD572 /* Sources */,
 				4FC5134B22B13440000FD572 /* Frameworks */,
 				4FC5134C22B13440000FD572 /* Resources */,
-				0A691F1F882B3D87159328B8 /* [CP] Embed Pods Frameworks */,
+				1070139E9DB48DBA398FE81C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -707,7 +707,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A691F1F882B3D87159328B8 /* [CP] Embed Pods Frameworks */ = {
+		1070139E9DB48DBA398FE81C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -755,7 +755,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		4F6B772823100CB10028EA97 /* [CP] Embed Pods Frameworks */ = {
+		9786B43B49031B39B6B88148 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -940,6 +940,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -960,6 +961,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};

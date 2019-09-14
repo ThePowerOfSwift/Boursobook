@@ -24,7 +24,6 @@ class PurseService {
 
     // MARK: Function
 
-
     func updateNumberOfSeller(with number: Int, for purse: Purse) {
         // add number to the number of seller for the purse
         // FIXME: injection dependance à faire

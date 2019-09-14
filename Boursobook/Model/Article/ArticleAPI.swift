@@ -10,7 +10,7 @@ import Foundation
 
 class ArticleAPI {
     // Manage the acces of "article" data
-    
+
     // MARK: Properties
     private let remoteDataBaseCollection: RemoteDataBase.Collection = .article
     private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .article)
@@ -31,7 +31,8 @@ class ArticleAPI {
         }
         let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
 
-        articleRemoteDataBaseRequest.readAndListenData(conditionInField: condition) { (error, loadedArticles: [Article]? ) in
+        articleRemoteDataBaseRequest
+            .readAndListenData(conditionInField: condition) { (error, loadedArticles: [Article]? ) in
                                                         if let error = error {
                                                             completionHandler(error, nil)
                                                         } else {

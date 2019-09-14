@@ -8,7 +8,7 @@
 
 import Foundation
 
-// TODO:    - A faire :
+//          - A faire :
 /*
             - Voir comment on fait une config en localisation France sans faire de Target differentes ???
  
@@ -24,20 +24,19 @@ import Foundation
             - voir ce qui se passe si pas de reseau et pas d'acces ???
             - Verifier le bon coverage des tests
             - test et dependance de la classe UserService
-            - verifier avec l'affichage en IPhone 4S si pas erreur
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
             - Supprimer tous les messages d'alertes dans la console
+            - faire disparaitre le login si on est déja logé
+            - Utiliser KeyChain pour sauvegarder le mot de passe
+            - gestion de l'appli offligne
+            - message si on est pas connecté et que l'on peut pas telecharger les données
+            - verifier toutes les tailles d'iphones
+            - Mettre à jour les string du storyboard
+            - separer les storyboard
  
             - Creer une limite pour le nombre de données par utilisateur et donc de faire payer un abonement
 */
-
-// MARK: - A faire plus tard
-/*
-    - animation par gradient quand ça cherche
-    - Faire fonction "email oublié"
-    - faire une barre avec des lettre pour chercher plus vite les utilisateur (UserList TVC)
- */
 
 // MARK: - A voir avec Vincent
 /*
@@ -129,43 +128,25 @@ import Foundation
  
  */
 
-// MARK: - SetupVC
-/*
- 
- - attention a la gestion du clavier (ne cache pas les textes)
-
- 
- */
-
-// MARK: - InfoVC
-/*
- - Ajouter un bouton pour acces liste transaction
- - Ajouter bouton liste articles totaux
- - Ajouter un contact pour mailing list
- 
- */
-
-// MARK: - LoginVC
-/*
- - Gestion du clavier
- - faire disparaitre le login si on est déja logé
- - Utiliser KeyChain pour sauvegarder le mot de passe 
- - gestion de l'appli offligne
- - message si on est pas connecté et que l'on peut pas telecharger les données
- - verifier toutes les tailles d'iphones
- - Mettre à jour les string du storyboard
- - separer les storyboard
- 
- */
-
 // MARK: - BuyVC
 /*
  - Probleme montant calculer sur la part de l'APE
  
  */
-
-// MARK: - VC
+//-////////////////////////////////////////
+// MARK: - probleme framework firebase
 /*
- -
+ - It worked, it was enough to change the letter of the folder:
+ Pods/Protobuf/objectivec/google/protobuf (protobuf -> Protobuf)
  
+ */
+
+// MARK: - A faire plus tard
+/*
+ - animation par gradient quand ça cherche
+ - Faire fonction "email oublié"
+ - faire une barre avec des lettre pour chercher plus vite les utilisateur (UserList TVC)
+ - Ajouter un bouton pour acces liste transaction
+ - Ajouter bouton liste articles totaux
+ - Ajouter un contact pour mailing list
  */

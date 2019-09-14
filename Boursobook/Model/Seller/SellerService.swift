@@ -73,5 +73,3 @@ class SellerService {
         // Update liste of values of seller after the validation of a transaction
     }
 }
-// TODO:          - tests à faire
-//                - gestion erreur dans increase number of article et number of order
