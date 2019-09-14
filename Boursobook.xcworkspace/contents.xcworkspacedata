@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:Boursobook/Model/../../LabelSheet"
-      name = "LabelSheet">
-      <FileRef
-         location = "group:LabelSheet/LabelSheet.swift">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Boursobook.xcodeproj">
    </FileRef>

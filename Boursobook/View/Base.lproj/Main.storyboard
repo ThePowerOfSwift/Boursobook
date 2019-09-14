@@ -637,6 +637,7 @@
                         <outlet property="emailTextField" destination="ZrE-pS-4cJ" id="DX9-eO-QpZ"/>
                         <outlet property="familyNameTextField" destination="Fir-g1-0uW" id="X24-v1-I90"/>
                         <outlet property="firstNameTextField" destination="YkM-tA-f7N" id="TC5-0c-6xL"/>
+                        <outlet property="mainScrollView" destination="ove-fo-7sc" id="nNB-sB-MRV"/>
                         <outlet property="phoneNumberTextField" destination="iwi-DZ-WFP" id="12r-Vp-RwF"/>
                     </connections>
                 </viewController>
@@ -1747,6 +1748,7 @@
                         <outlet property="configLabelSheetButton" destination="Vwi-Ky-ZSi" id="Qh3-qp-UvR"/>
                         <outlet property="configSheetStackView" destination="0bm-RP-lfs" id="moz-1H-Zrd"/>
                         <outlet property="confirmButton" destination="bp0-mf-yVN" id="5z4-AS-Wx4"/>
+                        <outlet property="mainScrollView" destination="3LU-rn-2rB" id="a75-3y-x3z"/>
                         <outlet property="overTwoHundredFiftyDisplayLabel" destination="XoP-Yt-U52" id="Fsm-Yb-g4b"/>
                         <outlet property="overTwoHundredFiftySetupLabel" destination="Ils-re-S85" id="88n-f3-ZmR"/>
                         <outlet property="percentageOnSalesDisplayLabel" destination="cPG-nb-tWG" id="KEA-2u-6RX"/>
@@ -2052,6 +2054,7 @@
                         <outlet property="labelSpacingXInMMTextField" destination="VeL-0g-822" id="ksV-HS-Ypr"/>
                         <outlet property="labelSpacingYInMMTextField" destination="yar-H8-5Il" id="FEq-0c-WTI"/>
                         <outlet property="labelWidthInMMTextField" destination="JUZ-3k-t5b" id="4b4-2c-MRD"/>
+                        <outlet property="mainScrollView" destination="evX-bb-x11" id="M9T-hX-lCv"/>
                         <outlet property="saveButton" destination="F0U-A2-HRa" id="aH4-OG-26L"/>
                         <outlet property="sheetHeightInMMTextField" destination="mwH-Od-qhE" id="hQ6-si-tZa"/>
                         <outlet property="sheetWidthInMMTextField" destination="R1d-V1-XFi" id="S8H-9v-g5M"/>
@@ -3065,6 +3068,7 @@
                         <outlet property="authorTexField" destination="CoI-Ff-Pfj" id="nwF-Nm-Lj4"/>
                         <outlet property="descriptionTextView" destination="bX0-oa-9e3" id="ePS-19-d0x"/>
                         <outlet property="isbnTextField" destination="pdj-Xy-x3J" id="wGj-Pt-deb"/>
+                        <outlet property="mainScrollView" destination="aPf-Bv-cbJ" id="yqv-Ku-VIz"/>
                         <outlet property="priceTextField" destination="GMs-QX-LOf" id="QEA-Yo-ogR"/>
                         <outlet property="sellerNameLabel" destination="7Oa-go-NL7" id="TDS-OP-Tqe"/>
                         <outlet property="sortPickerView" destination="VJE-A0-ED7" id="dux-ci-ftQ"/>

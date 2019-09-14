@@ -14,6 +14,7 @@ class SetupViewController: UIViewController {
     var isConfiguring = false
     let purseAPI = PurseAPI()
     var purseToDisplay: Purse?
+    var activeTextField: UITextField?
 
     // MARK: - IBOutlets
     @IBOutlet weak var percentageOnSalesDisplayLabel: UILabel!
@@ -40,6 +41,7 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var configLabelSheetButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var mainScrollView: UIScrollView!
 
     // MARK: - IBActions
     @IBAction func didTapAddNewUser(_ sender: Any) {
@@ -72,11 +74,11 @@ class SetupViewController: UIViewController {
         super.viewDidLoad()
         setStyleOfVC()
         setDisplay(isConfiguring: false)
-        addKeyboardNotification()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addKeyboardNotification()
         loadPurseToDisplay()
     }
 
@@ -252,6 +254,14 @@ extension SetupViewController: UITextFieldDelegate {
         resignAllTextField()
     }
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+
     private func resignAllTextField() {
         percentageOnSalesSetupLabel.resignFirstResponder()
         underFiftySetupLabel.resignFirstResponder()
@@ -262,42 +272,44 @@ extension SetupViewController: UITextFieldDelegate {
         overTwoHundredFiftySetupLabel.resignFirstResponder()
     }
 
-    @objc func keyboardWillChange(notification: NSNotification) {
-        // move the view when keyboard hide textField
-
-        let listOfCorrectTextField = [percentageOnSalesSetupLabel,
-                                      underFiftySetupLabel,
-                                      underOneHundredSetupLabel,
-                                      underOneHundredFiftySetupLabel]
-        for textField in listOfCorrectTextField where textField!.isFirstResponder {
-                return
+    @objc func keyboardWasShown(notification: NSNotification) {
+        var userInfo = notification.userInfo!
+        guard let keyboardFrameBegin = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
         }
+        let keyboardSize = keyboardFrameBegin.cgRectValue.size
+        let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+        mainScrollView.contentInset = contentInsets
+        mainScrollView.scrollIndicatorInsets = contentInsets
 
-        guard let keyboardRect = (notification
-            .userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?
-            .cgRectValue else {
-                return
-        }
-        if notification.name == UIResponder.keyboardWillShowNotification ||
-            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+        var aRect = self.view.frame
+        aRect.size.height -= keyboardSize.height
 
-            view.frame.origin.y = -keyboardRect.height
-        } else {
-            view.frame.origin.y = 0
+        guard let activeTextField = activeTextField else {
+            return
         }
+        if !aRect.contains(activeTextField.frame.origin) {
+            mainScrollView.scrollRectToVisible(activeTextField.frame, animated: true)
+        }
+    }
+
+    @objc func keyboardWillBeHidden(notification: NSNotification) {
+        let contentInsets: UIEdgeInsets = UIEdgeInsets.zero
+        mainScrollView.contentInset = contentInsets
+        mainScrollView.scrollIndicatorInsets = contentInsets
     }
 
     private func addKeyboardNotification() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillChange(notification:)),
+                                               selector: #selector(keyboardWasShown(notification:)),
                                                name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillChange(notification:)),
+                                               selector: #selector(keyboardWillBeHidden(notification:)),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillChange(notification:)),
+                                               selector: #selector(keyboardWasShown(notification:)),
                                                name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
     }
