@@ -10,6 +10,7 @@ import Foundation
 @testable import Boursobook
 
 struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
+
     var collection: RemoteDataBase.Collection
 
     var error: Error?
@@ -17,7 +18,6 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
 
     func get<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
                         where Model: RemoteDataBaseModel {
-
                             if let error = error {
                                 completionHandler(error, nil)
                             } else {
@@ -29,7 +29,21 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                             }
     }
 
-    func readAndListenData<Model>(condition: RemoteDataBase.Condition,
+    func get<Model>(conditionInField: RemoteDataBase.Condition,
+                    completionHandler: @escaping (Error?, [Model]?) -> Void)
+                        where Model: RemoteDataBaseModel {
+                            if let error = error {
+                                completionHandler(error, nil)
+                            } else {
+                                guard let dataModel = data else {
+                                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                                    return
+                                }
+                                completionHandler(nil, dataModel as? [Model])
+                            }
+    }
+
+    func readAndListenData<Model>(conditionInArray condition: RemoteDataBase.Condition,
                                   completionHandler: @escaping (Error?, [Model]?) -> Void)
                                     where Model: RemoteDataBaseModel {
 
@@ -42,6 +56,21 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                             }
                                             completionHandler(nil, dataModel as? [Model])
                                         }
+    }
+
+    func readAndListenData<Model>(conditionInField condition: RemoteDataBase.Condition,
+                                  completionHandler: @escaping (Error?, [Model]?) -> Void)
+        where Model: RemoteDataBaseModel {
+
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let dataModel = data else {
+                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                    return
+                }
+                completionHandler(nil, dataModel as? [Model])
+            }
     }
 
     func readAndListenData<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
@@ -68,6 +97,28 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                 }
     }
 
+    func updateValues<Model>(model: Model,
+                             updates: [String: Any],
+                             completionHandler: @escaping (Error?) -> Void)
+                                where Model: RemoteDataBaseModel {
+                                    if let error = error {
+                                        completionHandler(error)
+                                    } else {
+                                        completionHandler(nil)
+                                    }
+    }
+
+    func setValues<Model>(model: Model,
+                          values: [String: Any],
+                          completionHandler: @escaping (Error?) -> Void)
+                                where Model: RemoteDataBaseModel {
+                                    if let error = error {
+                                        completionHandler(error)
+                                    } else {
+                                        completionHandler(nil)
+                                    }
+    }
+
     func remove<Model>(model: Model,
                        completionHandler: @escaping (Error?) -> Void)
                             where Model: RemoteDataBaseModel {
@@ -79,6 +130,5 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
     }
 
     func stopListen() {
-
     }
 }

@@ -21,7 +21,7 @@ class FakeData {
                                         isbn: "1234567890123",
                                         code: "AAAA 0001",
                                         price: 2.4,
-                                        sellerCode: "AAAA",
+                                        sellerUniqueId: "AAAA 44FGDRGERT",
                                         sold: false,
                                         uniqueID: "ID Article - first fake article For test")
 
@@ -33,7 +33,7 @@ class FakeData {
                                              isbn: "1234567890987",
                                              code: "BBBB 0003",
                                              price: 3.0,
-                                             sellerCode: "BBBB",
+                                             sellerUniqueId: "BBBB RDD832UF G",
                                              sold: false,
                                              uniqueID: "ID Second Article - fake article For test")
 

@@ -12,7 +12,6 @@ class SellerAPI {
     // Manage the acces of "seller" data
 
     // MARK: Properties
-    private let remoteDataBaseCollection: RemoteDataBase.Collection = .seller
     private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .seller)
 
     // MARK: Initialisation
@@ -22,14 +21,14 @@ class SellerAPI {
     }
 
     // MARK: Functions
-    func loadSellersFor(purse: Purse?, completionHandler: @escaping (Error?, [Seller]?) -> Void) {
+    func loadSellersFor(purseName: String?, completionHandler: @escaping (Error?, [Seller]?) -> Void) {
         // Query sellers from database for a purse
 
-        guard let purse = purse else {
+        guard let purseName = purseName else {
             completionHandler(SAPIError.other, nil)
             return
         }
-        let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
+        let condition = RemoteDataBase.Condition(key: "purseName", value: purseName)
 
         sellerRemoteDataBaseRequest
             .readAndListenData(conditionInField: condition) { (error, loadedSellers: [Seller]? ) in
@@ -44,6 +43,71 @@ class SellerAPI {
                                                         }
         }
     }
+
+    func loadSeller(uniqueID: String, completionHandler: @escaping (Error?, Seller?) -> Void) {
+        // Query a seller from database with his uniqueID
+        let condition = RemoteDataBase.Condition(key: "uniqueID", value: uniqueID)
+
+        sellerRemoteDataBaseRequest
+            .readAndListenData(conditionInField: condition) { (error, loadedSellers: [Seller]? ) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedSellers = loadedSellers else {
+                    completionHandler(SAPIError.other, nil)
+                    return
+                }
+                completionHandler(nil, loadedSellers.first)
+            }
+        }
+    }
+
+    func getExistingSellerCode(completionHandler: @escaping (Error?, [String]?) -> Void) {
+        sellerRemoteDataBaseRequest.get { (error, loadedSellers: [Seller]?) in
+            var sellerCodeList = [String]()
+
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedSellers = loadedSellers else {
+                    completionHandler(SAPIError.other, nil)
+                    return
+                }
+                for seller in loadedSellers {
+                    sellerCodeList.append(seller.code)
+                }
+                completionHandler(nil, sellerCodeList)
+            }
+        }
+    }
+
+    func createSeller(newSeller: Seller, completionHandler: @escaping (Error?, Seller?) -> Void) {
+
+        sellerRemoteDataBaseRequest.create(model: newSeller) { (error) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                completionHandler(nil, newSeller)
+            }
+        }
+    }
+
+    func removeSeller(seller: Seller, completionHandler: @escaping (Error?) -> Void) {
+
+        sellerRemoteDataBaseRequest.remove(model: seller,
+                                          completionHandler: { (error) in
+                                            if let error = error {
+                                                completionHandler(error)
+                                            } else {
+                                                completionHandler(nil)
+                                            }
+        })
+    }
+
+    func stopListen() {
+        sellerRemoteDataBaseRequest.stopListen()
+    }
+
 }
 
     extension SellerAPI {

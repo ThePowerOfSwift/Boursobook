@@ -11,8 +11,11 @@ import UIKit
 class SellerViewController: UIViewController {
 
     // MARK: - Properties
-    var codeOfSelectedSeller: String?
+    var uniqueIdOfSelectedSeller: String?
     var labelSheet = LabelSheet()
+    let sellerAPI = SellerAPI()
+    var sellerToDisplay: Seller?
+    let articleAPI = ArticleAPI()
 
     // MARK: - IBOutlets
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -27,10 +30,16 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var amountOfSalesLabel: UILabel!
     @IBOutlet weak var numerOfArticleToReturnLabel: UILabel!
     @IBOutlet weak var numberReturnedCheckedSwitch: UISwitch!
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    @IBOutlet weak var listOfArticleButton: UIButton!
+    @IBOutlet weak var printLablesButton: UIButton!
+    @IBOutlet weak var refundButton: UIButton!
 
     // MARK: - IBActions
     @IBAction func didTapPrintButton(_ sender: UIButton) {
-        sharePdf(on: labelSheet)
+        shareLabelsSheetPdf(on: labelSheet)
     }
     @IBAction func didTapRefundButton(_ sender: UIButton) {
     }
@@ -38,41 +47,85 @@ class SellerViewController: UIViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.sellerUpdatedNotification,
-                                               object: nil)
+        setStyleOfVC()
+        toogleActivity(loading: true)
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateValues()
+        loadSellerToDisplay()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sellerAPI.stopListen()
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.sellerUpdatedNotification,
-                                                  object: nil)
+        sellerAPI.stopListen()
     }
 
     // MARK: - functions
-    @objc private func updateValues() {
+    private func updateValues() {
 
-        guard let code = codeOfSelectedSeller else {
+        guard let seller = sellerToDisplay else {
+            return
+        }
+        firstNameLabel.text = seller.firstName
+        familyNameLabel.text = seller.familyName
+        emailLabel.text = seller.email
+        phoneLabel.text = seller.phoneNumber
+        codeLabel.text = seller.code
+        createdByLabel.text = seller.createdBy
+        numberOfArticleRegisteredLabel.text = String(seller.articleRegistered)
+        amountDepositFeeLabel.text = formatDiplayedNumber(seller.depositFeeAmount)
+        numberOfArticlesoldLabel.text = String(seller.articlesold)
+        amountOfSalesLabel.text = formatDiplayedNumber(seller.salesAmount)
+        numerOfArticleToReturnLabel.text = String(seller.articleRegistered - seller.articlesold)
+    }
+
+    private func loadSellerToDisplay() {
+        guard let uniqueID = uniqueIdOfSelectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        if let displayedSeller = InMemoryStorage.shared.selectSellerWithCode(code) {
+        sellerAPI.loadSeller(uniqueID: uniqueID) { (error, loadedSeller) in
+            self.toogleActivity(loading: false)
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let seller = loadedSeller else {
+                    self.navigationController?.popViewController(animated: true)
+                    return
+                }
+                self.sellerToDisplay = seller
+                self.updateValues()
+            }
+        }
+    }
 
-            firstNameLabel.text = displayedSeller.firstName
-            familyNameLabel.text = displayedSeller.familyName
-            emailLabel.text = displayedSeller.email
-            phoneLabel.text = displayedSeller.phoneNumber
-            codeLabel.text = displayedSeller.code
-            createdByLabel.text = displayedSeller.createdBy
-            numberOfArticleRegisteredLabel.text = String(displayedSeller.articleRegistered)
-            amountDepositFeeLabel.text = String(displayedSeller.depositFeeAmount)
-            numberOfArticlesoldLabel.text = String(displayedSeller.articlesold)
-            amountOfSalesLabel.text = String(displayedSeller.salesAmount)
-            numerOfArticleToReturnLabel.text = String(displayedSeller.articleRegistered - displayedSeller.articlesold)
+    private func setStyleOfVC() {
+        listOfArticleButton.layer.cornerRadius = 10
+        printLablesButton.layer.cornerRadius = 10
+        refundButton.layer.cornerRadius = 10
+    }
+
+    private func toogleActivity(loading: Bool) {
+        activityIndicator.isHidden = !loading
+        mainStackView.isHidden = loading
+    }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber
+        } else {
+            return nil
         }
     }
 
@@ -81,19 +134,43 @@ class SellerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToAddArticle" {
             if let addArticleVC = segue.destination as? AddArticleViewController {
-                addArticleVC.codeOfSelectedSeller = codeOfSelectedSeller
+                addArticleVC.uniqueIdOfSelectedSeller = uniqueIdOfSelectedSeller
             }
         }
         if segue.identifier == "segueToArticleList" {
             if let articleListVC = segue.destination as? ArticleListTableViewController {
-                articleListVC.codeOfSelectedSeller = codeOfSelectedSeller
+                articleListVC.uniqueIdOfSelectedSeller = uniqueIdOfSelectedSeller
             }
         }
     }
 }
-// MARK: PDF and Lable generation
+// MARK: PDF and Label generation
 extension SellerViewController {
-    private func sharePdf(on sheet: LabelSheet) {
+    private func shareLabelsSheetPdf(on sheet: LabelSheet) {
+        toogleActivity(loading: true)
+
+        // Get all articles for the seller
+        guard let seller = sellerToDisplay else {
+            return
+        }
+        articleAPI.getArticlesFor(seller: seller) { (error, sellerArticles) in
+            self.toogleActivity(loading: false)
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let articles = sellerArticles else {
+                    return
+                }
+                self.generateLablesSheet(articles: articles, sheet: sheet)
+            }
+        }
+    }
+
+    private func generateLablesSheet(articles: [Article], sheet: LabelSheet) {
+
         // A4 size
         let pageRect = CGRect(x: 0, y: 0, width: sheet.sheetWidthInMM, height: sheet.sheetHeightInMM)
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
@@ -101,8 +178,7 @@ extension SellerViewController {
         // Generate all the label
         var labels = [UIImage]()
 
-        let articlesToDisplay = InMemoryStorage.shared.filterArticles(by: codeOfSelectedSeller)
-        for article in articlesToDisplay {
+        for article in articles {
             if let imageToAdd = generateLabel(from: article) {
                 labels.append(imageToAdd)
             }

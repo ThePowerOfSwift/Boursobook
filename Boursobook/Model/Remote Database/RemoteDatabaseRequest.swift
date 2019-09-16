@@ -47,6 +47,13 @@ protocol RemoteDatabaseRequest {
     func get<Model: RemoteDataBaseModel>(completionHandler: @escaping (Error?, [Model]?) -> Void)
 
     /**
+     Request to get "Model" data from remote database  only once
+     with a query for Model that meet a certain condition present in one field
+     */
+    func get<Model: RemoteDataBaseModel>(conditionInField: RemoteDataBase.Condition,
+                                         completionHandler: @escaping (Error?, [Model]?) -> Void)
+
+    /**
      Request to delete an "Model" objet in the remote database
      */
     func remove<Model: RemoteDataBaseModel>(model: Model,

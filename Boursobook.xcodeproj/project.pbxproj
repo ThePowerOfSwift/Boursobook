@@ -90,6 +90,7 @@
 		4FCF6AF723269A1100C71C11 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF623269A1100C71C11 /* UserAPI.swift */; };
 		4FCF6AF92326A01700C71C11 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF82326A01700C71C11 /* UserListTableViewController.swift */; };
 		4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AFA2326A0E100C71C11 /* UserListTableViewCell.swift */; };
+		4FCF6B01232D998B00C71C11 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FCF6B00232D998B00C71C11 /* Info.storyboard */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
 		6D2060DCCDA6BE60A4FB81F7 /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */; };
 		76E351846A766040C9A316A2 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */; };
@@ -197,6 +198,7 @@
 		4FCF6AF623269A1100C71C11 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		4FCF6AF82326A01700C71C11 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		4FCF6AFA2326A0E100C71C11 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		4FCF6B00232D998B00C71C11 /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		4FD11C5A231472C200FB9F94 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataBaseModel.swift; sourceTree = "<group>"; };
 		4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 		4FC5136122B155F5000FD572 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FCF6B00232D998B00C71C11 /* Info.storyboard */,
 				4FC5133E22B13440000FD572 /* Main.storyboard */,
 				4FC5134622B13440000FD572 /* LaunchScreen.storyboard */,
 				4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */,
@@ -686,6 +689,7 @@
 			files = (
 				4F6B772023100CB10028EA97 /* GoogleService-Info-production.plist in Resources */,
 				4F6B772123100CB10028EA97 /* .gitignore in Resources */,
+				4FCF6B01232D998B00C71C11 /* Info.storyboard in Resources */,
 				4F6B772223100CB10028EA97 /* LaunchScreen.storyboard in Resources */,
 				4F6B772323100CB10028EA97 /* Localizable.strings in Resources */,
 				4F6B772423100CB10028EA97 /* Assets.xcassets in Resources */,

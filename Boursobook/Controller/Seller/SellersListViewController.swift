@@ -11,41 +11,61 @@ import Firebase
 
 class SellersListViewController: UITableViewController {
 
+    // MARK: - Properties
+    var selectedSeller: Seller?
+    let sellerAPI = SellerAPI()
+    var sellersToDisplay = [Seller]()
+
     // MARK: - IBOUTLET
     @IBOutlet var sellersTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    // MARK: - Properties
-    var selectedSeller: Seller?
-
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.isHidden = true
-
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.sellerUpdatedNotification,
-                                               object: nil)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.sellerUpdatedNotification,
-                                                  object: nil)
+        activityIndicator.isHidden = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateValues()
+        loadSellersToDisplay()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sellerAPI.stopListen()
+    }
+
+    deinit {
+        sellerAPI.stopListen()
     }
 
     // MARK: - functions
-    @objc func updateValues() {
+    private func updateValues() {
         sellersTableView.reloadData()
+    }
+
+    private func loadSellersToDisplay() {
+        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        sellerAPI.loadSellersFor(purseName: purseName) { (error, loadedSellers) in
+            self.activityIndicator.isHidden = true
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let sellers = loadedSellers else {
+                    return
+                }
+                self.sellersToDisplay = sellers
+                self.updateValues()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -54,7 +74,7 @@ class SellersListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return InMemoryStorage.shared.sellers.count
+        return sellersToDisplay.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,20 +83,20 @@ class SellersListViewController: UITableViewController {
                                                         return UITableViewCell()
         }
 
-        let seller = InMemoryStorage.shared.sellers[indexPath.row]
+        let seller = sellersToDisplay[indexPath.row]
         cell.configure(with: seller)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSeller = InMemoryStorage.shared.sellers[indexPath.row]
+        selectedSeller = sellersToDisplay[indexPath.row]
         self.performSegue(withIdentifier: "segueToSeller", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            displayAlertConfirmDelete(for: indexPath)
+            confirmAndDeleteSeller(at: indexPath)
         }
     }
 
@@ -85,13 +105,13 @@ class SellersListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToSeller" {
             if let sellerVC = segue.destination as? SellerViewController, let selectedSeller = selectedSeller {
-                sellerVC.codeOfSelectedSeller = selectedSeller.code
+                sellerVC.uniqueIdOfSelectedSeller = selectedSeller.uniqueID
             }
         }
     }
 
     // MARK: - AlertControler
-    private func displayAlertConfirmDelete(for indexPath: IndexPath) {
+    private func confirmAndDeleteSeller(at indexPath: IndexPath) {
         let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""),
                                       message: NSLocalizedString("Are you sure delete alla seller ?",
                                                                  comment: ""),
@@ -99,9 +119,19 @@ class SellersListViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .default)
         let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
-            InMemoryStorage.shared.removeSeller(at: indexPath.row)
-            self.sellersTableView.deleteRows(at: [indexPath], with: .automatic)
-            self.updateValues()
+
+            let sellerToDelete = self.sellersToDisplay[indexPath.row]
+            self.sellerAPI.removeSeller(seller: sellerToDelete, completionHandler: { (error) in
+                if let error = error {
+                    self.displayAlert(
+                        message: error.message,
+                        title: NSLocalizedString(
+                            "Error !", comment: ""))
+                    return
+                } else {
+                    self.updateValues()
+                }
+            })
         }
         alert.addAction(confirmAction)
         alert.addAction(cancelAction)

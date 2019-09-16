@@ -28,7 +28,7 @@ class SellerAPITestCase: XCTestCase {
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeSellerAPI.loadSellersFor(purse: nil) { (error, loadedSellers) in
+        fakeSellerAPI.loadSellersFor(purseName: nil) { (error, loadedSellers) in
 
             //Then
             XCTAssertNil(loadedSellers)
@@ -47,7 +47,7 @@ class SellerAPITestCase: XCTestCase {
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeSellerAPI.loadSellersFor(purse: purse) { (error, loadedSellers) in
+        fakeSellerAPI.loadSellersFor(purseName: purse.name) { (error, loadedSellers) in
 
             //Then
             XCTAssertNil(loadedSellers)
@@ -68,7 +68,7 @@ class SellerAPITestCase: XCTestCase {
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeSellerAPI.loadSellersFor(purse: purse) { (error, loadedSellers) in
+        fakeSellerAPI.loadSellersFor(purseName: purse.name) { (error, loadedSellers) in
 
             //Then
             XCTAssertNil(loadedSellers)
@@ -92,7 +92,7 @@ class SellerAPITestCase: XCTestCase {
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeSellerAPI.loadSellersFor(purse: purse) { (error, loadedSellers) in
+        fakeSellerAPI.loadSellersFor(purseName: purse.name) { (error, loadedSellers) in
 
             //Then
             XCTAssertNil(error)

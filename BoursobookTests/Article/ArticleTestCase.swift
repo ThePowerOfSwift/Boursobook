@@ -28,7 +28,7 @@ class ArticleTestCase: XCTestCase {
         let isbn = "1234567890123"
         let code = "AAAA 0001"
         let price = 2.4
-        let sellerCode = "AAAA"
+        let sellerUniqueId = "AAAA 44FGDRGERT"
         let sold = true
         let uniqueID = "23456643RRRRR"
 
@@ -37,7 +37,7 @@ class ArticleTestCase: XCTestCase {
                               author: author, description: description,
                               purseName: purseName, isbn: isbn,
                               code: code, price: price,
-                              sellerCode: sellerCode,
+                              sellerUniqueId: sellerUniqueId,
                               sold: sold, uniqueID: uniqueID)
 
         //Then
@@ -49,7 +49,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.isbn, isbn)
         XCTAssertEqual(article.code, code)
         XCTAssertEqual(article.price, price)
-        XCTAssertEqual(article.sellerCode, sellerCode)
+        XCTAssertEqual(article.sellerUniqueId, sellerUniqueId)
         XCTAssertEqual(article.sold, sold )
         XCTAssertEqual(article.uniqueID, uniqueID)
     }
@@ -64,7 +64,7 @@ class ArticleTestCase: XCTestCase {
         let isbn = "1234567890123"
         let code = "AAAA 0001"
         let price = 2.4
-        let sellerCode = "AAAA"
+        let sellerUniqueId = "AAAA 44FGDRGERT"
         let sold = false
         let uniqueID = "ID Article - fake article For test"
 
@@ -85,7 +85,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.isbn, isbn)
         XCTAssertEqual(article.code, code)
         XCTAssertEqual(article.price, price)
-        XCTAssertEqual(article.sellerCode, sellerCode)
+        XCTAssertEqual(article.sellerUniqueId, sellerUniqueId)
         XCTAssertEqual(article.sold, sold )
         XCTAssertEqual(article.uniqueID, uniqueID)
     }

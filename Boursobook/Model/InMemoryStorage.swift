@@ -37,61 +37,6 @@ class InMemoryStorage {
     private let articleAPI = ArticleAPI()
     var onArticleUpdate: (() -> Void)?
 
-    // MARK: - Common Functions
-    func loadUsefulDataFor(purse: Purse, completionHandler: @escaping (Error?) -> Void) {
-        // Load all the nedded data in local Memory corresponding to the selected purse
-        // Set the seleted purse as current purse
-
-        var isFirstLoadingData = true
-        currentPurse = purse
-
-        if isFirstLoadingData {
-            self.loadSellers { (error) in
-                if let error = error {
-                    completionHandler(error)
-                }
-                if isFirstLoadingData {
-                    self.loadArticles(callBack: { (error) in
-                        if let error = error {
-                            completionHandler(error)
-                        }
-                        isFirstLoadingData = false
-                        completionHandler(nil)
-                    })
-                }
-            }
-        }
-
-    //FIXME: promises 
-    //    self.setPurses()
-    //        .then {
-    //            self.setSellers()
-    //        }
-    //        .then {
-    //            self.setArticle
-    //        }
-    // --> RxSwift => Reactive Programming
-
-    }
-
-    // MARK: - Functions for sellers
-    func loadSellers(callBack: @escaping (Error?) -> Void) {
-        // Load all the sellers that have current purse as purse
-        sellerAPI.loadSellersFor(purse: currentPurse) { (error, sellersLoaded) in
-            if let error = error {
-                callBack(error)
-            } else {
-                guard let sellersLoaded = sellersLoaded else {
-                    callBack(IMSError.other)
-                    return
-                }
-                self.sellers = sellersLoaded
-                self.onSellerUpdate?()
-                callBack(nil)
-            }
-        }
-    }
-
     // MARK: - Functions for articles
     func loadArticles(callBack: @escaping (Error?) -> Void) {
         // Load all the articles that have current purse as purse
@@ -138,44 +83,6 @@ class InMemoryStorage {
 
 // MARK: - Functions SELLERS
 extension InMemoryStorage {
-
-    func addSeller(_ seller: Seller) {
-        // add seller to list of seller, update Firebase
-        // and update datas on the current purse
-        guard let currentPurse = currentPurse else {return}
-
-        // Add seller
-        sellerService.create(seller: seller)
-        sellers.append(seller)
-
-        // Update purse
-        purseService.updateNumberOfSeller(with: 1, for: currentPurse)
-        currentPurse.numberOfSellers += 1
-
-    }
-
-    func removeSeller(at index: Int) {
-        // delete seller to list of seller, update Firebase,
-        // update data on the current purse
-        // and delete articles of seller
-        guard let currentPurse = currentPurse else {return}
-        let seller = sellers[index]
-
-        // Delete articles
-        let articlesToDelete = filterArticles(by: seller.code)
-        for article in articlesToDelete {
-            removeArticle(article)
-        }
-
-        // Delete seller
-        sellerService.remove(seller: seller)
-        sellers.remove(at: index)
-
-         // Update purse
-        purseService.updateNumberOfSeller(with: -1, for: currentPurse)
-        currentPurse.numberOfSellers -= 1
-
-    }
 
     func isExistingSellerWith(code: String) -> Bool {
         for seller in sellers where seller.code == code {
@@ -238,39 +145,30 @@ extension InMemoryStorage {
     }
 
     func removeArticle(_ articleToDelete: Article) {
-        // delete article to list of article, update Firebase,
-        // update datas oo the current purse and on the seller
+//        // delete article to list of article, update Firebase,
+//        // update datas oo the current purse and on the seller
+//
+//        // Delete Article
+//        for (index, article) in articles.enumerated() where article.code == articleToDelete.code {
+//            articles.remove(at: index )
+//        }
+//        articleService.remove(article: articleToDelete)
+//
+//        // Update Seller
+//        sellerService.updateArticlesCounters(for: articleToDelete.sellerCode,
+//                                             numberArticleRegistered: -1,
+//                                             numberOrder: 0)
+//
+//        for seller in sellers where seller.code == articleToDelete.sellerCode {
+//            seller.articleRegistered -= 1
+//            setDepositFeeAmout(for: seller)
+//        }
+//
+//        // Update purse
+//        guard let currentPurse = currentPurse else {return}
+//        purseService.updateNumberOfArticleRegistered(with: -1, for: currentPurse)
+//        currentPurse.numberOfArticleRegistered -= 1
 
-        // Delete Article
-        for (index, article) in articles.enumerated() where article.code == articleToDelete.code {
-            articles.remove(at: index )
-        }
-        articleService.remove(article: articleToDelete)
-
-        // Update Seller
-        sellerService.updateArticlesCounters(for: articleToDelete.sellerCode,
-                                             numberArticleRegistered: -1,
-                                             numberOrder: 0)
-
-        for seller in sellers where seller.code == articleToDelete.sellerCode {
-            seller.articleRegistered -= 1
-            setDepositFeeAmout(for: seller)
-        }
-
-        // Update purse
-        guard let currentPurse = currentPurse else {return}
-        purseService.updateNumberOfArticleRegistered(with: -1, for: currentPurse)
-        currentPurse.numberOfArticleRegistered -= 1
-
-    }
-
-    func filterArticles(by codeOfSeller: String?) -> [Article] {
-        guard let codeOfSeller = codeOfSeller else { return [] }
-        var filteredList = [Article]()
-        for article in articles where article.sellerCode == codeOfSeller {
-            filteredList.append(article)
-        }
-        return filteredList
     }
 
     func filterNosoldArticles() -> [Article] {
@@ -360,65 +258,65 @@ extension InMemoryStorage {
         // set articles to sold, calculate amounts
         // save the transaction
 
-        var transacationValuesBySeller = [String: TransactionValues]()
-
-        guard let purse = currentPurse else { return }
-        let sellerBenefitRate = (100 - purse.percentageOnSales) / 100
-        let purseBenefitRate = purse.percentageOnSales / 100
-
-        // Update articles
-        for (code, _) in currentTransaction.articles {
-            for article in articles where article.code == code {
-                // Update article to sold  state in localMemory
-                article.sold = true
-
-                let values = TransactionValues(amount: (article.price * sellerBenefitRate), number: 1)
-
-                // Compute the amount and the number of sale for each seller in localMemory
-                if let oldValues = transacationValuesBySeller[article.sellerCode] {
-                    let newValues = TransactionValues(amount: values.amount + oldValues.amount,
-                                                      number: values.number + oldValues.number)
-                    transacationValuesBySeller.updateValue(newValues, forKey: article.sellerCode)
-                } else {
-                    transacationValuesBySeller.updateValue(values, forKey: article.sellerCode)
-                }
-            }
-        }
-
-        // update list of article to sold State in FireBase
-        articleService.updatesoldList(list: currentTransaction.articles)
-
-        // Update sellers in local Memory
-        for (sellerCode, values) in transacationValuesBySeller {
-            for seller in sellers where sellerCode == seller.code {
-                seller.salesAmount += values.amount
-                seller.articlesold += values.number
-            }
-        }
-        // Update sellers in firebase
-        sellerService.updateValuesAfterTransaction(for: transacationValuesBySeller)
-
-        // Update current purse in local Memory
-        purse.totalBenefitOnSalesAmount += currentTransaction.amount * purseBenefitRate
-        purse.totalSalesAmount += currentTransaction.amount
-        purse.numberOfArticlesold += currentTransaction.numberOfArticle
-        purse.numberOfTransaction += 1
-
-        // Update current purse in fireBase
-        purseService.updateValuesAfterTransactionWith(
-            for: purse,
-            benefit: currentTransaction.amount * purseBenefitRate,
-            salesAmount: currentTransaction.amount,
-            articlesold: currentTransaction.numberOfArticle,
-            numberTransaction: 1)
-
-        // Update current transaction in local Memory
-        transactions.append(currentTransaction)
-
-        // Update current transaction in Firebase
-        transactionService.create(transaction: currentTransaction)
-
-        setCurrentTransaction()
+//        var transacationValuesBySeller = [String: TransactionValues]()
+//
+//        guard let purse = currentPurse else { return }
+//        let sellerBenefitRate = (100 - purse.percentageOnSales) / 100
+//        let purseBenefitRate = purse.percentageOnSales / 100
+//
+//        // Update articles
+//        for (code, _) in currentTransaction.articles {
+//            for article in articles where article.code == code {
+//                // Update article to sold  state in localMemory
+//                article.sold = true
+//
+//                let values = TransactionValues(amount: (article.price * sellerBenefitRate), number: 1)
+//
+//                // Compute the amount and the number of sale for each seller in localMemory
+//                if let oldValues = transacationValuesBySeller[article.sellerCode] {
+//                    let newValues = TransactionValues(amount: values.amount + oldValues.amount,
+//                                                      number: values.number + oldValues.number)
+//                    transacationValuesBySeller.updateValue(newValues, forKey: article.sellerCode)
+//                } else {
+//                    transacationValuesBySeller.updateValue(values, forKey: article.sellerCode)
+//                }
+//            }
+//        }
+//
+//        // update list of article to sold State in FireBase
+//        articleService.updatesoldList(list: currentTransaction.articles)
+//
+//        // Update sellers in local Memory
+//        for (sellerCode, values) in transacationValuesBySeller {
+//            for seller in sellers where sellerCode == seller.code {
+//                seller.salesAmount += values.amount
+//                seller.articlesold += values.number
+//            }
+//        }
+//        // Update sellers in firebase
+//        sellerService.updateValuesAfterTransaction(for: transacationValuesBySeller)
+//
+//        // Update current purse in local Memory
+//        purse.totalBenefitOnSalesAmount += currentTransaction.amount * purseBenefitRate
+//        purse.totalSalesAmount += currentTransaction.amount
+//        purse.numberOfArticlesold += currentTransaction.numberOfArticle
+//        purse.numberOfTransaction += 1
+//
+//        // Update current purse in fireBase
+//        purseService.updateValuesAfterTransactionWith(
+//            for: purse,
+//            benefit: currentTransaction.amount * purseBenefitRate,
+//            salesAmount: currentTransaction.amount,
+//            articlesold: currentTransaction.numberOfArticle,
+//            numberTransaction: 1)
+//
+//        // Update current transaction in local Memory
+//        transactions.append(currentTransaction)
+//
+//        // Update current transaction in Firebase
+//        transactionService.create(transaction: currentTransaction)
+//
+//        setCurrentTransaction()
     }
 }
 

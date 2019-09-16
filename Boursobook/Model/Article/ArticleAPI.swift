@@ -44,6 +44,29 @@ class ArticleAPI {
                                                         }
         }
     }
+
+    func getArticlesFor(seller: Seller?, completionHandler: @escaping (Error?, [Article]?) -> Void) {
+        // Query Articles from database for a seller
+
+        guard let seller = seller else {
+            completionHandler(AAPIError.other, nil)
+            return
+        }
+        let condition = RemoteDataBase.Condition(key: "sellerUniqueId", value: seller.uniqueID)
+
+        articleRemoteDataBaseRequest
+            .get(conditionInField: condition) { (error, loadedArticles: [Article]? ) in
+                if let error = error {
+                    completionHandler(error, nil)
+                } else {
+                    guard let loadedArticles = loadedArticles else {
+                        completionHandler(AAPIError.other, nil)
+                        return
+                    }
+                    completionHandler(nil, loadedArticles)
+                }
+        }
+    }
 }
 
 extension ArticleAPI {

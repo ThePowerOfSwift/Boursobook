@@ -12,7 +12,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
 
     // MARK: - Properties
     var activeTextField: UITextField?
-    var codeOfSelectedSeller: String?
+    var uniqueIdOfSelectedSeller: String?
     var orderNumber: Int?
 
     // MARK: - IBOUTLET
@@ -35,11 +35,11 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let codeOfSeller = codeOfSelectedSeller else {
+        guard let uniqueIdOfSeller = uniqueIdOfSelectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        for seller in InMemoryStorage.shared.sellers where seller.code == codeOfSeller {
+        for seller in InMemoryStorage.shared.sellers where seller.code == uniqueIdOfSeller {
             sellerNameLabel.text = "Seller : " + seller.firstName + " " + seller.familyName
             orderNumber = seller.orderNumber + 1
         }
@@ -62,7 +62,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
             let descriptionValue = descriptionTextView.text,
             let isbnValue = isbnTextField.text,
             let priceText = priceTextField.text,
-            let codeOfSeller = codeOfSelectedSeller,
+            let uniqueIdOfSeller = uniqueIdOfSelectedSeller,
             let orderNumberValue = orderNumber
         else {
                 return
@@ -80,16 +80,16 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
         let sortValue = Article.sort[sortValueIndex]
 
-        let codeValue = codeOfSeller + String(format: "%03d", orderNumberValue)
+        let codeValue = uniqueIdOfSeller + String(format: "%03d", orderNumberValue)
         let uniqueIDValue = codeValue + " " + UUID().description
 
         if let currentPurse = InMemoryStorage.shared.currentPurse {
             let article = Article(title: titleValue, sort: sortValue, author: authorValue,
                                   description: descriptionValue, purseName: currentPurse.name,
                                   isbn: isbnValue, code: codeValue,
-                                  price: priceValue, sellerCode: codeOfSeller, sold: false,
+                                  price: priceValue, sellerUniqueId: uniqueIdOfSeller, sold: false,
                                   uniqueID: uniqueIDValue)
-            InMemoryStorage.shared.addArticle(article, for: codeOfSeller)
+            InMemoryStorage.shared.addArticle(article, for: uniqueIdOfSeller)
             self.navigationController?.popViewController(animated: true)
         }
 

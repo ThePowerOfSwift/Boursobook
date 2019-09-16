@@ -33,7 +33,7 @@ class FakeDataDictionary {
                 "isbn": "1234567890123",
                 "code": "AAAA 0001",
                 "price": 2.4,
-                "sellerCode": "AAAA",
+                "sellerUniqueId": "AAAA 44FGDRGERT",
                 "sold": false,
                 "uniqueID": "ID Article - fake article For test"]
     }
@@ -49,7 +49,7 @@ class FakeDataDictionary {
                                "underTwoHundredFifty": 10.0,
                                "overTwoHundredFifty": 12.0],
                 "administrators": ["me": true],
-                "users": ["me": "me@me.fr"],
+                "users": ["me@me.fr"],
                 "numberOfArticleRegistered": 13,
                 "numberOfSellers": 8,
                 "numberOfArticlesold": 8,
@@ -66,7 +66,7 @@ class FakeDataDictionary {
                 "percentageOnSales": 10.2,
                 "depositFee": ["me": true],
                 "administrators": ["me": true],
-                "users": ["me": "me@me.fr"],
+                "users": ["me@me.fr"],
                 "numberOfArticleRegistered": 13,
                 "numberOfSellers": 8,
                 "numberOfArticlesold": 8,

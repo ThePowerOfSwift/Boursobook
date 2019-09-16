@@ -20,7 +20,7 @@ class Article: RemoteDataBaseModel {
     var isbn: String
     var code: String
     var price: Double
-    var sellerCode: String
+    var sellerUniqueId: String
     var sold: Bool
     var uniqueID: String
 
@@ -35,7 +35,7 @@ class Article: RemoteDataBaseModel {
                                      "price": price,
                                      "sold": sold,
                                      "uniqueID": uniqueID,
-                                     "sellerCode": sellerCode]
+                                     "sellerUniqueId": sellerUniqueId]
         return values
     }
 
@@ -44,7 +44,7 @@ class Article: RemoteDataBaseModel {
  // MARK: - Initialisation
     init(title: String, sort: String, author: String, description: String,
          purseName: String, isbn: String, code: String,
-         price: Double, sellerCode: String, sold: Bool,
+         price: Double, sellerUniqueId: String, sold: Bool,
          uniqueID: String) {
         self.title = title
         self.sort = sort
@@ -54,7 +54,7 @@ class Article: RemoteDataBaseModel {
         self.isbn = isbn
         self.code = code
         self.price = price
-        self.sellerCode = sellerCode
+        self.sellerUniqueId = sellerUniqueId
         self.sold = sold
         self.uniqueID = uniqueID
     }
@@ -71,7 +71,7 @@ class Article: RemoteDataBaseModel {
             let priceValue = dictionary["price"] as? Double,
             let soldValue = dictionary["sold"] as? Bool,
             let uniqueIDValue = dictionary["uniqueID"] as? String,
-            let sellerCodeValue = dictionary["sellerCode"] as? String else {
+            let sellerUniqueIdValue = dictionary["sellerUniqueId"] as? String else {
                 return nil
         }
 
@@ -84,7 +84,7 @@ class Article: RemoteDataBaseModel {
         isbn = isbnValue
         price = priceValue
         sold = soldValue
-        sellerCode = sellerCodeValue
+        sellerUniqueId = sellerUniqueIdValue
         uniqueID = uniqueIDValue
     }
 }

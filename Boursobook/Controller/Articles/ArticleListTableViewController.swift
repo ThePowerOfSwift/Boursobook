@@ -11,7 +11,7 @@ import UIKit
 class ArticleListTableViewController: UITableViewController {
 
     // MARK: - Properties
-    var codeOfSelectedSeller: String?
+    var uniqueIdOfSelectedSeller: String?
     var articlesToDisplay = [Article]()
     var codeOfSelectedArticle: String?
 
@@ -22,12 +22,12 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let codeOfSeller = codeOfSelectedSeller else {
+        guard let uniqueIdOfSeller = uniqueIdOfSelectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
 
-        for seller in InMemoryStorage.shared.sellers where seller.code == codeOfSeller {
+        for seller in InMemoryStorage.shared.sellers where seller.code == uniqueIdOfSeller {
             sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "")
                 + seller.firstName + " " + seller.familyName
         }
@@ -49,7 +49,7 @@ class ArticleListTableViewController: UITableViewController {
 
     // MARK: - functions
     @objc func updateValues() {
-        articlesToDisplay = InMemoryStorage.shared.filterArticles(by: codeOfSelectedSeller)
+//        articlesToDisplay = InMemoryStorage.shared.filterArticles(by: uniqueIdOfSelectedSeller)
         articleListTableView.reloadData()
     }
 

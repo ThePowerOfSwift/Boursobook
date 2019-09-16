@@ -22,8 +22,8 @@ import Foundation
             
             - mettre un message d'alerte pour dire que l'on a pas de reseau
             - voir ce qui se passe si pas de reseau et pas d'acces ???
+            - Ajouter des activity indicator dans toutes les vues ou il y a des acces à la base
             - Verifier le bon coverage des tests
-            - test et dependance de la classe UserService
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
             - Supprimer tous les messages d'alertes dans la console
@@ -40,6 +40,7 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
+ - test du reseau mauvais ?
  - pas de singleton dans InMemory storage
  - je passe les infos entre controleur en utilisant prepare forsgue
  - j'apelle les classes ..API directement dans les VC
@@ -49,6 +50,17 @@ import Foundation
  n'est pas marqué tester alors que oui ? Return ??
  - Comment on passe des infos entre tabview ??? Comment je peux passer un info entre le SelectPurseVC
  et le InfoVC avec prepareforsegue alors que le VC de destination c'est le TabBarControler??
+ 
+ - A voir programmation RxSwift => Reactive Programming
+
+    "" self.setPurses()
+         .then {
+             self.setSellers()
+         }
+         .then {
+             self.setArticle
+         }
+    ""
  
  */
 
@@ -105,7 +117,6 @@ import Foundation
  - Calculer forfait d'insription en fonction du nombre d'article
  ( et creer une vente fictive pour enregister transaction
  - #### Mettre a jour le montant de desposit fee dans la purse #####
- - Mettre les chiffres au format
  - Traiter la partie pour la restitution des livres
  - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes (et taille avec des mm)
  - tester generation plusieurs pages d'étiquettes
@@ -125,6 +136,12 @@ import Foundation
 /*
  - Gerer le format du prix / et celui de l'isbn
  - probleme avec certain livre error in JSONDECODER
+ 
+ */
+
+// MARK: - ArticleVC
+/*
+ - Gerer le format du prix / et celui de l'isbn
  
  */
 

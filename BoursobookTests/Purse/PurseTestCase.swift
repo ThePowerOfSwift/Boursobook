@@ -23,7 +23,7 @@ class PurseTestCase: XCTestCase {
         let uniqueID = "APE 2019 UNIQUEID"
         let percentageOnSales = 10.2
         let administrators = ["me": true]
-        let users = ["me": "me@me.fr"]
+        let users = ["me@me.fr"]
         let numberOfArticleRegistered = 13
         let numberOfSellers = 8
         let numberOfArticlesold = 8
@@ -70,7 +70,7 @@ class PurseTestCase: XCTestCase {
         let name = "APE 2019"
         let uniqueID = "APE 2019 UNIQUEID"
         let administrators = ["me": true]
-        let users = ["me": "me@me.fr"]
+        let users = ["me@me.fr"]
 
         //When
         let purse = Purse(name: name, uniqueID: uniqueID, administrators: administrators, users: users)
@@ -103,7 +103,7 @@ class PurseTestCase: XCTestCase {
         let uniqueID = "APE 2019 UNIQUEID"
         let percentageOnSales = 10.2
         let administrators = ["me": true]
-        let users = ["me": "me@me.fr"]
+        let users = ["me@me.fr"]
         let numberOfArticleRegistered = 13
         let numberOfSellers = 8
         let numberOfArticlesold = 8
@@ -221,7 +221,7 @@ class PurseTestCase: XCTestCase {
         XCTAssertEqual(depositFeeValues["overTwoHundredFifty"], depositFeefake["overTwoHundredFifty"])
 
         XCTAssertEqual(dictionaryValues["administrators"] as? [String: Bool], ["me": true])
-        XCTAssertEqual(dictionaryValues["users"] as? [String: String], ["me": "me@me.fr"])
+        XCTAssertEqual(dictionaryValues["users"] as? [String], ["me@me.fr"])
     }
 
 }

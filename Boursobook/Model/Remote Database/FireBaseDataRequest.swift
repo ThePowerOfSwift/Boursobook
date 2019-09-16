@@ -91,6 +91,21 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
         }
     }
 
+    func get<Model>(conditionInField: RemoteDataBase.Condition,
+                    completionHandler: @escaping (Error?, [Model]?) -> Void)
+                        where Model: RemoteDataBaseModel {
+                            firestoneCollectionReference
+                                .whereField(conditionInField.key,
+                                            isEqualTo: conditionInField.value)
+                            .getDocuments { (modelSnapshot, error) in
+
+                                let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot,
+                                                                                       queryError: error)
+                                completionHandler(response.0, response.1)
+                            }
+
+    }
+
     // Create objects "Model" in FireBase
     func remove<Model>(model: Model,
                        completionHandler: @escaping (Error?) -> Void)

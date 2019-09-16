@@ -73,7 +73,7 @@ class SelectPurseViewController: UIViewController {
     private func loadPurseFor(user: User?) {
         guard let userLogIn = user else {
             self.displayAlert(message: NSLocalizedString("Sorry , but you must Login !", comment: ""),
-                              title: NSLocalizedString("Done !", comment: ""))
+                              title: NSLocalizedString("Error !", comment: ""))
             self.dismiss(animated: true, completion: nil)
             return
         }

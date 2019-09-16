@@ -13,6 +13,7 @@ class AddNewSellerViewController: UIViewController {
 
     // MARK: - Properties
     var activeTextField: UITextField?
+    let sellerAPI = SellerAPI()
 
     // MARK: - IBOutlets
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -21,6 +22,8 @@ class AddNewSellerViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var codePickerView: UIPickerView!
     @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - IBActions
     @IBAction func didTapSaveButton(_ sender: UIButton) {
@@ -30,6 +33,7 @@ class AddNewSellerViewController: UIViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyleOfVC()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,41 +48,74 @@ class AddNewSellerViewController: UIViewController {
 
     // MARK: - Function
     private func saveSeller() {
-        guard let userLogIn = InMemoryStorage.shared.userLogIn,
-            let currentPurse = InMemoryStorage.shared.currentPurse else {
-                return
-        }
-
+        toogleActivity(loading: true)
         guard let firstNameValue = firstNameTextField.text, let familyNameValue = familyNameTextField.text,
             let emailValue = emailTextField.text, let phoneNumberValue = phoneNumberTextField.text else {
             return
         }
+        // Confirm if all the field are completed
         if firstNameValue == "" || familyNameValue == "" || emailValue == "" || phoneNumberValue == "" {
             displayAlert(message: NSLocalizedString("Please, fill all the field !", comment: ""),
                          title: NSLocalizedString("Error !", comment: ""))
             return
         }
 
+        // Set the code String with the letters automatically set in the pickerView
         var code = ""
         for index in 0...(codePickerView.numberOfComponents - 1) {
             let codeIndex = codePickerView.selectedRow(inComponent: index)
             code += SellerCode.caractersList[codeIndex]
         }
 
-        if InMemoryStorage.shared.isExistingSellerWith(code: code) {
-            displayAlert(message: NSLocalizedString("Code already exist, please change it !", comment: ""),
-                         title: NSLocalizedString("Error !", comment: ""))
+        // Create a seller with all the caracteristics
+        guard let createdBy = InMemoryStorage.shared.userLogIn,
+            let purseName = InMemoryStorage.shared.inWorkingPurseName else {
             return
         }
         let uniqueIDValue = code + " " + UUID().description
         let seller = Seller(familyName: familyNameValue, firstName: firstNameValue, email: emailValue,
                             phoneNumber: phoneNumberValue, code: code,
-                            createdBy: userLogIn.email, purseName: currentPurse.name,
+                            createdBy: createdBy.email, purseName: purseName,
                             uniqueID: uniqueIDValue, refundDate: "nil", refundBy: "nil")
 
-        InMemoryStorage.shared.addSeller(seller)
+        // Verify if the seller name do not exist
+        validChosenSeller(seller: seller)
+    }
 
-        self.navigationController?.popViewController(animated: true)
+    private func validChosenSeller(seller: Seller) {
+        sellerAPI.getExistingSellerCode { (error, sellerCodeList) in
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else if let sellerCodes = sellerCodeList {
+                if sellerCodes.contains(seller.code) {
+                    self.toogleActivity(loading: false)
+                    self.displayAlert(message:
+                        NSLocalizedString(
+                            "Code already exist, please change it !",
+                            comment: ""),
+                                      title: NSLocalizedString("Error !", comment: ""))
+                } else {
+                    self.createNewSeller(seller: seller)
+                }
+            }
+        }
+    }
+
+    private func createNewSeller(seller: Seller) {
+        sellerAPI.createSeller(newSeller: seller) { (error, _) in
+            self.toogleActivity(loading: false)
+            if let error = error {
+                self.displayAlert(message: NSLocalizedString(error.message, comment: ""),
+                                  title: NSLocalizedString("Error !", comment: ""))
+            } else {
+                self.navigationController?.popViewController(animated: true)
+                self.displayAlert(message: NSLocalizedString("New seller was created", comment: ""),
+                                  title: NSLocalizedString("Done !", comment: ""))
+            }
+        }
     }
 
     private func setCode() {
@@ -124,6 +161,15 @@ class AddNewSellerViewController: UIViewController {
             }
         }
     }
+
+    private func setStyleOfVC() {
+        saveButton.layer.cornerRadius = 10
+    }
+
+    func toogleActivity(loading: Bool) {
+        activityIndicator.isHidden = !loading
+        saveButton.isHidden = loading
+    }
 }
 
 // MARK: - PICKERVIEW
@@ -155,6 +201,7 @@ extension AddNewSellerViewController: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeTextField = textField
+        setCode()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
