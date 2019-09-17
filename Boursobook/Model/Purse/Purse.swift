@@ -10,6 +10,9 @@ import Foundation
 import Firebase
 
 class Purse: RemoteDataBaseModel {
+    // MARK: - Properties
+    static let collection = "purses"
+
     var name: String
     var uniqueID: String
 

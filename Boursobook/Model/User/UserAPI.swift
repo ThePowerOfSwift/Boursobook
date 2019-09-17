@@ -12,7 +12,7 @@ class UserAPI {
     // Manage the acces of "users" data
 
     // MARK: Properties
-    private var userRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .user)
+    private var userRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: User.collection)
 
     // MARK: Initialisation
     init() {}

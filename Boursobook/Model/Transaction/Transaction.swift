@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 class Transaction: RemoteDataBaseModel {
+    // MARK: - Properties
+    static let collection = "transactions"
 
     var date: String
     var uniqueID: String

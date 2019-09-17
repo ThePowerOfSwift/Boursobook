@@ -12,6 +12,8 @@ import Firebase
 class Article: RemoteDataBaseModel {
 
     // MARK: - Properties
+    static let collection = "articles"
+
     var title: String
     var sort: String
     var author: String
@@ -57,6 +59,21 @@ class Article: RemoteDataBaseModel {
         self.sellerUniqueId = sellerUniqueId
         self.sold = sold
         self.uniqueID = uniqueID
+    }
+
+    init(title: String, sort: String, author: String,
+         description: String, isbn: String, price: Double) {
+        self.title = title
+        self.sort = sort
+        self.author = author
+        self.description = description
+        self.isbn = isbn
+        self.price = price
+        self.purseName = ""
+        self.code = ""
+        self.sellerUniqueId = ""
+        self.sold = false
+        self.uniqueID = ""
     }
 
     required init?(dictionary: [String: Any]) {

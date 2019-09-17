@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 class Seller: RemoteDataBaseModel {
+    // MARK: - Properties
+    static let collection = "sellers"
 
     // MARK: - Properties
     let familyName: String
@@ -102,6 +104,23 @@ class Seller: RemoteDataBaseModel {
         self.refundDone = refundDone
         self.refundDate = refundDate
         self.refundBy = refundBy
+    }
+
+    // MARK: - Function
+    func setDepositFeeAmount(with purse: Purse) {
+        if articleRegistered < 50 {
+            depositFeeAmount = purse.depositFee.underFifty
+        } else  if articleRegistered < 100 {
+            depositFeeAmount = purse.depositFee.underOneHundred
+        } else  if articleRegistered < 150 {
+            depositFeeAmount = purse.depositFee.underOneHundredFifty
+        } else  if articleRegistered < 200 {
+            depositFeeAmount = purse.depositFee.underTwoHundred
+        } else  if articleRegistered < 250 {
+            depositFeeAmount = purse.depositFee.underTwoHundredFifty
+        } else {
+            depositFeeAmount = purse.depositFee.overTwoHundredFifty
+        }
     }
 }
 

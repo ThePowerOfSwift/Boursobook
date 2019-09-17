@@ -19,7 +19,7 @@ import Foundation
  
             - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
                 (est ce que j'arrete la syncho sur chaque VC? )
-            
+
             - mettre un message d'alerte pour dire que l'on a pas de reseau
             - voir ce qui se passe si pas de reseau et pas d'acces ???
             - Ajouter des activity indicator dans toutes les vues ou il y a des acces à la base
@@ -34,22 +34,19 @@ import Foundation
             - verifier toutes les tailles d'iphones
             - Mettre à jour les string du storyboard
             - separer les storyboard
+            - factoriser la mise en place des scroll view avec le claviuer
+            - factoriser le formatgae des nombres
  
             - Creer une limite pour le nombre de données par utilisateur et donc de faire payer un abonement
 */
 
 // MARK: - A voir avec Vincent
 /*
- - test du reseau mauvais ?
- - pas de singleton dans InMemory storage
- - je passe les infos entre controleur en utilisant prepare forsgue
- - j'apelle les classes ..API directement dans les VC
- 
- 
+ - test du reseau mauvais ? (network conditionner appli sur le mac )
+
 - Pourquoi sur les tests de API,  le completionHandler(PAPIError.other, nil)
  n'est pas marqué tester alors que oui ? Return ??
- - Comment on passe des infos entre tabview ??? Comment je peux passer un info entre le SelectPurseVC
- et le InfoVC avec prepareforsegue alors que le VC de destination c'est le TabBarControler??
+
  
  - A voir programmation RxSwift => Reactive Programming
 
@@ -91,16 +88,6 @@ import Foundation
  
  */
 
-// MARK: - AddNewSellerVC
-/*
- - Controle du format correct du tel et du mail
- 
- */
-// MARK: - SellersListVC
-/*
- - Voir pourquoi le unwind segue ne fonctionne pas lorsque j'efface l'utilisateur loggé
- 
- */
 // MARK: - scanningVC
 /*
  - Gerer optionnel videoPreviewLayer ???
@@ -111,12 +98,6 @@ import Foundation
 
 // MARK: - SellerVC
 /*
- - Mettre la posibilité de modifier les informations des vendeurs
- - Imprimer la liste des articles vendus et restants PDF
- avec les prix de ventes / montants revenants au vendeur
- - Calculer forfait d'insription en fonction du nombre d'article
- ( et creer une vente fictive pour enregister transaction
- - #### Mettre a jour le montant de desposit fee dans la purse #####
  - Traiter la partie pour la restitution des livres
  - Améliorer la résolution des QRCODE et la position des ecritures sur les etiquettes (et taille avec des mm)
  - tester generation plusieurs pages d'étiquettes
@@ -134,7 +115,9 @@ import Foundation
 
 // MARK: - AddArticleVC
 /*
- - Gerer le format du prix / et celui de l'isbn
+ - Gerer le format de l'isbn
+ - Calculer forfait d'insription en fonction du nombre d'article
+ - #### Mettre a jour le montant de desposit fee dans la purse #####
  - probleme avec certain livre error in JSONDECODER
  
  */
@@ -155,15 +138,18 @@ import Foundation
 /*
  - It worked, it was enough to change the letter of the folder:
  Pods/Protobuf/objectivec/google/protobuf (protobuf -> Protobuf)
- 
  */
 
+//-////////////////////////////////////////
 // MARK: - A faire plus tard
 /*
  - animation par gradient quand ça cherche
- - Faire fonction "email oublié"
- - faire une barre avec des lettre pour chercher plus vite les utilisateur (UserList TVC)
- - Ajouter un bouton pour acces liste transaction
- - Ajouter bouton liste articles totaux
- - Ajouter un contact pour mailing list
+ - LoginVC: Faire fonction "email oublié"
+ - UserListVC: faire une barre avec des lettre pour chercher plus vite les utilisateur
+ - InfoVC: Ajouter un bouton pour acces liste transaction
+ - InfoVC: Ajouter bouton liste articles totaux
+ - InfoVC: Ajouter un contact pour mailing list
+ - SellerVC: Posibilité de modifier les informations des vendeurs
+ - SellerVC: Imprimer la liste des articles vendus et restants PDF par vendeur
+ avec les prix de ventes / montants revenants au vendeur
  */

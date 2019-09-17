@@ -14,7 +14,7 @@ class SellerViewController: UIViewController {
     var uniqueIdOfSelectedSeller: String?
     var labelSheet = LabelSheet()
     let sellerAPI = SellerAPI()
-    var sellerToDisplay: Seller?
+    var displayedSeller: Seller?
     let articleAPI = ArticleAPI()
 
     // MARK: - IBOutlets
@@ -68,7 +68,7 @@ class SellerViewController: UIViewController {
     // MARK: - functions
     private func updateValues() {
 
-        guard let seller = sellerToDisplay else {
+        guard let seller = displayedSeller else {
             return
         }
         firstNameLabel.text = seller.firstName
@@ -101,7 +101,7 @@ class SellerViewController: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                     return
                 }
-                self.sellerToDisplay = seller
+                self.displayedSeller = seller
                 self.updateValues()
             }
         }
@@ -134,7 +134,7 @@ class SellerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToAddArticle" {
             if let addArticleVC = segue.destination as? AddArticleViewController {
-                addArticleVC.uniqueIdOfSelectedSeller = uniqueIdOfSelectedSeller
+                addArticleVC.selectedSeller = displayedSeller
             }
         }
         if segue.identifier == "segueToArticleList" {
@@ -150,7 +150,7 @@ extension SellerViewController {
         toogleActivity(loading: true)
 
         // Get all articles for the seller
-        guard let seller = sellerToDisplay else {
+        guard let seller = displayedSeller else {
             return
         }
         articleAPI.getArticlesFor(seller: seller) { (error, sellerArticles) in

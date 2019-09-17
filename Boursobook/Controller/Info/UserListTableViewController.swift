@@ -12,9 +12,8 @@ class UserListTableViewController: UITableViewController {
 
     // MARK: - Properties
     let purseAPI = PurseAPI()
-    var purseInEdit: Purse?
     let userAPI = UserAPI()
-    var users = [User]()
+    var displayedUsers = [User]()
 
     // MARK: IBOutlet
     @IBOutlet var userTableView: UITableView!
@@ -29,7 +28,6 @@ class UserListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUsersToDisplay()
-        loadPurseToDisplay()
     }
 
     // MARK: - Functions
@@ -47,28 +45,8 @@ class UserListTableViewController: UITableViewController {
                 guard let listOfUsers = loadedUsers else {
                     return
                 }
-                self.users = listOfUsers
+                self.displayedUsers = listOfUsers
                 self.userTableView.reloadData()
-            }
-        }
-    }
-
-    private func loadPurseToDisplay() {
-        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
-            self.dismiss(animated: true, completion: nil)
-            return
-        }
-        purseAPI.loadPurse(name: purseName) { (error, loadedPurse) in
-            if let error = error {
-                self.displayAlert(
-                    message: error.message,
-                    title: NSLocalizedString(
-                        "Error !", comment: ""))
-            } else {
-                guard let purse = loadedPurse else {
-                    return
-                }
-                self.purseInEdit = purse
             }
         }
     }
@@ -80,7 +58,7 @@ class UserListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return displayedUsers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,23 +66,23 @@ class UserListTableViewController: UITableViewController {
                                                        for: indexPath) as? UserListTableViewCell else {
                                                         return UITableViewCell()
         }
-        let user = users[indexPath.row]
+        let user = displayedUsers[indexPath.row]
         cell.configure(with: user)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        guard let purse = purseInEdit else {
+        guard let purse = InMemoryStorage.shared.inWorkingPurse else {
             return
         }
         let alert = UIAlertController(title: NSLocalizedString("Are you sure you want to add ", comment: ""),
-                                      message: " \(users[indexPath.row].email) -> \(purse.name)" ,
+                                      message: " \(displayedUsers[indexPath.row].email) -> \(purse.name)" ,
                                       preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .default)
         let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
-            self.saveUserInPurse(user: self.users[indexPath.row])
+            self.saveUserInPurse(user: self.displayedUsers[indexPath.row])
         }
         alert.addAction(confirmAction)
         alert.addAction(cancelAction)
@@ -112,7 +90,7 @@ class UserListTableViewController: UITableViewController {
     }
 
     private func saveUserInPurse(user: User) {
-        guard let purse = purseInEdit else {
+        guard let purse = InMemoryStorage.shared.inWorkingPurse else {
             return
         }
         purseAPI.addUserFor(purse: purse, user: user) { (error) in

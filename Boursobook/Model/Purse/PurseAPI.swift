@@ -12,7 +12,7 @@ class PurseAPI {
     // Manage the acces of "purses" data
 
     // MARK: Properties
-    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .purse)
+    private var purseRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: Purse.collection)
 
     // MARK: Initialisation
     init() {}

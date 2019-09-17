@@ -12,7 +12,7 @@ class InfoViewController: UIViewController {
 
     // MARK: Properties
     let purseAPI = PurseAPI()
-    var purseToDisplay: Purse?
+    var displayedPurse: Purse?
 
     // MARK: - IBOutlets
     @IBOutlet weak var userLogInLabel: UILabel!
@@ -54,11 +54,11 @@ class InfoViewController: UIViewController {
     // MARK: - functions
 
     private func loadPurseToDisplay() {
-        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+        guard let purse = InMemoryStorage.shared.inWorkingPurse else {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        purseAPI.loadPurse(name: purseName) { (error, loadedPurse) in
+        purseAPI.loadPurse(name: purse.name) { (error, loadedPurse) in
             if let error = error {
                 self.displayAlert(
                     message: error.message,
@@ -68,7 +68,8 @@ class InfoViewController: UIViewController {
                 guard let purse = loadedPurse else {
                     return
                 }
-                self.purseToDisplay = purse
+                self.displayedPurse = purse
+                InMemoryStorage.shared.inWorkingPurse = purse
                 self.updateValues()
             }
         }
@@ -79,7 +80,7 @@ class InfoViewController: UIViewController {
         userLogInLabel.text = InMemoryStorage.shared.userLogIn?.email
         userLogInIDLabel.text = InMemoryStorage.shared.userLogIn?.uniqueID
 
-        if let purse = purseToDisplay {
+        if let purse = displayedPurse {
             currentPurseLabel.text = purse.name
             numberOfSellerLabel.text = String(purse.numberOfSellers)
             numberOfArticleRecordedLabel.text = String(purse.numberOfArticleRegistered)
@@ -110,7 +111,8 @@ class InfoViewController: UIViewController {
     }
 
     private func changePurse() {
-        purseToDisplay = nil
+        displayedPurse = nil
+        InMemoryStorage.shared.inWorkingPurse = nil
         self.dismiss(animated: true, completion: nil)
     }
 

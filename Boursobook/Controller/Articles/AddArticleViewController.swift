@@ -12,8 +12,9 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
 
     // MARK: - Properties
     var activeTextField: UITextField?
-    var uniqueIdOfSelectedSeller: String?
-    var orderNumber: Int?
+    var selectedSeller: Seller?
+    var articleAPI = ArticleAPI()
+    var purseAPI = PurseAPI()
 
     // MARK: - IBOUTLET
     @IBOutlet weak var sellerNameLabel: UILabel!
@@ -25,6 +26,8 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     @IBOutlet weak var articleCodeLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var scanABookButton: UIButton!
 
     // MARK: - IBACTION
     @IBAction func didTapSaveButton(_ sender: UIButton) {
@@ -35,18 +38,16 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let uniqueIdOfSeller = uniqueIdOfSelectedSeller else {
+        setStyleOfVC()
+
+        guard let seller = selectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-        for seller in InMemoryStorage.shared.sellers where seller.code == uniqueIdOfSeller {
-            sellerNameLabel.text = "Seller : " + seller.firstName + " " + seller.familyName
-            orderNumber = seller.orderNumber + 1
-        }
+        sellerNameLabel.text = "-> " + seller.firstName + " " + seller.familyName
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        // Listen for keyBoard events
         super.viewWillAppear(animated)
         addKeyboardNotification()
     }
@@ -55,15 +56,14 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         super.viewWillDisappear(animated)
         removeKeyboardNotification()
     }
+
     // MARK: - Function
     private func saveArticle() {
         guard let titleValue = titleTextField.text,
             let authorValue = authorTexField.text,
             let descriptionValue = descriptionTextView.text,
             let isbnValue = isbnTextField.text,
-            let priceText = priceTextField.text,
-            let uniqueIdOfSeller = uniqueIdOfSelectedSeller,
-            let orderNumberValue = orderNumber
+            let priceText = priceTextField.text
         else {
                 return
         }
@@ -72,7 +72,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
                          title: NSLocalizedString("Error !", comment: ""))
             return
         }
-        guard let priceValue = Double(priceText) else {
+        guard let priceValue = valueForTextField(priceTextField) else {
             displayAlert(message: NSLocalizedString("Incorrect price !", comment: ""),
                          title: NSLocalizedString("Error !", comment: ""))
             return
@@ -80,19 +80,21 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
         let sortValue = Article.sort[sortValueIndex]
 
-        let codeValue = uniqueIdOfSeller + String(format: "%03d", orderNumberValue)
-        let uniqueIDValue = codeValue + " " + UUID().description
-
-        if let currentPurse = InMemoryStorage.shared.currentPurse {
-            let article = Article(title: titleValue, sort: sortValue, author: authorValue,
-                                  description: descriptionValue, purseName: currentPurse.name,
-                                  isbn: isbnValue, code: codeValue,
-                                  price: priceValue, sellerUniqueId: uniqueIdOfSeller, sold: false,
-                                  uniqueID: uniqueIDValue)
-            InMemoryStorage.shared.addArticle(article, for: uniqueIdOfSeller)
-            self.navigationController?.popViewController(animated: true)
+        let newArticle = Article(title: titleValue, sort: sortValue,
+                                 author: authorValue, description: descriptionValue,
+                                 isbn: isbnValue, price: priceValue)
+        articleAPI.createArticle(purse: InMemoryStorage.shared.inWorkingPurse,
+                                 seller: selectedSeller,
+                                 article: newArticle) { (error) in
+                                    if let error = error {
+                                        self.displayAlert(
+                                            message: error.message,
+                                            title: NSLocalizedString(
+                                                "Error !", comment: ""))
+                                    } else {
+                                        self.navigationController?.popViewController(animated: true)
+                                    }
         }
-
     }
 
     // To conform to SearchingBookDelegate Protocol
@@ -110,6 +112,28 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         authorTexField.text = authorList
         descriptionTextView.text = info.description
         isbnTextField.text = isbn
+    }
+
+    private func setStyleOfVC() {
+        saveButton.layer.cornerRadius = 10
+        scanABookButton.layer.cornerRadius = 10
+        descriptionTextView.layer.cornerRadius = 5
+        descriptionTextView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        descriptionTextView.layer.borderWidth = 1
+    }
+
+    private func valueForTextField(_ textField: UITextField) -> Double? {
+        guard let textFieldValue = textField.text else {
+            return nil
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.number(from: textFieldValue) {
+            return Double(truncating: formattedNumber)
+        } else {
+            return nil
+        }
     }
 
     // MARK: - Navigation

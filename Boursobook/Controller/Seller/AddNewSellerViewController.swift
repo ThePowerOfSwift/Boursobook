@@ -69,13 +69,13 @@ class AddNewSellerViewController: UIViewController {
 
         // Create a seller with all the caracteristics
         guard let createdBy = InMemoryStorage.shared.userLogIn,
-            let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+            let purse = InMemoryStorage.shared.inWorkingPurse else {
             return
         }
         let uniqueIDValue = code + " " + UUID().description
         let seller = Seller(familyName: familyNameValue, firstName: firstNameValue, email: emailValue,
                             phoneNumber: phoneNumberValue, code: code,
-                            createdBy: createdBy.email, purseName: purseName,
+                            createdBy: createdBy.email, purseName: purse.name,
                             uniqueID: uniqueIDValue, refundDate: "nil", refundBy: "nil")
 
         // Verify if the seller name do not exist
@@ -112,8 +112,6 @@ class AddNewSellerViewController: UIViewController {
                                   title: NSLocalizedString("Error !", comment: ""))
             } else {
                 self.navigationController?.popViewController(animated: true)
-                self.displayAlert(message: NSLocalizedString("New seller was created", comment: ""),
-                                  title: NSLocalizedString("Done !", comment: ""))
             }
         }
     }

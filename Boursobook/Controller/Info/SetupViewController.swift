@@ -13,7 +13,7 @@ class SetupViewController: UIViewController {
     // MARK: - Properties
     var isConfiguring = false
     let purseAPI = PurseAPI()
-    var purseToDisplay: Purse?
+    var displayedPurse: Purse?
     var activeTextField: UITextField?
 
     // MARK: - IBOutlets
@@ -94,11 +94,11 @@ class SetupViewController: UIViewController {
     // MARK: - Functions
 
     private func loadPurseToDisplay() {
-        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+        guard let purse = InMemoryStorage.shared.inWorkingPurse else {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        purseAPI.loadPurse(name: purseName) { (error, loadedPurse) in
+        purseAPI.loadPurse(name: purse.name) { (error, loadedPurse) in
             if let error = error {
                 self.displayAlert(
                     message: error.message,
@@ -108,14 +108,15 @@ class SetupViewController: UIViewController {
                 guard let purse = loadedPurse else {
                     return
                 }
-                self.purseToDisplay = purse
+                self.displayedPurse = purse
+                InMemoryStorage.shared.inWorkingPurse = purse
                 self.updateValues()
             }
         }
     }
 
     private func updateValues() {
-        if let purse = purseToDisplay {
+        if let purse = displayedPurse {
             percentageOnSalesDisplayLabel.text = formatDiplayedNumber(purse.percentageOnSales)
             percentageOnSalesSetupLabel.text = formatDiplayedNumber(purse.percentageOnSales)
             underFiftyDisplayLabel.text = formatDiplayedNumber(purse.depositFee.underFifty)
@@ -134,7 +135,7 @@ class SetupViewController: UIViewController {
     }
 
     private func userIsAdministrator() -> Bool {
-        guard let purse = purseToDisplay, let user = InMemoryStorage.shared.userLogIn else {
+        guard let purse = displayedPurse, let user = InMemoryStorage.shared.userLogIn else {
             return false
         }
         for (key, value) in purse.administrators {
@@ -184,7 +185,7 @@ class SetupViewController: UIViewController {
             return
         }
 
-        guard let purse = purseToDisplay else {
+        guard let purse = displayedPurse else {
             return
         }
 

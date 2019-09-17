@@ -13,8 +13,7 @@ class TransactionService {
     // Manage the "transactions" database on a remote database
 
     // MARK: Properties
-    private let locationInRemoteDataBase: RemoteDataBase.Collection = .transaction
-    private var transactionRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .transaction)
+    private var transactionRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: Transaction.collection)
 
     // MARK: Initialisation
     init() {}

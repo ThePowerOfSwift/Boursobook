@@ -12,7 +12,7 @@ class SellerAPI {
     // Manage the acces of "seller" data
 
     // MARK: Properties
-    private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .seller)
+    private var sellerRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: Seller.collection)
 
     // MARK: Initialisation
     init() {}

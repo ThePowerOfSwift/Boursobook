@@ -11,16 +11,18 @@ import Firebase
 
 class FireBaseDataRequest: RemoteDatabaseRequest {
 
-    var collection: RemoteDataBase.Collection
+    var collection: String
 
-    init(collection: RemoteDataBase.Collection) {
+    init(collection: String) {
         self.collection = collection
     }
 
     // Initialise a query for the collection in FireStone
     var firestoneCollectionReference: CollectionReference {
-        return  Firestore.firestore().collection(collection.rawValue)
+        return  Firestore.firestore().collection(collection)
     }
+
+    let firestoneDatabase = Firestore.firestore()
 
     var listeners = [ListenerRegistration]()
 
@@ -84,6 +86,7 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
     // Get only Once objects "Model" from FireBase in a collection
     func get<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
                         where Model: RemoteDataBaseModel {
+
         firestoneCollectionReference.getDocuments { (modelSnapshot, error) in
 
             let response: (Error?, [Model]?) = self.manageResponse(querySnapshot: modelSnapshot, queryError: error)
@@ -91,6 +94,63 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
         }
     }
 
+    // Run a transaction on Tree different object "Model" from FireBase in a collection
+    func runTransaction<FirstModel, SecondModel, ResultModel>(
+        firstModel: FirstModel,
+        secondModel: SecondModel,
+        firstBlock: @escaping (_ firstModelBlock: FirstModel) -> [String: Any],
+        secondBlock: @escaping (_ secondModelBlock: SecondModel) -> [String: Any],
+        resultBlock: @escaping () -> ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+
+            let firstReference = firestoneDatabase.collection(FirstModel.collection).document(firstModel.uniqueID)
+            let secondReference = firestoneDatabase.collection(SecondModel.collection).document(secondModel.uniqueID)
+
+            firestoneDatabase.runTransaction({ (transaction, errorPointer) -> Any? in
+                let firstDocument: DocumentSnapshot
+                let secondDocument: DocumentSnapshot
+
+                do {
+                    try firstDocument = transaction.getDocument(firstReference)
+                    try secondDocument = transaction.getDocument(secondReference)
+
+                } catch let fetchError as NSError {
+                    errorPointer?.pointee = fetchError
+                    return nil
+                }
+                guard let firstDocumentModel: FirstModel = firstDocument.data()?.toModel() else {
+                    return nil
+                }
+                guard let secondDocumentModel: SecondModel = secondDocument.data()?.toModel() else {
+                    return nil
+                }
+
+                let firstData: [String: Any] = firstBlock(firstDocumentModel)
+                let secondData: [String: Any] = secondBlock(secondDocumentModel)
+
+                let resultModel = resultBlock()
+                let resultReference = self.firestoneDatabase.collection(ResultModel.collection)
+                    .document(resultModel.uniqueID)
+
+                let resultData: [String: Any] = resultModel.dictionary
+
+                transaction.updateData(firstData, forDocument: firstReference)
+                transaction.updateData(secondData, forDocument: secondReference)
+                transaction.setData(resultData, forDocument: resultReference)
+
+                return nil
+            }, completion: { (_, error) in
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
+            })
+    }
+
+    // Get only Once objects "Model" from FireBase in a collection
+    // with a query for Model that meet a certain condition
     func get<Model>(conditionInField: RemoteDataBase.Condition,
                     completionHandler: @escaping (Error?, [Model]?) -> Void)
                         where Model: RemoteDataBaseModel {
@@ -106,7 +166,7 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
 
     }
 
-    // Create objects "Model" in FireBase
+    // Remove objects "Model" in FireBase
     func remove<Model>(model: Model,
                        completionHandler: @escaping (Error?) -> Void)
                             where Model: RemoteDataBaseModel {

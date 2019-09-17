@@ -14,7 +14,7 @@ protocol RemoteDatabaseRequest {
     /**
     The collection where seaching documents "Model"
      */
-    var collection: RemoteDataBase.Collection { get }
+    var collection: String { get }
 
     /**
      Request to read and listen changes of "Model" data from remote database
@@ -78,4 +78,16 @@ protocol RemoteDatabaseRequest {
                                                values: [String: Any],
                                                completionHandler: @escaping (Error?) -> Void)
 
+    /**
+     Request to run a transaction on tree different object "Model" in the remote database
+     */
+    func runTransaction<
+        FirstModel: RemoteDataBaseModel,
+        SecondModel: RemoteDataBaseModel,
+        ResultModel: RemoteDataBaseModel>(firstModel: FirstModel,
+                                          secondModel: SecondModel,
+                                          firstBlock: @escaping (_ firstModelBlock: FirstModel) -> [String: Any],
+                                          secondBlock: @escaping (_ secondModelBlock: SecondModel) -> [String: Any],
+                                          resultBlock: @escaping () -> ResultModel,
+                                          completionHandler: @escaping (Error?) -> Void)
 }

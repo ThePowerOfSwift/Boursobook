@@ -209,7 +209,7 @@ extension SelectPurseViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        InMemoryStorage.shared.inWorkingPurseName = userPurses[indexPath.row].name
+        InMemoryStorage.shared.inWorkingPurse = userPurses[indexPath.row]
         self.performSegue(withIdentifier: "segueToInfo", sender: nil)
     }
 }

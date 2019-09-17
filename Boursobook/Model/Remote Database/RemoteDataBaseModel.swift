@@ -11,6 +11,7 @@ import Foundation
 protocol RemoteDataBaseModel {
 
     // MARK: - Properties
+    static var collection: String { get }
     var uniqueID: String {get}
     var dictionary: [String: Any] {get}
 

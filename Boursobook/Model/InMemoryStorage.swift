@@ -15,7 +15,7 @@ class InMemoryStorage {
     // MARK: - Properties
     static var shared = InMemoryStorage()
     var userLogIn: User?
-    var inWorkingPurseName: String?
+    var inWorkingPurse: Purse?
 
     private init() {
     }
@@ -121,28 +121,6 @@ extension InMemoryStorage {
 
 // MARK: - Functions ARTICLES
 extension InMemoryStorage {
-
-    func addArticle(_ article: Article, for codeOfSeller: String) {
-        // add article to list of article, update Firebase
-        // and update datas on the current purse and on the seller
-
-        // Add article
-        articleService.create(article: article)
-        articles.append(article)
-
-        // Update Seller
-        sellerService.updateArticlesCounters(for: codeOfSeller, numberArticleRegistered: 1, numberOrder: 1)
-        for seller in sellers where seller.code == codeOfSeller {
-            seller.articleRegistered += 1
-            seller.orderNumber += 1
-            setDepositFeeAmout(for: seller)
-        }
-
-        // Update purse
-        guard let currentPurse = currentPurse else {return}
-        purseService.updateNumberOfArticleRegistered(with: 1, for: currentPurse)
-        currentPurse.numberOfArticleRegistered += 1
-    }
 
     func removeArticle(_ articleToDelete: Article) {
 //        // delete article to list of article, update Firebase,

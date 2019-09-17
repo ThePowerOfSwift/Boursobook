@@ -10,6 +10,9 @@ import Foundation
 
 struct User: RemoteAuthenticationModel, RemoteDataBaseModel {
 
+    // MARK: - Properties
+    static let collection = "users"
+
     var uniqueID: String
     var email: String
 

@@ -14,7 +14,7 @@ class SellersListViewController: UITableViewController {
     // MARK: - Properties
     var selectedSeller: Seller?
     let sellerAPI = SellerAPI()
-    var sellersToDisplay = [Seller]()
+    var displayedSellers = [Seller]()
 
     // MARK: - IBOUTLET
     @IBOutlet var sellersTableView: UITableView!
@@ -47,11 +47,11 @@ class SellersListViewController: UITableViewController {
     }
 
     private func loadSellersToDisplay() {
-        guard let purseName = InMemoryStorage.shared.inWorkingPurseName else {
+        guard let purse = InMemoryStorage.shared.inWorkingPurse else {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        sellerAPI.loadSellersFor(purseName: purseName) { (error, loadedSellers) in
+        sellerAPI.loadSellersFor(purseName: purse.name) { (error, loadedSellers) in
             self.activityIndicator.isHidden = true
             if let error = error {
                 self.displayAlert(
@@ -62,7 +62,7 @@ class SellersListViewController: UITableViewController {
                 guard let sellers = loadedSellers else {
                     return
                 }
-                self.sellersToDisplay = sellers
+                self.displayedSellers = sellers
                 self.updateValues()
             }
         }
@@ -74,7 +74,7 @@ class SellersListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sellersToDisplay.count
+        return displayedSellers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,13 +83,13 @@ class SellersListViewController: UITableViewController {
                                                         return UITableViewCell()
         }
 
-        let seller = sellersToDisplay[indexPath.row]
+        let seller = displayedSellers[indexPath.row]
         cell.configure(with: seller)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSeller = sellersToDisplay[indexPath.row]
+        selectedSeller = displayedSellers[indexPath.row]
         self.performSegue(withIdentifier: "segueToSeller", sender: nil)
     }
 
@@ -120,7 +120,7 @@ class SellersListViewController: UITableViewController {
                                          style: .default)
         let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
 
-            let sellerToDelete = self.sellersToDisplay[indexPath.row]
+            let sellerToDelete = self.displayedSellers[indexPath.row]
             self.sellerAPI.removeSeller(seller: sellerToDelete, completionHandler: { (error) in
                 if let error = error {
                     self.displayAlert(

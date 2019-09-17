@@ -11,14 +11,6 @@ import Foundation
 struct RemoteDataBase {
     // Elements for acces to remote database
 
-    enum Collection: String {
-        case transaction = "transactions"
-        case article = "articles"
-        case purse = "purses"
-        case seller = "sellers"
-        case user = "users"
-    }
-
     // Elements for performing query
     struct Condition {
         var key: String

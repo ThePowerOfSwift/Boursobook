@@ -12,8 +12,8 @@ class ArticleAPI {
     // Manage the acces of "article" data
 
     // MARK: Properties
-    private let remoteDataBaseCollection: RemoteDataBase.Collection = .article
-    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest = FireBaseDataRequest(collection: .article)
+    private var articleRemoteDataBaseRequest: RemoteDatabaseRequest
+        = FireBaseDataRequest(collection: Article.collection)
 
     // MARK: Initialisation
     init() {}
@@ -66,6 +66,57 @@ class ArticleAPI {
                     completionHandler(nil, loadedArticles)
                 }
         }
+    }
+
+    func createArticle(purse: Purse?,
+                       seller: Seller?,
+                       article: Article,
+                       completionHandler: @escaping (Error?) -> Void) {
+        guard let purse = purse, let seller = seller else {
+            completionHandler(AAPIError.other)
+            return
+        }
+
+        var orderNumber: Int = 0
+        let sellerCode = seller.code
+        let oldSellerDepositFeeAmount = seller.depositFeeAmount
+        var newSellerDepositFeeAmount: Double = 0
+        article.purseName = purse.name
+        article.sellerUniqueId = seller.uniqueID
+
+        articleRemoteDataBaseRequest.runTransaction(firstModel: seller, secondModel: purse,
+                                                    firstBlock: { (remoteSeller) -> [String: Any] in
+                                                        remoteSeller.articleRegistered += 1
+                                                        remoteSeller.setDepositFeeAmount(with: purse)
+                                                        newSellerDepositFeeAmount = remoteSeller.depositFeeAmount
+                                                        orderNumber = remoteSeller.orderNumber
+                                                        return ["articleRegistered": remoteSeller.articleRegistered,
+                                                                "orderNumber": orderNumber + 1,
+                                                                "depositFeeAmount": remoteSeller.depositFeeAmount]
+        },
+                                                    secondBlock: { (remotePurse) -> [String: Any] in
+                                                        remotePurse.numberOfArticleRegistered += 1
+                                                        remotePurse.totalDepositFeeAmount += newSellerDepositFeeAmount
+                                                            - oldSellerDepositFeeAmount
+                                                        return ["numberOfArticleRegistered": remotePurse
+                                                            .numberOfArticleRegistered,
+                                                                "totalDepositFeeAmount": remotePurse
+                                                                    .totalDepositFeeAmount]
+        },
+                                                    resultBlock: { () -> Article in
+                                                        let code = sellerCode + String(format: "%03d", orderNumber)
+                                                        article.code = code
+                                                        article.uniqueID = code + " " + UUID().description
+                                                        return article
+
+        },
+                                                    completionHandler: { (error) in
+                                                        if let error = error {
+                                                            completionHandler(error)
+                                                        } else {
+                                                            completionHandler(nil)
+                                                        }
+        })
     }
 }
 
