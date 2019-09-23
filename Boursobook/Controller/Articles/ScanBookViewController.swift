@@ -24,7 +24,63 @@ class ScanBookViewController: UIViewController {
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStyleOfVC()
         toogleScanningView(searching: false)
+        setVideoCapture()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if captureSession.isRunning == false {
+            captureSession.startRunning()
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if captureSession.isRunning == true {
+            captureSession.stopRunning()
+        }
+    }
+
+    // MARK: - Function
+
+    func failed() {
+        displayAlert(message: NSLocalizedString("Scanning not supported", comment: ""),
+                     title: NSLocalizedString("Error !", comment: ""))
+    }
+
+    func searchBookWith(isbn: String) {
+        let bookService = BookService()
+        bookService.getBook(isbn: isbn) { (success, volumeInfo, error) in
+            if success, let bookInfo = volumeInfo {
+                self.didFindABook(bookInfo, isbn: isbn)
+            } else if let error = error {
+                self.toogleScanningView(searching: false)
+                self.presentAlertForCode(message: NSLocalizedString(error.message, comment: ""))
+            }
+        }
+    }
+
+    func presentAlertForCode(message: String) {
+        let alert = UIAlertController(title: NSLocalizedString("Error !", comment: ""),
+                                      message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
+            self.captureSession.startRunning()
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func didFindABook(_ bookInfo: Book.VolumeInfo, isbn: String) {
+        if let searchingDelegateVC = searchingDelegate {
+            searchingDelegateVC.didFindExistingBook(info: bookInfo, isbn: isbn)
+            navigationController?.popViewController(animated: true)
+        }
+    }
+
+    private func setVideoCapture() {
         // Get the back-facing camera for capturing videos
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {
             failed()
@@ -74,60 +130,14 @@ class ScanBookViewController: UIViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if captureSession.isRunning == false {
-            captureSession.startRunning()
-        }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if captureSession.isRunning == true {
-            captureSession.stopRunning()
-        }
-    }
-
-    // MARK: - Function
-
-    func failed() {
-        displayAlert(message: NSLocalizedString("Scanning not supported", comment: ""),
-                     title: NSLocalizedString("Error !", comment: ""))
-    }
-
-    func searchBookWith(isbn: String) {
-        let bookService = BookService()
-        bookService.getBook(isbn: isbn) { (success, volumeInfo, error) in
-            if success, let bookInfo = volumeInfo {
-                self.didFindABook(bookInfo, isbn: isbn)
-            } else if let error = error {
-                self.toogleScanningView(searching: false)
-                self.presentAlertForCode(message: NSLocalizedString(error.message, comment: ""))
-            }
-        }
-    }
-
-    func presentAlertForCode(message: String) {
-        let alert = UIAlertController(title: NSLocalizedString("Error !", comment: ""),
-                                      message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
-            self.captureSession.startRunning()
-        })
-        self.present(alert, animated: true, completion: nil)
+    private func setStyleOfVC() {
+        upperScanView.layer.cornerRadius = 10
+        scanView.layer.cornerRadius = 10
     }
 
     func toogleScanningView(searching: Bool) {
         upperScanView.isHidden = searching
         searchingView.isHidden = !searching
-    }
-
-    func didFindABook(_ bookInfo: Book.VolumeInfo, isbn: String) {
-        if let searchingDelegateVC = searchingDelegate {
-            searchingDelegateVC.didFindExistingBook(info: bookInfo, isbn: isbn)
-            navigationController?.popViewController(animated: true)
-        }
     }
 }
 

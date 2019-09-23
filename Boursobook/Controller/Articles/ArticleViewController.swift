@@ -10,6 +10,13 @@ import UIKit
 
 class ArticleViewController: UIViewController {
 
+    // MARK: - Properties
+    var selectedArticleUniqueID: String?
+    var isRegisterSale: Bool?
+    var displayedArticle: Article?
+    let articleAPI = ArticleAPI()
+    weak var selectingDelegate: SelectingArticleDelegate?
+
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -22,60 +29,90 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var qRCodeImage: UIImageView!
     @IBOutlet weak var articleLabelCodeLabel: UILabel!
     @IBOutlet weak var articleLabelPriceLabel: UILabel!
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    @IBOutlet weak var saveButtonStackView: UIStackView!
+    @IBOutlet weak var selectButtonStackView: UIStackView!
+    @IBOutlet weak var selectButton: UIButton!
 
     // MARK: - IBActions
-    @IBAction func didTapSaveButton(_ sender: UIButton) {
-        saveArticleInSale(codeOfArticle: codeOfSelectedArticle)
+    @IBAction func didTapSelectButton(_ sender: UIButton) {
+        didSelectArticle(articleUniqueID: selectedArticleUniqueID)
     }
-
-    // MARK: - Properties
-    var codeOfSelectedArticle: String?
-    var isRegisterSale: Bool?
 
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateValues()
+        setStyleOfVC()
+        toogleActivity(loading: true)
+
         guard let isRegisterSaleState = isRegisterSale else {
             return
         }
         toogleRegisterSaleView(registering: isRegisterSaleState)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.articleUpdatedNotification,
-                                               object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadArticleToDisplay()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        articleAPI.stopListen()
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.articleUpdatedNotification,
-                                                  object: nil)
+        articleAPI.stopListen()
     }
 
     // MARK: - functions
-    @objc private func updateValues() {
-        if let codeOfSelectedArticle = codeOfSelectedArticle {
-            guard let articleToLoad = InMemoryStorage.shared.selectArticle(by: codeOfSelectedArticle) else {return}
-            titleLabel.text = articleToLoad.title
-            authorLabel.text = articleToLoad.author
-            descriptionTextField.text = articleToLoad.description
-            isbnLabel.text = articleToLoad.isbn
-            priceLabel.text = String(articleToLoad.price) + " €"
-            codeLabel.text = articleToLoad.code
-            if let qRCode = generateQrCode(from: articleToLoad.code) {
-                qRCodeImage.image = qRCode
-            }
-            articleLabelCodeLabel.text = articleToLoad.code
-            articleLabelPriceLabel.text = String(articleToLoad.price) + " €"
-        } else {
-            self.navigationController?.popViewController(animated: true)
+    private func updateValues() {
+        guard let article = displayedArticle else {
+            return
         }
+        titleLabel.text = article.title
+        authorLabel.text = article.author
+        descriptionTextField.text = article.description
+        isbnLabel.text = article.isbn
+        priceLabel.text = String(article.price) + " €"
+        codeLabel.text = article.code
+        if let qRCode = generateQrCode(from: article.code) {
+            qRCodeImage.image = qRCode
+        }
+        articleLabelCodeLabel.text = article.code
+        articleLabelPriceLabel.text = String(article.price) + " €"
+
     }
+
+    private func loadArticleToDisplay() {
+           guard let uniqueID = selectedArticleUniqueID else {
+               self.navigationController?.popViewController(animated: true)
+               return
+           }
+           articleAPI.loadArticle(uniqueID: uniqueID) { (error, loadedArticle) in
+               self.toogleActivity(loading: false)
+               if let error = error {
+                   self.displayAlert(
+                       message: error.message,
+                       title: NSLocalizedString(
+                           "Error !", comment: ""))
+               } else {
+                   guard let article = loadedArticle else {
+                       self.navigationController?.popViewController(animated: true)
+                       return
+                   }
+                   self.displayedArticle = article
+                   self.updateValues()
+               }
+           }
+       }
+
     private func toogleRegisterSaleView(registering: Bool) {
-        saveButtonStackView.isHidden = !registering
+        selectButtonStackView.isHidden = !registering
         articleLabelView.isHidden = registering
     }
+
     private func generateQrCode(from stingToConvert: String) -> UIImage? {
         // create QRCode from the code of the article
         // Get data from the string
@@ -97,10 +134,27 @@ class ArticleViewController: UIViewController {
 
     }
 
-    private func saveArticleInSale(codeOfArticle: String? ) {
-        if let code = codeOfArticle {
-            InMemoryStorage.shared.addArticleToCurrentTransaction(codeOfArticle: code)
-            self.performSegue(withIdentifier: "undwindToBuyVC", sender: self)
+    private func didSelectArticle(articleUniqueID: String? ) {
+        guard let articleUniqueID = articleUniqueID else {
+            return
         }
+
+        if let selectingDelegateVC = selectingDelegate {
+            selectingDelegateVC.didSelectArticle(articleUniqueID: articleUniqueID)
+            self.performSegue(withIdentifier: "undwindToBuyVC", sender: self)
+            //FIXME: A corriger
+        }
+    }
+
+    private func setStyleOfVC() {
+           selectButton.layer.cornerRadius = 10
+           articleLabelView.layer.cornerRadius = 10
+           articleLabelView.layer.borderColor = #colorLiteral(red: 0.9996456504, green: 0.3689938188, blue: 0.396720767, alpha: 1)
+           articleLabelView.layer.borderWidth = 2
+       }
+
+    private func toogleActivity(loading: Bool) {
+        activityIndicator.isHidden = !loading
+        mainStackView.isHidden = loading
     }
 }

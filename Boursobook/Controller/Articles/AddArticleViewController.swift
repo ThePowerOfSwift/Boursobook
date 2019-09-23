@@ -23,7 +23,6 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     @IBOutlet weak var authorTexField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var isbnTextField: UITextField!
-    @IBOutlet weak var articleCodeLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var saveButton: UIButton!
@@ -190,7 +189,7 @@ extension AddArticleViewController: UITextFieldDelegate {
     }
 
     @objc func keyboardWasShown(notification: NSNotification) {
-        var userInfo = notification.userInfo!
+        let userInfo = notification.userInfo!
         guard let keyboardFrameBegin = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }

@@ -11,41 +11,66 @@ import UIKit
 class BrowseArticleListTableViewController: UITableViewController {
 
     // MARK: - Properties
-    var articlesToDisplay = [Article]()
-    var codeOfSelectedArticle: String?
+    var displayedArticles = [Article]()
+    var selectedArticleUniqueID: String?
+    let articleAPI = ArticleAPI()
+    var currentTransaction: Transaction?
 
     // MARK: - IBOutlets
     @IBOutlet var articleListTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.articleUpdatedNotification,
-                                               object: nil)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.articleUpdatedNotification,
-                                                  object: nil)
+        activityIndicator.isHidden = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateValues()
+        loadArticlesToDisplay()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        articleAPI.stopListen()
+    }
+
+    deinit {
+        articleAPI.stopListen()
     }
 
     // MARK: - functions
-    @objc func updateValues() {
-        articlesToDisplay = InMemoryStorage.shared.filterNosoldArticles()
-        for (articleCode, _) in InMemoryStorage.shared.currentTransaction.articles {
-            for (index, article) in articlesToDisplay.enumerated() where article.code == articleCode {
-                articlesToDisplay.remove(at: index)
+    func updateValues() {
+        guard let currentTransaction = currentTransaction else {
+            return
+        }
+        for (articleCode, _) in currentTransaction.articles {
+            for (index, article) in displayedArticles.enumerated() where article.code == articleCode {
+                displayedArticles.remove(at: index)
             }
         }
         articleListTableView.reloadData()
+    }
+
+    private func loadArticlesToDisplay() {
+
+        articleAPI.loadNoSoldArticlesFor(purse: InMemoryStorage.shared.inWorkingPurse) { (error, loadedArticles) in
+            self.activityIndicator.isHidden = true
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let articles = loadedArticles else {
+                    return
+                }
+                self.displayedArticles = articles
+                self.updateValues()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -54,7 +79,7 @@ class BrowseArticleListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articlesToDisplay.count
+        return displayedArticles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,13 +88,13 @@ class BrowseArticleListTableViewController: UITableViewController {
                                                         return UITableViewCell()
         }
 
-        let article = articlesToDisplay[indexPath.row]
+        let article = displayedArticles[indexPath.row]
         cell.configure(with: article)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        codeOfSelectedArticle = articlesToDisplay[indexPath.row].code
+        selectedArticleUniqueID = displayedArticles[indexPath.row].uniqueID
         self.performSegue(withIdentifier: "segueToArticleFromBrowseArticle", sender: nil)
     }
 
@@ -77,7 +102,7 @@ class BrowseArticleListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToArticleFromBrowseArticle" {
             if let articleVC = segue.destination as? ArticleViewController {
-                articleVC.codeOfSelectedArticle = codeOfSelectedArticle
+                articleVC.selectedArticleUniqueID = selectedArticleUniqueID
                 articleVC.isRegisterSale = true
             }
         }

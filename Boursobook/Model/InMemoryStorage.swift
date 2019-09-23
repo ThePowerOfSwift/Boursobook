@@ -37,24 +37,6 @@ class InMemoryStorage {
     private let articleAPI = ArticleAPI()
     var onArticleUpdate: (() -> Void)?
 
-    // MARK: - Functions for articles
-    func loadArticles(callBack: @escaping (Error?) -> Void) {
-        // Load all the articles that have current purse as purse
-        articleAPI.loadArticlesFor(purse: currentPurse) { (error, articlesLoaded) in
-            if let error = error {
-                callBack(error)
-            } else {
-                guard let articlesLoaded = articlesLoaded else {
-                    callBack(IMSError.other)
-                    return
-                }
-                self.articles = articlesLoaded
-                self.onArticleUpdate?()
-                callBack(nil)
-            }
-        }
-    }
-
     //--------------------------------------
     //FIXME : a suprimer en dessous
     // ----------------------------------------
@@ -165,12 +147,6 @@ extension InMemoryStorage {
         return selectedArticle
     }
 
-    func isExistingArticleWith(code: String) -> Bool {
-        for article in articles where article.code == code {
-            return true
-        }
-        return false
-    }
 }
 
 // MARK: - Functions TRANSACTION
@@ -223,13 +199,6 @@ extension InMemoryStorage {
         }
         currentTransaction.articles.removeValue(forKey: codeOfArticle)
         currentTransaction.numberOfArticle -= 1
-    }
-
-    func isCodeArticleInCurrentTransaction(code: String) -> Bool {
-        for (key, _) in currentTransaction.articles where  key == code {
-            return true
-        }
-        return false
     }
 
     func validCurrentTransaction() {

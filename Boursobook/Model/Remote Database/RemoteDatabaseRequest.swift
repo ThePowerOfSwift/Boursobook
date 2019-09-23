@@ -79,15 +79,28 @@ protocol RemoteDatabaseRequest {
                                                completionHandler: @escaping (Error?) -> Void)
 
     /**
-     Request to run a transaction on tree different object "Model" in the remote database
+     Request to run a transaction on two different object "Model" and create one in the remote database
      */
-    func runTransaction<
+    func runTransactionForCreate<
+        FirstModel: RemoteDataBaseModel,
+        SecondModel: RemoteDataBaseModel,
+        ResultModel: RemoteDataBaseModel>(models: (firstModel: FirstModel, secondModel: SecondModel),
+                                          blocks: (firstBlock: (_ firstModelBlock: FirstModel) -> [String: Any], secondBlock: (_ secondModelBlock: SecondModel) -> [String: Any]),
+                                          resultBlock: @escaping () -> ResultModel,
+                                          completionHandler: @escaping (Error?) -> Void)
+
+    /**
+     Request to run a transaction on two different object "Model" and delete one in the remote database
+     */
+    func runTransactionForRemove<
         FirstModel: RemoteDataBaseModel,
         SecondModel: RemoteDataBaseModel,
         ResultModel: RemoteDataBaseModel>(firstModel: FirstModel,
                                           secondModel: SecondModel,
                                           firstBlock: @escaping (_ firstModelBlock: FirstModel) -> [String: Any],
                                           secondBlock: @escaping (_ secondModelBlock: SecondModel) -> [String: Any],
-                                          resultBlock: @escaping () -> ResultModel,
+                                          modelToRemove: ResultModel,
                                           completionHandler: @escaping (Error?) -> Void)
+
 }
+

@@ -9,7 +9,7 @@
 // General
 "Error !" = "Error !";
 "It's ok !" = "It's ok !";
-"Sorry, it's note possible yet !" = "Sorry, it's note possible yet !";
+"Sorry, it's note possible yet !" = "Sorry, it's not possible yet !";
 
 //AddSellerViewController
 "Please, fill all the field !" = "Please, fill all the field !";

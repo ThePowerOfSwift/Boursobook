@@ -95,14 +95,18 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
     }
 
     // Run a transaction on Tree different object "Model" from FireBase in a collection
-    func runTransaction<FirstModel, SecondModel, ResultModel>(
-        firstModel: FirstModel,
-        secondModel: SecondModel,
-        firstBlock: @escaping (_ firstModelBlock: FirstModel) -> [String: Any],
-        secondBlock: @escaping (_ secondModelBlock: SecondModel) -> [String: Any],
+    func runTransactionForCreate<FirstModel, SecondModel, ResultModel>(
+        models: (firstModel: FirstModel, secondModel: SecondModel),
+        blocks: (firstBlock: (_ firstModelBlock: FirstModel) -> [String: Any],
+                secondBlock: (_ secondModelBlock: SecondModel) -> [String: Any]),
         resultBlock: @escaping () -> ResultModel,
         completionHandler: @escaping (Error?) -> Void)
             where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+
+            let firstModel = models.firstModel
+            let secondModel = models.secondModel
+            let firstBlock = blocks.firstBlock
+            let secondBlock = blocks.secondBlock
 
             let firstReference = firestoneDatabase.collection(FirstModel.collection).document(firstModel.uniqueID)
             let secondReference = firestoneDatabase.collection(SecondModel.collection).document(secondModel.uniqueID)
@@ -147,6 +151,59 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
                     completionHandler(nil)
                 }
             })
+    }
+
+    // Run a transaction for delete an object "Model" from FireBase in a collection
+    func runTransactionForRemove<FirstModel, SecondModel, ResultModel>(
+        firstModel: FirstModel,
+        secondModel: SecondModel,
+        firstBlock: @escaping (_ firstModelBlock: FirstModel) -> [String: Any],
+        secondBlock: @escaping (_ secondModelBlock: SecondModel) -> [String: Any],
+        modelToRemove: ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+        where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+
+            let firstReference = firestoneDatabase.collection(FirstModel.collection).document(firstModel.uniqueID)
+            let secondReference = firestoneDatabase.collection(SecondModel.collection).document(secondModel.uniqueID)
+
+            firestoneDatabase.runTransaction({ (transaction, errorPointer) -> Any? in
+                let firstDocument: DocumentSnapshot
+                let secondDocument: DocumentSnapshot
+
+                do {
+                    try firstDocument = transaction.getDocument(firstReference)
+                    try secondDocument = transaction.getDocument(secondReference)
+
+                } catch let fetchError as NSError {
+                    errorPointer?.pointee = fetchError
+                    return nil
+                }
+                guard let firstDocumentModel: FirstModel = firstDocument.data()?.toModel() else {
+                    return nil
+                }
+                guard let secondDocumentModel: SecondModel = secondDocument.data()?.toModel() else {
+                    return nil
+                }
+
+                let firstData: [String: Any] = firstBlock(firstDocumentModel)
+                let secondData: [String: Any] = secondBlock(secondDocumentModel)
+
+                let removeReference = self.firestoneDatabase.collection(ResultModel.collection)
+                    .document(modelToRemove.uniqueID)
+
+                transaction.updateData(firstData, forDocument: firstReference)
+                transaction.updateData(secondData, forDocument: secondReference)
+                transaction.deleteDocument(removeReference)
+
+                return nil
+            }, completion: { (_, error) in
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
+            })
+
     }
 
     // Get only Once objects "Model" from FireBase in a collection

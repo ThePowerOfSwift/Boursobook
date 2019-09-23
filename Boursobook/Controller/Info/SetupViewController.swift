@@ -274,7 +274,7 @@ extension SetupViewController: UITextFieldDelegate {
     }
 
     @objc func keyboardWasShown(notification: NSNotification) {
-        var userInfo = notification.userInfo!
+        let userInfo = notification.userInfo!
         guard let keyboardFrameBegin = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }

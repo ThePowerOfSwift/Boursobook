@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F07A98F2338C49D0035D93F /* SelectingArticleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F07A98E2338C49D0035D93F /* SelectingArticleDelegate.swift */; };
 		4F16C728230FE79B00063B95 /* ArticleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16C727230FE79B00063B95 /* ArticleTestCase.swift */; };
 		4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */; };
 		4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83E22FAF4E9004C545C /* BookServiceTestCase.swift */; };
@@ -111,6 +112,7 @@
 		1104027D79BE5C839A2ACB5E /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		172B6770E3BD2DD917D1F010 /* Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; sourceTree = "<group>"; };
 		4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F07A98E2338C49D0035D93F /* SelectingArticleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingArticleDelegate.swift; sourceTree = "<group>"; };
 		4F16C727230FE79B00063B95 /* ArticleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTestCase.swift; sourceTree = "<group>"; };
 		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
 		4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheetTestCase.swift; sourceTree = "<group>"; };
@@ -527,8 +529,8 @@
 		4FC5136122B155F5000FD572 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4FCF6B00232D998B00C71C11 /* Info.storyboard */,
 				4FC5133E22B13440000FD572 /* Main.storyboard */,
+				4FCF6B00232D998B00C71C11 /* Info.storyboard */,
 				4FC5134622B13440000FD572 /* LaunchScreen.storyboard */,
 				4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */,
 				4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */,
@@ -550,6 +552,7 @@
 				4F1E66D322DF252800C73B88 /* Articles */,
 				4FA05B9322BD880200708718 /* UIViewController+Extension.swift */,
 				4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */,
+				4F07A98E2338C49D0035D93F /* SelectingArticleDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -653,7 +656,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "David Dubez";
 				TargetAttributes = {
 					4FC5134D22B13440000FD572 = {
@@ -841,6 +844,7 @@
 				4F6B770B23100CB10028EA97 /* TransactionStorageManager.swift in Sources */,
 				4F6B770C23100CB10028EA97 /* InMemoryStorage.swift in Sources */,
 				4F815EA72322418E00C6718A /* UserAuthAPI.swift in Sources */,
+				4F07A98F2338C49D0035D93F /* SelectingArticleDelegate.swift in Sources */,
 				4F6B770D23100CB10028EA97 /* Transaction.swift in Sources */,
 				4F6B770E23100CB10028EA97 /* Book.swift in Sources */,
 				4F6B770F23100CB10028EA97 /* InfoViewController.swift in Sources */,

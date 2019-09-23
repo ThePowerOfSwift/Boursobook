@@ -11,46 +11,68 @@ import UIKit
 class ArticleListTableViewController: UITableViewController {
 
     // MARK: - Properties
-    var uniqueIdOfSelectedSeller: String?
-    var articlesToDisplay = [Article]()
-    var codeOfSelectedArticle: String?
+    var selectedSeller: Seller?
+    var displayedArticles = [Article]()
+    var selectedArticleUniqueID: String?
+    let articleAPI = ArticleAPI()
 
     // MARK: - IBOutlets
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet var articleListTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let uniqueIdOfSeller = uniqueIdOfSelectedSeller else {
+        activityIndicator.isHidden = false
+        guard let seller = selectedSeller else {
             self.navigationController?.popViewController(animated: true)
             return
         }
-
-        for seller in InMemoryStorage.shared.sellers where seller.code == uniqueIdOfSeller {
-            sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "")
-                + seller.firstName + " " + seller.familyName
-        }
-        NotificationCenter.default.addObserver(self, selector: #selector(updateValues),
-                                               name: InMemoryStorage.articleUpdatedNotification,
-                                               object: nil)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: InMemoryStorage.articleUpdatedNotification,
-                                                  object: nil)
+        sellerNameLabel.text = NSLocalizedString("Articles of  ", comment: "")
+            + seller.firstName + " " + seller.familyName
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateValues()
+        loadArticlesToDisplay()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        articleAPI.stopListen()
+    }
+
+    deinit {
+        articleAPI.stopListen()
     }
 
     // MARK: - functions
-    @objc func updateValues() {
-//        articlesToDisplay = InMemoryStorage.shared.filterArticles(by: uniqueIdOfSelectedSeller)
+    func updateValues() {
         articleListTableView.reloadData()
+    }
+
+    private func loadArticlesToDisplay() {
+        guard let seller = selectedSeller else {
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        articleAPI.loadArticlesFor(seller: seller) { (error, loadedArticles) in
+            self.activityIndicator.isHidden = true
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+            } else {
+                guard let articles = loadedArticles else {
+                    return
+                }
+                self.displayedArticles = articles
+                self.updateValues()
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -59,7 +81,7 @@ class ArticleListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articlesToDisplay.count
+        return displayedArticles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,13 +90,13 @@ class ArticleListTableViewController: UITableViewController {
                                                         return UITableViewCell()
         }
 
-        let article = articlesToDisplay[indexPath.row]
+        let article = displayedArticles[indexPath.row]
         cell.configure(with: article)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        codeOfSelectedArticle = articlesToDisplay[indexPath.row].code
+        selectedArticleUniqueID = displayedArticles[indexPath.row].uniqueID
         self.performSegue(withIdentifier: "segueToArticleFromArticleList", sender: nil)
     }
 
@@ -82,7 +104,7 @@ class ArticleListTableViewController: UITableViewController {
                             commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 
-            let articleToDelete = articlesToDisplay[indexPath.row]
+            let articleToDelete = displayedArticles[indexPath.row]
             displayAlertConfirmDelete(for: articleToDelete)
         }
     }
@@ -92,7 +114,7 @@ class ArticleListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToArticleFromArticleList" {
             if let articleVC = segue.destination as? ArticleViewController {
-                articleVC.codeOfSelectedArticle = codeOfSelectedArticle
+                articleVC.selectedArticleUniqueID = selectedArticleUniqueID
                 articleVC.isRegisterSale = false
             }
         }
@@ -107,8 +129,18 @@ class ArticleListTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                                          style: .default)
         let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
-            InMemoryStorage.shared.removeArticle(article)
-            self.updateValues()
+            self.articleAPI.removeArticle(purse: InMemoryStorage.shared.inWorkingPurse,
+                                          seller: self.selectedSeller, article: article) { (error) in
+                                            if let error = error {
+                                                self.displayAlert(
+                                                    message: error.message,
+                                                    title: NSLocalizedString(
+                                                        "Error !", comment: ""))
+                                                return
+                                            } else {
+                                                self.updateValues()
+                                            }
+            }
         }
         alert.addAction(confirmAction)
         alert.addAction(cancelAction)

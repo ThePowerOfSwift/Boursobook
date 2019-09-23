@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BuyViewController: UIViewController {
+class BuyViewController: UIViewController, SelectingArticleDelegate {
 
     // MARK: - Properties
     var articleList = [Article]()
+    var currentTransaction = Transaction()
 
     // MARK: - IBOutlets
     @IBOutlet weak var numberOfRegisteredArticleLabel: UILabel!
@@ -20,6 +21,9 @@ class BuyViewController: UIViewController {
     @IBOutlet weak var selectedArticleTableView: UITableView!
 
     // MARK: - IBActions
+    @IBAction func didTapAddArticleButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "segueToScanQRCode", sender: nil)
+    }
     @IBAction func didTapSaveButton(_ sender: UIButton) {
         saveTheSale()
     }
@@ -54,6 +58,11 @@ class BuyViewController: UIViewController {
         totalAmountSaleLabel.text = String(InMemoryStorage.shared.currentTransaction.amount)
     }
 
+    // To conform to SelectingArticleDelegate Protocol
+    func didSelectArticle(articleUniqueID: String) {
+        //FIXME: A implementer
+    }
+
     private func saveTheSale() {
         if InMemoryStorage.shared.currentTransaction.numberOfArticle == 0 {
             self.displayAlert(message: NSLocalizedString("Nothing To Save !",
@@ -80,6 +89,14 @@ class BuyViewController: UIViewController {
     }
     // MARK: - Navigation
    @IBAction func unwindToBuyVC(segue: UIStoryboardSegue) { }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToScanQRCode" {
+            if let scanQRCodeVC = segue.destination as? ScanViewController {
+                scanQRCodeVC.currentTransaction = currentTransaction
+            }
+        }
+    }
 }
 
 // MARK: - TableView for list of article

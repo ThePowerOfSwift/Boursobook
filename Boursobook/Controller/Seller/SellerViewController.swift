@@ -139,7 +139,7 @@ class SellerViewController: UIViewController {
         }
         if segue.identifier == "segueToArticleList" {
             if let articleListVC = segue.destination as? ArticleListTableViewController {
-                articleListVC.uniqueIdOfSelectedSeller = uniqueIdOfSelectedSeller
+                articleListVC.selectedSeller = displayedSeller
             }
         }
     }

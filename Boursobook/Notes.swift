@@ -15,10 +15,6 @@ import Foundation
             - Simpliffier les fonctionnalités non necessaires pour la soutenance
             - Verifier la generation de la page des QRCode
             - ajouter titre et ISBN sur le QR Code
- 
- 
-            - Arreter la syncchro des bases quand l'app n'est plus active et la remttre quand elle arrive
-                (est ce que j'arrete la syncho sur chaque VC? )
 
             - mettre un message d'alerte pour dire que l'on a pas de reseau
             - voir ce qui se passe si pas de reseau et pas d'acces ???
@@ -26,6 +22,7 @@ import Foundation
             - Verifier le bon coverage des tests
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
+            - supprimer les fichiers .services
             - Supprimer tous les messages d'alertes dans la console
             - faire disparaitre le login si on est déja logé
             - Utiliser KeyChain pour sauvegarder le mot de passe
@@ -42,9 +39,15 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
- - test du reseau mauvais ? (network conditionner appli sur le mac )
+ - Simplifier les blocs de transaction
+ - pourquoi c'est moche dans le storyboard (affichage decalé dans le simulateur)
+ metrre en fullscreen
 
-- Pourquoi sur les tests de API,  le completionHandler(PAPIError.other, nil)
+
+ - test du reseau mauvais ? (network conditionner appli sur le mac )
+ https://mattmiklic.com/2018/02/19/enabling-network-link-conditioner-on-iphone-and-ipad/
+
+ - Pourquoi sur les tests de API,  le completionHandler(PAPIError.other, nil)
  n'est pas marqué tester alors que oui ? Return ??
 
  
@@ -71,7 +74,6 @@ import Foundation
 /*
  - calcul des articles à vendre et vendus
  - probleme de la fonction nextnumber si on supprime des articles et qu'on en crée d'autre après
- - Mettre les zero dans le numero d'ordre
  
  */
 
@@ -116,8 +118,6 @@ import Foundation
 // MARK: - AddArticleVC
 /*
  - Gerer le format de l'isbn
- - Calculer forfait d'insription en fonction du nombre d'article
- - #### Mettre a jour le montant de desposit fee dans la purse #####
  - probleme avec certain livre error in JSONDECODER
  
  */
