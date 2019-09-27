@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController {
+class ScanQrCodeViewController: UIViewController {
 
     // MARK: - Properties
     var captureSession = AVCaptureSession()
@@ -17,7 +17,7 @@ class ScanViewController: UIViewController {
     var qrCodeFrameView: UIView?
     let articleAPI = ArticleAPI()
     var articlesForSearch = [Article]()
-    var currentTransaction: Transaction?
+    var currentSale: Sale?
     var selectedArticleUniqueID: String?
 
     // MARK: - IBOutlets
@@ -76,7 +76,7 @@ class ScanViewController: UIViewController {
 
         if segue.identifier == "segueToBrowseArticleList" {
             if let browseArticleListVC = segue.destination as? BrowseArticleListTableViewController {
-                browseArticleListVC.currentTransaction = currentTransaction
+                browseArticleListVC.currentSale = currentSale
             }
         }
     }
@@ -106,16 +106,16 @@ class ScanViewController: UIViewController {
                      title: NSLocalizedString("Error !", comment: ""))
     }
 
-    func searchArticleWith(code: String) {
-        if isExistingArticleWith(code: code)
-            && !isCodeArticleInCurrentTransaction(code: code) {
-            for article in articlesForSearch where article.code == code {
+    func searchArticleWith(uniqueId: String) {
+        if isExistingArticleWith(uniqueId: uniqueId)
+            && !isCodeArticleInCurrentTransaction(uniqueId: uniqueId) {
+            for article in articlesForSearch where article.uniqueID == uniqueId {
                 selectedArticleUniqueID = article.uniqueID
             }
             self.performSegue(withIdentifier: "segueToArticleFromScan", sender: nil)
 
-        } else if isExistingArticleWith(code: code)
-            && isCodeArticleInCurrentTransaction(code: code) {
+        } else if isExistingArticleWith(uniqueId: uniqueId)
+            && isCodeArticleInCurrentTransaction(uniqueId: uniqueId) {
             presentAlertForCode(message: NSLocalizedString("Article allready scanned", comment: ""))
 
         } else {
@@ -124,18 +124,18 @@ class ScanViewController: UIViewController {
         }
     }
 
-    func isExistingArticleWith(code: String) -> Bool {
-        for article in articlesForSearch where article.code == code {
+    func isExistingArticleWith(uniqueId: String) -> Bool {
+        for article in articlesForSearch where article.uniqueID == uniqueId {
             return true
         }
         return false
     }
 
-    func isCodeArticleInCurrentTransaction(code: String) -> Bool {
-        guard let transaction = currentTransaction else {
+    func isCodeArticleInCurrentTransaction(uniqueId: String) -> Bool {
+        guard let sale = currentSale else {
             return false
         }
-        for (key, _) in transaction.articles where  key == code {
+        for (key, _) in sale.articles where  key == uniqueId {
             return true
         }
         return false
@@ -212,7 +212,7 @@ class ScanViewController: UIViewController {
 }
 
 // Capture QRCode
-extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
+extension ScanQrCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
@@ -221,7 +221,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            searchArticleWith(code: stringValue)
+            searchArticleWith(uniqueId: stringValue)
         }
     }
 }

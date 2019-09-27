@@ -15,7 +15,6 @@ class ArticleViewController: UIViewController {
     var isRegisterSale: Bool?
     var displayedArticle: Article?
     let articleAPI = ArticleAPI()
-    weak var selectingDelegate: SelectingArticleDelegate?
 
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -77,7 +76,7 @@ class ArticleViewController: UIViewController {
         isbnLabel.text = article.isbn
         priceLabel.text = String(article.price) + " €"
         codeLabel.text = article.code
-        if let qRCode = generateQrCode(from: article.code) {
+        if let qRCode = generateQrCode(from: article.uniqueID) {
             qRCodeImage.image = qRCode
         }
         articleLabelCodeLabel.text = article.code
@@ -138,12 +137,8 @@ class ArticleViewController: UIViewController {
         guard let articleUniqueID = articleUniqueID else {
             return
         }
-
-        if let selectingDelegateVC = selectingDelegate {
-            selectingDelegateVC.didSelectArticle(articleUniqueID: articleUniqueID)
-            self.performSegue(withIdentifier: "undwindToBuyVC", sender: self)
-            //FIXME: A corriger
-        }
+        InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.append(articleUniqueID)
+        self.performSegue(withIdentifier: "undwindToBuyVC", sender: self)
     }
 
     private func setStyleOfVC() {

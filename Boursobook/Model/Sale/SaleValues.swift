@@ -1,5 +1,5 @@
 //
-//  SelectingArticleDelegate.swift
+//  SaleValues.swift
 //  Boursobook
 //
 //  Created by David Dubez on 23/09/2019.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol SelectingArticleDelegate: class {
-    func didSelectArticle(articleUniqueID: String)
+struct SaleValues {
+    var amount: Double
+    var number: Int
 }

@@ -18,7 +18,7 @@ import Foundation
 
             - mettre un message d'alerte pour dire que l'on a pas de reseau
             - voir ce qui se passe si pas de reseau et pas d'acces ???
-            - Ajouter des activity indicator dans toutes les vues ou il y a des acces à la base
+            - Ajouter des activity indicator dans toutes les vues de info (au chargement des données)
             - Verifier le bon coverage des tests
             - test en release si la base prod fonctionne
             - Supprimer le fichier Notes
@@ -39,6 +39,8 @@ import Foundation
 
 // MARK: - A voir avec Vincent
 /*
+ - Comment on peut passer des information de retours entre VC qui ne sont pas lié par un segue direct ?
+
  - Simplifier les blocs de transaction
  - pourquoi c'est moche dans le storyboard (affichage decalé dans le simulateur)
  metrre en fullscreen

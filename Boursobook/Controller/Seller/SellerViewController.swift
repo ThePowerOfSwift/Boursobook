@@ -235,8 +235,8 @@ extension SellerViewController {
         // create label with the QRCode from the article
         UIGraphicsBeginImageContext(CGSize(width: labelSheet.labelWidthInMM, height: labelSheet.labelHeightInMM))
 
-        // Get data from the code string
-        let data = article.code.data(using: String.Encoding.ascii)
+        // Get data from the uniqueID string
+        let data = article.uniqueID.data(using: String.Encoding.ascii)
         // Get a QR CIFilter
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         // Input the data

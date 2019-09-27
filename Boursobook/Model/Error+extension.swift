@@ -31,6 +31,8 @@ extension Error {
             return NSLocalizedString(errorType.rawValue, comment: "")
         } else if let errorType = self as? RemoteAuthentication.RAError {
             return NSLocalizedString(errorType.rawValue, comment: "")
+        } else if let errorType = self as? SaleAPI.SAPIError {
+            return NSLocalizedString(errorType.rawValue, comment: "")
         } else {
             return "\(NSLocalizedString("Error !", comment: ""))" + "\n" + String(describing: self)
         }

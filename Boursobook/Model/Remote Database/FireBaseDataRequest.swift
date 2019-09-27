@@ -94,7 +94,7 @@ class FireBaseDataRequest: RemoteDatabaseRequest {
         }
     }
 
-    // Run a transaction on Tree different object "Model" from FireBase in a collection
+    // Run a transaction on two different object "Model" from FireBase in a collection and create one
     func runTransactionForCreate<FirstModel, SecondModel, ResultModel>(
         models: (firstModel: FirstModel, secondModel: SecondModel),
         blocks: (firstBlock: (_ firstModelBlock: FirstModel) -> [String: Any],

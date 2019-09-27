@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F07A98F2338C49D0035D93F /* SelectingArticleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F07A98E2338C49D0035D93F /* SelectingArticleDelegate.swift */; };
 		4F16C728230FE79B00063B95 /* ArticleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16C727230FE79B00063B95 /* ArticleTestCase.swift */; };
 		4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */; };
 		4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83E22FAF4E9004C545C /* BookServiceTestCase.swift */; };
@@ -18,14 +17,16 @@
 		4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
 		4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */; };
+		4F25C3FC23390D6D00916CC8 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C3FB23390D6D00916CC8 /* Sale.swift */; };
+		4F25C3FF23390DF200916CC8 /* SaleValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C3FE23390DF200916CC8 /* SaleValues.swift */; };
+		4F25C4012339138800916CC8 /* SaleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C4002339138800916CC8 /* SaleAPI.swift */; };
 		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
 		4F6B76F123100CB10028EA97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		4F6B76F223100CB10028EA97 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
-		4F6B76F323100CB10028EA97 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */; };
 		4F6B76F423100CB10028EA97 /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
-		4F6B76F523100CB10028EA97 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* BuyViewController.swift */; };
+		4F6B76F523100CB10028EA97 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* SaleViewController.swift */; };
 		4F6B76F623100CB10028EA97 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
-		4F6B76F723100CB10028EA97 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */; };
+		4F6B76F723100CB10028EA97 /* ScanQrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */; };
 		4F6B76F823100CB10028EA97 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
 		4F6B76F923100CB10028EA97 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
 		4F6B76FA23100CB10028EA97 /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
@@ -45,16 +46,13 @@
 		4F6B770823100CB10028EA97 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
 		4F6B770923100CB10028EA97 /* RemoteDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */; };
 		4F6B770A23100CB10028EA97 /* SellerCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9122BD83F700708718 /* SellerCode.swift */; };
-		4F6B770B23100CB10028EA97 /* TransactionStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */; };
 		4F6B770C23100CB10028EA97 /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */; };
-		4F6B770D23100CB10028EA97 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */; };
 		4F6B770E23100CB10028EA97 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7EE22EDE162001FA860 /* Book.swift */; };
 		4F6B770F23100CB10028EA97 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7422BCFD4900708718 /* InfoViewController.swift */; };
 		4F6B771023100CB10028EA97 /* ArticleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */; };
 		4F6B771123100CB10028EA97 /* SellersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8222BD06E100708718 /* SellersListViewController.swift */; };
 		4F6B771223100CB10028EA97 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9F22C3484A00708718 /* ArticleViewController.swift */; };
 		4F6B771323100CB10028EA97 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8822BD356500708718 /* Seller.swift */; };
-		4F6B771423100CB10028EA97 /* TransactionValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */; };
 		4F6B771523100CB10028EA97 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9522C2400E00708718 /* AddArticleViewController.swift */; };
 		4F6B771723100CB10028EA97 /* FireBaseDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */; };
 		4F6B771823100CB10028EA97 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7F022EF44E7001FA860 /* BookService.swift */; };
@@ -112,7 +110,6 @@
 		1104027D79BE5C839A2ACB5E /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
 		172B6770E3BD2DD917D1F010 /* Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookProduction-BoursobookDevelopment/Pods-BoursobookProduction-BoursobookDevelopment.debug.xcconfig"; sourceTree = "<group>"; };
 		4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F07A98E2338C49D0035D93F /* SelectingArticleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingArticleDelegate.swift; sourceTree = "<group>"; };
 		4F16C727230FE79B00063B95 /* ArticleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTestCase.swift; sourceTree = "<group>"; };
 		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
 		4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheetTestCase.swift; sourceTree = "<group>"; };
@@ -124,22 +121,21 @@
 		4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTestCase.swift; sourceTree = "<group>"; };
 		4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSetupViewController.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
-		4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorageManager.swift; sourceTree = "<group>"; };
 		4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseDataRequest.swift; sourceTree = "<group>"; };
 		4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRequestMock.swift; sourceTree = "<group>"; };
 		4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleListTableViewController.swift; sourceTree = "<group>"; };
+		4F25C3FB23390D6D00916CC8 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		4F25C3FE23390DF200916CC8 /* SaleValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleValues.swift; sourceTree = "<group>"; };
+		4F25C4002339138800916CC8 /* SaleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPI.swift; sourceTree = "<group>"; };
 		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
 		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		4F6B772C23100CB10028EA97 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
-		4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseService.swift; sourceTree = "<group>"; };
 		4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStorage.swift; sourceTree = "<group>"; };
-		4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E722E2F683001FA860 /* LabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheet.swift; sourceTree = "<group>"; };
-		4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionValues.swift; sourceTree = "<group>"; };
 		4F7AA7EB22EDDBAC001FA860 /* ScanBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBookViewController.swift; sourceTree = "<group>"; };
 		4F7AA7EE22EDE162001FA860 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4F7AA7F022EF44E7001FA860 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
@@ -162,7 +158,7 @@
 		4F815EAD2322576C00C6718A /* UserTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestCase.swift; sourceTree = "<group>"; };
 		4F815EAF2322591500C6718A /* UserAuthAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthAPITestCase.swift; sourceTree = "<group>"; };
 		4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationRequestMock.swift; sourceTree = "<group>"; };
-		4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrCodeViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
 		4F9E864022C6239A00C9BE1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -172,7 +168,7 @@
 		4F9E864D22C6431700C9BE1E /* Error+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extension.swift"; sourceTree = "<group>"; };
 		4FA05B7422BCFD4900708718 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4FA05B7822BCFE3900708718 /* SellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerViewController.swift; sourceTree = "<group>"; };
-		4FA05B8022BD01C100708718 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		4FA05B8022BD01C100708718 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
 		4FA05B8222BD06E100708718 /* SellersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellersListViewController.swift; sourceTree = "<group>"; };
 		4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSellerViewController.swift; sourceTree = "<group>"; };
 		4FA05B8822BD356500708718 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
@@ -289,6 +285,16 @@
 			path = Articles;
 			sourceTree = "<group>";
 		};
+		4F25C3FD23390DA400916CC8 /* Sale */ = {
+			isa = PBXGroup;
+			children = (
+				4F25C3FB23390D6D00916CC8 /* Sale.swift */,
+				4F25C3FE23390DF200916CC8 /* SaleValues.swift */,
+				4F25C4002339138800916CC8 /* SaleAPI.swift */,
+			);
+			path = Sale;
+			sourceTree = "<group>";
+		};
 		4F3820262302ADEC00AB9577 /* Purse */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,17 +321,6 @@
 				4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */,
 			);
 			path = Purse;
-			sourceTree = "<group>";
-		};
-		4F6C1C3A22CE293A004C9BF3 /* Transaction */ = {
-			isa = PBXGroup;
-			children = (
-				4F6C1C3B22CE294C004C9BF3 /* Transaction.swift */,
-				4F7AA7E922EAFBEC001FA860 /* TransactionValues.swift */,
-				4F6C1C4122D5C1DB004C9BF3 /* TransactionService.swift */,
-				4F1B5739230BDDEF000C7276 /* TransactionStorageManager.swift */,
-			);
-			path = Transaction;
 			sourceTree = "<group>";
 		};
 		4F7AA7E622E2F1C0001FA860 /* LabelSheet */ = {
@@ -436,13 +431,13 @@
 			path = Seller;
 			sourceTree = "<group>";
 		};
-		4FA05B8B22BD3FC700708718 /* Buy */ = {
+		4FA05B8B22BD3FC700708718 /* Sales */ = {
 			isa = PBXGroup;
 			children = (
-				4FA05B8022BD01C100708718 /* BuyViewController.swift */,
-				4F8B454B22C9FBA8005FD099 /* ScanViewController.swift */,
+				4FA05B8022BD01C100708718 /* SaleViewController.swift */,
+				4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */,
 			);
-			path = Buy;
+			path = Sales;
 			sourceTree = "<group>";
 		};
 		4FA05B8C22BD3FE200708718 /* Info */ = {
@@ -513,7 +508,7 @@
 			children = (
 				4F7AA7ED22EDE100001FA860 /* Book */,
 				4F7AA7E622E2F1C0001FA860 /* LabelSheet */,
-				4F6C1C3A22CE293A004C9BF3 /* Transaction */,
+				4F25C3FD23390DA400916CC8 /* Sale */,
 				4F6C1C3722CE2424004C9BF3 /* Purse */,
 				4F9E864A22C6383D00C9BE1E /* User */,
 				4F9E864B22C6384C00C9BE1E /* Seller */,
@@ -547,12 +542,11 @@
 			children = (
 				4F6B918B231A931D004C863A /* Login */,
 				4FA05B8C22BD3FE200708718 /* Info */,
-				4FA05B8B22BD3FC700708718 /* Buy */,
+				4FA05B8B22BD3FC700708718 /* Sales */,
 				4FA05B8A22BD3FA100708718 /* Seller */,
 				4F1E66D322DF252800C73B88 /* Articles */,
 				4FA05B9322BD880200708718 /* UIViewController+Extension.swift */,
 				4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */,
-				4F07A98E2338C49D0035D93F /* SelectingArticleDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -807,14 +801,14 @@
 				4F6B76F123100CB10028EA97 /* LoginViewController.swift in Sources */,
 				4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */,
 				4F6B76F223100CB10028EA97 /* Article.swift in Sources */,
-				4F6B76F323100CB10028EA97 /* TransactionService.swift in Sources */,
 				4F6B76F423100CB10028EA97 /* SearchingBookDelegate.swift in Sources */,
 				4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */,
-				4F6B76F523100CB10028EA97 /* BuyViewController.swift in Sources */,
+				4F6B76F523100CB10028EA97 /* SaleViewController.swift in Sources */,
 				4F6B76F623100CB10028EA97 /* LabelSheet.swift in Sources */,
 				4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */,
 				4F815EA92322475800C6718A /* RemoteAuthentication.swift in Sources */,
-				4F6B76F723100CB10028EA97 /* ScanViewController.swift in Sources */,
+				4F25C3FF23390DF200916CC8 /* SaleValues.swift in Sources */,
+				4F6B76F723100CB10028EA97 /* ScanQrCodeViewController.swift in Sources */,
 				4FCF6AF92326A01700C71C11 /* UserListTableViewController.swift in Sources */,
 				4F815EA023215B8300C6718A /* FireBaseAuthenticationRequest.swift in Sources */,
 				4F6B76F823100CB10028EA97 /* SellerService.swift in Sources */,
@@ -841,18 +835,15 @@
 				4F6B770823100CB10028EA97 /* SellerListTableViewCell.swift in Sources */,
 				4F6B770923100CB10028EA97 /* RemoteDataBaseModel.swift in Sources */,
 				4F6B770A23100CB10028EA97 /* SellerCode.swift in Sources */,
-				4F6B770B23100CB10028EA97 /* TransactionStorageManager.swift in Sources */,
 				4F6B770C23100CB10028EA97 /* InMemoryStorage.swift in Sources */,
 				4F815EA72322418E00C6718A /* UserAuthAPI.swift in Sources */,
-				4F07A98F2338C49D0035D93F /* SelectingArticleDelegate.swift in Sources */,
-				4F6B770D23100CB10028EA97 /* Transaction.swift in Sources */,
 				4F6B770E23100CB10028EA97 /* Book.swift in Sources */,
 				4F6B770F23100CB10028EA97 /* InfoViewController.swift in Sources */,
 				4F6B771023100CB10028EA97 /* ArticleListTableViewCell.swift in Sources */,
 				4F6B771123100CB10028EA97 /* SellersListViewController.swift in Sources */,
+				4F25C4012339138800916CC8 /* SaleAPI.swift in Sources */,
 				4F6B771223100CB10028EA97 /* ArticleViewController.swift in Sources */,
 				4F6B771323100CB10028EA97 /* Seller.swift in Sources */,
-				4F6B771423100CB10028EA97 /* TransactionValues.swift in Sources */,
 				4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */,
 				4F6B771523100CB10028EA97 /* AddArticleViewController.swift in Sources */,
 				4F6B771723100CB10028EA97 /* FireBaseDataRequest.swift in Sources */,
@@ -861,6 +852,7 @@
 				4F6B771A23100CB10028EA97 /* AppDelegate.swift in Sources */,
 				4F6B771B23100CB10028EA97 /* SheetSetupViewController.swift in Sources */,
 				4F6B771C23100CB10028EA97 /* User.swift in Sources */,
+				4F25C3FC23390D6D00916CC8 /* Sale.swift in Sources */,
 				4F815E94231EC10000C6718A /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

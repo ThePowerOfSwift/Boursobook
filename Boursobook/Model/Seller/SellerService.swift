@@ -69,7 +69,7 @@ class SellerService {
 //        reference.child(seller.code).updateChildValues(newValue)
     }
 
-    func updateValuesAfterTransaction(for list: [String: TransactionValues]) {
-        // Update liste of values of seller after the validation of a transaction
-    }
+//    func updateValuesAfterTransaction(for list: [String: TransactionValues]) {
+//        // Update liste of values of seller after the validation of a transaction
+//    }
 }

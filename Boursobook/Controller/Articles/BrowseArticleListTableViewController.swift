@@ -14,7 +14,7 @@ class BrowseArticleListTableViewController: UITableViewController {
     var displayedArticles = [Article]()
     var selectedArticleUniqueID: String?
     let articleAPI = ArticleAPI()
-    var currentTransaction: Transaction?
+    var currentSale: Sale?
 
     // MARK: - IBOutlets
     @IBOutlet var articleListTableView: UITableView!
@@ -43,11 +43,11 @@ class BrowseArticleListTableViewController: UITableViewController {
 
     // MARK: - functions
     func updateValues() {
-        guard let currentTransaction = currentTransaction else {
+        guard let currentSale = currentSale else {
             return
         }
-        for (articleCode, _) in currentTransaction.articles {
-            for (index, article) in displayedArticles.enumerated() where article.code == articleCode {
+        for (articleUniqueId, _) in currentSale.articles {
+            for (index, article) in displayedArticles.enumerated() where article.uniqueID == articleUniqueId {
                 displayedArticles.remove(at: index)
             }
         }

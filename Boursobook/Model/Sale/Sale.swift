@@ -1,17 +1,17 @@
 //
-//  Transaction.swift
+//  Sale.swift
 //  Boursobook
 //
-//  Created by David Dubez on 04/07/2019.
+//  Created by David Dubez on 23/09/2019.
 //  Copyright © 2019 David Dubez. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-class Transaction: RemoteDataBaseModel {
+class Sale: RemoteDataBaseModel {
     // MARK: - Properties
-    static let collection = "transactions"
+    static let collection = "sales"
 
     var date: String
     var uniqueID: String
