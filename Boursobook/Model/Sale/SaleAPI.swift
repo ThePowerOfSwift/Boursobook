@@ -30,6 +30,7 @@ class SaleAPI {
             completionHandler(SAPIError.other)
             return
         }
+
         // FIXME: enregistrement a faire
 
 //        var orderNumber: Int = 0
@@ -74,6 +75,8 @@ class SaleAPI {
 //                                            }
 //                                        })
     }
+
+// FIXME: suppression a faire
 
     func stopListen() {
         saleRemoteDataBaseRequest.stopListen()

@@ -95,7 +95,7 @@ class SaleViewController: UIViewController {
 
     private func updateValues() {
         numberOfRegisteredArticleLabel.text = String(currentSale.numberOfArticle)
-        totalAmountSaleLabel.text = String(currentSale.amount)
+        totalAmountSaleLabel.text = formatDiplayedNumber(currentSale.amount)
         selectedArticleTableView.reloadData()
     }
 
@@ -157,6 +157,17 @@ class SaleViewController: UIViewController {
     private func toogleSavingActivity(saving: Bool) {
            savingActivityIndicator.isHidden = !saving
            saveButton.isHidden = saving
+    }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber
+        } else {
+            return nil
+        }
     }
 
     // MARK: - Navigation

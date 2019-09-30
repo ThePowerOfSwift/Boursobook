@@ -74,13 +74,13 @@ class ArticleViewController: UIViewController {
         authorLabel.text = article.author
         descriptionTextField.text = article.description
         isbnLabel.text = article.isbn
-        priceLabel.text = String(article.price) + " €"
+        priceLabel.text = formatDiplayedNumber(article.price)
         codeLabel.text = article.code
         if let qRCode = generateQrCode(from: article.uniqueID) {
             qRCodeImage.image = qRCode
         }
         articleLabelCodeLabel.text = article.code
-        articleLabelPriceLabel.text = String(article.price) + " €"
+        articleLabelPriceLabel.text = formatDiplayedNumber(article.price)
 
     }
 
@@ -110,6 +110,17 @@ class ArticleViewController: UIViewController {
     private func toogleRegisterSaleView(registering: Bool) {
         selectButtonStackView.isHidden = !registering
         articleLabelView.isHidden = registering
+    }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber
+        } else {
+            return nil
+        }
     }
 
     private func generateQrCode(from stingToConvert: String) -> UIImage? {

@@ -23,11 +23,10 @@ class InMemoryStorage {
 
 }
 
-
 // MARK: - Functions TRANSACTION
 extension InMemoryStorage {
 
-
+//FIXME: supprimer le code en commentaire
 //    func setCurrentTransaction() {
 //        // set a new transaction corresponding to the user and the purse
 //        guard let userLogIn = InMemoryStorage.shared.userLogIn else {
@@ -131,14 +130,3 @@ extension InMemoryStorage {
 //        setCurrentTransaction()
 //    }
 //}
-
-extension InMemoryStorage {
-    /**
-     'IMSError' is the error type returned by InMemoryStorage.
-     It encompasses a few different types of errors, each with
-     their own associated reasons.
-     */
-    enum IMSError: String, Error {
-        case other = "Sorry, there is an error !"
-    }
-}

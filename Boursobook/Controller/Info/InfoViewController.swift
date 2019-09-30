@@ -86,8 +86,8 @@ class InfoViewController: UIViewController {
             numberOfArticleRecordedLabel.text = String(purse.numberOfArticleRegistered)
             numberOfArticlesoldLabel.text = String(purse.numberOfArticlesold)
             numberOfSalesLabel.text = String(purse.numberOfTransaction)
-            totalAmountOfSalesLabel.text = String(purse.totalSalesAmount)
-            totalAmountOfSubscriptionLabel.text = String(purse.totalDepositFeeAmount)
+            totalAmountOfSalesLabel.text = formatDiplayedNumber(purse.totalSalesAmount)
+            totalAmountOfSubscriptionLabel.text = formatDiplayedNumber(purse.totalDepositFeeAmount)
         }
     }
 
@@ -114,6 +114,17 @@ class InfoViewController: UIViewController {
         displayedPurse = nil
         InMemoryStorage.shared.inWorkingPurse = nil
         self.dismiss(animated: true, completion: nil)
+    }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+
+        if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+            return formattedNumber
+        } else {
+            return nil
+        }
     }
 
     // MARK: - Navigation

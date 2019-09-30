@@ -17,8 +17,6 @@ extension Error {
             return NSLocalizedString(errorType.rawValue, comment: "")
         } else if let errorType = self as? PurseAPI.PAPIError {
             return NSLocalizedString(errorType.rawValue, comment: "")
-        } else if let errorType = self as? InMemoryStorage.IMSError {
-            return NSLocalizedString(errorType.rawValue, comment: "")
         } else if let errorType = self as? SellerAPI.SAPIError {
             return NSLocalizedString(errorType.rawValue, comment: "")
         } else if let errorType = self as? ArticleAPI.AAPIError {

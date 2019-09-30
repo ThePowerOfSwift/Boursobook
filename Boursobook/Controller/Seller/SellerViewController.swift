@@ -253,8 +253,11 @@ extension SellerViewController {
                                       height: labelSheet.labelHeightInMM ))
 
         // add text + price
+        guard let stringPrice = formatDiplayedNumber(article.price) else {
+            return nil
+        }
         let stringLabel = article.code
-        let priceLabel = String(article.price) + " €"
+        let priceLabel = stringPrice + " €"
         let textAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 50)]
         let formattedStringLabel = NSMutableAttributedString(string: stringLabel, attributes: textAttributes)
         formattedStringLabel.draw(in: CGRect(x: labelSheet.labelWidthInMM / 2 ,

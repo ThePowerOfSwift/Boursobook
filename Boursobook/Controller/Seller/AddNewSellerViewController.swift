@@ -105,7 +105,8 @@ class AddNewSellerViewController: UIViewController {
     }
 
     private func createNewSeller(seller: Seller) {
-        sellerAPI.createSeller(newSeller: seller) { (error, _) in
+        sellerAPI.createSeller(newSeller: seller,
+                               in: InMemoryStorage.shared.inWorkingPurse) { (error) in
             self.toogleActivity(loading: false)
             if let error = error {
                 self.displayAlert(message: NSLocalizedString(error.message, comment: ""),

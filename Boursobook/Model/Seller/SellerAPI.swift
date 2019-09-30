@@ -81,27 +81,60 @@ class SellerAPI {
         }
     }
 
-    func createSeller(newSeller: Seller, completionHandler: @escaping (Error?, Seller?) -> Void) {
+    func createSeller(newSeller: Seller,
+                      in purse: Purse?,
+                      completionHandler: @escaping (Error?) -> Void) {
 
-        sellerRemoteDataBaseRequest.create(model: newSeller) { (error) in
-            if let error = error {
-                completionHandler(error, nil)
-            } else {
-                completionHandler(nil, newSeller)
-            }
-        }
+        guard let purse = purse else {
+                   completionHandler(SAPIError.other)
+                   return
+               }
+
+        sellerRemoteDataBaseRequest
+                   .createWithOneTransaction(model: purse,
+                                             block: { (remotePurse) -> [String: Any] in
+                                                remotePurse.numberOfSellers += 1
+                                                return ["numberOfSellers":
+                                                    remotePurse.numberOfSellers]
+                                                },
+                                            resultBlock: { () -> Seller in
+                                                return newSeller
+                                               },
+                                            completionHandler: { (error) in
+                                                if let error = error {
+                                                    completionHandler(error)
+                                                } else {
+                                                    completionHandler(nil)
+                                                }
+                                            })
+
     }
 
-    func removeSeller(seller: Seller, completionHandler: @escaping (Error?) -> Void) {
+    func removeSeller(seller: Seller,
+                      in purse: Purse?,
+                      completionHandler: @escaping (Error?) -> Void) {
 
-        sellerRemoteDataBaseRequest.remove(model: seller,
-                                          completionHandler: { (error) in
-                                            if let error = error {
-                                                completionHandler(error)
-                                            } else {
-                                                completionHandler(nil)
-                                            }
-        })
+        guard let purse = purse else {
+                   completionHandler(SAPIError.other)
+                   return
+               }
+
+        sellerRemoteDataBaseRequest
+                   .removeWithOneTransaction(model: purse,
+                                             block: { (remotePurse) -> [String: Any] in
+                                                remotePurse.numberOfSellers -= 1
+                                                return ["numberOfSellers":
+                                                    remotePurse.numberOfSellers]
+                                                },
+                                            modelToRemove: seller,
+                                            completionHandler: { (error) in
+                                                if let error = error {
+                                                    completionHandler(error)
+                                                } else {
+                                                    completionHandler(nil)
+                                                }
+                                            })
+
     }
 
     func stopListen() {

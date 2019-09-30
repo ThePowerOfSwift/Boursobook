@@ -28,8 +28,22 @@ class BrowseArticleTableViewCell: UITableViewCell {
     // MARK: - Functions
     func configure(with article: Article) {
         titleLabel.text = article.title
-        priceLabel.text = String(article.price) + " €"
         codeLabel.text = article.code
+        guard let price = formatDiplayedNumber(article.price) else {
+            return
+        }
+        priceLabel.text = price + " €"
     }
+
+    private func formatDiplayedNumber(_ number: Double) -> String? {
+           let formatter = NumberFormatter()
+           formatter.numberStyle = .decimal
+
+           if let formattedNumber = formatter.string(from: NSNumber(value: number)) {
+               return formattedNumber
+           } else {
+               return nil
+           }
+       }
 
 }

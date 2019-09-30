@@ -27,7 +27,6 @@
 		4F6B76F523100CB10028EA97 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8022BD01C100708718 /* SaleViewController.swift */; };
 		4F6B76F623100CB10028EA97 /* LabelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E722E2F683001FA860 /* LabelSheet.swift */; };
 		4F6B76F723100CB10028EA97 /* ScanQrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */; };
-		4F6B76F823100CB10028EA97 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8F22BD72F300708718 /* SellerService.swift */; };
 		4F6B76F923100CB10028EA97 /* TransactionActicleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */; };
 		4F6B76FA23100CB10028EA97 /* BrowseArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */; };
 		4F6B76FB23100CB10028EA97 /* RemoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */; };
@@ -38,10 +37,8 @@
 		4F6B770023100CB10028EA97 /* RemoteDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */; };
 		4F6B770123100CB10028EA97 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820272302EAB000AB9577 /* Notes.swift */; };
 		4F6B770223100CB10028EA97 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9322BD880200708718 /* UIViewController+Extension.swift */; };
-		4F6B770323100CB10028EA97 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9922C25AE300708718 /* ArticleService.swift */; };
 		4F6B770423100CB10028EA97 /* BrowseArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1E66D022DF1B7D00C73B88 /* BrowseArticleListTableViewController.swift */; };
 		4F6B770523100CB10028EA97 /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */; };
-		4F6B770623100CB10028EA97 /* PurseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */; };
 		4F6B770723100CB10028EA97 /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B7822BCFE3900708718 /* SellerViewController.swift */; };
 		4F6B770823100CB10028EA97 /* SellerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */; };
 		4F6B770923100CB10028EA97 /* RemoteDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */; };
@@ -86,6 +83,7 @@
 		4F815EAE2322576C00C6718A /* UserTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAD2322576C00C6718A /* UserTestCase.swift */; };
 		4F815EB02322591500C6718A /* UserAuthAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAF2322591500C6718A /* UserAuthAPITestCase.swift */; };
 		4F815EB2232259F800C6718A /* RemoteAuthenticationRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */; };
+		4FAF92972341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF92962341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift */; };
 		4FCF6AF723269A1100C71C11 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF623269A1100C71C11 /* UserAPI.swift */; };
 		4FCF6AF92326A01700C71C11 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF82326A01700C71C11 /* UserListTableViewController.swift */; };
 		4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AFA2326A0E100C71C11 /* UserListTableViewCell.swift */; };
@@ -131,7 +129,6 @@
 		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		4F6B772C23100CB10028EA97 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
-		4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseService.swift; sourceTree = "<group>"; };
 		4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStorage.swift; sourceTree = "<group>"; };
 		4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,15 +170,14 @@
 		4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSellerViewController.swift; sourceTree = "<group>"; };
 		4FA05B8822BD356500708718 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		4FA05B8D22BD43E300708718 /* SellerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListTableViewCell.swift; sourceTree = "<group>"; };
-		4FA05B8F22BD72F300708718 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		4FA05B9122BD83F700708718 /* SellerCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCode.swift; sourceTree = "<group>"; };
 		4FA05B9322BD880200708718 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4FA05B9522C2400E00708718 /* AddArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleViewController.swift; sourceTree = "<group>"; };
 		4FA05B9722C24AC200708718 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		4FA05B9922C25AE300708718 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
 		4FA05B9B22C26DE400708718 /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewController.swift; sourceTree = "<group>"; };
 		4FA05B9D22C270BB00708718 /* ArticleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewCell.swift; sourceTree = "<group>"; };
 		4FA05B9F22C3484A00708718 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		4FAF92962341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireBaseDataRequest+extensionUD.swift"; sourceTree = "<group>"; };
 		4FC5133A22B13440000FD572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FC5133F22B13440000FD572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FC5134422B13440000FD572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -318,7 +314,6 @@
 			children = (
 				4F6C1C3822CE2437004C9BF3 /* Purse.swift */,
 				4F815E86231A97E100C6718A /* PurseAPI.swift */,
-				4F6C1C3D22CF29E0004C9BF3 /* PurseService.swift */,
 			);
 			path = Purse;
 			sourceTree = "<group>";
@@ -406,7 +401,6 @@
 				4FA05B8822BD356500708718 /* Seller.swift */,
 				4F815E952320FEF400C6718A /* SellerAPI.swift */,
 				4FA05B9122BD83F700708718 /* SellerCode.swift */,
-				4FA05B8F22BD72F300708718 /* SellerService.swift */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -416,7 +410,6 @@
 			children = (
 				4FA05B9722C24AC200708718 /* Article.swift */,
 				4F815E9923210C8400C6718A /* ArticleAPI.swift */,
-				4FA05B9922C25AE300708718 /* ArticleService.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -569,6 +562,7 @@
 				4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */,
 				4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */,
 				4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */,
+				4FAF92962341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift */,
 				4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */,
 			);
 			path = "Remote Database";
@@ -811,7 +805,6 @@
 				4F6B76F723100CB10028EA97 /* ScanQrCodeViewController.swift in Sources */,
 				4FCF6AF92326A01700C71C11 /* UserListTableViewController.swift in Sources */,
 				4F815EA023215B8300C6718A /* FireBaseAuthenticationRequest.swift in Sources */,
-				4F6B76F823100CB10028EA97 /* SellerService.swift in Sources */,
 				4F6B76F923100CB10028EA97 /* TransactionActicleListTableViewCell.swift in Sources */,
 				4FCF6AF723269A1100C71C11 /* UserAPI.swift in Sources */,
 				4F6B76FA23100CB10028EA97 /* BrowseArticleTableViewCell.swift in Sources */,
@@ -826,11 +819,9 @@
 				4F6B770123100CB10028EA97 /* Notes.swift in Sources */,
 				4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */,
 				4F6B770223100CB10028EA97 /* UIViewController+Extension.swift in Sources */,
-				4F6B770323100CB10028EA97 /* ArticleService.swift in Sources */,
 				4F815E87231A97E100C6718A /* PurseAPI.swift in Sources */,
 				4F6B770423100CB10028EA97 /* BrowseArticleListTableViewController.swift in Sources */,
 				4F6B770523100CB10028EA97 /* ArticleListTableViewController.swift in Sources */,
-				4F6B770623100CB10028EA97 /* PurseService.swift in Sources */,
 				4F6B770723100CB10028EA97 /* SellerViewController.swift in Sources */,
 				4F6B770823100CB10028EA97 /* SellerListTableViewCell.swift in Sources */,
 				4F6B770923100CB10028EA97 /* RemoteDataBaseModel.swift in Sources */,
@@ -846,6 +837,7 @@
 				4F6B771323100CB10028EA97 /* Seller.swift in Sources */,
 				4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */,
 				4F6B771523100CB10028EA97 /* AddArticleViewController.swift in Sources */,
+				4FAF92972341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift in Sources */,
 				4F6B771723100CB10028EA97 /* FireBaseDataRequest.swift in Sources */,
 				4F6B771823100CB10028EA97 /* BookService.swift in Sources */,
 				4F6B771923100CB10028EA97 /* AddNewSellerViewController.swift in Sources */,
@@ -1017,7 +1009,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1073,7 +1065,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

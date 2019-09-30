@@ -14,6 +14,7 @@ class SellersListViewController: UITableViewController {
     // MARK: - Properties
     var selectedSeller: Seller?
     let sellerAPI = SellerAPI()
+    let articleAPI = ArticleAPI()
     var displayedSellers = [Seller]()
 
     // MARK: - IBOUTLET
@@ -64,6 +65,50 @@ class SellersListViewController: UITableViewController {
                 }
                 self.displayedSellers = sellers
                 self.updateValues()
+            }
+        }
+    }
+
+    private func deleteSeller(at indexPath: IndexPath) {
+        let sellerToDelete = self.displayedSellers[indexPath.row]
+        sellerAPI.removeSeller(seller: sellerToDelete,
+                               in: InMemoryStorage.shared.inWorkingPurse,
+                               completionHandler: { (error) in
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+                return
+            } else {
+                self.deleteAllArticlesFor(seller: sellerToDelete)
+                self.updateValues()
+            }
+        })
+    }
+
+    private func deleteAllArticlesFor(seller: Seller) {
+        articleAPI.getArticlesFor(seller: seller) { (error, articlesToDelete) in
+            if let error = error {
+                self.displayAlert(
+                    message: error.message,
+                    title: NSLocalizedString(
+                        "Error !", comment: ""))
+                return
+            } else if let articlesToDelete = articlesToDelete {
+                articlesToDelete.forEach { (article) in
+                    self.articleAPI.removeArticleForDeleteSeller(
+                        purse: InMemoryStorage.shared.inWorkingPurse,
+                        article: article) { (error) in
+                            if let error = error {
+                                self.displayAlert(
+                                    message: error.message,
+                                    title: NSLocalizedString(
+                                        "Error !", comment: ""))
+                                return
+                            }
+                    }
+                }
             }
         }
     }
@@ -120,18 +165,7 @@ class SellersListViewController: UITableViewController {
                                          style: .default)
         let confirmAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (_) in
 
-            let sellerToDelete = self.displayedSellers[indexPath.row]
-            self.sellerAPI.removeSeller(seller: sellerToDelete, completionHandler: { (error) in
-                if let error = error {
-                    self.displayAlert(
-                        message: error.message,
-                        title: NSLocalizedString(
-                            "Error !", comment: ""))
-                    return
-                } else {
-                    self.updateValues()
-                }
-            })
+            self.deleteSeller(at: indexPath)
         }
         alert.addAction(confirmAction)
         alert.addAction(cancelAction)
