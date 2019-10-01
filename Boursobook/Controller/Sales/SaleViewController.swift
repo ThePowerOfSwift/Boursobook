@@ -12,6 +12,7 @@ class SaleViewController: UIViewController {
 
     // MARK: - Properties
     var inSaleArticles = [Article]()
+    var articlesInError = [Article]()
     var currentSale = Sale()
     let saleAPI = SaleAPI()
     let articleAPI = ArticleAPI()
@@ -34,7 +35,7 @@ class SaleViewController: UIViewController {
         saveTheSale()
     }
     @IBAction func didTapResetButton(_ sender: UIButton) {
-       resetTransaction()
+       resetSale(artilclesInError: nil)
     }
 
     // MARK: - Override
@@ -104,43 +105,75 @@ class SaleViewController: UIViewController {
 
         if InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.isEmpty {
             toogleSavingActivity(saving: false)
-            self.displayAlert(message: NSLocalizedString("Nothing To Save !",
-                                                         comment: ""),
+            self.displayAlert(message: NSLocalizedString("Nothing To Save !", comment: ""),
                               title: NSLocalizedString("Warning", comment: ""))
         } else {
             if numberCheckedSwitch.isOn {
-                saleAPI.createSale(purse: InMemoryStorage.shared.inWorkingPurse,
-                                   user: InMemoryStorage.shared.userLogIn,
-                                   sale: currentSale) { (error) in
-                    self.toogleSavingActivity(saving: false)
+
+                //Create a new Sale without data about amount and articles
+                saleAPI.createNewSale(purse: InMemoryStorage.shared.inWorkingPurse,
+                                   user: InMemoryStorage.shared.userLogIn) { (error, createdSale) in
                     if let error = error {
-                        self.displayAlert(
-                            message: error.message,
-                            title: NSLocalizedString(
-                                "Error !", comment: ""))
+                        self.toogleSavingActivity(saving: false)
+                        self.displayAlert(message: error.message, title: NSLocalizedString("Error !", comment: ""))
                     } else {
-                        self.displayAlert(
-                            message: NSLocalizedString("The sale was saved", comment: ""),
-                            title: NSLocalizedString("Done !", comment: ""))
-                        self.resetTransaction()
-                        self.numberCheckedSwitch.isOn = false
+
+                        guard let createdSale = createdSale else { return }
+
+                        //for earch article in current sale, update data in remote database and update new sale after
+                        let updatingArticlesGroup = DispatchGroup()
+                        self.inSaleArticles.forEach { (article) in
+                            updatingArticlesGroup.enter()
+                            self.saleAPI
+                                .updateDataforArticleSold(article: article,
+                                                          sale: createdSale,
+                                                          purse: InMemoryStorage.shared.inWorkingPurse) { (error) in
+                                    if error != nil {
+                                        self.articlesInError.append(article)
+                                    }
+                                    updatingArticlesGroup.leave()
+                            }
+                        }
+                        updatingArticlesGroup.notify(queue: .main) {
+                            self.toogleSavingActivity(saving: false)
+                            if self.articlesInError.isEmpty {
+                                self.displayAlert(message: NSLocalizedString("The sale was saved", comment: ""),
+                                                  title: NSLocalizedString("Done !", comment: ""))
+                                self.resetSale(artilclesInError: nil)
+
+                            } else {
+                                self.displayAlert(
+                                    message: NSLocalizedString("The sale was saved, but some article failed !",
+                                                               comment: ""),
+                                    title: NSLocalizedString("Done !", comment: ""))
+                                self.resetSale(artilclesInError: self.articlesInError)
+                            }
+                        }
                     }
                 }
             } else {
                 toogleSavingActivity(saving: false)
-                self.displayAlert(message: NSLocalizedString("Please check the number !",
-                                                             comment: ""),
+                self.displayAlert(message: NSLocalizedString("Please check the number !", comment: ""),
                                   title: NSLocalizedString("Warning", comment: ""))
             }
         }
     }
 
-    private func resetTransaction() {
-        InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.removeAll()
-        currentSale = Sale()
+    private func resetSale(artilclesInError: [Article]?) {
         numberCheckedSwitch.isOn = false
-        inSaleArticles = [Article]()
-        updateValues()
+        if artilclesInError == nil {
+            InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.removeAll()
+            currentSale = Sale()
+            inSaleArticles = [Article]()
+            updateValues()
+        } else {
+            InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.removeAll()
+            currentSale = Sale()
+            inSaleArticles = [Article]()
+            updateValues()
+            inSaleArticles = articlesInError
+            self.articlesInError = [Article]()
+        }
     }
 
     private func setStyleOfVC() {

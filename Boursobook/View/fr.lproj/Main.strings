@@ -198,7 +198,7 @@
 "so0-2i-u8w.text" = "Label";
 
 /* Class = "UILabel"; text = "Number of article to sold :"; ObjectID = "sr1-5V-nhD"; */
-"sr1-5V-nhD.text" = "Number of article to sold :";
+"sr1-5V-nhD.text" = "Number of article registered :";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tEZ-u9-8w1"; */
 "tEZ-u9-8w1.title" = "Item";

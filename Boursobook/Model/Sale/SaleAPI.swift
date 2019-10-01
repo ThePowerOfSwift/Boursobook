@@ -22,61 +22,97 @@ class SaleAPI {
     }
 
     // MARK: Functions
-    func createSale(purse: Purse?,
-                    user: User?,
-                    sale: Sale,
-                    completionHandler: @escaping (Error?) -> Void) {
+    func createNewSale(purse: Purse?,
+                       user: User?,
+                       completionHandler: @escaping (Error?, Sale?) -> Void) {
         guard let purse = purse, let user = user else {
-            completionHandler(SAPIError.other)
+            completionHandler(SAPIError.other, nil)
             return
         }
 
-        // FIXME: enregistrement a faire
+        let date = Date()
+        let frenchFormatter = DateFormatter()
+        frenchFormatter.dateStyle = .short
+        frenchFormatter.timeStyle = .short
+        frenchFormatter.locale = Locale(identifier: "FR-fr")
 
-//        var orderNumber: Int = 0
-//        let sellerCode = seller.code
-//        let oldSellerDepositFeeAmount = seller.depositFeeAmount
-//        var newSellerDepositFeeAmount: Double = 0
-//        article.purseName = purse.name
-//        article.sellerUniqueId = seller.uniqueID
-//
-//        articleRemoteDataBaseRequest
-//            .runTransactionForCreate(models: (firstModel: seller, secondModel: purse),
-//                                     blocks: (
-//                                        firstBlock: { (remoteSeller) -> [String: Any] in
-//                                            remoteSeller.articleRegistered += 1
-//                                            remoteSeller.setDepositFeeAmount(with: purse)
-//                                            newSellerDepositFeeAmount = remoteSeller.depositFeeAmount
-//                                            orderNumber = remoteSeller.orderNumber
-//                                            return ["articleRegistered": remoteSeller.articleRegistered,
-//                                                    "orderNumber": orderNumber + 1,
-//                                                    "depositFeeAmount": remoteSeller.depositFeeAmount]
-//                                            },
-//                                        secondBlock: { (remotePurse) -> [String: Any] in
-//                                            remotePurse.numberOfArticleRegistered += 1
-//                                            remotePurse.totalDepositFeeAmount += newSellerDepositFeeAmount
-//                                              - oldSellerDepositFeeAmount
-//                                            return ["numberOfArticleRegistered": remotePurse
-//                                                        .numberOfArticleRegistered,
-//                                                    "totalDepositFeeAmount": remotePurse
-//                                                        .totalDepositFeeAmount]
-//                                            }),
-//                                        resultBlock: { () -> Article in
-//                                            let code = sellerCode + String(format: "%03d", orderNumber)
-//                                            article.code = code
-//                                            article.uniqueID = code + " " + UUID().description
-//                                            return article
-//                                        },
-//                                        completionHandler: { (error) in
-//                                            if let error = error {
-//                                                completionHandler(error)
-//                                            } else {
-//                                                completionHandler(nil)
-//                                            }
-//                                        })
+        let currentDate = frenchFormatter.string(from: date)
+        let uniqueID = purse.name + " " + currentDate + " " + UUID().description
+        let newSale = Sale(date: currentDate, uniqueID: uniqueID, amount: 0,
+                           numberOfArticle: 0, madeByUser: user.email,
+                           articles: [:], purseName: purse.name)
+        saleRemoteDataBaseRequest
+            .createWithOneTransaction(
+                model: purse,
+                block: { (remotePurse) -> [String: Any] in
+                    remotePurse.numberOfTransaction += 1
+                    return ["numberOfTransaction": remotePurse.numberOfTransaction]
+                },
+                resultBlock: { () -> Sale in
+                    return newSale
+                },
+                completionHandler: { (error) in
+                    if let error = error {
+                        completionHandler(error, nil)
+                    } else {
+                        completionHandler(nil, newSale)
+                    }
+            })
     }
 
-// FIXME: suppression a faire
+    func updateDataforArticleSold(article: Article,
+                                  sale: Sale,
+                                  purse: Purse?,
+                                  completionHandler: @escaping (Error?) -> Void) {
+        guard let purse = purse else {
+            completionHandler(SAPIError.other)
+            return
+        }
+        let fakeSellerForId = Seller(familyName: "", firstName: "", email: "",
+                                 phoneNumber: "", code: "", createdBy: "", purseName: "",
+                                 uniqueID: article.sellerUniqueId, refundDate: "", refundBy: "")
+        var articlePrice: Double = 0
+        var benefitOnSalesAmountForPurse: Double = 0
+
+        saleRemoteDataBaseRequest
+            .uptadeWithFourTransactions(
+                modelsA: (firstModel: article, secondModel: purse),
+                modelsB: (thirdModel: fakeSellerForId, fourthModel: sale),
+                blocksA: (
+                    firstBlock: { (remoteArticle) -> [String: Any] in
+                        remoteArticle.sold = true
+                        articlePrice = remoteArticle.price
+                        return ["sold": remoteArticle.sold]
+                        },
+                    secondBlock: { (remotePurse) -> [String: Any] in
+                        remotePurse.numberOfArticlesold += 1
+                        remotePurse.totalSalesAmount += articlePrice
+                        benefitOnSalesAmountForPurse = articlePrice * remotePurse.percentageOnSales * 0.01
+                        remotePurse.totalBenefitOnSalesAmount += benefitOnSalesAmountForPurse
+
+                        return ["numberOfArticlesold": remotePurse.numberOfArticlesold,
+                               "totalSalesAmount": remotePurse.totalSalesAmount,
+                               "totalBenefitOnSalesAmount": remotePurse.totalBenefitOnSalesAmount]
+                       }),
+                blocksB: (
+                    thirdBlock: { (remoteSeller) -> [String: Any] in
+                        remoteSeller.articlesold += 1
+                        remoteSeller.salesAmount += articlePrice - benefitOnSalesAmountForPurse
+                        return ["articlesold": remoteSeller.articlesold,
+                               "salesAmount": remoteSeller.salesAmount]
+                        },
+                    fourthBlock: { (remoteSale) -> [String: Any] in
+                        sale.amount += articlePrice
+                        return ["amount": sale.amount]
+                        }),
+                completionHandler: { (error) in
+                     if let error = error {
+                         completionHandler(error)
+                         } else {
+                             completionHandler(nil)
+                             }
+            })
+    }
 
     func stopListen() {
         saleRemoteDataBaseRequest.stopListen()

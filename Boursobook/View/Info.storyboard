@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sTZ-cc-FZX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pAA-ms-ibm">
-                                        <rect key="frame" x="20" y="10" width="374" height="546"/>
+                                        <rect key="frame" x="20" y="10" width="374" height="596"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-0W-2eq">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -205,8 +206,28 @@
                                                     <constraint firstAttribute="height" constant="30" id="RGK-Hu-Tdg"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-1p-OAZ">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nEE-zS-8Ui">
                                                 <rect key="frame" x="0.0" y="444" width="374" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount of Benefit sales :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ls3-co-BFG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTJ-cz-qeb">
+                                                        <rect key="frame" x="343" y="0.0" width="31" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.92694020269999999" green="0.41219106319999999" blue="0.41566962000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="U9C-qy-0aM"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-1p-OAZ">
+                                                <rect key="frame" x="0.0" y="494" width="374" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount of subscriptions :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0S-Zf-Dfj">
                                                         <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
@@ -226,7 +247,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tjb-2o-bb0">
-                                                <rect key="frame" x="0.0" y="494" width="374" height="2"/>
+                                                <rect key="frame" x="0.0" y="544" width="374" height="2"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-Vn-LBd">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="2"/>
@@ -238,7 +259,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="J7M-Ys-qSm">
-                                                <rect key="frame" x="0.0" y="516" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="566" width="374" height="30"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-hz-u5N">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
@@ -301,6 +322,7 @@
                         <outlet property="numberOfArticlesoldLabel" destination="75b-ZZ-ZBY" id="j6i-Ks-jcc"/>
                         <outlet property="numberOfSalesLabel" destination="cms-Yq-afG" id="9ol-3D-abe"/>
                         <outlet property="numberOfSellerLabel" destination="lsf-fx-sZM" id="h0a-Zp-FJq"/>
+                        <outlet property="totalAmountOfBenefit" destination="pTJ-cz-qeb" id="K34-O0-LGp"/>
                         <outlet property="totalAmountOfSalesLabel" destination="lw3-VV-SNm" id="PBZ-cQ-y2p"/>
                         <outlet property="totalAmountOfSubscriptionLabel" destination="lk4-El-HQV" id="d2G-yI-wvg"/>
                         <outlet property="userLogInIDLabel" destination="EyH-9o-NQ6" id="Dkx-To-KK2"/>

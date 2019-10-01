@@ -99,6 +99,21 @@ protocol RemoteDatabaseRequest {
                                                values: [String: Any],
                                                completionHandler: @escaping (Error?) -> Void)
 
+    /**
+    Request to run a transaction for update four objects "Model" in the remote database
+    with performing action on four differents objet "Model"
+    */
+     func uptadeWithFourTransactions<
+        FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+        ThirdModel: RemoteDataBaseModel, FourthtModel: RemoteDataBaseModel>(
+        modelsA: (firstModel: FirstModel, secondModel: SecondModel),
+        modelsB: (thirdModel: ThirdModel, fourthModel: FourthtModel),
+        blocksA: (firstBlock: (_ firstModelBlock: FirstModel) -> [String: Any],
+                secondBlock: (_ secondModelBlock: SecondModel) -> [String: Any]),
+        blocksB: (thirdBlock: (_ thirdModelBlock: ThirdModel) -> [String: Any],
+                fourthBlock: (_ fourthModelBlock: FourthtModel) -> [String: Any]),
+        completionHandler: @escaping (Error?) -> Void)
+
     // MARK: - DELETE
 
     /**

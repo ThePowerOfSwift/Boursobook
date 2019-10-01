@@ -25,6 +25,7 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var totalAmountOfSalesLabel: UILabel!
     @IBOutlet weak var totalAmountOfSubscriptionLabel: UILabel!
     @IBOutlet weak var changePurseButton: UIButton!
+    @IBOutlet weak var totalAmountOfBenefit: UILabel!
 
     // MARK: - IBActions
     @IBAction func didTapChangePurseButton(_ sender: UIButton) {
@@ -88,6 +89,7 @@ class InfoViewController: UIViewController {
             numberOfSalesLabel.text = String(purse.numberOfTransaction)
             totalAmountOfSalesLabel.text = formatDiplayedNumber(purse.totalSalesAmount)
             totalAmountOfSubscriptionLabel.text = formatDiplayedNumber(purse.totalDepositFeeAmount)
+            totalAmountOfBenefit.text = formatDiplayedNumber(purse.totalBenefitOnSalesAmount)
         }
     }
 

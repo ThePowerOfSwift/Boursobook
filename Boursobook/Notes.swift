@@ -18,6 +18,7 @@ import Foundation
 
             - mettre un message d'alerte pour dire que l'on a pas de reseau
             - voir ce qui se passe si pas de reseau et pas d'acces ???
+            - ajouter sol ou pas sold dans la liste d'article des vendeurs
             - Ajouter des activity indicator dans toutes les vues de info (au chargement des données)
             - Verifier le bon coverage des tests
             - test en release si la base prod fonctionne
@@ -40,6 +41,7 @@ import Foundation
 // MARK: - A voir avec Vincent
 /*
  - Comment on peut passer des information de retours entre VC qui ne sont pas lié par un segue direct ?
+ - Large Style before iOS 13.0 [9] ??
  - Obliger de faire en IOS 10 ??
  - Livrables ??
  - Projet diffuser publiquement ??
@@ -137,6 +139,7 @@ import Foundation
  - SellerVC:    Posibilité de modifier les informations des vendeurs
  - SellerVC:    Imprimer la liste des articles vendus et restants PDF par vendeur
                 avec les prix de ventes / montants revenants au vendeur
+ - SaleVC:      Afficher l'article si on clique dessus
  - ScanQrCodeVC:  faire implementation pour ajouter un article manuellement
  - Divers:      Creer une limite pour le nombre de données par utilisateur
                 et donc de faire payer un abonement
