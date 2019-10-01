@@ -42,6 +42,8 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - IBActions
     @IBAction func didTapAddNewUser(_ sender: Any) {
@@ -85,6 +87,7 @@ class SetupViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeKeyboardNotification()
+        purseAPI.stopListen()
     }
 
     deinit {
@@ -98,7 +101,9 @@ class SetupViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
             return
         }
+        toogleActivity(loading: true)
         purseAPI.loadPurse(name: purse.name) { (error, loadedPurse) in
+            self.toogleActivity(loading: false)
             if let error = error {
                 self.displayAlert(
                     message: error.message,
@@ -220,6 +225,11 @@ class SetupViewController: UIViewController {
         configLabelSheetButton.layer.cornerRadius = 10
         confirmButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10
+    }
+
+    private func toogleActivity(loading: Bool) {
+        activityIndicator.isHidden = !loading
+        mainStackView.isHidden = loading
     }
 
     private func formatDiplayedNumber(_ number: Double) -> String? {

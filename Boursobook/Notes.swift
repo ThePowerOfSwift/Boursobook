@@ -66,34 +66,6 @@ import Foundation
 
  */
 
-// MARK: - UserAPI
-/*
- - ecouter si l'utilisateur est toujours loger et sortir de l'appli si non et arreter l'ecoute si on sort de l'appli
- 
- */
-
-// MARK: - InMemoryStorage
-/*
- - gestion de l'appli offligne
- - valider l'entrée dans l'appli meme s'il n'y a pas de seller, de article ou de transactions
- 
- */
-
-// MARK: - scanningVC
-/*
- - Gerer optionnel videoPreviewLayer ???
- - Voir probleme affichage de la camera
-
- 
- */
-
-// MARK: - SellerVC
-/*
- - Traiter la partie pour la restitution des livres
-
- 
- */
-
 //-////////////////////////////////////////
 // MARK: - probleme framework firebase
 /*
@@ -120,6 +92,7 @@ import Foundation
  - Divers:          Creer une limite pour le nombre de données par utilisateur
                     et donc de faire payer un abonement
  - Divers:          animation par gradient quand ça cherche
+ - Divers:          Regarder si l'utilisateur est toujours logguer
  - Tests:           test en release si la base prod fonctionne
 
  */

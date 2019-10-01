@@ -27,6 +27,8 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var changePurseButton: UIButton!
     @IBOutlet weak var totalAmountOfBenefit: UILabel!
     @IBOutlet weak var numberOfArticlesToReturnLabel: UILabel!
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - IBActions
     @IBAction func didTapChangePurseButton(_ sender: UIButton) {
@@ -60,7 +62,9 @@ class InfoViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
             return
         }
+        toogleActivity(loading: true)
         purseAPI.loadPurse(name: purse.name) { (error, loadedPurse) in
+            self.toogleActivity(loading: false)
             if let error = error {
                 self.displayAlert(
                     message: error.message,
@@ -98,6 +102,11 @@ class InfoViewController: UIViewController {
 
     private func setStyleOfVC() {
         changePurseButton.layer.cornerRadius = 10
+    }
+
+    private func toogleActivity(loading: Bool) {
+        activityIndicator.isHidden = !loading
+        mainStackView.isHidden = loading
     }
 
     private func confirmChangePurse() {
