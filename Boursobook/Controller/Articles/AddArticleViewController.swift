@@ -27,6 +27,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scanABookButton: UIButton!
+    @IBOutlet weak var activityControleurStack: UIStackView!
 
     // MARK: - IBACTION
     @IBAction func didTapSaveButton(_ sender: UIButton) {
@@ -76,6 +77,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
                          title: NSLocalizedString("Error !", comment: ""))
             return
         }
+        toogleActivity(loading: true)
         let sortValueIndex = sortPickerView.selectedRow(inComponent: 0)
         let sortValue = Article.sort[sortValueIndex]
 
@@ -85,6 +87,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         articleAPI.createArticle(purse: InMemoryStorage.shared.inWorkingPurse,
                                  seller: selectedSeller,
                                  article: newArticle) { (error) in
+                                    self.toogleActivity(loading: false)
                                     if let error = error {
                                         self.displayAlert(
                                             message: error.message,
@@ -119,6 +122,12 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
         descriptionTextView.layer.cornerRadius = 5
         descriptionTextView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         descriptionTextView.layer.borderWidth = 1
+    }
+
+    func toogleActivity(loading: Bool) {
+        activityControleurStack.isHidden = !loading
+        scanABookButton.isHidden = loading
+        saveButton.isHidden = loading
     }
 
     private func valueForTextField(_ textField: UITextField) -> Double? {

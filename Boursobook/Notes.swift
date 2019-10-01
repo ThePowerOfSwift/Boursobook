@@ -11,34 +11,19 @@ import Foundation
 //          - A faire :
 /*
 
- 
-            - Simpliffier les fonctionnalités non necessaires pour la soutenance
-            - Verifier la generation de la page des QRCode
-            - ajouter titre et ISBN sur le QR Code
-
-            - mettre un message d'alerte pour dire que l'on a pas de reseau
-            - voir ce qui se passe si pas de reseau et pas d'acces ???
-            - Ajouter des activity indicator dans toutes les vues de info (au chargement des données)
             - Verifier le bon coverage des tests
-
             - Supprimer le fichier Notes
             - Supprimer tous les messages d'alertes dans la console
-            - faire disparaitre le login si on est déja logé
-            - Utiliser KeyChain pour sauvegarder le mot de passe
-            - gestion de l'appli offligne
-            - message si on est pas connecté et que l'on peut pas telecharger les données
-            - verifier toutes les tailles d'iphones
+
             - Mettre à jour les string du storyboard
-            - separer les storyboard
-            - Ajouter un bouton pour acces liste transaction dans info de purse et pouvoir en supprimer une
-            - factoriser la mise en place des scroll view avec le claviuer
-            - factoriser le formatgae des nombres
-            - factoriser le formatDiplayedNumber et l'inverse
+
+
 
 */
 
 // MARK: - A voir avec Vincent
 /*
+ - message si on est pas connecté et que l'on peut pas telecharger les données (classe pour savoir si l'app est connecté en wifi)  ou en data
  - Comment on peut passer des information de retours entre VC qui ne sont pas lié par un segue direct ?
  - Obliger de faire en IOS 10 ??
  - Livrables ??
@@ -93,7 +78,12 @@ import Foundation
                     et donc de faire payer un abonement
  - Divers:          animation par gradient quand ça cherche
  - Divers:          Regarder si l'utilisateur est toujours logguer
+ - Divers:          Utiliser KeyChain pour sauvegarder le mot de passe
+ - Divers:          Verif Gestion de l'appli offligne
  - Tests:           test en release si la base prod fonctionne
+ - Divers:          factoriser la mise en place des scroll view avec le claviuer
+ - Divers:          factoriser le formatgae des nombres
+ - Divers:          factoriser le formatDiplayedNumber et l'inverse
 
  */
 
