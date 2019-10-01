@@ -29,10 +29,22 @@ class SellerListTableViewCell: UITableViewCell {
     }
 
     func configure(with seller: Seller) {
-        familyNameLabel.text = seller.familyName
-        codeLabel.text = seller.code
-        firstNameLabel.text = seller.firstName
-        registerdArticle.text = String(seller.articleRegistered)
-        soldArticleLabel.text = String(seller.articlesold)
+        if seller.refundDone {
+            codeLabel.text = NSLocalizedString("refunded", comment: "")
+            familyNameLabel.text = seller.familyName
+            firstNameLabel.text = seller.firstName
+            registerdArticle.text = String(seller.articleRegistered)
+            soldArticleLabel.text = String(seller.articlesold)
+
+            familyNameLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            firstNameLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+
+        } else {
+            familyNameLabel.text = seller.familyName
+            codeLabel.text = seller.code
+            firstNameLabel.text = seller.firstName
+            registerdArticle.text = String(seller.articleRegistered)
+            soldArticleLabel.text = String(seller.articlesold)
+        }
     }
 }

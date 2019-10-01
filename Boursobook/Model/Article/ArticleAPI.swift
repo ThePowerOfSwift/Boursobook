@@ -83,7 +83,7 @@ class ArticleAPI {
                                                                 return
                                                             }
                                                             let noSoldArticles: [Article] = loadedArticles.compactMap {
-                                                                if !$0.sold {
+                                                                if !$0.sold && !$0.returned {
                                                                     return $0
                                                                 }
                                                                 return nil

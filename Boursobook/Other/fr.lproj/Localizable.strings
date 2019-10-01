@@ -23,6 +23,8 @@
 "Labels :" = "Etiquettes :";
 "sold" = "vendu";
 "avail." = "dispo";
+"refunded" = "remboursé";
+"returned" = "rendu";
 
 // Alert message
 "Warning" = "Attention";
@@ -37,6 +39,7 @@
 "Done !" = "Fait !";
 "New purse création" = "Création de la nouvelle bourse";
 "Enter the name" = "Entrez le nom";
+"The seller was refunded" = "Le vendeur a été remboursé";
 
 // InfoViewController
 "Register" = "Enregistrement";
@@ -75,3 +78,4 @@
 "Sorry , but you must Login !" = "Désolé, mais vous devez vous enregistrer !";
 "Sorry, You are not administrator of this purse" = "Désolé, vous n'êtes pas administrateur de cette bourse";
 "The sale was saved, but some article failed !" = "La vente a été sauvegardée, mais cerains articles ont été en erreur !";
+"The seller was refunded, but some article failed !" = "Le vendeur a été remboursé, mais cerains articles ont été en erreur !";

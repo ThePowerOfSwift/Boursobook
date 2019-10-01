@@ -19,7 +19,8 @@ class Purse: RemoteDataBaseModel {
     var numberOfArticleRegistered = 0
     var numberOfSellers = 0
     var numberOfArticlesold = 0
-    var numberOfTransaction = 0
+    var numberOfSales = 0
+    var numberOfArticleReturned = 0
     var percentageOnSales: Double
     var depositFee: DepositFee
     var totalSalesAmount: Double = 0
@@ -39,7 +40,7 @@ class Purse: RemoteDataBaseModel {
 
     // MARK: - Initialisation
     init(name: String, uniqueID: String, numberOfArticleRegistered: Int, numberOfSellers: Int,
-         numberOfArticlesold: Int, numberOfTransaction: Int,
+         numberOfArticlesold: Int, numberOfArticleReturned: Int, numberOfSales: Int,
          percentageOnSales: Double, depositFee: DepositFee,
          totalSalesAmount: Double, totalBenefitOnSalesAmount: Double,
          totalDepositFeeAmount: Double, administrators: [String: Bool],
@@ -49,7 +50,8 @@ class Purse: RemoteDataBaseModel {
         self.numberOfArticleRegistered = numberOfArticleRegistered
         self.numberOfSellers = numberOfSellers
         self.numberOfArticlesold = numberOfArticlesold
-        self.numberOfTransaction = numberOfTransaction
+        self.numberOfArticleReturned = numberOfArticleReturned
+        self.numberOfSales = numberOfSales
         self.percentageOnSales = percentageOnSales
         self.depositFee = depositFee
         self.totalSalesAmount = totalSalesAmount
@@ -80,9 +82,10 @@ class Purse: RemoteDataBaseModel {
             let administratorsValue = dictionary["administrators"] as? [String: Bool],
             let usersValue = dictionary["users"] as? [String],
             let numberOfArticleRegisteredValue = dictionary["numberOfArticleRegistered"] as? Int,
+            let numberOfArticleReturnedValue = dictionary["numberOfArticleReturned"] as? Int,
             let numberOfSellersValue = dictionary["numberOfSellers"] as? Int,
             let numberOfArticlesoldValue = dictionary["numberOfArticlesold"] as? Int,
-            let numberOfTransactionValue = dictionary["numberOfTransaction"] as? Int,
+            let numberOfTransactionValue = dictionary["numberOfSales"] as? Int,
             let totalSalesAmountValue = dictionary["totalSalesAmount"] as? Double,
             let totalBenefitOnSalesAmountValue = dictionary["totalBenefitOnSalesAmount"] as? Double,
             let totalDepositFeeAmountValue = dictionary["totalDepositFeeAmount"] as? Double else {
@@ -104,16 +107,15 @@ class Purse: RemoteDataBaseModel {
         numberOfArticleRegistered = numberOfArticleRegisteredValue
         numberOfSellers = numberOfSellersValue
         numberOfArticlesold = numberOfArticlesoldValue
-        numberOfTransaction = numberOfTransactionValue
+        numberOfArticleReturned = numberOfArticleReturnedValue
+        numberOfSales = numberOfTransactionValue
         totalBenefitOnSalesAmount = totalBenefitOnSalesAmountValue
         totalSalesAmount = totalSalesAmountValue
         totalDepositFeeAmount = totalDepositFeeAmountValue
 
-        depositFee = DepositFee(underFifty: underFiftyValue,
-                                underOneHundred: underOneHundredValue,
+        depositFee = DepositFee(underFifty: underFiftyValue, underOneHundred: underOneHundredValue,
                                 underOneHundredFifty: underOneHundredFiftyValue,
-                                underTwoHundred: underTwoHundredValue,
-                                underTwoHundredFifty: underTwoHundredFiftyValue,
+                                underTwoHundred: underTwoHundredValue, underTwoHundredFifty: underTwoHundredFiftyValue,
                                 overTwoHundredFifty: overTwoHundredFiftyValue)
 
         administrators = administratorsValue
@@ -135,7 +137,8 @@ class Purse: RemoteDataBaseModel {
                                      "numberOfArticleRegistered": numberOfArticleRegistered,
                                      "numberOfSellers": numberOfSellers,
                                      "numberOfArticlesold": numberOfArticlesold,
-                                     "numberOfTransaction": numberOfTransaction,
+                                     "numberOfArticleReturned": numberOfArticleReturned,
+                                     "numberOfSales": numberOfSales,
                                      "totalSalesAmount": totalSalesAmount,
                                      "totalBenefitOnSalesAmount": totalBenefitOnSalesAmount,
                                      "totalDepositFeeAmount": totalDepositFeeAmount,

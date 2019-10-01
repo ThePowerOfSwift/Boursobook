@@ -12,7 +12,6 @@ class SellerViewController: UIViewController {
 
     // MARK: - Properties
     var uniqueIdOfSelectedSeller: String?
-//    var labelSheet = LabelSheet()
     let sellerAPI = SellerAPI()
     var displayedSeller: Seller?
     let articleAPI = ArticleAPI()
@@ -32,10 +31,16 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var numberReturnedCheckedSwitch: UISwitch!
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var dateOfRefundLabel: UILabel!
 
     @IBOutlet weak var listOfArticleButton: UIButton!
     @IBOutlet weak var printLablesButton: UIButton!
     @IBOutlet weak var refundButton: UIButton!
+    @IBOutlet weak var addArticleButton: UIBarButtonItem!
+    @IBOutlet weak var numberCheckedStack: UIStackView!
+    @IBOutlet weak var refundButtonStack: UIStackView!
+    @IBOutlet weak var numberArticleToReturnStack: UIStackView!
+    @IBOutlet weak var dateOfRefundStack: UIStackView!
 
     // MARK: - IBActions
     @IBAction func didTapPrintButton(_ sender: UIButton) {
@@ -43,6 +48,7 @@ class SellerViewController: UIViewController {
         shareLabelsSheetPdf(on: labelSheet)
     }
     @IBAction func didTapRefundButton(_ sender: UIButton) {
+        refundArticles()
     }
 
     // MARK: - Override
@@ -72,6 +78,12 @@ class SellerViewController: UIViewController {
         guard let seller = displayedSeller else {
             return
         }
+        if seller.refundDone {
+            setDisplayToSeller(refunded: true)
+        } else {
+            setDisplayToSeller(refunded: false)
+        }
+
         firstNameLabel.text = seller.firstName
         familyNameLabel.text = seller.familyName
         emailLabel.text = seller.email
@@ -83,6 +95,7 @@ class SellerViewController: UIViewController {
         numberOfArticlesoldLabel.text = String(seller.articlesold)
         amountOfSalesLabel.text = formatDiplayedNumber(seller.salesAmount)
         numerOfArticleToReturnLabel.text = String(seller.articleRegistered - seller.articlesold)
+        dateOfRefundLabel.text = seller.refundDate
     }
 
     private func loadSellerToDisplay() {
@@ -119,6 +132,15 @@ class SellerViewController: UIViewController {
         mainStackView.isHidden = loading
     }
 
+    private func setDisplayToSeller(refunded: Bool) {
+        addArticleButton.isEnabled = !refunded
+        printLablesButton.isHidden = refunded
+        numberCheckedStack.isHidden = refunded
+        refundButtonStack.isHidden = refunded
+        numberArticleToReturnStack.isHidden = refunded
+        dateOfRefundStack.isHidden = !refunded
+    }
+
     private func formatDiplayedNumber(_ number: Double) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -127,6 +149,62 @@ class SellerViewController: UIViewController {
             return formattedNumber
         } else {
             return nil
+        }
+    }
+
+    private func refundArticles() {
+        toogleActivity(loading: true)
+        if numberReturnedCheckedSwitch.isOn {
+            //Get articles of seller no solded
+            guard let seller = displayedSeller else { return }
+
+            articleAPI.getArticlesFor(seller: seller) { (error, sellerArticles) in
+                self.toogleActivity(loading: false)
+                if let error = error {
+                    self.displayAlert(message: error.message, title: NSLocalizedString("Error !", comment: ""))
+                } else {
+                    guard let articles = sellerArticles else { return }
+                    let noSoldArticles: [Article] = articles.compactMap {
+                        if !$0.sold && !$0.returned { return $0 }
+                        return nil
+                    }
+                    var numberOfArticlesInError = 0
+                    //for earch article no solded, update data in remote database
+                    let updatingArticlesGroup = DispatchGroup()
+                            noSoldArticles.forEach { (article) in
+                                updatingArticlesGroup.enter()
+                                self.sellerAPI
+                                    .updateDataForArticleReturned(article: article, seller: seller,
+                                                                  purse: InMemoryStorage.shared.inWorkingPurse,
+                                                                  user: InMemoryStorage.shared.userLogIn) {(error) in
+                                        if error != nil {
+                                            numberOfArticlesInError += 1
+                                        }
+                                        updatingArticlesGroup.leave()
+                                }
+                            }
+                            updatingArticlesGroup.notify(queue: .main) {
+                                self.toogleActivity(loading: false)
+                                if numberOfArticlesInError == 0 {
+                                    self.displayAlert(message: NSLocalizedString("The seller was refunded",
+                                                                                 comment: ""),
+                                                      title: NSLocalizedString("Done !", comment: ""))
+                                    self.setDisplayToSeller(refunded: true)
+
+                                } else {
+                                    self.displayAlert(
+                                        message: NSLocalizedString("The seller was refunded, but some article failed !",
+                                                                   comment: ""),
+                                        title: NSLocalizedString("Done !", comment: ""))
+                                    self.setDisplayToSeller(refunded: true)
+                                }
+                            }
+                        }
+                    }
+        } else {
+            toogleActivity(loading: false)
+            self.displayAlert(message: NSLocalizedString("Please check the number !", comment: ""),
+                              title: NSLocalizedString("Warning", comment: ""))
         }
     }
 

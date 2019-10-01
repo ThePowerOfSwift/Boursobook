@@ -24,6 +24,7 @@ class Article: RemoteDataBaseModel {
     var price: Double
     var sellerUniqueId: String
     var sold: Bool
+    var returned: Bool
     var uniqueID: String
 
     var dictionary: [String: Any] {
@@ -36,6 +37,7 @@ class Article: RemoteDataBaseModel {
                                      "isbn": isbn,
                                      "price": price,
                                      "sold": sold,
+                                     "returned": returned,
                                      "uniqueID": uniqueID,
                                      "sellerUniqueId": sellerUniqueId]
         return values
@@ -46,7 +48,7 @@ class Article: RemoteDataBaseModel {
  // MARK: - Initialisation
     init(title: String, sort: String, author: String, description: String,
          purseName: String, isbn: String, code: String,
-         price: Double, sellerUniqueId: String, sold: Bool,
+         price: Double, sellerUniqueId: String, sold: Bool, returned: Bool,
          uniqueID: String) {
         self.title = title
         self.sort = sort
@@ -58,6 +60,7 @@ class Article: RemoteDataBaseModel {
         self.price = price
         self.sellerUniqueId = sellerUniqueId
         self.sold = sold
+        self.returned = returned
         self.uniqueID = uniqueID
     }
 
@@ -73,6 +76,7 @@ class Article: RemoteDataBaseModel {
         self.code = ""
         self.sellerUniqueId = ""
         self.sold = false
+        self.returned = false
         self.uniqueID = ""
     }
 
@@ -87,6 +91,7 @@ class Article: RemoteDataBaseModel {
             let isbnValue = dictionary["isbn"] as? String,
             let priceValue = dictionary["price"] as? Double,
             let soldValue = dictionary["sold"] as? Bool,
+            let returnedValue = dictionary["returned"] as? Bool,
             let uniqueIDValue = dictionary["uniqueID"] as? String,
             let sellerUniqueIdValue = dictionary["sellerUniqueId"] as? String else {
                 return nil
@@ -101,6 +106,7 @@ class Article: RemoteDataBaseModel {
         isbn = isbnValue
         price = priceValue
         sold = soldValue
+        returned = returnedValue
         sellerUniqueId = sellerUniqueIdValue
         uniqueID = uniqueIDValue
     }

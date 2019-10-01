@@ -681,10 +681,10 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpO-yQ-K5e">
-                                        <rect key="frame" x="20" y="20" width="335" height="600"/>
+                                        <rect key="frame" x="20" y="20" width="335" height="660"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-Be-t2C">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="600"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="660"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kYn-qD-zj4">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>
@@ -983,8 +983,28 @@
                                                             <constraint firstAttribute="height" constant="30" id="yVi-en-zjD"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-64-ajU">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mKS-ww-d9e">
                                                         <rect key="frame" x="0.0" y="530" width="335" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of refund :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJa-jf-76g">
+                                                                <rect key="frame" x="0.0" y="0.0" width="307.33333333333331" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.92694020269999999" green="0.41219106319999999" blue="0.41566962000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fev-3M-BIR">
+                                                                <rect key="frame" x="327.33333333333331" y="0.0" width="7.6666666666666856" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.92694020269999999" green="0.41219106319999999" blue="0.41566962000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="LQF-Rz-H6n"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-64-ajU">
+                                                        <rect key="frame" x="0.0" y="570" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number checked ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYd-nM-hlp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="266" height="30"/>
@@ -1002,7 +1022,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uda-nm-R9o">
-                                                        <rect key="frame" x="0.0" y="570" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="610" width="335" height="30"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpR-SE-bXX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
@@ -1029,20 +1049,27 @@
                                                             <constraint firstAttribute="height" constant="30" id="Px6-MZ-NJe"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YzD-Km-Gob">
+                                                        <rect key="frame" x="0.0" y="650" width="335" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" id="8cd-W4-PmL"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RFv-up-xoc">
-                                        <rect key="frame" x="189" y="369" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RFv-up-xoc">
+                                        <rect key="frame" x="169" y="326.66666666666669" width="37" height="37"/>
                                         <color key="color" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="RFv-up-xoc" firstAttribute="centerY" secondItem="xCK-QI-Ztu" secondAttribute="centerY" id="BvV-fo-qhh"/>
                                     <constraint firstAttribute="bottom" secondItem="tpO-yQ-K5e" secondAttribute="bottom" id="MCi-87-h5d"/>
                                     <constraint firstItem="tpO-yQ-K5e" firstAttribute="leading" secondItem="xCK-QI-Ztu" secondAttribute="leading" constant="20" id="Ozm-tE-dsy"/>
                                     <constraint firstItem="tpO-yQ-K5e" firstAttribute="top" secondItem="xCK-QI-Ztu" secondAttribute="top" constant="20" id="UZm-e3-Atv"/>
+                                    <constraint firstItem="RFv-up-xoc" firstAttribute="centerX" secondItem="xCK-QI-Ztu" secondAttribute="centerX" id="cnn-Fb-xxv"/>
                                     <constraint firstAttribute="trailing" secondItem="tpO-yQ-K5e" secondAttribute="trailing" constant="20" id="ghs-7i-B1i"/>
                                 </constraints>
                             </scrollView>
@@ -1068,15 +1095,20 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="RFv-up-xoc" id="45m-QV-BiH"/>
+                        <outlet property="addArticleButton" destination="WW2-Me-2Fz" id="1Pk-l6-qdI"/>
                         <outlet property="amountDepositFeeLabel" destination="hW1-RE-JKY" id="XiS-bM-GhE"/>
                         <outlet property="amountOfSalesLabel" destination="gNL-JZ-7uM" id="MrT-WR-AZj"/>
                         <outlet property="codeLabel" destination="5Tp-x3-hWT" id="6Xa-09-cKv"/>
                         <outlet property="createdByLabel" destination="lzi-x0-AKV" id="k7m-hQ-YIU"/>
+                        <outlet property="dateOfRefundLabel" destination="fev-3M-BIR" id="YQ5-Ad-1Gb"/>
+                        <outlet property="dateOfRefundStack" destination="mKS-ww-d9e" id="wSs-1n-cAi"/>
                         <outlet property="emailLabel" destination="3lW-4W-v2j" id="O6v-TI-vaS"/>
                         <outlet property="familyNameLabel" destination="tgm-x8-29Z" id="T3w-gp-927"/>
                         <outlet property="firstNameLabel" destination="UnQ-Cw-Rhd" id="C6j-yj-es5"/>
                         <outlet property="listOfArticleButton" destination="Sj8-2j-ZHb" id="9tT-Gh-y35"/>
                         <outlet property="mainStackView" destination="YY7-Be-t2C" id="NBt-37-bvi"/>
+                        <outlet property="numberArticleToReturnStack" destination="lUC-er-mVs" id="GLj-28-hHM"/>
+                        <outlet property="numberCheckedStack" destination="LoK-64-ajU" id="ZxX-WL-Z24"/>
                         <outlet property="numberOfArticleRegisteredLabel" destination="IOf-A9-aGy" id="DAF-m2-TaC"/>
                         <outlet property="numberOfArticlesoldLabel" destination="rbd-Ex-7IZ" id="e0W-Nl-rfC"/>
                         <outlet property="numberReturnedCheckedSwitch" destination="cLY-av-CGI" id="zZw-hd-KSr"/>
@@ -1084,6 +1116,7 @@
                         <outlet property="phoneLabel" destination="uJr-8p-H4D" id="II6-o0-N7E"/>
                         <outlet property="printLablesButton" destination="I6U-07-m41" id="dmt-c4-yKH"/>
                         <outlet property="refundButton" destination="upv-xV-o0l" id="Ivb-IH-NEw"/>
+                        <outlet property="refundButtonStack" destination="Uda-nm-R9o" id="amJ-Ak-uUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9m-rE-sv0" userLabel="First Responder" sceneMemberID="firstResponder"/>

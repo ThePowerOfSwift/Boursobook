@@ -45,8 +45,8 @@ class SaleAPI {
             .createWithOneTransaction(
                 model: purse,
                 block: { (remotePurse) -> [String: Any] in
-                    remotePurse.numberOfTransaction += 1
-                    return ["numberOfTransaction": remotePurse.numberOfTransaction]
+                    remotePurse.numberOfSales += 1
+                    return ["numberOfSales": remotePurse.numberOfSales]
                 },
                 resultBlock: { () -> Sale in
                     return newSale

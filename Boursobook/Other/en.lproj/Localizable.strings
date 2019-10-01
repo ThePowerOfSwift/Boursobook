@@ -23,6 +23,8 @@
 "Labels :" = "Labels :";
 "sold" = "sold";
 "avail." = "avail.";
+"refunded" = "refunded";
+"returned" = "returned";
 
 // InfoViewController
 "Register" = "Register";
@@ -49,6 +51,7 @@
 "Are you sure you want to log out ?" = "Are you sure you want to log out ?";
 "Are you sure you want to change the current purse ?" = "Are you sure you want to change the current purse ?";
 "Are you sure you want to add " = "Are you sure you want to add ";
+"The seller was refunded" = "The seller was refunded";
 
 
 //Error
@@ -76,3 +79,4 @@
 "Sorry , but you must Login !" = "Sorry , but you must Login !";
 "Sorry, You are not administrator of this purse" = "Sorry, You are not administrator of this purse";
 "The sale was saved, but some article failed !" = "The sale was saved, but some article failed !";
+"The seller was refunded, but some article failed !" = "The seller was refunded, but some article failed !" ;

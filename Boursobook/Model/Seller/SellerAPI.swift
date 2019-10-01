@@ -137,6 +137,57 @@ class SellerAPI {
 
     }
 
+    func updateDataForArticleReturned(article: Article,
+                                      seller: Seller,
+                                      purse: Purse?,
+                                      user: User?,
+                                      completionHandler: @escaping (Error?) -> Void) {
+        guard let purse = purse, let user = user else {
+          completionHandler(SAPIError.other)
+          return
+      }
+        let date = Date()
+        let frenchFormatter = DateFormatter()
+        frenchFormatter.dateStyle = .short
+        frenchFormatter.timeStyle = .short
+        frenchFormatter.locale = Locale(identifier: "FR-fr")
+        let currentDate = frenchFormatter.string(from: date)
+
+        sellerRemoteDataBaseRequest
+        .uptadeWithFourTransactions(
+            modelsA: (firstModel: article, secondModel: purse),
+            modelsB: (thirdModel: seller, fourthModel: user),
+            blocksA: (
+                firstBlock: { (remoteArticle) -> [String: Any] in
+                    remoteArticle.returned = true
+                    return ["returned": remoteArticle.returned]
+                    },
+                secondBlock: { (remotePurse) -> [String: Any] in
+                    remotePurse.numberOfArticleReturned += 1
+                    return ["numberOfArticleReturned": remotePurse.numberOfArticleReturned]
+                   }),
+            blocksB: (
+                thirdBlock: { (remoteSeller) -> [String: Any] in
+                    remoteSeller.refundDate = currentDate
+                    remoteSeller.refundDone = true
+                    remoteSeller.refundBy = user.email
+
+                    return ["refundDate": remoteSeller.refundDate,
+                           "refundDone": remoteSeller.refundDone,
+                           "refundBy": remoteSeller.refundBy]
+                    },
+                fourthBlock: { (_) -> [String: Any] in
+                    return [:]
+                    }),
+            completionHandler: { (error) in
+                 if let error = error {
+                     completionHandler(error)
+                     } else {
+                         completionHandler(nil)
+                         }
+        })
+    }
+
     func stopListen() {
         sellerRemoteDataBaseRequest.stopListen()
     }
