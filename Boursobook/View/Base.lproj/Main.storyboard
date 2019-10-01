@@ -1249,7 +1249,7 @@
                                                             <action selector="didTapSaveButton:" destination="fDO-Yd-UI6" eventType="touchUpInside" id="E4W-XQ-UaU"/>
                                                         </connections>
                                                     </button>
-                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="V6g-E1-M7e">
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V6g-E1-M7e">
                                                         <rect key="frame" x="305" y="0.0" width="0.0" height="30"/>
                                                         <color key="color" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </activityIndicatorView>
@@ -1346,7 +1346,7 @@
                                                             </tableView>
                                                         </subviews>
                                                     </stackView>
-                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="h16-uD-V2L">
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="h16-uD-V2L">
                                                         <rect key="frame" x="167.66666666666666" y="0.0" width="0.0" height="200"/>
                                                         <color key="color" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </activityIndicatorView>
@@ -1825,24 +1825,24 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VlU-N5-yNj">
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="t3V-83-AJr">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="t3V-83-AJr">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="32.666666666666664"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urz-Qw-0BW">
-                                                                    <rect key="frame" x="0.0" y="5.9999999999999982" width="167.66666666666666" height="20.333333333333329"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urz-Qw-0BW">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="32.666666666666664"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                     <color key="textColor" red="0.92694020269999999" green="0.41219106319999999" blue="0.41566962000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FY-CY-dpQ">
-                                                                    <rect key="frame" x="172.66666666666663" y="5.9999999999999982" width="162.33333333333337" height="20.333333333333329"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="999,99 €" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FY-CY-dpQ">
+                                                                    <rect key="frame" x="261" y="0.0" width="74" height="32.666666666666664"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <color key="textColor" red="0.92694020269999999" green="0.41219106319999999" blue="0.41566962000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iIM-AT-8z0">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iIM-AT-8z0">
                                                             <rect key="frame" x="0.0" y="37.666666666666657" width="335" height="32.333333333333343"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sju-9w-FqB">
@@ -1852,14 +1852,20 @@
                                                                         <constraint firstAttribute="width" constant="30" id="Qx5-HA-Fa2"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saZ-PN-SUf">
-                                                                    <rect key="frame" x="35" y="5.9999999999999982" width="132.66666666666666" height="20.333333333333329"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-hB-qk6">
+                                                                    <rect key="frame" x="40" y="5.9999999999999982" width="33.666666666666657" height="20.333333333333329"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdD-NB-MdV">
-                                                                    <rect key="frame" x="172.66666666666663" y="5.9999999999999982" width="162.33333333333337" height="20.333333333333329"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saZ-PN-SUf">
+                                                                    <rect key="frame" x="83.666666666666671" y="5.9999999999999982" width="200.33333333333331" height="20.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Code" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdD-NB-MdV">
+                                                                    <rect key="frame" x="294" y="5.9999999999999982" width="41" height="20.333333333333329"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -1867,9 +1873,6 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="sdD-NB-MdV" firstAttribute="width" secondItem="8FY-CY-dpQ" secondAttribute="width" id="KnA-FL-wZ8"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1878,7 +1881,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="VlU-N5-yNj" secondAttribute="bottom" id="9Zf-kN-LOp"/>
                                                 <constraint firstItem="VlU-N5-yNj" firstAttribute="top" secondItem="Sr8-rM-WnJ" secondAttribute="top" id="bPS-cL-NJh"/>
                                                 <constraint firstAttribute="trailing" secondItem="VlU-N5-yNj" secondAttribute="trailing" id="dCq-9O-h7r"/>
-                                                <constraint firstItem="Urz-Qw-0BW" firstAttribute="width" secondItem="Sr8-rM-WnJ" secondAttribute="width" multiplier="0.5" id="qu1-hg-2jd"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -1892,6 +1894,7 @@
                                 <connections>
                                     <outlet property="codeLabel" destination="sdD-NB-MdV" id="83N-0z-hPq"/>
                                     <outlet property="priceLabel" destination="8FY-CY-dpQ" id="fwa-4Y-bxR"/>
+                                    <outlet property="soldLabel" destination="fx2-hB-qk6" id="AsK-fB-sU5"/>
                                     <outlet property="sortLabel" destination="saZ-PN-SUf" id="EIh-rq-8qf"/>
                                     <outlet property="titleLabel" destination="Urz-Qw-0BW" id="9ae-iq-EdL"/>
                                 </connections>

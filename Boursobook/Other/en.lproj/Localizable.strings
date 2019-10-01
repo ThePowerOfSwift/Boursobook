@@ -21,6 +21,8 @@
 //ArticleListTableViewController
 "Articles of  " = "Articles of  ";
 "Labels :" = "Labels :";
+"sold" = "sold";
+"avail." = "avail.";
 
 // InfoViewController
 "Register" = "Register";

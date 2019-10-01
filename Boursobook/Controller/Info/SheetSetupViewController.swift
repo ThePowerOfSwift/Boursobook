@@ -97,6 +97,9 @@ class SheetSetupViewController: UIViewController {
 
         labelSheet.saveInUserDefaults()
         updateValues()
+        displayAlert(message: NSLocalizedString("Done !", comment: ""),
+        title: NSLocalizedString("Done !", comment: ""))
+
     }
 
     private func formatDiplayedNumber(_ number: Double) -> String? {

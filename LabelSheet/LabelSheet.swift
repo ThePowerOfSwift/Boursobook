@@ -57,12 +57,12 @@ class LabelSheet {
     // MARK: Functions
     func getNumberOfColumns() -> Int {
         let calculation = (sheetWidthInMM - firstLablePositionXInMM ) / ( labelWidthInMM + labelSpacingXInMM)
-        return Int(calculation.rounded(.towardZero))
+        return Int(calculation.rounded(.towardZero)) - 1
     }
 
     func getNumberOfRows() -> Int {
         let calculation = (sheetHeightInMM - firstLablePositionYInMM ) / ( labelHeightInMM + labelSpacingYInMM)
-        return Int(calculation.rounded(.towardZero))
+        return Int(calculation.rounded(.towardZero)) - 1
     }
 
     func getNumberPerSheet() -> Int {

@@ -12,7 +12,7 @@ class SellerViewController: UIViewController {
 
     // MARK: - Properties
     var uniqueIdOfSelectedSeller: String?
-    var labelSheet = LabelSheet()
+//    var labelSheet = LabelSheet()
     let sellerAPI = SellerAPI()
     var displayedSeller: Seller?
     let articleAPI = ArticleAPI()
@@ -39,6 +39,7 @@ class SellerViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func didTapPrintButton(_ sender: UIButton) {
+        let labelSheet = LabelSheet()
         shareLabelsSheetPdf(on: labelSheet)
     }
     @IBAction func didTapRefundButton(_ sender: UIButton) {
@@ -179,7 +180,7 @@ extension SellerViewController {
         var labels = [UIImage]()
 
         for article in articles {
-            if let imageToAdd = generateLabel(from: article) {
+            if let imageToAdd = generateLabel(from: article, on: sheet) {
                 labels.append(imageToAdd)
             }
         }
@@ -191,18 +192,18 @@ extension SellerViewController {
             var column = 0
             var positionInX: Double {
                 if column == 0 {
-                    return labelSheet.firstLablePositionXInMM
+                    return sheet.firstLablePositionXInMM
                 } else {
-                    return Double(column) * (labelSheet.labelWidthInMM + labelSheet.labelSpacingXInMM)
-                        + labelSheet.firstLablePositionXInMM
+                    return Double(column) * (sheet.labelWidthInMM + sheet.labelSpacingXInMM)
+                        + sheet.firstLablePositionXInMM
                 }
             }
             var positionInY: Double {
                 if row == 0 {
-                    return labelSheet.firstLablePositionYInMM
+                    return sheet.firstLablePositionYInMM
                 } else {
-                    return Double(row) * (labelSheet.labelHeightInMM + labelSheet.labelSpacingYInMM)
-                        + labelSheet.firstLablePositionYInMM
+                    return Double(row) * (sheet.labelHeightInMM + sheet.labelSpacingYInMM)
+                        + sheet.firstLablePositionYInMM
                 }
             }
 
@@ -210,13 +211,13 @@ extension SellerViewController {
 
             for label in labels {
                 label.draw(in: CGRect(x: positionInX, y: positionInY,
-                                      width: labelSheet.labelWidthInMM, height: labelSheet.labelHeightInMM))
+                                      width: sheet.labelWidthInMM, height: sheet.labelHeightInMM))
 
                 column += 1
-                if column > labelSheet.getNumberOfColumns() && row <= labelSheet.getNumberOfRows() {
+                if column > sheet.getNumberOfColumns() && row <= sheet.getNumberOfRows() {
                     row += 1
                     column = 0
-                } else if column > labelSheet.getNumberOfColumns() && row > labelSheet.getNumberOfRows() {
+                } else if column > sheet.getNumberOfColumns() && row > sheet.getNumberOfRows() {
                     page += 1
                     row = 0
                     column = 0
@@ -231,26 +232,21 @@ extension SellerViewController {
         present(activityController, animated: true, completion: nil)
     }
 
-    private func generateLabel(from article: Article) -> UIImage? {
+    private func generateLabel(from article: Article, on sheet: LabelSheet) -> UIImage? {
         // create label with the QRCode from the article
-        UIGraphicsBeginImageContext(CGSize(width: labelSheet.labelWidthInMM, height: labelSheet.labelHeightInMM))
+        let labelWidthResolution = 300
+        let labelRatio = sheet.labelWidthInMM / sheet.labelHeightInMM
+        let labelheight = Int((Double(labelWidthResolution) / labelRatio).rounded())
+        let labelSize = CGSize(width: labelWidthResolution, height: labelheight )
+        UIGraphicsBeginImageContext(labelSize)
 
-        // Get data from the uniqueID string
-        let data = article.uniqueID.data(using: String.Encoding.ascii)
-        // Get a QR CIFilter
-        guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-        // Input the data
-        qrFilter.setValue(data, forKey: "inputMessage")
-        // Get the output image
-        guard let qrImage = qrFilter.outputImage else { return nil }
-        // get the UIImage
-
-        let QRcodeUIImage = UIImage(ciImage: qrImage, scale: 1, orientation: .up)
-
+        guard let QRcodeUIImage = generateQRCode(from: article.uniqueID) else {
+            return nil
+        }
         // Draw QRCode
         QRcodeUIImage.draw(in: CGRect(x: 0, y: 0,
-                                      width: labelSheet.labelHeightInMM,
-                                      height: labelSheet.labelHeightInMM ))
+                                      width: labelSize.height,
+                                      height: labelSize.height ))
 
         // add text + price
         guard let stringPrice = formatDiplayedNumber(article.price) else {
@@ -258,26 +254,45 @@ extension SellerViewController {
         }
         let stringLabel = article.code
         let priceLabel = stringPrice + " €"
-        let textAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 50)]
-        let formattedStringLabel = NSMutableAttributedString(string: stringLabel, attributes: textAttributes)
-        formattedStringLabel.draw(in: CGRect(x: labelSheet.labelWidthInMM / 2 ,
-                                             y: (labelSheet.labelHeightInMM / 4 ) * 1,
-                                             width: (labelSheet.labelWidthInMM / 2),
-                                             height: labelSheet.labelHeightInMM / 3))
-        let formattedPriceLabel = NSMutableAttributedString(string: priceLabel, attributes: textAttributes)
-        formattedPriceLabel.draw(in: CGRect(x: labelSheet.labelWidthInMM / 2 ,
-                                             y: (labelSheet.labelHeightInMM / 4 ) * 3,
-                                             width: (labelSheet.labelWidthInMM / 2),
-                                             height: labelSheet.labelHeightInMM / 3))
+        let titleLabel = article.title
+
+        stringLabel.draw(in: CGRect(x: labelSize.width / 2 ,
+                                             y: (labelSize.height / 4 ) * 1,
+                                             width: (labelSize.width / 2),
+                                             height: labelSize.height / 3))
+        titleLabel.draw(in: CGRect(x: labelSize.width / 2 ,
+                                   y: (labelSize.height / 4 ) * 2,
+                                   width: (labelSize.width / 2),
+                                   height: labelSize.height / 3))
+
+        priceLabel.draw(in: CGRect(x: labelSize.width / 2 ,
+                                             y: (labelSize.height / 4 ) * 3,
+                                             width: (labelSize.width / 2),
+                                             height: labelSize.height / 3))
 
         // draw a rectangle
         let path = UIBezierPath(rect: CGRect(x: 0, y: 0,
-                                             width: labelSheet.labelWidthInMM,
-                                             height: labelSheet.labelHeightInMM))
+                                             width: labelSize.width,
+                                             height: labelSize.height))
         UIColor.black.setStroke()
         path.lineWidth = 10
         path.stroke()
 
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+
+    private func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        return nil
+    }
+
 }

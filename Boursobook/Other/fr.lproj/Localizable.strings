@@ -21,6 +21,8 @@
 //ArticleListTableViewController
 "Articles of  " = "Articles de  ";
 "Labels :" = "Etiquettes :";
+"sold" = "vendu";
+"avail." = "dispo";
 
 // Alert message
 "Warning" = "Attention";

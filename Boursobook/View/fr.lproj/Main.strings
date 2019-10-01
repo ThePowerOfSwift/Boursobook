@@ -93,7 +93,7 @@
 "QmP-cg-Hqc.text" = "CODE";
 
 /* Class = "UIButton"; normalTitle = "View article list to sold"; ObjectID = "Sj8-2j-ZHb"; */
-"Sj8-2j-ZHb.normalTitle" = "View article list to sold";
+"Sj8-2j-ZHb.normalTitle" = "List of articles";
 
 /* Class = "UILabel"; text = "999"; ObjectID = "Sue-ka-R4I"; */
 "Sue-ka-R4I.text" = "999";
