@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Scan the QRCode of article"; ObjectID = "BpX-qv-CuV"; */
+"BpX-qv-CuV.text" = "Scan the QRCode of article";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "LEa-sg-xjc"; */
+"LEa-sg-xjc.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Browse articles"; ObjectID = "LhR-Td-2k1"; */
+"LhR-Td-2k1.normalTitle" = "Browse articles";
+
+/* Class = "UILabel"; text = "Number of registered article :"; ObjectID = "N1R-ye-aKm"; */
+"N1R-ye-aKm.text" = "Number of registered article :";
+
+/* Class = "UILabel"; text = "Titre"; ObjectID = "OdA-zz-KKz"; */
+"OdA-zz-KKz.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "sale"; ObjectID = "QCY-aw-gTe"; */
+"QCY-aw-gTe.title" = "sale";
+
+/* Class = "UILabel"; text = "99,99 €"; ObjectID = "RSW-67-vNX"; */
+"RSW-67-vNX.text" = "99,99 €";
+
+/* Class = "UIButton"; normalTitle = "Add manually"; ObjectID = "SgE-60-SQT"; */
+"SgE-60-SQT.normalTitle" = "Add manually";
+
+/* Class = "UILabel"; text = "000"; ObjectID = "Wr9-5l-BZO"; */
+"Wr9-5l-BZO.text" = "000";
+
+/* Class = "UILabel"; text = "99,99 €"; ObjectID = "apP-Mh-3vL"; */
+"apP-Mh-3vL.text" = "99,99 €";
+
+/* Class = "UILabel"; text = "Number checked ?"; ObjectID = "fEw-vc-5zP"; */
+"fEw-vc-5zP.text" = "Number checked ?";
+
+/* Class = "UIButton"; normalTitle = "Save the sale"; ObjectID = "fg0-ML-Qwg"; */
+"fg0-ML-Qwg.normalTitle" = "Save the sale";
+
+/* Class = "UILabel"; text = "ZZZZ999"; ObjectID = "gcZ-j4-pua"; */
+"gcZ-j4-pua.text" = "ZZZZ999";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "j6I-Ik-Rq8"; */
+"j6I-Ik-Rq8.normalTitle" = "Reset";
+
+/* Class = "UILabel"; text = "Loading articles ..."; ObjectID = "tVg-PI-L13"; */
+"tVg-PI-L13.text" = "Loading articles ...";
+
+/* Class = "UILabel"; text = "RRRR999"; ObjectID = "vjT-XK-oXn"; */
+"vjT-XK-oXn.text" = "RRRR999";
+
+/* Class = "UILabel"; text = "000"; ObjectID = "ybw-AC-QeH"; */
+"ybw-AC-QeH.text" = "000";
+
+/* Class = "UILabel"; text = "Total Amount :"; ObjectID = "zsT-uA-1zH"; */
+"zsT-uA-1zH.text" = "Total Amount :";
