@@ -14,7 +14,6 @@
 		4F19E84422FB26E6004C545C /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E84322FB26E6004C545C /* FakeResponseData.swift */; };
 		4F19E84622FB27EC004C545C /* WrongBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E84522FB27EC004C545C /* WrongBook.json */; };
 		4F19E84822FB281B004C545C /* CorrectBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E84722FB281B004C545C /* CorrectBook.json */; };
-		4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */; };
 		4F19E8CE2301B4EC004C545C /* NoBook.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F19E8CD2301B4EC004C545C /* NoBook.json */; };
 		4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B5741230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift */; };
 		4F1FA5392344BC5D00816DD9 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1FA53B2344BC5D00816DD9 /* Info.storyboard */; };
@@ -119,7 +118,6 @@
 		4F19E84322FB26E6004C545C /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		4F19E84522FB27EC004C545C /* WrongBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WrongBook.json; sourceTree = "<group>"; };
 		4F19E84722FB281B004C545C /* CorrectBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CorrectBook.json; sourceTree = "<group>"; };
-		4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTestCase.swift; sourceTree = "<group>"; };
 		4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSetupViewController.swift; sourceTree = "<group>"; };
 		4F19E8CD2301B4EC004C545C /* NoBook.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoBook.json; sourceTree = "<group>"; };
 		4F1B573D230D2ED8000C7276 /* FireBaseDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseDataRequest.swift; sourceTree = "<group>"; };
@@ -268,14 +266,6 @@
 				4F19E84722FB281B004C545C /* CorrectBook.json */,
 			);
 			path = BookService;
-			sourceTree = "<group>";
-		};
-		4F19E84E22FC4AEC004C545C /* Transaction */ = {
-			isa = PBXGroup;
-			children = (
-				4F19E84F22FC4B10004C545C /* TransactionTestCase.swift */,
-			);
-			path = Transaction;
 			sourceTree = "<group>";
 		};
 		4F1E66D322DF252800C73B88 /* Articles */ = {
@@ -505,7 +495,6 @@
 				4F3820262302ADEC00AB9577 /* Purse */,
 				4F815E8C231E4F0F00C6718A /* Seller */,
 				4F16C726230FE77400063B95 /* Article */,
-				4F19E84E22FC4AEC004C545C /* Transaction */,
 				4F815E8A231E4E4E00C6718A /* URLSession */,
 				4F19E84022FAF503004C545C /* BookService */,
 				4FC5135422B13440000FD572 /* Info.plist */,
@@ -878,7 +867,6 @@
 				4F1FA5502344C7A900816DD9 /* SaleTestCase.swift in Sources */,
 				4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */,
 				4F815E982321024B00C6718A /* SellerAPITestCase.swift in Sources */,
-				4F19E85022FC4B10004C545C /* TransactionTestCase.swift in Sources */,
 				4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */,
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
 				4F815EB02322591500C6718A /* UserAuthAPITestCase.swift in Sources */,
