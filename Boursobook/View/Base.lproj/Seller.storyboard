@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +13,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="UITableViewController-t6O-Bi-VIR" modalPresentationStyle="fullScreen" id="t6O-Bi-VIR" customClass="SellersListViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="gs3-cp-tLh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -162,13 +164,13 @@
         <!--Add Seller-->
         <scene sceneID="j3b-yD-cT4">
             <objects>
-                <viewController title="Add Seller" id="28c-9Z-gna" customClass="AddNewSellerViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Seller" modalPresentationStyle="fullScreen" id="28c-9Z-gna" customClass="AddNewSellerViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="caN-BW-OH5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ove-fo-7sc">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c53-I7-bHv">
                                         <rect key="frame" x="10" y="10" width="355" height="396"/>
@@ -365,13 +367,13 @@
         <!--Seller-->
         <scene sceneID="OoQ-Ji-5Q2">
             <objects>
-                <viewController title="Seller" id="hyR-5s-AiI" customClass="SellerViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Seller" modalPresentationStyle="fullScreen" id="hyR-5s-AiI" customClass="SellerViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eI5-lz-0YH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCK-QI-Ztu">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpO-yQ-K5e">
                                         <rect key="frame" x="20" y="20" width="335" height="660"/>
@@ -397,7 +399,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="942-Lv-Qyj">
-                                                        <rect key="frame" x="0.0" y="30.333333333333343" width="335" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="30.333333333333329" width="335" height="20.333333333333329"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIk-3u-neO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="307.33333333333331" height="20.333333333333332"/>
@@ -414,7 +416,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KOE-BW-1tf">
-                                                        <rect key="frame" x="0.0" y="60.666666666666664" width="335" height="20.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="60.666666666666679" width="335" height="20.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ej-dJ-bmd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="307.33333333333331" height="20.333333333333332"/>
@@ -465,7 +467,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w2u-gH-3hu">
-                                                        <rect key="frame" x="0.0" y="151.66666666666669" width="335" height="20.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="151.66666666666666" width="335" height="20.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugp-6q-hhP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="307.33333333333331" height="20.333333333333332"/>
@@ -753,7 +755,7 @@
                                         </subviews>
                                     </stackView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RFv-up-xoc">
-                                        <rect key="frame" x="169" y="326.66666666666669" width="37" height="37"/>
+                                        <rect key="frame" x="169" y="348.66666666666669" width="37" height="37"/>
                                         <color key="color" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -819,13 +821,13 @@
         <!--Scan Book View Controller-->
         <scene sceneID="KeO-bA-c9G">
             <objects>
-                <viewController id="jPQ-zV-a5H" customClass="ScanBookViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="jPQ-zV-a5H" customClass="ScanBookViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDy-iP-yaO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the bar code of a book " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myt-1T-LYZ">
-                                <rect key="frame" x="20" y="118" width="335" height="25"/>
+                                <rect key="frame" x="20" y="74" width="335" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="BZA-N0-QPc"/>
                                 </constraints>
@@ -834,7 +836,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hCS-bh-ZFn">
-                                <rect key="frame" x="20" y="173" width="335" height="575"/>
+                                <rect key="frame" x="20" y="129" width="335" height="619"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h2-tk-QSC">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="67.333333333333329"/>
@@ -865,10 +867,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BC-kA-DDa">
-                                        <rect key="frame" x="0.0" y="67.333333333333343" width="335" height="507.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="67.333333333333314" width="335" height="551.66666666666674"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lq-qY-hi7">
-                                                <rect key="frame" x="5" y="5" width="325" height="497.66666666666669"/>
+                                                <rect key="frame" x="5" y="5" width="325" height="541.66666666666663"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -908,9 +910,9 @@
         <!--Article List Table View Controller-->
         <scene sceneID="FQo-oQ-Z15">
             <objects>
-                <tableViewController id="tf2-vp-ynE" customClass="ArticleListTableViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="tf2-vp-ynE" customClass="ArticleListTableViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="3fX-hz-ccB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1056,16 +1058,16 @@
         <!--Add Article-->
         <scene sceneID="EaG-hA-gRM">
             <objects>
-                <viewController title="Add Article" id="1b3-Ox-quZ" customClass="AddArticleViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Article" modalPresentationStyle="fullScreen" id="1b3-Ox-quZ" customClass="AddArticleViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SLE-AY-RwX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPf-Bv-cbJ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-99-7dX">
-                                        <rect key="frame" x="10" y="10" width="355" height="606.66666666666663"/>
+                                        <rect key="frame" x="10" y="10" width="355" height="653.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Svr-Vb-DXJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="20.333333333333332"/>
@@ -1079,7 +1081,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gyi-UN-fcU">
-                                                <rect key="frame" x="0.0" y="30.333333333333343" width="355" height="100"/>
+                                                <rect key="frame" x="0.0" y="30.333333333333329" width="355" height="99.999999999999986"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FZ-lD-n2h">
                                                         <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="100"/>
@@ -1120,7 +1122,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OUd-fA-UiJ">
-                                                <rect key="frame" x="0.0" y="184.33333333333331" width="355" height="34"/>
+                                                <rect key="frame" x="0.0" y="184.33333333333334" width="355" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLW-WS-HTF">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.666666666666664" height="34"/>
@@ -1209,13 +1211,26 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cng-1e-hcA">
-                                                <rect key="frame" x="0.0" y="456.66666666666663" width="355" height="30"/>
+                                                <rect key="frame" x="0.0" y="456.66666666666669" width="355" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Psj-ZL-5fW"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NPN-ji-4an">
+                                                <rect key="frame" x="0.0" y="496.66666666666663" width="355" height="37"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1EZ-gt-vl5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="37"/>
+                                                        <color key="color" red="0.42893993850000001" green="0.69424951079999997" blue="0.86276859049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="1EZ-gt-vl5" firstAttribute="centerX" secondItem="NPN-ji-4an" secondAttribute="centerX" id="9ZQ-2e-Vyu"/>
+                                                    <constraint firstItem="1EZ-gt-vl5" firstAttribute="centerY" secondItem="NPN-ji-4an" secondAttribute="centerY" id="pnF-qO-9En"/>
+                                                </constraints>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o93-Nf-veE">
-                                                <rect key="frame" x="0.0" y="496.66666666666663" width="355" height="30"/>
+                                                <rect key="frame" x="0.0" y="543.66666666666663" width="355" height="30"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRa-hH-geY">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
@@ -1243,13 +1258,13 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GcO-OT-p8v">
-                                                <rect key="frame" x="0.0" y="536.66666666666663" width="355" height="30"/>
+                                                <rect key="frame" x="0.0" y="583.66666666666663" width="355" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="EWl-Nd-XIR"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DXC-9G-cD2">
-                                                <rect key="frame" x="0.0" y="576.66666666666663" width="355" height="30"/>
+                                                <rect key="frame" x="0.0" y="623.66666666666663" width="355" height="30"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8J-M6-5cH">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
@@ -1301,6 +1316,7 @@
                         <viewLayoutGuide key="safeArea" id="jwk-6k-bgq"/>
                     </view>
                     <connections>
+                        <outlet property="ActivityIndicatorStack" destination="NPN-ji-4an" id="szt-Yx-Qrk"/>
                         <outlet property="authorTexField" destination="CoI-Ff-Pfj" id="nwF-Nm-Lj4"/>
                         <outlet property="descriptionTextView" destination="bX0-oa-9e3" id="ePS-19-d0x"/>
                         <outlet property="isbnTextField" destination="pdj-Xy-x3J" id="wGj-Pt-deb"/>
@@ -1327,11 +1343,11 @@
             <objects>
                 <viewController storyboardIdentifier="UIViewController-33M-Ia-7Eh" title="Article" id="33M-Ia-7Eh" customClass="ArticleViewController" customModule="Boursobook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="63k-x3-lUk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLe-Ux-JeR">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxG-nz-U5b">
                                         <rect key="frame" x="20" y="20" width="335" height="532"/>
@@ -1357,7 +1373,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SsK-bD-i29">
-                                                        <rect key="frame" x="0.0" y="30.333333333333343" width="335" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="30.333333333333329" width="335" height="20.333333333333329"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwl-NZ-sdh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="307.33333333333331" height="20.333333333333332"/>
@@ -1374,7 +1390,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lgT-Nu-a3Q">
-                                                        <rect key="frame" x="0.0" y="60.666666666666664" width="335" height="20.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="60.666666666666679" width="335" height="20.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDR-Uh-Dfj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>

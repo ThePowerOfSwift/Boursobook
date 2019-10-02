@@ -130,6 +130,7 @@
 		4F1FA5482344C45F00816DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Seller.storyboard; sourceTree = "<group>"; };
 		4F1FA54B2344C46700816DD9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Seller.strings; sourceTree = "<group>"; };
 		4F1FA54F2344C7A900816DD9 /* SaleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTestCase.swift; sourceTree = "<group>"; };
+		4F1FA5522344CD7500816DD9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4F25C3FB23390D6D00916CC8 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		4F25C3FE23390DF200916CC8 /* SaleValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleValues.swift; sourceTree = "<group>"; };
 		4F25C4002339138800916CC8 /* SaleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPI.swift; sourceTree = "<group>"; };
@@ -168,7 +169,6 @@
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
 		4F9E864022C6239A00C9BE1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9E864222C6239F00C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4F9E864522C6289000C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		4F9E864622C636B100C9BE1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4F9E864D22C6431700C9BE1E /* Error+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+extension.swift"; sourceTree = "<group>"; };
 		4FA05B7422BCFD4900708718 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -935,7 +935,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4FC5133F22B13440000FD572 /* Base */,
-				4F9E864522C6289000C9BE1E /* fr */,
+				4F1FA5522344CD7500816DD9 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
