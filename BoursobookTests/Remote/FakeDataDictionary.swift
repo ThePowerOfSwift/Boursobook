@@ -14,9 +14,9 @@ class FakeDataDictionary {
         return [:]
     }
 
-    var transaction: [String: Any] {
+    var sale: [String: Any] {
         return ["date": "15/01/19",
-                "uniqueID": "ID Transaction - fake transaction For test",
+                "uniqueID": "ID Sale - fake sale For test",
                 "amount": 23.4,
                 "numberOfArticle": 7,
                 "madeByUser": "michel",
@@ -35,6 +35,7 @@ class FakeDataDictionary {
                 "price": 2.4,
                 "sellerUniqueId": "AAAA 44FGDRGERT",
                 "sold": false,
+                "returned": true,
                 "uniqueID": "ID Article - fake article For test"]
     }
 
@@ -51,9 +52,10 @@ class FakeDataDictionary {
                 "administrators": ["me": true],
                 "users": ["me@me.fr"],
                 "numberOfArticleRegistered": 13,
+                "numberOfArticleReturned": 7,
                 "numberOfSellers": 8,
                 "numberOfArticlesold": 8,
-                "numberOfTransaction": 4,
+                "numberOfSales": 4,
                 "totalSalesAmount": 12.6,
                 "totalBenefitOnSalesAmount": 2.4,
                 "totalDepositFeeAmount": 2.2
@@ -64,13 +66,19 @@ class FakeDataDictionary {
         return ["name": "APE 2019",
                 "uniqueID": "APE 2019 UNIQUEID",
                 "percentageOnSales": 10.2,
-                "depositFee": ["me": true],
+                "depositFee": ["underFifty": 2.0,
+                               "underOneHundred": 4.0,
+                               "underOneHundredFifty": 6.0,
+                               "underTwoHundred": 8.0,
+                               "underTwoHundredFifty": 10.0,
+                               "errorField": 12.0],
                 "administrators": ["me": true],
                 "users": ["me@me.fr"],
                 "numberOfArticleRegistered": 13,
+                "numberOfArticleReturned": 7,
                 "numberOfSellers": 8,
                 "numberOfArticlesold": 8,
-                "numberOfTransaction": 4,
+                "numberOfSales": 4,
                 "totalSalesAmount": 12.6,
                 "totalBenefitOnSalesAmount": 2.4,
                 "totalDepositFeeAmount": 2.2

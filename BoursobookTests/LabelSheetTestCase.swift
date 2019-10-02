@@ -29,7 +29,7 @@ class LabelSheetTestCase: XCTestCase {
         let numberOfColums = labelSheet.getNumberOfColumns()
 
         // Then
-        XCTAssertEqual(numberOfColums, 3)
+        XCTAssertEqual(numberOfColums, 2)
     }
 
     func testGetNumberOfRowShouldReturnGoodNumber() {
@@ -44,7 +44,7 @@ class LabelSheetTestCase: XCTestCase {
         let numberOfRows = labelSheet.getNumberOfRows()
 
         // Then
-        XCTAssertEqual(numberOfRows, 12)
+        XCTAssertEqual(numberOfRows, 11)
     }
 
     func testGetNumberPerSheetShouldReturnGoodNumber() {
@@ -63,6 +63,6 @@ class LabelSheetTestCase: XCTestCase {
         let numberPerSheet = labelSheet.getNumberPerSheet()
 
         // Then
-        XCTAssertEqual(numberPerSheet, 36)
+        XCTAssertEqual(numberPerSheet, 22)
     }
 }

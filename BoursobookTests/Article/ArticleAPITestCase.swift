@@ -11,7 +11,7 @@ import XCTest
 
 class ArticleAPITestCase: XCTestCase {
 
-    let purse = FakeData.purse
+    let seller = FakeData.seller
 
     override func setUp() {
     }
@@ -23,12 +23,13 @@ class ArticleAPITestCase: XCTestCase {
     func testLoadNoPurseWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: goodData)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
+                                                                  error: nil, data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeArticleAPI.loadArticlesFor(purse: nil) { (error, loadedArticles) in
+        fakeArticleAPI.loadArticlesFor(seller: nil) { (error, loadedArticles) in
 
             //Then
             XCTAssertNil(loadedArticles)
@@ -42,12 +43,12 @@ class ArticleAPITestCase: XCTestCase {
 
     func testLoadNoDataWithNoErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection, error: nil, data: nil)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeArticleAPI.loadArticlesFor(purse: purse) { (error, loadedArticles) in
+        fakeArticleAPI.loadArticlesFor(seller: seller) { (error, loadedArticles) in
 
             //Then
             XCTAssertNil(loadedArticles)
@@ -62,13 +63,13 @@ class ArticleAPITestCase: XCTestCase {
     func testLoadDataWithErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: FakeData.error,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection, error: FakeData.error,
                                                                   data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeArticleAPI.loadArticlesFor(purse: purse) { (error, loadedArticles) in
+        fakeArticleAPI.loadArticlesFor(seller: seller) { (error, loadedArticles) in
 
             //Then
             XCTAssertNil(loadedArticles)
@@ -86,13 +87,13 @@ class ArticleAPITestCase: XCTestCase {
     func testLoadDataWithNoErrorSouldReturnData() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .purse, error: nil,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection, error: nil,
                                                                   data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeArticleAPI.loadArticlesFor(purse: purse) { (error, loadedArticles) in
+        fakeArticleAPI.loadArticlesFor(seller: seller) { (error, loadedArticles) in
 
             //Then
             XCTAssertNil(error)

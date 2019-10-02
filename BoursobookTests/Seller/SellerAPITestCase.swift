@@ -23,7 +23,8 @@ class SellerAPITestCase: XCTestCase {
     func testLoadNoPurseWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.seller]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .seller, error: nil, data: goodData)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection,
+                                                                  error: nil, data: goodData)
         let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -42,7 +43,7 @@ class SellerAPITestCase: XCTestCase {
 
     func testLoadNoDataWithNoErrorSouldReturnError() {
         //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .seller, error: nil, data: nil)
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection, error: nil, data: nil)
         let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
@@ -62,7 +63,7 @@ class SellerAPITestCase: XCTestCase {
     func testLoadDataWithErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.seller]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .seller, error: FakeData.error,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection, error: FakeData.error,
                                                                   data: goodData)
         let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
@@ -86,7 +87,7 @@ class SellerAPITestCase: XCTestCase {
     func testLoadDataWithNoErrorSouldReturnData() {
         //Given
         let goodData = [FakeData.seller]
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: .seller, error: nil,
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection, error: nil,
                                                                   data: goodData)
         let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
 

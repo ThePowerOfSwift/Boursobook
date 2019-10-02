@@ -125,7 +125,7 @@ class SellerTestCase: XCTestCase {
             XCTFail("error in init seller")
             return
         }
-        var dictionaryValues = seller.dictionary
+        let dictionaryValues = seller.dictionary
 
         //Then
         XCTAssertEqual(dictionaryValues["familyName"] as? String, fakeSellerDataDictionary["familyName"] as? String)
@@ -190,5 +190,83 @@ class SellerTestCase: XCTestCase {
 
         //Then
         XCTAssertFalse(compare)
+    }
+
+    func testSetDepositWith49ArticlesShouldReturnUnderFifty() {
+        //Given
+        let seller = FakeData.seller
+        seller.articleRegistered = 49
+        let purse = FakeData.purse
+
+         //When
+        seller.setDepositFeeAmount(with: purse)
+
+        //Then
+        XCTAssertEqual(seller.depositFeeAmount, purse.depositFee.underFifty)
+    }
+
+    func testSetDepositWith99ArticlesShouldReturnUnderOneHundred() {
+        //Given
+        let seller = FakeData.seller
+        seller.articleRegistered = 99
+        let purse = FakeData.purse
+
+         //When
+        seller.setDepositFeeAmount(with: purse)
+
+        //Then
+        XCTAssertEqual(seller.depositFeeAmount, purse.depositFee.underOneHundred)
+    }
+
+    func testSetDepositWith149ArticlesShouldReturnUnderOneHundredFifty() {
+        //Given
+        let seller = FakeData.seller
+        seller.articleRegistered = 149
+        let purse = FakeData.purse
+
+         //When
+        seller.setDepositFeeAmount(with: purse)
+
+        //Then
+        XCTAssertEqual(seller.depositFeeAmount, purse.depositFee.underOneHundredFifty)
+    }
+
+    func testSetDepositWith199ArticlesShouldReturnUnderTwoHundred() {
+        //Given
+        let seller = FakeData.seller
+        seller.articleRegistered = 199
+        let purse = FakeData.purse
+
+         //When
+        seller.setDepositFeeAmount(with: purse)
+
+        //Then
+        XCTAssertEqual(seller.depositFeeAmount, purse.depositFee.underTwoHundred)
+    }
+
+    func testSetDepositWith249ArticlesShouldReturnUnderTwoHundredFifty() {
+        //Given
+        let seller = FakeData.seller
+        seller.articleRegistered = 249
+        let purse = FakeData.purse
+
+         //When
+        seller.setDepositFeeAmount(with: purse)
+
+        //Then
+        XCTAssertEqual(seller.depositFeeAmount, purse.depositFee.underTwoHundredFifty)
+    }
+
+    func testSetDepositWith251ArticlesShouldReturnOverTwoHundredFifty() {
+        //Given
+        let seller = FakeData.seller
+        seller.articleRegistered = 251
+        let purse = FakeData.purse
+
+         //When
+        seller.setDepositFeeAmount(with: purse)
+
+        //Then
+        XCTAssertEqual(seller.depositFeeAmount, purse.depositFee.overTwoHundredFifty)
     }
 }

@@ -10,8 +10,55 @@ import Foundation
 @testable import Boursobook
 
 struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
+    var collection: String
 
-    var collection: RemoteDataBase.Collection
+    func createWithOneTransaction<FirstModel, ResultModel>(
+        model: FirstModel,
+        block: @escaping (FirstModel) -> [String: Any],
+        resultBlock: @escaping () -> ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+        //FIXME: A implementer
+    }
+
+    func createWithTwoTransactions<FirstModel, SecondModel, ResultModel>(
+        models: (firstModel: FirstModel, secondModel: SecondModel),
+        blocks: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
+        resultBlock: @escaping () -> ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+            ResultModel: RemoteDataBaseModel {
+        //FIXME: A implementer
+    }
+
+    func uptadeWithFourTransactions<FirstModel, SecondModel, ThirdModel, FourthtModel>(
+        modelsA: (firstModel: FirstModel, secondModel: SecondModel),
+        modelsB: (thirdModel: ThirdModel, fourthModel: FourthtModel),
+        blocksA: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
+        blocksB: (thirdBlock: (ThirdModel) -> [String: Any], fourthBlock: (FourthtModel) -> [String: Any]),
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+            ThirdModel: RemoteDataBaseModel, FourthtModel: RemoteDataBaseModel {
+        //FIXME: A implementer
+    }
+
+    func removeWithOneTransaction<FirstModel, ResultModel>(
+        model: FirstModel,
+        block: @escaping (FirstModel) -> [String: Any],
+        modelToRemove: ResultModel, completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+        //FIXME: A implementer
+    }
+
+    func removeWithTwoTransactions<FirstModel, SecondModel, ResultModel>(
+        models: (firstModel: FirstModel, secondModel: SecondModel),
+        blocks: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
+        modelToRemove: ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+            ResultModel: RemoteDataBaseModel {
+        //FIXME: A implementer
+    }
 
     var error: Error?
     var data: [RemoteDataBaseModel]?

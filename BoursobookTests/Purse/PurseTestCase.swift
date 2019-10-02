@@ -19,15 +19,15 @@ class PurseTestCase: XCTestCase {
 
     func testInitPurseSouldReturnPurse() {
         //Given
-        let name = "APE 2019"
-        let uniqueID = "APE 2019 UNIQUEID"
+        let name = "APE 2019", uniqueID = "APE 2019 UNIQUEID"
         let percentageOnSales = 10.2
         let administrators = ["me": true]
         let users = ["me@me.fr"]
         let numberOfArticleRegistered = 13
+        let numberOfArticleReturned = 3
         let numberOfSellers = 8
         let numberOfArticlesold = 8
-        let numberOfTransaction = 4
+        let numberOfSales = 4
         let totalSalesAmount = 12.6
         let totalBenefitOnSalesAmount = 2.4
         let totalDepositFeeAmount = 2.2
@@ -38,11 +38,10 @@ class PurseTestCase: XCTestCase {
         //When
         let purse = Purse(name: name, uniqueID: uniqueID, numberOfArticleRegistered: numberOfArticleRegistered,
                           numberOfSellers: numberOfSellers, numberOfArticlesold: numberOfArticlesold,
-                          numberOfTransaction: numberOfTransaction, percentageOnSales: percentageOnSales,
-                          depositFee: depositFee, totalSalesAmount: totalSalesAmount,
-                          totalBenefitOnSalesAmount: totalBenefitOnSalesAmount,
-                          totalDepositFeeAmount: totalDepositFeeAmount,
-                          administrators: administrators, users: users)
+                          numberOfArticleReturned: numberOfArticleReturned, numberOfSales: numberOfSales,
+                          percentageOnSales: percentageOnSales, depositFee: depositFee,
+                          totalSalesAmount: totalSalesAmount, totalBenefitOnSalesAmount: totalBenefitOnSalesAmount,
+                          totalDepositFeeAmount: totalDepositFeeAmount, administrators: administrators, users: users)
 
         //Then
         XCTAssertEqual(purse.name, name)
@@ -51,9 +50,10 @@ class PurseTestCase: XCTestCase {
         XCTAssertEqual(purse.administrators, administrators)
         XCTAssertEqual(purse.users, users)
         XCTAssertEqual(purse.numberOfArticleRegistered, numberOfArticleRegistered)
+        XCTAssertEqual(purse.numberOfArticleReturned, numberOfArticleReturned)
         XCTAssertEqual(purse.numberOfSellers, numberOfSellers)
         XCTAssertEqual(purse.numberOfArticlesold, numberOfArticlesold)
-        XCTAssertEqual(purse.numberOfSales, numberOfTransaction)
+        XCTAssertEqual(purse.numberOfSales, numberOfSales)
         XCTAssertEqual(purse.totalSalesAmount, totalSalesAmount)
         XCTAssertEqual(purse.totalBenefitOnSalesAmount, totalBenefitOnSalesAmount)
         XCTAssertEqual(purse.totalDepositFeeAmount, totalDepositFeeAmount)
@@ -85,6 +85,7 @@ class PurseTestCase: XCTestCase {
         XCTAssertEqual(purse.numberOfArticleRegistered, 0)
         XCTAssertEqual(purse.numberOfSellers, 0)
         XCTAssertEqual(purse.numberOfArticlesold, 0)
+        XCTAssertEqual(purse.numberOfArticleReturned, 0)
         XCTAssertEqual(purse.numberOfSales, 0)
         XCTAssertEqual(purse.totalSalesAmount, 0)
         XCTAssertEqual(purse.totalBenefitOnSalesAmount, 0)
@@ -99,24 +100,21 @@ class PurseTestCase: XCTestCase {
 
     func testInitPurseWithDictionarySouldReturnPurse() {
         //Given
-        let name = "APE 2019"
-        let uniqueID = "APE 2019 UNIQUEID"
+        let name = "APE 2019", uniqueID = "APE 2019 UNIQUEID"
         let percentageOnSales = 10.2
         let administrators = ["me": true]
         let users = ["me@me.fr"]
         let numberOfArticleRegistered = 13
         let numberOfSellers = 8
         let numberOfArticlesold = 8
-        let numberOfTransaction = 4
+        let numberOfArticleReturned = 7
+        let numberOfSales = 4
         let totalSalesAmount = 12.6
         let totalBenefitOnSalesAmount = 2.4
         let totalDepositFeeAmount = 2.2
-        let depositFee = Purse.DepositFee(underFifty: 2.0,
-                                          underOneHundred: 4.0,
-                                          underOneHundredFifty: 6.0,
-                                          underTwoHundred: 8.0,
-                                          underTwoHundredFifty: 10.0,
-                                          overTwoHundredFifty: 12.0)
+        let depositFee = Purse.DepositFee(underFifty: 2.0, underOneHundred: 4.0,
+                                          underOneHundredFifty: 6.0, underTwoHundred: 8.0,
+                                          underTwoHundredFifty: 10.0, overTwoHundredFifty: 12.0)
 
         let fakePurseDataDictionary = FakeDataDictionary().purse
 
@@ -135,7 +133,8 @@ class PurseTestCase: XCTestCase {
         XCTAssertEqual(purse.numberOfArticleRegistered, numberOfArticleRegistered)
         XCTAssertEqual(purse.numberOfSellers, numberOfSellers)
         XCTAssertEqual(purse.numberOfArticlesold, numberOfArticlesold)
-        XCTAssertEqual(purse.numberOfSales, numberOfTransaction)
+        XCTAssertEqual(purse.numberOfArticleReturned, numberOfArticleReturned)
+        XCTAssertEqual(purse.numberOfSales, numberOfSales)
         XCTAssertEqual(purse.totalSalesAmount, totalSalesAmount)
         XCTAssertEqual(purse.totalBenefitOnSalesAmount, totalBenefitOnSalesAmount)
         XCTAssertEqual(purse.totalDepositFeeAmount, totalDepositFeeAmount)
@@ -181,15 +180,15 @@ class PurseTestCase: XCTestCase {
     func testGetDictionarySouldReturnGoodValues() {
         //Given
         let fakePurseDataDictionary = FakeDataDictionary().purse
-        var depositFeefake = fakePurseDataDictionary["depositFee"] as? [String: Double] ?? ["string": 10]
+        let depositFeefake = fakePurseDataDictionary["depositFee"] as? [String: Double] ?? ["string": 10]
 
         //When
         guard let purse = Purse(dictionary: fakePurseDataDictionary) else {
             XCTFail("error in init purse")
             return
         }
-        var dictionaryValues = purse.dictionary
-        var depositFeeValues = dictionaryValues["depositFee"] as? [String: Double] ?? ["": 0]
+        let dictionaryValues = purse.dictionary
+        let depositFeeValues = dictionaryValues["depositFee"] as? [String: Double] ?? ["": 0]
 
         //Then
         XCTAssertEqual(dictionaryValues["name"] as? String, fakePurseDataDictionary["name"] as? String)
@@ -201,6 +200,8 @@ class PurseTestCase: XCTestCase {
                        fakePurseDataDictionary["numberOfSellers"] as? Int)
         XCTAssertEqual(dictionaryValues["numberOfArticlesold"] as? Int,
                        fakePurseDataDictionary["numberOfArticlesold"] as? Int)
+        XCTAssertEqual(dictionaryValues["numberOfArticleReturned"] as? Int,
+        fakePurseDataDictionary["numberOfArticleReturned"] as? Int)
         XCTAssertEqual(dictionaryValues["numberOfTransaction"] as? Int,
                        fakePurseDataDictionary["numberOfTransaction"] as? Int)
 

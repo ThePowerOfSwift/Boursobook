@@ -31,6 +31,7 @@ class ArticleTestCase: XCTestCase {
         let sellerUniqueId = "AAAA 44FGDRGERT"
         let sold = true
         let uniqueID = "23456643RRRRR"
+        let returned = true
 
         //When
         let article = Article(title: title, sort: sort,
@@ -38,7 +39,9 @@ class ArticleTestCase: XCTestCase {
                               purseName: purseName, isbn: isbn,
                               code: code, price: price,
                               sellerUniqueId: sellerUniqueId,
-                              sold: sold, uniqueID: uniqueID)
+                              sold: sold,
+                              returned: returned,
+                              uniqueID: uniqueID)
 
         //Then
         XCTAssertEqual(article.title, title)
@@ -51,7 +54,36 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.price, price)
         XCTAssertEqual(article.sellerUniqueId, sellerUniqueId)
         XCTAssertEqual(article.sold, sold )
+        XCTAssertEqual(article.returned, returned )
         XCTAssertEqual(article.uniqueID, uniqueID)
+    }
+
+    func testShortInitArticleSouldReturnArticle() {
+        //Given
+        let title = "titre article"
+        let sort = "Book"
+        let author = "DURANS"
+        let description = "un livre sympa"
+        let isbn = "1234567890123"
+        let price = 2.4
+
+        //When
+        let article = Article(title: title, sort: sort, author: author,
+        description: description, isbn: isbn, price: price)
+
+        //Then
+        XCTAssertEqual(article.title, title)
+        XCTAssertEqual(article.sort, sort)
+        XCTAssertEqual(article.author, author)
+        XCTAssertEqual(article.description, description)
+        XCTAssertEqual(article.isbn, isbn)
+        XCTAssertEqual(article.price, price)
+        XCTAssertEqual(article.code, "")
+        XCTAssertEqual(article.purseName, "")
+        XCTAssertEqual(article.sellerUniqueId, "")
+        XCTAssertEqual(article.sold, false )
+        XCTAssertEqual(article.returned, false )
+        XCTAssertEqual(article.uniqueID, "")
     }
 
     func testInitArticleWithDictionarySouldReturnArticle() {
@@ -66,6 +98,7 @@ class ArticleTestCase: XCTestCase {
         let price = 2.4
         let sellerUniqueId = "AAAA 44FGDRGERT"
         let sold = false
+        let returned = true
         let uniqueID = "ID Article - fake article For test"
 
         let articleDataDictionary = FakeDataDictionary().article
@@ -87,6 +120,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(article.price, price)
         XCTAssertEqual(article.sellerUniqueId, sellerUniqueId)
         XCTAssertEqual(article.sold, sold )
+        XCTAssertEqual(article.returned, returned )
         XCTAssertEqual(article.uniqueID, uniqueID)
     }
 
@@ -115,7 +149,7 @@ class ArticleTestCase: XCTestCase {
         XCTFail("error in init article")
         return
         }
-        var dictionaryValues = article.dictionary
+        let dictionaryValues = article.dictionary
 
         //Then
         XCTAssertEqual(dictionaryValues["title"] as? String, fakeArticleDataDictionary["title"] as? String)
@@ -131,5 +165,7 @@ class ArticleTestCase: XCTestCase {
         XCTAssertEqual(dictionaryValues["price"] as? Double, fakeArticleDataDictionary["price"] as? Double)
 
         XCTAssertEqual(dictionaryValues["sold"] as? Bool, fakeArticleDataDictionary["sold"] as? Bool)
+
+        XCTAssertEqual(dictionaryValues["returned"] as? Bool, fakeArticleDataDictionary["returned"] as? Bool)
         }
 }
