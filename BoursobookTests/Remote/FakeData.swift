@@ -39,6 +39,32 @@ class FakeData {
                                              returned: false,
                                              uniqueID: "ID Second Article - fake article For test")
 
+    static let articleSold = Article(title: "titre article",
+                        sort: "Book",
+                        author: "DURANS",
+                        description: "un livre sympa",
+                        purseName: "APE 2019",
+                        isbn: "1234567890123",
+                        code: "AAAA 0001",
+                        price: 2.4,
+                        sellerUniqueId: "AAAA 44FGDRGERT",
+                        sold: true,
+                        returned: false,
+                        uniqueID: "ID Article - first fake article For test")
+
+    static let articleReturned = Article(title: "titre article",
+                        sort: "Book",
+                        author: "DURANS",
+                        description: "un livre sympa",
+                        purseName: "APE 2019",
+                        isbn: "1234567890123",
+                        code: "AAAA 0001",
+                        price: 2.4,
+                        sellerUniqueId: "AAAA 44FGDRGERT",
+                        sold: false,
+                        returned: true,
+                        uniqueID: "ID Article - first fake article For test")
+
     static let sale = Sale(date: "15/01/19",
                                          uniqueID: "ID Sale - fake sale For test",
                                          amount: 23.4,
