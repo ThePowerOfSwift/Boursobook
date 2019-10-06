@@ -24,6 +24,8 @@
 		4F25C3FF23390DF200916CC8 /* SaleValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C3FE23390DF200916CC8 /* SaleValues.swift */; };
 		4F25C4012339138800916CC8 /* SaleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C4002339138800916CC8 /* SaleAPI.swift */; };
 		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
+		4F3DEEF4234A949B00ECF9F3 /* SellerAPITestCaseWithMockUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3DEEF3234A949B00ECF9F3 /* SellerAPITestCaseWithMockUD.swift */; };
+		4F3DEEF6234A97CB00ECF9F3 /* SellerCodeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3DEEF5234A97CB00ECF9F3 /* SellerCodeTestCase.swift */; };
 		4F4A3ABA23477CE500139359 /* SaleAPITestCaseRealDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3AB923477CE500139359 /* SaleAPITestCaseRealDB.swift */; };
 		4F6B76F123100CB10028EA97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		4F6B76F223100CB10028EA97 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
@@ -76,7 +78,7 @@
 		4F815E92231E714800C6718A /* PurseAPITestCaseWithMockCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E91231E714800C6718A /* PurseAPITestCaseWithMockCR.swift */; };
 		4F815E94231EC10000C6718A /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E93231EC10000C6718A /* PrivateKey.swift */; };
 		4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E952320FEF400C6718A /* SellerAPI.swift */; };
-		4F815E982321024B00C6718A /* SellerAPITestCaseWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E972321024B00C6718A /* SellerAPITestCaseWithMock.swift */; };
+		4F815E982321024B00C6718A /* SellerAPITestCaseWithMockCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E972321024B00C6718A /* SellerAPITestCaseWithMockCR.swift */; };
 		4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9923210C8400C6718A /* ArticleAPI.swift */; };
 		4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */; };
 		4F815E9E23215A4D00C6718A /* RemoteAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */; };
@@ -142,6 +144,8 @@
 		4F25C4002339138800916CC8 /* SaleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPI.swift; sourceTree = "<group>"; };
 		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
 		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		4F3DEEF3234A949B00ECF9F3 /* SellerAPITestCaseWithMockUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCaseWithMockUD.swift; sourceTree = "<group>"; };
+		4F3DEEF5234A97CB00ECF9F3 /* SellerCodeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCodeTestCase.swift; sourceTree = "<group>"; };
 		4F4A3AB923477CE500139359 /* SaleAPITestCaseRealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPITestCaseRealDB.swift; sourceTree = "<group>"; };
 		4F6B772C23100CB10028EA97 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
@@ -160,7 +164,7 @@
 		4F815E91231E714800C6718A /* PurseAPITestCaseWithMockCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPITestCaseWithMockCR.swift; sourceTree = "<group>"; };
 		4F815E93231EC10000C6718A /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		4F815E952320FEF400C6718A /* SellerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPI.swift; sourceTree = "<group>"; };
-		4F815E972321024B00C6718A /* SellerAPITestCaseWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCaseWithMock.swift; sourceTree = "<group>"; };
+		4F815E972321024B00C6718A /* SellerAPITestCaseWithMockCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCaseWithMockCR.swift; sourceTree = "<group>"; };
 		4F815E9923210C8400C6718A /* ArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPI.swift; sourceTree = "<group>"; };
 		4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPITestCase.swift; sourceTree = "<group>"; };
 		4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationRequest.swift; sourceTree = "<group>"; };
@@ -391,8 +395,10 @@
 			isa = PBXGroup;
 			children = (
 				4F815E8D231E4F3800C6718A /* SellerTestCase.swift */,
-				4F815E972321024B00C6718A /* SellerAPITestCaseWithMock.swift */,
+				4F815E972321024B00C6718A /* SellerAPITestCaseWithMockCR.swift */,
+				4F3DEEF3234A949B00ECF9F3 /* SellerAPITestCaseWithMockUD.swift */,
 				4F89FB11234A8837002A650C /* SellerAPITestCaseRealDB.swift */,
+				4F3DEEF5234A97CB00ECF9F3 /* SellerCodeTestCase.swift */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -893,11 +899,13 @@
 				4F1FA5502344C7A900816DD9 /* SaleTestCase.swift in Sources */,
 				4F89FB0E2349FE7C002A650C /* PurseAPITestCaseWithMockUD.swift in Sources */,
 				4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */,
-				4F815E982321024B00C6718A /* SellerAPITestCaseWithMock.swift in Sources */,
+				4F815E982321024B00C6718A /* SellerAPITestCaseWithMockCR.swift in Sources */,
+				4F3DEEF6234A97CB00ECF9F3 /* SellerCodeTestCase.swift in Sources */,
 				4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */,
 				4F89FB12234A8837002A650C /* SellerAPITestCaseRealDB.swift in Sources */,
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
 				4F815EB02322591500C6718A /* UserAuthAPITestCaseWithMock.swift in Sources */,
+				4F3DEEF4234A949B00ECF9F3 /* SellerAPITestCaseWithMockUD.swift in Sources */,
 				4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */,
 				4F815E8E231E4F3800C6718A /* SellerTestCase.swift in Sources */,
 				4F4A3ABA23477CE500139359 /* SaleAPITestCaseRealDB.swift in Sources */,

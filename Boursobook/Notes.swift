@@ -14,7 +14,8 @@ import Foundation
         (refaire test sale real database ??? avec dispatchgourp
     pour enlever inibeur allerte)
  
- - test sellerAPI with realDB
+ - test sellerAPI with realDB voir partie non teste
+ -
 
 
             - Probleme impression etiquettes 
