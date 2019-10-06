@@ -46,7 +46,7 @@ class BrowseArticleListTableViewController: UITableViewController {
         guard let currentSale = currentSale else {
             return
         }
-        for (articleUniqueId, _) in currentSale.articles {
+        for articleUniqueId in currentSale.articlesUniqueID {
             for (index, article) in displayedArticles.enumerated() where article.uniqueID == articleUniqueId {
                 displayedArticles.remove(at: index)
             }

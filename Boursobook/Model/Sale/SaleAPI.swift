@@ -22,6 +22,24 @@ class SaleAPI {
     }
 
     // MARK: Functions
+    func getSale(uniqueID: String,
+                 completionHandler: @escaping (Error?, Sale?) -> Void) {
+        // Get a sale from database only once
+        let condition = RemoteDataBase.Condition(key: "uniqueID", value: uniqueID)
+
+        saleRemoteDataBaseRequest.get(conditionInField: condition) { (error, loadedSales: [Sale]? ) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedSales = loadedSales else {
+                    completionHandler(SAPIError.other, nil)
+                    return
+                }
+                completionHandler(nil, loadedSales.first)
+            }
+        }
+    }
+
     func createNewSale(purse: Purse?,
                        user: User?,
                        completionHandler: @escaping (Error?, Sale?) -> Void) {
@@ -35,12 +53,12 @@ class SaleAPI {
         frenchFormatter.dateStyle = .short
         frenchFormatter.timeStyle = .short
         frenchFormatter.locale = Locale(identifier: "FR-fr")
-
         let currentDate = frenchFormatter.string(from: date)
-        let uniqueID = purse.name + " " + currentDate + " " + UUID().description
+
+        let uniqueID = purse.name + " " + date.description + " " + UUID().description
         let newSale = Sale(date: currentDate, uniqueID: uniqueID, amount: 0,
                            numberOfArticle: 0, madeByUser: user.email,
-                           articles: [:], purseName: purse.name)
+                           articlesUniqueID: [""], purseName: purse.name)
         saleRemoteDataBaseRequest
             .createWithOneTransaction(
                 model: purse,
@@ -60,14 +78,11 @@ class SaleAPI {
             })
     }
 
-    func updateDataforArticleSold(article: Article,
-                                  sale: Sale,
-                                  purse: Purse?,
+    func updateDataforArticleSold(article: Article, sale: Sale, purse: Purse?,
                                   completionHandler: @escaping (Error?) -> Void) {
-        guard let purse = purse else {
-            completionHandler(SAPIError.other)
-            return
-        }
+        guard let purse = purse else { completionHandler(SAPIError.other)
+                                        return }
+
         let fakeSellerForId = Seller(familyName: "", firstName: "", email: "",
                                  phoneNumber: "", code: "", createdBy: "", purseName: "",
                                  uniqueID: article.sellerUniqueId, refundDate: "", refundBy: "")
@@ -102,16 +117,30 @@ class SaleAPI {
                                "salesAmount": remoteSeller.salesAmount]
                         },
                     fourthBlock: { (remoteSale) -> [String: Any] in
-                        sale.amount += articlePrice
-                        return ["amount": sale.amount]
+                        remoteSale.amount += articlePrice
+                        remoteSale.articlesUniqueID.append(article.uniqueID)
+                        remoteSale.numberOfArticle += 1
+                        return ["amount": remoteSale.amount,
+                                "articlesUniqueID": remoteSale.articlesUniqueID,
+                                "numberOfArticle": remoteSale.numberOfArticle]
                         }),
                 completionHandler: { (error) in
-                     if let error = error {
-                         completionHandler(error)
-                         } else {
-                             completionHandler(nil)
-                             }
+                     if let error = error { completionHandler(error)
+                         } else { completionHandler(nil) }
             })
+    }
+
+    // remove a sale without any implementation on other model in the database
+    // For testing
+    func removeHard(sale: Sale,
+                    completionHandler: @escaping (Error?) -> Void) {
+        saleRemoteDataBaseRequest.remove(model: sale) { (error) in
+            if let error = error {
+                completionHandler(error)
+            } else {
+                completionHandler(nil)
+            }
+        }
     }
 
     func stopListen() {
@@ -127,5 +156,6 @@ extension SaleAPI {
      */
     enum SAPIError: String, Error {
         case other = "Sorry, there is an error !"
+        case nothing = "Sorry, there is no sale with this name !"
     }
 }

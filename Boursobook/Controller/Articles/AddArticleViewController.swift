@@ -27,7 +27,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scanABookButton: UIButton!
-    @IBOutlet weak var ActivityIndicatorStack: UIStackView!
+    @IBOutlet weak var activityIndicatorStack: UIStackView!
 
     // MARK: - IBACTION
     @IBAction func didTapSaveButton(_ sender: UIButton) {
@@ -125,7 +125,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     }
 
     func toogleActivity(loading: Bool) {
-        ActivityIndicatorStack.isHidden = !loading
+        activityIndicatorStack.isHidden = !loading
         scanABookButton.isHidden = loading
         saveButton.isHidden = loading
     }

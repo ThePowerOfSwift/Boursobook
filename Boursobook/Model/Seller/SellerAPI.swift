@@ -21,6 +21,23 @@ class SellerAPI {
     }
 
     // MARK: Functions
+    func getSeller(uniqueID: String, completionHandler: @escaping (Error?, Seller?) -> Void) {
+        // Query a seller from database by his uniqueID
+
+        let condition = RemoteDataBase.Condition(key: "uniqueID", value: uniqueID)
+        sellerRemoteDataBaseRequest.get(conditionInField: condition) { (error, loadedSellers: [Seller]? ) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedSellers = loadedSellers else {
+                    completionHandler(SAPIError.other, nil)
+                    return
+                }
+                completionHandler(nil, loadedSellers.first)
+            }
+        }
+    }
+
     func loadSellersFor(purseName: String?, completionHandler: @escaping (Error?, [Seller]?) -> Void) {
         // Query sellers from database for a purse
 
@@ -186,6 +203,19 @@ class SellerAPI {
                          completionHandler(nil)
                          }
         })
+    }
+
+    // remove a saler without any implementation on other model in the database
+    // For testing
+    func removeHard(seller: Seller,
+                    completionHandler: @escaping (Error?) -> Void) {
+        sellerRemoteDataBaseRequest.remove(model: seller) { (error) in
+            if let error = error {
+                completionHandler(error)
+            } else {
+                completionHandler(nil)
+            }
+        }
     }
 
     func stopListen() {

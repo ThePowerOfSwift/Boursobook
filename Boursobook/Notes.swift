@@ -10,40 +10,30 @@ import Foundation
 
 //          - A faire :
 /*
-
- 
-            - Simpliffier les fonctionnalités non necessaires pour la soutenance
-            - Verifier la generation de la page des QRCode
-            - ajouter titre et ISBN sur le QR Code
-
-            - mettre un message d'alerte pour dire que l'on a pas de reseau
-            - voir ce qui se passe si pas de reseau et pas d'acces ???
-            - Ajouter des activity indicator dans toutes les vues de info (au chargement des données)
             - Verifier le bon coverage des tests
+        (refaire test sale real database ??? avec dispatchgourp
+    pour enlever inibeur allerte)
+ 
+ - test sellerAPI with realDB
 
+
+            - Probleme impression etiquettes 
             - Supprimer le fichier Notes
             - Supprimer tous les messages d'alertes dans la console
-            - faire disparaitre le login si on est déja logé
-            - Utiliser KeyChain pour sauvegarder le mot de passe
-            - gestion de l'appli offligne
-            - message si on est pas connecté et que l'on peut pas telecharger les données
-            - verifier toutes les tailles d'iphones
             - Mettre à jour les string du storyboard
-            - separer les storyboard
-            - Ajouter un bouton pour acces liste transaction dans info de purse et pouvoir en supprimer une
-            - factoriser la mise en place des scroll view avec le claviuer
-            - factoriser le formatgae des nombres
-            - factoriser le formatDiplayedNumber et l'inverse
+                    - Verifier si tout passe dans l'appli en francais
+            - Livragbles (presentation appli - retour d'ex) 1 page chaque
+            - livrables sure le site
+            - presentation
+
 
 */
 
 // MARK: - A voir avec Vincent
 /*
- - Comment on peut passer des information de retours entre VC qui ne sont pas lié par un segue direct ?
- - Obliger de faire en IOS 10 ??
+
  - Livrables ??
- - Projet diffuser publiquement ??
- - erreurs dans la console
+
 
 
  - test du reseau mauvais ? (network conditionner appli sur le mac )
@@ -64,34 +54,6 @@ import Foundation
     ""
  - Voir comment on fait une config en localisation France sans faire de Target differentes ???
 
- */
-
-// MARK: - UserAPI
-/*
- - ecouter si l'utilisateur est toujours loger et sortir de l'appli si non et arreter l'ecoute si on sort de l'appli
- 
- */
-
-// MARK: - InMemoryStorage
-/*
- - gestion de l'appli offligne
- - valider l'entrée dans l'appli meme s'il n'y a pas de seller, de article ou de transactions
- 
- */
-
-// MARK: - scanningVC
-/*
- - Gerer optionnel videoPreviewLayer ???
- - Voir probleme affichage de la camera
-
- 
- */
-
-// MARK: - SellerVC
-/*
- - Traiter la partie pour la restitution des livres
-
- 
  */
 
 //-////////////////////////////////////////
@@ -120,7 +82,13 @@ import Foundation
  - Divers:          Creer une limite pour le nombre de données par utilisateur
                     et donc de faire payer un abonement
  - Divers:          animation par gradient quand ça cherche
+ - Divers:          Regarder si l'utilisateur est toujours logguer
+ - Divers:          Utiliser KeyChain pour sauvegarder le mot de passe
+ - Divers:          Verif Gestion de l'appli offligne
  - Tests:           test en release si la base prod fonctionne
+ - Divers:          factoriser la mise en place des scroll view avec le claviuer
+ - Divers:          factoriser le formatgae des nombres
+ - Divers:          factoriser le formatDiplayedNumber et l'inverse
 
  */
 

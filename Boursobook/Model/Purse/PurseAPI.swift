@@ -21,6 +21,26 @@ class PurseAPI {
     }
 
     // MARK: Functions
+
+    func getPurse(name: String,
+                  completionHandler: @escaping (Error?, Purse?) -> Void) {
+
+        // Get a purse from database only once
+        let condition = RemoteDataBase.Condition(key: "name", value: name)
+
+        purseRemoteDataBaseRequest.get(conditionInField: condition) { (error, loadedPurses: [Purse]? ) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedPurses = loadedPurses else {
+                    completionHandler(PAPIError.other, nil)
+                    return
+                }
+                completionHandler(nil, loadedPurses.first)
+            }
+        }
+    }
+
     func loadPursesFor(user: User?, completionHandler: @escaping (Error?, [Purse]?) -> Void) {
         // Query purses from database for a user
 
@@ -161,5 +181,6 @@ extension PurseAPI {
      */
     enum PAPIError: String, Error {
         case other = "Sorry, there is an error !"
+        case nothing = "Sorry, there is no purse with this name !"
     }
 }

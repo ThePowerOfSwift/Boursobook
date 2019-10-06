@@ -9,14 +9,15 @@
 import XCTest
 @testable import Boursobook
 
-class UserAuthAPITestCase: XCTestCase {
+class UserAuthAPITestCaseWithMock: XCTestCase {
+// MARK: Test in local with mock
 
     override func setUp() {
     }
     override func tearDown() {
     }
 
-    // MARK: Test in local with mock
+    // MARK: - Test "signInUser" function
     func testSignInWithNoDataWithErrorSouldReturnError() {
     //Given
     let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: nil)
@@ -104,6 +105,7 @@ class UserAuthAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+    // MARK: - Test "createUser" function
     func testCreateUserWithNoDataWithErrorSouldReturnError() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: nil)
@@ -191,6 +193,7 @@ class UserAuthAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+// MARK: - Test "signOut" function
     func testSignOutWithErrorSouldReturnError() {
         //Given
         let remoteAuthenticationRequestMock = RemoteAuthenticationRequestMock(error: FakeData.error, data: nil)

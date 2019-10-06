@@ -9,7 +9,8 @@
 import XCTest
 @testable import Boursobook
 
-class SellerAPITestCase: XCTestCase {
+class SellerAPITestCaseWithMock: XCTestCase {
+// MARK: Test in local with mock
 
     let purse = FakeData.purse
 
@@ -19,7 +20,74 @@ class SellerAPITestCase: XCTestCase {
     override func tearDown() {
     }
 
-    // MARK: Test in local with mock
+    // MARK: - Test "getSellerFor" function
+    func testGetSellerWithDataWithErrorSouldReturnError() {
+        //Given
+        let goodData = [FakeData.seller]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection,
+                                                                  error: FakeData.error, data: goodData)
+        let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeSellerAPI.getSeller(uniqueID: "uniqueID") { (error, loadedSellers) in
+
+            //Then
+            XCTAssertNil(loadedSellers)
+            if let error = error {
+                XCTAssertEqual(error.message, """
+                                                Error !
+                                                BoursobookTests.FakeData.FakeError
+                                                """)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testGetSellerWithNoDataWithNoErrorSouldReturnError() {
+           //Given
+           let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection,
+                                                                     error: nil, data: nil)
+           let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+           //When
+           let expectation = XCTestExpectation(description: "Wait for queue change.")
+           fakeSellerAPI.getSeller(uniqueID: "uniqueID") { (error, loadedSellers) in
+
+               //Then
+               XCTAssertNil(loadedSellers)
+               if let error = error {
+                   XCTAssertEqual(error.message, "Sorry, there is an error !")
+               }
+               expectation.fulfill()
+           }
+           wait(for: [expectation], timeout: 0.5)
+       }
+
+    func testGetSellerWithDataWithNoErrorSouldReturnSeller() {
+        //Given
+
+        let goodData = [FakeData.seller]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection,
+                                                                  error: nil, data: goodData)
+        let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeSellerAPI.getSeller(uniqueID: "uniqueID") { (error, loadedSellers) in
+
+            //Then
+            XCTAssertNil(error)
+            if let loadedSellers = loadedSellers {
+                XCTAssertEqual(loadedSellers.uniqueID, goodData.first?.uniqueID)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    // MARK: - Test "loadSellerFor" function
     func testLoadNoPurseWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.seller]
@@ -102,6 +170,28 @@ class SellerAPITestCase: XCTestCase {
                 return
             }
             XCTAssertEqual(listOfSellers[0].uniqueID, goodData[0].uniqueID)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    // MARK: - Test "loadSeller" function
+    func testLoadByUniqueIDWithDataWithErrorSouldReturnError() {
+        //Given
+        let goodData = [FakeData.seller]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Seller.collection,
+                                                                  error: FakeData.error, data: goodData)
+        let fakeSellerAPI = SellerAPI(sellerRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeSellerAPI.loadSellersFor(purseName: nil) { (error, loadedSellers) in
+
+            //Then
+            XCTAssertNil(loadedSellers)
+            if let error = error {
+                XCTAssertEqual(error.message, "Sorry, there is an error !")
+            }
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.5)

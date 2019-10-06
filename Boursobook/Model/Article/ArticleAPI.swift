@@ -23,6 +23,24 @@ class ArticleAPI {
 
     // MARK: Functions
 
+    func getArticle(uniqueID: String, completionHandler: @escaping (Error?, Article?) -> Void) {
+        // Query an article from database with his uniqueID
+        let condition = RemoteDataBase.Condition(key: "uniqueID", value: uniqueID)
+
+        articleRemoteDataBaseRequest
+            .get(conditionInField: condition) { (error, loadedArticles: [Article]? ) in
+            if let error = error {
+                completionHandler(error, nil)
+            } else {
+                guard let loadedArticles = loadedArticles else {
+                    completionHandler(AAPIError.other, nil)
+                    return
+                }
+                completionHandler(nil, loadedArticles.first)
+            }
+        }
+    }
+
     func loadArticle(uniqueID: String, completionHandler: @escaping (Error?, Article?) -> Void) {
         // Query an article from database with his uniqueID
         let condition = RemoteDataBase.Condition(key: "uniqueID", value: uniqueID)
@@ -231,6 +249,19 @@ class ArticleAPI {
                                                 completionHandler(nil)
                                                 }
         })
+    }
+
+    // remove an article without any implementation on other model in the database
+    // For testing
+    func removeHard(article: Article,
+                    completionHandler: @escaping (Error?) -> Void) {
+        articleRemoteDataBaseRequest.remove(model: article) { (error) in
+            if let error = error {
+                completionHandler(error)
+            } else {
+                completionHandler(nil)
+            }
+        }
     }
 
     func stopListen() {

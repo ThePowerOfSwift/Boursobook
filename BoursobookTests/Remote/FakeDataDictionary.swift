@@ -20,7 +20,7 @@ class FakeDataDictionary {
                 "amount": 23.4,
                 "numberOfArticle": 7,
                 "madeByUser": "michel",
-                "articles": ["livre": true],
+                "articlesUniqueID": ["livre"],
                 "purseName": "APE 2019"]
     }
 
@@ -103,4 +103,10 @@ class FakeDataDictionary {
                 "refundDate": "14/05/18",
                 "refundBy": "jeannine@aol.fr"]
     }
+
+    var user: [String: Any] {
+        return ["uniqueID": "ID user - fake sale For test",
+                "email": "email@email.com"]
+    }
+
 }

@@ -44,7 +44,7 @@ class FakeData {
                                          amount: 23.4,
                                          numberOfArticle: 7,
                                          madeByUser: "michel",
-                                         articles: ["livre": true],
+                                         articlesUniqueID: ["livre"],
                                          purseName: "APE 2019")
 
     static let depositFee = Purse.DepositFee(underFifty: 2.0,
@@ -68,6 +68,21 @@ class FakeData {
                              totalDepositFeeAmount: 2.2,
                              administrators: ["me": true],
                              users: ["me@me.fr"])
+
+    static let purseForUnitTests = Purse(name: "Purse For Unit Testing",
+                                            uniqueID: "Purse For Unit Testing",
+                                            numberOfArticleRegistered: 13,
+                                            numberOfSellers: 8,
+                                            numberOfArticlesold: 8,
+                                            numberOfArticleReturned: 2,
+                                            numberOfSales: 4,
+                                            percentageOnSales: 14.5,
+                                            depositFee: FakeData.depositFee,
+                                            totalSalesAmount: 12.6,
+                                            totalBenefitOnSalesAmount: 2.4,
+                                            totalDepositFeeAmount: 2.2,
+                                            administrators: ["ddubez@free.fr": true],
+                                            users: ["me@me.fr"])
 
     static let seller = Seller(familyName: "Dupond",
                                firstName: "Gerad",

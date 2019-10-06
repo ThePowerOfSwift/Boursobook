@@ -1,45 +1,45 @@
 
 /* Class = "UILabel"; text = "Between 201 and 250 items :"; ObjectID = "0eG-MP-fM8"; */
-"0eG-MP-fM8.text" = "Between 201 and 250 items :";
+"0eG-MP-fM8.text" = "Entre 201 et 250 articles :";
 
 /* Class = "UILabel"; text = "Max than 251 items :"; ObjectID = "1yh-Q5-qpB"; */
-"1yh-Q5-qpB.text" = "Max than 251 items :";
+"1yh-Q5-qpB.text" = "Plus que 251 articles :";
 
 /* Class = "UIButton"; normalTitle = "Change Amounts"; ObjectID = "4I8-Bh-TB3"; */
-"4I8-Bh-TB3.normalTitle" = "Change Amounts";
+"4I8-Bh-TB3.normalTitle" = "Changer les valeurs";
 
 /* Class = "UILabel"; text = "4 € "; ObjectID = "4V1-l0-j6o"; */
 "4V1-l0-j6o.text" = "4 € ";
 
 /* Class = "UILabel"; text = "User id :"; ObjectID = "52o-by-00R"; */
-"52o-by-00R.text" = "User id :";
+"52o-by-00R.text" = "id utilisateur :";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "75b-ZZ-ZBY"; */
 "75b-ZZ-ZBY.text" = "000";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "8L1-fh-2Wt"; */
-"8L1-fh-2Wt.normalTitle" = "Cancel";
+"8L1-fh-2Wt.normalTitle" = "Annuler";
 
 /* Class = "UILabel"; text = "Sheet width (A) :"; ObjectID = "8r0-9z-anv"; */
-"8r0-9z-anv.text" = "Sheet width (A) :";
+"8r0-9z-anv.text" = "Largeur feuille (A) :";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "94m-aN-BDR"; */
 "94m-aN-BDR.text" = "000";
 
 /* Class = "UILabel"; text = "Between 0 and 50 items :"; ObjectID = "Agj-jH-RaY"; */
-"Agj-jH-RaY.text" = "Between 0 and 50 items :";
+"Agj-jH-RaY.text" = "Entre 0 et 50 articles :";
 
 /* Class = "UILabel"; text = "xxx"; ObjectID = "EyH-9o-NQ6"; */
 "EyH-9o-NQ6.text" = "xxx";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "F0U-A2-HRa"; */
-"F0U-A2-HRa.normalTitle" = "Save";
+"F0U-A2-HRa.normalTitle" = "Sauvegarder";
 
 /* Class = "UILabel"; text = "8 € "; ObjectID = "FFU-13-kcQ"; */
 "FFU-13-kcQ.text" = "8 € ";
 
 /* Class = "UILabel"; text = "Total Amount of subscriptions :"; ObjectID = "H0S-Zf-Dfj"; */
-"H0S-Zf-Dfj.text" = "Total Amount of subscriptions :";
+"H0S-Zf-Dfj.text" = "Montant total des cotisations :";
 
 /* Class = "UILabel"; text = "Email"; ObjectID = "ISD-ne-EfK"; */
 "ISD-ne-EfK.text" = "Email";
@@ -51,43 +51,43 @@
 "OpJ-PE-Tk0.text" = "xxx";
 
 /* Class = "UILabel"; text = "Number of articles to return:"; ObjectID = "PNf-xW-UNX"; */
-"PNf-xW-UNX.text" = "Number of articles to return:";
+"PNf-xW-UNX.text" = "Nombre d'articles à rendre:";
 
 /* Class = "UILabel"; text = "0 € "; ObjectID = "SFT-cE-MU8"; */
 "SFT-cE-MU8.text" = "0 € ";
 
 /* Class = "UIButton"; normalTitle = "Config Label Sheet"; ObjectID = "Vwi-Ky-ZSi"; */
-"Vwi-Ky-ZSi.normalTitle" = "Config Label Sheet";
+"Vwi-Ky-ZSi.normalTitle" = "Configuration feuille étiquette";
 
 /* Class = "UILabel"; text = "Sheet height (B) :"; ObjectID = "WyM-dN-Rdl"; */
-"WyM-dN-Rdl.text" = "Sheet height (B) :";
+"WyM-dN-Rdl.text" = "Hauteur feuille (B) :";
 
 /* Class = "UILabel"; text = "Number of articles sold :"; ObjectID = "XZp-PL-Hyz"; */
-"XZp-PL-Hyz.text" = "Number of articles sold :";
+"XZp-PL-Hyz.text" = "Nombre d'articles vendus :";
 
 /* Class = "UILabel"; text = "10 € "; ObjectID = "XoP-Yt-U52"; */
 "XoP-Yt-U52.text" = "10 € ";
 
 /* Class = "UILabel"; text = "User email :"; ObjectID = "Y6O-sM-gHB"; */
-"Y6O-sM-gHB.text" = "User email :";
+"Y6O-sM-gHB.text" = "Email utilisateur :";
 
 /* Class = "UILabel"; text = "xxxxx"; ObjectID = "Yxs-RE-Vk7"; */
 "Yxs-RE-Vk7.text" = "xxxxx";
 
 /* Class = "UIButton"; normalTitle = "Add new user"; ObjectID = "aEF-nF-x9L"; */
-"aEF-nF-x9L.normalTitle" = "Add new user";
+"aEF-nF-x9L.normalTitle" = "Ajouter un utilisateur";
 
 /* Class = "UILabel"; text = "2 € "; ObjectID = "aM6-IA-qNh"; */
 "aM6-IA-qNh.text" = "2 € ";
 
 /* Class = "UILabel"; text = "Number of sellers :"; ObjectID = "akf-e2-fGe"; */
-"akf-e2-fGe.text" = "Number of sellers :";
+"akf-e2-fGe.text" = "Nombre de vendeurs :";
 
 /* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "bp0-mf-yVN"; */
-"bp0-mf-yVN.normalTitle" = "Confirm";
+"bp0-mf-yVN.normalTitle" = "Confirmer";
 
 /* Class = "UILabel"; text = "Number of articles recorded :"; ObjectID = "cEU-t4-MWf"; */
-"cEU-t4-MWf.text" = "Number of articles recorded :";
+"cEU-t4-MWf.text" = "Nombre d'articles enregistrés :";
 
 /* Class = "UILabel"; text = "10 %"; ObjectID = "cPG-nb-tWG"; */
 "cPG-nb-tWG.text" = "10 %";
@@ -99,19 +99,19 @@
 "g4z-hl-bl4.title" = "Information";
 
 /* Class = "UILabel"; text = "Purse Name :"; ObjectID = "hEg-ba-cAC"; */
-"hEg-ba-cAC.text" = "Purse Name :";
+"hEg-ba-cAC.text" = "Nom de la bourse :";
 
 /* Class = "UILabel"; text = "% on sales :"; ObjectID = "hlq-Ii-N9t"; */
-"hlq-Ii-N9t.text" = "% on sales :";
+"hlq-Ii-N9t.text" = "% sur les ventes :";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "lk4-El-HQV"; */
 "lk4-El-HQV.text" = "000";
 
 /* Class = "UILabel"; text = "Between 101 and 150 items :"; ObjectID = "lqP-k2-F1n"; */
-"lqP-k2-F1n.text" = "Between 101 and 150 items :";
+"lqP-k2-F1n.text" = "Entre 101 et 150 articles :";
 
 /* Class = "UILabel"; text = "Total Amount of Benefit sales :"; ObjectID = "ls3-co-BFG"; */
-"ls3-co-BFG.text" = "Total Amount of Benefit sales :";
+"ls3-co-BFG.text" = "Montant total des benefices des ventes :";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "lsf-fx-sZM"; */
 "lsf-fx-sZM.text" = "000";
@@ -120,52 +120,52 @@
 "lw3-VV-SNm.text" = "000";
 
 /* Class = "UILabel"; text = "Label spacing in Y (F) :"; ObjectID = "ndD-ku-fj5"; */
-"ndD-ku-fj5.text" = "Label spacing in Y (F) :";
+"ndD-ku-fj5.text" = "Espace entre etiquettes en Y (F) :";
 
 /* Class = "UILabel"; text = "Label height (H) :"; ObjectID = "pNb-zh-QXN"; */
-"pNb-zh-QXN.text" = "Label height (H) :";
+"pNb-zh-QXN.text" = "Hauteur Etiquette (H) :";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "pTJ-cz-qeb"; */
 "pTJ-cz-qeb.text" = "000";
 
 /* Class = "UILabel"; text = "Label width (G) :"; ObjectID = "q7d-Cv-POl"; */
-"q7d-Cv-POl.text" = "Label width (G) :";
+"q7d-Cv-POl.text" = "Largeur etiquette (G) :";
 
 /* Class = "UILabel"; text = "Total Amount of sales :"; ObjectID = "rcl-4W-gZ8"; */
-"rcl-4W-gZ8.text" = "Total Amount of sales :";
+"rcl-4W-gZ8.text" = "Montant total des ventes :";
 
 /* Class = "UILabel"; text = "Label spacing in X (E) :"; ObjectID = "rzY-fK-OwM"; */
-"rzY-fK-OwM.text" = "Label spacing in X (E) :";
+"rzY-fK-OwM.text" = "Espace entre etiquettes en X (E) :";
 
 /* Class = "UILabel"; text = "Deposit Fee"; ObjectID = "skp-1v-qqv"; */
-"skp-1v-qqv.text" = "Deposit Fee";
+"skp-1v-qqv.text" = "Cotisation";
 
 /* Class = "UIButton"; normalTitle = "Change Purse"; ObjectID = "stz-IA-4Bg"; */
-"stz-IA-4Bg.normalTitle" = "Change Purse";
+"stz-IA-4Bg.normalTitle" = "Changer de bourse";
 
 /* Class = "UIBarButtonItem"; title = "Config"; ObjectID = "t42-Vq-amP"; */
-"t42-Vq-amP.title" = "Config";
+"t42-Vq-amP.title" = "Configuration";
 
 /* Class = "UILabel"; text = "Between 151 and 200 items :"; ObjectID = "t6i-EG-dDW"; */
-"t6i-EG-dDW.text" = "Between 151 and 200 items :";
+"t6i-EG-dDW.text" = "Entre 151 et 200 articles :";
 
 /* Class = "UILabel"; text = "First label position in Y (D) :"; ObjectID = "tjL-nI-DSQ"; */
-"tjL-nI-DSQ.text" = "First label position in Y (D) :";
+"tjL-nI-DSQ.text" = "Position premiere etiquette en Y (D) :";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "vT2-yO-o9L"; */
-"vT2-yO-o9L.normalTitle" = "Cancel";
+"vT2-yO-o9L.normalTitle" = "Annuler";
 
 /* Class = "UILabel"; text = "Number of sales :"; ObjectID = "wVC-jL-TBJ"; */
-"wVC-jL-TBJ.text" = "Number of sales :";
+"wVC-jL-TBJ.text" = "Nombre de ventes :";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "wVX-eu-1ER"; */
 "wVX-eu-1ER.text" = "000";
 
 /* Class = "UILabel"; text = "Between 51 and 100 items :"; ObjectID = "yGd-hX-1W4"; */
-"yGd-hX-1W4.text" = "Between 51 and 100 items :";
+"yGd-hX-1W4.text" = "Entre 51 et 100 articles :";
 
 /* Class = "UILabel"; text = "First label position in X (C) :"; ObjectID = "z0b-cx-T9j"; */
-"z0b-cx-T9j.text" = "First label position in X (C) :";
+"z0b-cx-T9j.text" = "Position premiere etiquette en X (C) :";
 
 /* Class = "UILabel"; text = "Values in mm."; ObjectID = "zCT-m2-0WE"; */
-"zCT-m2-0WE.text" = "Values in mm.";
+"zCT-m2-0WE.text" = "Valeurs en mm.";

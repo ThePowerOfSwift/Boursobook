@@ -21,7 +21,7 @@ struct RemoteAuthenticationRequestMock: RemoteAuthenticationRequest {
             callBack(error, nil)
         } else {
             guard let dataModel = data else {
-                callBack(RemoteAuthentication.RAError.other, nil)
+                callBack(nil, nil)
                 return
             }
             callBack(nil, dataModel as? Model)
@@ -35,7 +35,7 @@ struct RemoteAuthenticationRequestMock: RemoteAuthenticationRequest {
             callBack(error, nil)
         } else {
             guard let dataModel = data else {
-                callBack(RemoteAuthentication.RAError.other, nil)
+                callBack(nil, nil)
                 return
             }
             callBack(nil, dataModel as? Model)

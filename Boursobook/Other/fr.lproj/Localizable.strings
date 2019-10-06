@@ -79,3 +79,5 @@
 "Sorry, You are not administrator of this purse" = "Désolé, vous n'êtes pas administrateur de cette bourse";
 "The sale was saved, but some article failed !" = "La vente a été sauvegardée, mais cerains articles ont été en erreur !";
 "The seller was refunded, but some article failed !" = "Le vendeur a été remboursé, mais cerains articles ont été en erreur !";
+"Sorry, there is no purse with this name !" = "Désoél,mais il n'y a pas de bourse avec ce nom !";
+"Sorry, there is no sale with this name !" = "Désoél,mais il n'y a pas de vente avec ce nom !";

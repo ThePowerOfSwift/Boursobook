@@ -135,7 +135,7 @@ class ScanQrCodeViewController: UIViewController {
         guard let sale = currentSale else {
             return false
         }
-        for (key, _) in sale.articles where  key == uniqueId {
+        for uniqueID in sale.articlesUniqueID where  uniqueID == uniqueId {
             return true
         }
         return false

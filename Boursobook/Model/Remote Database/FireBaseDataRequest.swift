@@ -167,7 +167,7 @@ extension FireBaseDataRequest {
 
                let resultModel = resultBlock()
                let resultReference = self.firestoneDatabase.collection(ResultModel.collection)
-                   .document(resultModel.uniqueID)
+                .document(resultModel.uniqueID)
 
                let resultData: [String: Any] = resultModel.dictionary
 

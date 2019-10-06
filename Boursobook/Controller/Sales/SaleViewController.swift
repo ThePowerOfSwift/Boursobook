@@ -85,7 +85,7 @@ class SaleViewController: UIViewController {
                             self.inSaleArticles.append(article)
                             self.currentSale.numberOfArticle += 1
                             self.currentSale.amount += article.price
-                            self.currentSale.articles.updateValue(true, forKey: uniqueIdArticle)
+                            self.currentSale.articlesUniqueID.append(uniqueIdArticle)
                         }
                     }
                     self.updateValues()

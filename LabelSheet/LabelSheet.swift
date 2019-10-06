@@ -11,7 +11,7 @@ import Foundation
 class LabelSheet {
 
     // MARK: Properties
-
+    private var userDefaults: UserDefaults
     var sheetWidthInMM: Double
     var sheetHeightInMM: Double
     var labelWidthInMM: Double
@@ -26,14 +26,14 @@ class LabelSheet {
     var isLabelPortrait: Bool {
         if labelWidthInMM > labelHeightInMM {
             return false
-        } else {
-            return true
         }
+        return true
     }
 
     // MARK: Initialisation
-    init() {
-        if let labelSheetSetup = UserDefaults.standard.dictionary(forKey: "labelSheetSetup") {
+    init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
+        if let labelSheetSetup = userDefaults.dictionary(forKey: "labelSheetSetup") {
             self.sheetWidthInMM = labelSheetSetup["sheetWidthInMM"] as? Double ?? 210
             self.sheetHeightInMM = labelSheetSetup["sheetHeightInMM"] as? Double ?? 297
             self.labelWidthInMM = labelSheetSetup["labelWidthInMM"] as? Double ?? 25.4
@@ -79,7 +79,8 @@ class LabelSheet {
         labelSheetSetup.updateValue(firstLablePositionYInMM, forKey: "firstLablePositionYInMM")
         labelSheetSetup.updateValue(labelSpacingXInMM, forKey: "labelSpacingXInMM")
         labelSheetSetup.updateValue(labelSpacingYInMM, forKey: "labelSpacingYInMM")
-        UserDefaults.standard.setValue(labelSheetSetup, forKey: "labelSheetSetup")
+        userDefaults.setValue(labelSheetSetup, forKey: "labelSheetSetup")
+  //      UserDefaults.standard.setValue(labelSheetSetup, forKey: "labelSheetSetup")
     }
 }
 

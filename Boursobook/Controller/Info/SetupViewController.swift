@@ -44,7 +44,7 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mainStackView: UIStackView!
-    
+
     // MARK: - IBActions
     @IBAction func didTapAddNewUser(_ sender: Any) {
         if userIsAdministrator() {

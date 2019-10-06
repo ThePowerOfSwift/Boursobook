@@ -11,70 +11,10 @@ import Foundation
 
 struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
     var collection: String
-
-    func createWithOneTransaction<FirstModel, ResultModel>(
-        model: FirstModel,
-        block: @escaping (FirstModel) -> [String: Any],
-        resultBlock: @escaping () -> ResultModel,
-        completionHandler: @escaping (Error?) -> Void)
-            where FirstModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
-        //FIXME: A implementer
-    }
-
-    func createWithTwoTransactions<FirstModel, SecondModel, ResultModel>(
-        models: (firstModel: FirstModel, secondModel: SecondModel),
-        blocks: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
-        resultBlock: @escaping () -> ResultModel,
-        completionHandler: @escaping (Error?) -> Void)
-            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
-            ResultModel: RemoteDataBaseModel {
-        //FIXME: A implementer
-    }
-
-    func uptadeWithFourTransactions<FirstModel, SecondModel, ThirdModel, FourthtModel>(
-        modelsA: (firstModel: FirstModel, secondModel: SecondModel),
-        modelsB: (thirdModel: ThirdModel, fourthModel: FourthtModel),
-        blocksA: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
-        blocksB: (thirdBlock: (ThirdModel) -> [String: Any], fourthBlock: (FourthtModel) -> [String: Any]),
-        completionHandler: @escaping (Error?) -> Void)
-            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
-            ThirdModel: RemoteDataBaseModel, FourthtModel: RemoteDataBaseModel {
-        //FIXME: A implementer
-    }
-
-    func removeWithOneTransaction<FirstModel, ResultModel>(
-        model: FirstModel,
-        block: @escaping (FirstModel) -> [String: Any],
-        modelToRemove: ResultModel, completionHandler: @escaping (Error?) -> Void)
-            where FirstModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
-        //FIXME: A implementer
-    }
-
-    func removeWithTwoTransactions<FirstModel, SecondModel, ResultModel>(
-        models: (firstModel: FirstModel, secondModel: SecondModel),
-        blocks: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
-        modelToRemove: ResultModel,
-        completionHandler: @escaping (Error?) -> Void)
-            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
-            ResultModel: RemoteDataBaseModel {
-        //FIXME: A implementer
-    }
-
     var error: Error?
     var data: [RemoteDataBaseModel]?
 
-    func get<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
-                        where Model: RemoteDataBaseModel {
-                            if let error = error {
-                                completionHandler(error, nil)
-                            } else {
-                                guard let dataModel = data else {
-                                    completionHandler(RemoteDataBase.RDBError.other, nil)
-                                    return
-                                }
-                                completionHandler(nil, dataModel as? [Model])
-                            }
-    }
+    // MARK: - READ
 
     func get<Model>(conditionInField: RemoteDataBase.Condition,
                     completionHandler: @escaping (Error?, [Model]?) -> Void)
@@ -83,7 +23,7 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                 completionHandler(error, nil)
                             } else {
                                 guard let dataModel = data else {
-                                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                                    completionHandler(nil, nil)
                                     return
                                 }
                                 completionHandler(nil, dataModel as? [Model])
@@ -98,7 +38,7 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                             completionHandler(error, nil)
                                         } else {
                                             guard let dataModel = data else {
-                                                completionHandler(RemoteDataBase.RDBError.other, nil)
+                                                completionHandler(nil, nil)
                                                 return
                                             }
                                             completionHandler(nil, dataModel as? [Model])
@@ -113,7 +53,7 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                 completionHandler(error, nil)
             } else {
                 guard let dataModel = data else {
-                    completionHandler(RemoteDataBase.RDBError.other, nil)
+                    completionHandler(nil, nil)
                     return
                 }
                 completionHandler(nil, dataModel as? [Model])
@@ -127,12 +67,27 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                             completionHandler(error, nil)
                                         } else {
                                             guard let dataModel = data else {
-                                                completionHandler(RemoteDataBase.RDBError.other, nil)
+                                                completionHandler(nil, nil)
                                                 return
                                             }
                                             completionHandler(nil, dataModel as? [Model])
                                         }
     }
+
+    func get<Model>(completionHandler: @escaping (Error?, [Model]?) -> Void)
+                        where Model: RemoteDataBaseModel {
+                            if let error = error {
+                                completionHandler(error, nil)
+                            } else {
+                                guard let dataModel = data else {
+                                    completionHandler(nil, nil)
+                                    return
+                                }
+                                completionHandler(nil, dataModel as? [Model])
+                            }
+    }
+
+    // MARK: - CREATE
 
     func create<Model>(model: Model,
                        completionHandler: @escaping (Error?) -> Void)
@@ -144,26 +99,99 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                 }
     }
 
+    func createWithOneTransaction<FirstModel, ResultModel>(
+        model: FirstModel,
+        block: @escaping (FirstModel) -> [String: Any],
+        resultBlock: @escaping () -> ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
+    }
+
+    func createWithTwoTransactions<FirstModel, SecondModel, ResultModel>(
+        models: (firstModel: FirstModel, secondModel: SecondModel),
+        blocks: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
+        resultBlock: @escaping () -> ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+            ResultModel: RemoteDataBaseModel {
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
+    }
+
+    // MARK: - UPDATE
+
+    func uptadeWithFourTransactions<FirstModel, SecondModel, ThirdModel, FourthtModel>(
+        modelsA: (firstModel: FirstModel, secondModel: SecondModel),
+        modelsB: (thirdModel: ThirdModel, fourthModel: FourthtModel),
+        blocksA: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
+        blocksB: (thirdBlock: (ThirdModel) -> [String: Any], fourthBlock: (FourthtModel) -> [String: Any]),
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+            ThirdModel: RemoteDataBaseModel, FourthtModel: RemoteDataBaseModel {
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
+    }
+
     func updateValues<Model>(model: Model,
                              updates: [String: Any],
                              completionHandler: @escaping (Error?) -> Void)
-                                where Model: RemoteDataBaseModel {
-                                    if let error = error {
-                                        completionHandler(error)
-                                    } else {
-                                        completionHandler(nil)
-                                    }
+                               where Model: RemoteDataBaseModel {
+                                   if let error = error {
+                                       completionHandler(error)
+                                   } else {
+                                       completionHandler(nil)
+                                   }
+       }
+
+       func setValues<Model>(model: Model,
+                             values: [String: Any],
+                             completionHandler: @escaping (Error?) -> Void)
+                                   where Model: RemoteDataBaseModel {
+                                       if let error = error {
+                                           completionHandler(error)
+                                       } else {
+                                           completionHandler(nil)
+                                       }
+       }
+
+    // MARK: - DELETE
+
+    func removeWithOneTransaction<FirstModel, ResultModel>(
+        model: FirstModel,
+        block: @escaping (FirstModel) -> [String: Any],
+        modelToRemove: ResultModel, completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, ResultModel: RemoteDataBaseModel {
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
     }
 
-    func setValues<Model>(model: Model,
-                          values: [String: Any],
-                          completionHandler: @escaping (Error?) -> Void)
-                                where Model: RemoteDataBaseModel {
-                                    if let error = error {
-                                        completionHandler(error)
-                                    } else {
-                                        completionHandler(nil)
-                                    }
+    func removeWithTwoTransactions<FirstModel, SecondModel, ResultModel>(
+        models: (firstModel: FirstModel, secondModel: SecondModel),
+        blocks: (firstBlock: (FirstModel) -> [String: Any], secondBlock: (SecondModel) -> [String: Any]),
+        modelToRemove: ResultModel,
+        completionHandler: @escaping (Error?) -> Void)
+            where FirstModel: RemoteDataBaseModel, SecondModel: RemoteDataBaseModel,
+            ResultModel: RemoteDataBaseModel {
+                if let error = error {
+                    completionHandler(error)
+                } else {
+                    completionHandler(nil)
+                }
     }
 
     func remove<Model>(model: Model,
@@ -175,6 +203,8 @@ struct RemoteDatabaseRequestMock: RemoteDatabaseRequest {
                                     completionHandler(nil)
                                 }
     }
+
+     // MARK: - OTHER
 
     func stopListen() {
     }

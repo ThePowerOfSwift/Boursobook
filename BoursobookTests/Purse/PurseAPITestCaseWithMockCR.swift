@@ -9,17 +9,76 @@
 import XCTest
 @testable import Boursobook
 
-class PurseAPITestCase: XCTestCase {
+class PurseAPITestCaseWithMockCR: XCTestCase {
+// MARK: Test in local with mock
 
     let testUser = FakeData.user
 
-    override func setUp() {
+// MARK: - Test "getPurse" function
+     func testGetPurseWithDataWithErrorSouldReturnError() {
+        let goodData = [FakeData.purse]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection,
+                                                                  error: FakeData.error, data: goodData)
+        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakePurseAPI.getPurse(name: "purseName") { (error, loadedPurses) in
+
+            //Then
+            XCTAssertNil(loadedPurses)
+            if let error = error {
+                XCTAssertEqual(error.message, """
+                                                    Error !
+                                                    BoursobookTests.FakeData.FakeError
+                                                    """)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
     }
 
-    override func tearDown() {
+    func testGetPurseWithNoDataWithNoErrorSouldReturnError() {
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection,
+                                                                  error: nil, data: nil)
+        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakePurseAPI.getPurse(name: "purseName") { (error, loadedPurses) in
+
+            //Then
+            XCTAssertNil(loadedPurses)
+            if let error = error {
+                XCTAssertEqual(error.message, "Sorry, there is an error !")
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
     }
 
-    // MARK: Test in local with mock
+    func testGetPurseWithDataWithNoErrorSouldReturnData() {
+        let goodData = [FakeData.purse]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection,
+                                                                  error: nil, data: goodData)
+        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakePurseAPI.getPurse(name: "purseName") { (error, loadedPurses) in
+
+            //Then
+            XCTAssertNil(error)
+            if let loadedPurses = loadedPurses {
+                XCTAssertEqual(loadedPurses.name, goodData.first?.name)
+                XCTAssertEqual(loadedPurses.uniqueID, goodData.first?.uniqueID)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+// MARK: - Test "loadPursesFor" function
     func testLoadForNoUserWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.purse]
@@ -107,6 +166,7 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+    // MARK: - Test "createPurse" function
     func testCreateNoUserWithNoErrorSouldReturnError() {
         //Given
         let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection, error: nil, data: nil)
@@ -117,8 +177,7 @@ class PurseAPITestCase: XCTestCase {
         fakePurseAPI.createPurse(name: "name", user: nil) { (error, createdPurse) in
 
             //Then
-            if let error = error {
-                XCTAssertEqual(error.message, "Sorry, there is an error !")
+            if let error = error { XCTAssertEqual(error.message, "Sorry, there is an error !")
             }
             XCTAssertNil(createdPurse)
             expectation.fulfill()
@@ -166,6 +225,7 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+    // MARK: - Test "GetExisting" function
     func testGetExistingWithNoDataWithErrorSouldReturnError() {
         //Given
         let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection,
@@ -201,8 +261,7 @@ class PurseAPITestCase: XCTestCase {
 
             //Then
             XCTAssertNil(loadedPurses)
-            if let error = error {
-                XCTAssertEqual(error.message, "Sorry, there is an error !")
+            if let error = error { XCTAssertEqual(error.message, "Sorry, there is an error !")
             }
             expectation.fulfill()
         }
@@ -232,44 +291,8 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
-    func testRemoveWithErrorSouldReturnError() {
-        //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection,
-                                                                  error: FakeData.error, data: nil)
-        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
-
-        //When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakePurseAPI.removePurse(purse: FakeData.purse, completionHandler: { (error) in
-            //Then
-            if let error = error {
-                XCTAssertEqual(error.message, """
-                                                Error !
-                                                BoursobookTests.FakeData.FakeError
-                                                """)
-            }
-            expectation.fulfill()
-        })
-        wait(for: [expectation], timeout: 0.5)
-    }
-
-    func testRemoveWithNoErrorSouldReturnSucceed() {
-        //Given
-        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection, error: nil, data: nil)
-        let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
-
-        //When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakePurseAPI.removePurse(purse: FakeData.purse, completionHandler: { (error) in
-
-            //Then
-            XCTAssertNil(error)
-            expectation.fulfill()
-        })
-        wait(for: [expectation], timeout: 0.5)
-    }
-
-    func testLoadNoDataWithNoErrorSouldReturnError() {
+   // MARK: - Test "Load" function
+    func testLoadPusreNoDataWithNoErrorSouldReturnError() {
         //Given
         let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Purse.collection, error: nil, data: nil)
         let fakePurseAPI = PurseAPI(purseRemoteDataBaseRequest: remoteDatabaseRequestMock)
@@ -288,6 +311,7 @@ class PurseAPITestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.5)
     }
 
+    // MARK: - Test "loadPurse" function
     func testLoadDataWithErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.purse]
@@ -333,72 +357,5 @@ class PurseAPITestCase: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.5)
-    }
-}
-
-extension PurseAPITestCase {
-    // MARK: Test with real remote DataBase FIREBASE
-    func testCreateRealPurseSouldSucceed() {
-        let userAPI = UserAuthAPI()
-        let purseAPI = PurseAPI()
-
-        // Login into FireBase
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        userAPI.signInUser(email: PrivateKey.userMail, password: PrivateKey.userPassword) { (error, _) in
-            if error != nil {
-                XCTFail("error whin login")
-            } else {
-
-                // Confirm if purse we want to create is not exist
-                purseAPI.getExistingPurseName(completionHandler: { (error, purseNames) in
-                    if error != nil {
-                        XCTFail("error in get existing")
-                    } else {
-                        guard let listOfPurses = purseNames else {
-                            XCTFail("error in get existing")
-                            return
-                        }
-                        if listOfPurses.contains("new Purse for Test") {
-                            XCTFail("error purse exist")
-                        }
-
-                        // Create a new Purse
-                        purseAPI.createPurse(name: "new Purse for Test",
-                                             user: FakeData.user,
-                                             completionHandler: { (error, createdPurse) in
-                            if error != nil {
-                                XCTFail("error in creating purse")
-                            }
-                                                guard let createdPurse = createdPurse else {
-                                                    XCTFail("error in creating purse")
-                                                    return
-                                                }
-
-                            // Confirm if the purse exist now
-                            purseAPI.getExistingPurseName(completionHandler: { (error, purseNames) in
-                                if error != nil {
-                                    XCTFail("error in get existing")
-                                } else {
-                                    guard let listOfPurses = purseNames else {
-                                        XCTFail("error in get existing")
-                                        return
-                                    }
-                                    XCTAssert(listOfPurses.contains("new Purse for Test"))
-
-                                    // Delete the new purse that was created
-                                    purseAPI.removePurse(purse: createdPurse, completionHandler: { (error) in
-                                        if error != nil {
-                                            XCTFail("error in delete")
-                                        }
-                                        expectation.fulfill()
-                                    })
-                                }
-                            })
-                        })
-                    }
-                })
-            }
-        }
-        wait(for: [expectation], timeout: 10.0)
     }
 }

@@ -44,7 +44,7 @@ class SellerViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func didTapPrintButton(_ sender: UIButton) {
-        let labelSheet = LabelSheet()
+        let labelSheet = LabelSheet(userDefaults: UserDefaults.standard)
         shareLabelsSheetPdf(on: labelSheet)
     }
     @IBAction func didTapRefundButton(_ sender: UIButton) {
@@ -55,7 +55,6 @@ class SellerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyleOfVC()
-        toogleActivity(loading: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +102,7 @@ class SellerViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
             return
         }
+        toogleActivity(loading: true)
         sellerAPI.loadSeller(uniqueID: uniqueID) { (error, loadedSeller) in
             self.toogleActivity(loading: false)
             if let error = error {

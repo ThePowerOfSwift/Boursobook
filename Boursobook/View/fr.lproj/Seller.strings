@@ -1,12 +1,12 @@
 
 /* Class = "UIViewController"; title = "Add Article"; ObjectID = "1b3-Ox-quZ"; */
-"1b3-Ox-quZ.title" = "Add Article";
+"1b3-Ox-quZ.title" = "Ajouter un article";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "25A-3g-tgr"; */
 "25A-3g-tgr.text" = "-";
 
 /* Class = "UIViewController"; title = "Add Seller"; ObjectID = "28c-9Z-gna"; */
-"28c-9Z-gna.title" = "Add Seller";
+"28c-9Z-gna.title" = "Ajouter un vendeur";
 
 /* Class = "UIViewController"; title = "Article"; ObjectID = "33M-Ia-7Eh"; */
 "33M-Ia-7Eh.title" = "Article";
@@ -27,7 +27,7 @@
 "6M3-sZ-Eiy.text" = "Code :";
 
 /* Class = "UILabel"; text = "For jean Pierre"; ObjectID = "7Oa-go-NL7"; */
-"7Oa-go-NL7.text" = "For jean Pierre";
+"7Oa-go-NL7.text" = "Pour jean Pierre";
 
 /* Class = "UILabel"; text = "Email :"; ObjectID = "7ej-dJ-bmd"; */
 "7ej-dJ-bmd.text" = "Email :";
@@ -39,19 +39,19 @@
 "8FY-CY-dpQ.text" = "999,99 €";
 
 /* Class = "UILabel"; text = "Sort :"; ObjectID = "9FZ-lD-n2h"; */
-"9FZ-lD-n2h.text" = "Sort :";
+"9FZ-lD-n2h.text" = "Type :";
 
 /* Class = "UIButton"; normalTitle = "Scan a Book"; ObjectID = "9Ww-ba-ZcH"; */
-"9Ww-ba-ZcH.normalTitle" = "Scan a Book";
+"9Ww-ba-ZcH.normalTitle" = "Scanner un livre";
 
 /* Class = "UILabel"; text = "Title / Name : "; ObjectID = "Clh-8y-FP3"; */
-"Clh-8y-FP3.text" = "Title / Name : ";
+"Clh-8y-FP3.text" = "Titre / Nom : ";
 
 /* Class = "UITextField"; placeholder = "Michel Pierre"; ObjectID = "CoI-Ff-Pfj"; */
 "CoI-Ff-Pfj.placeholder" = "Michel Pierre";
 
 /* Class = "UILabel"; text = "Number checked ?"; ObjectID = "DYd-nM-hlp"; */
-"DYd-nM-hlp.text" = "Number checked ?";
+"DYd-nM-hlp.text" = "Comptage OK ?";
 
 /* Class = "UILabel"; text = "---- ---"; ObjectID = "FYv-1W-XmI"; */
 "FYv-1W-XmI.text" = "---- ---";
@@ -66,43 +66,43 @@
 "HoC-uD-s10.text" = "Code :";
 
 /* Class = "UILabel"; text = "Number of article sold :"; ObjectID = "I3L-SZ-5WR"; */
-"I3L-SZ-5WR.text" = "Number of article sold :";
+"I3L-SZ-5WR.text" = "NNombre d'article vendu :";
 
 /* Class = "UIButton"; normalTitle = "Print Labels"; ObjectID = "I6U-07-m41"; */
-"I6U-07-m41.normalTitle" = "Print Labels";
+"I6U-07-m41.normalTitle" = "Imprimer etiquettes";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "IOf-A9-aGy"; */
 "IOf-A9-aGy.text" = "-";
 
 /* Class = "UILabel"; text = "Phone :"; ObjectID = "Icx-xN-gYW"; */
-"Icx-xN-gYW.text" = "Phone :";
+"Icx-xN-gYW.text" = "Telephone :";
 
 /* Class = "UILabel"; text = "Family Name :"; ObjectID = "JIk-3u-neO"; */
-"JIk-3u-neO.text" = "Family Name :";
+"JIk-3u-neO.text" = "Nom de famille :";
 
 /* Class = "UILabel"; text = "Phone :"; ObjectID = "Lwd-vY-tGa"; */
-"Lwd-vY-tGa.text" = "Phone :";
+"Lwd-vY-tGa.text" = "Telephone :";
 
 /* Class = "UILabel"; text = "Description :"; ObjectID = "MDR-Uh-Dfj"; */
 "MDR-Uh-Dfj.text" = "Description :";
 
 /* Class = "UILabel"; text = "articles of :"; ObjectID = "MFX-Yq-cp7"; */
-"MFX-Yq-cp7.text" = "articles of :";
+"MFX-Yq-cp7.text" = "articles de :";
 
 /* Class = "UILabel"; text = "-- €"; ObjectID = "MXY-2T-sav"; */
 "MXY-2T-sav.text" = "-- €";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Mxm-1l-GX3"; */
-"Mxm-1l-GX3.normalTitle" = "Save";
+"Mxm-1l-GX3.normalTitle" = "Sauvegarder";
 
 /* Class = "UILabel"; text = "Scan the bar code of a book "; ObjectID = "Myt-1T-LYZ"; */
-"Myt-1T-LYZ.text" = "Scan the bar code of a book ";
+"Myt-1T-LYZ.text" = "Scanner le code barre du livre ";
 
 /* Class = "UILabel"; text = "CODE"; ObjectID = "QmP-cg-Hqc"; */
 "QmP-cg-Hqc.text" = "CODE";
 
 /* Class = "UIButton"; normalTitle = "List of articles"; ObjectID = "Sj8-2j-ZHb"; */
-"Sj8-2j-ZHb.normalTitle" = "List of articles";
+"Sj8-2j-ZHb.normalTitle" = "Liste des articles";
 
 /* Class = "UILabel"; text = "999"; ObjectID = "Sue-ka-R4I"; */
 "Sue-ka-R4I.text" = "999";
@@ -114,13 +114,13 @@
 "Urz-Qw-0BW.text" = "Titre";
 
 /* Class = "UILabel"; text = "FirstName"; ObjectID = "VcR-Kt-oRG"; */
-"VcR-Kt-oRG.text" = "FirstName";
+"VcR-Kt-oRG.text" = "Prénom";
 
 /* Class = "UILabel"; text = "Amont of deposit fee :"; ObjectID = "XE3-dB-Xhe"; */
-"XE3-dB-Xhe.text" = "Amont of deposit fee :";
+"XE3-dB-Xhe.text" = "Montant cotisation :";
 
 /* Class = "UILabel"; text = "First Name :"; ObjectID = "XjK-4E-NVx"; */
-"XjK-4E-NVx.text" = "First Name :";
+"XjK-4E-NVx.text" = "Prénom :";
 
 /* Class = "UITextField"; placeholder = "Jean Pierre"; ObjectID = "YkM-tA-f7N"; */
 "YkM-tA-f7N.placeholder" = "Jean Pierre";
@@ -129,52 +129,52 @@
 "ZrE-pS-4cJ.placeholder" = "jp.dupond@aol.fr";
 
 /* Class = "UILabel"; text = "Family Name :"; ObjectID = "aN0-SO-VEy"; */
-"aN0-SO-VEy.text" = "Family Name :";
+"aN0-SO-VEy.text" = "Nom de famille :";
 
 /* Class = "UILabel"; text = "Description :"; ObjectID = "cjL-Yo-xwX"; */
 "cjL-Yo-xwX.text" = "Description :";
 
 /* Class = "UILabel"; text = "Number of article to return :"; ObjectID = "cka-Sn-kG1"; */
-"cka-Sn-kG1.text" = "Number of article to return :";
+"cka-Sn-kG1.text" = "Nombre d'article à rendre :";
 
 /* Class = "UILabel"; text = "Article Code :"; ObjectID = "dOf-6e-iOZ"; */
-"dOf-6e-iOZ.text" = "Article Code :";
+"dOf-6e-iOZ.text" = "Code de l'article :";
 
 /* Class = "UILabel"; text = "999"; ObjectID = "eKw-94-JP8"; */
 "eKw-94-JP8.text" = "999";
 
 /* Class = "UILabel"; text = "FamilyName"; ObjectID = "eOr-kc-G5H"; */
-"eOr-kc-G5H.text" = "FamilyName";
+"eOr-kc-G5H.text" = "Nom";
 
 /* Class = "UILabel"; text = "Email :"; ObjectID = "esB-3U-hLp"; */
 "esB-3U-hLp.text" = "Email :";
 
 /* Class = "UILabel"; text = "First Name :"; ObjectID = "f04-bl-a8u"; */
-"f04-bl-a8u.text" = "First Name :";
+"f04-bl-a8u.text" = "Prénom :";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "fev-3M-BIR"; */
 "fev-3M-BIR.text" = "-";
 
 /* Class = "UILabel"; text = "Amount of sales :"; ObjectID = "flr-y6-arV"; */
-"flr-y6-arV.text" = "Amount of sales :";
+"flr-y6-arV.text" = "Montant des ventes :";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "fnX-lh-ErR"; */
 "fnX-lh-ErR.text" = "-";
 
 /* Class = "UILabel"; text = "Sold"; ObjectID = "fx2-hB-qk6"; */
-"fx2-hB-qk6.text" = "Sold";
+"fx2-hB-qk6.text" = "Vendu";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "gNL-JZ-7uM"; */
 "gNL-JZ-7uM.text" = "-";
 
 /* Class = "UINavigationItem"; title = "Seller"; ObjectID = "hAF-ur-z7G"; */
-"hAF-ur-z7G.title" = "Seller";
+"hAF-ur-z7G.title" = "Vendeur";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "hW1-RE-JKY"; */
 "hW1-RE-JKY.text" = "-";
 
 /* Class = "UIViewController"; title = "Seller"; ObjectID = "hyR-5s-AiI"; */
-"hyR-5s-AiI.title" = "Seller";
+"hyR-5s-AiI.title" = "Vendeur";
 
 /* Class = "UITextField"; placeholder = "07 44 55 55 55"; ObjectID = "iwi-DZ-WFP"; */
 "iwi-DZ-WFP.placeholder" = "07 44 55 55 55";
@@ -186,10 +186,10 @@
 "lzi-x0-AKV.text" = "-";
 
 /* Class = "UILabel"; text = "Price :"; ObjectID = "oB6-rC-VZM"; */
-"oB6-rC-VZM.text" = "Price :";
+"oB6-rC-VZM.text" = "Prix :";
 
 /* Class = "UILabel"; text = "Searching ..."; ObjectID = "pWT-fR-Iv8"; */
-"pWT-fR-Iv8.text" = "Searching ...";
+"pWT-fR-Iv8.text" = "Recherche ...";
 
 /* Class = "UITextField"; placeholder = "0000000"; ObjectID = "pdj-Xy-x3J"; */
 "pdj-Xy-x3J.placeholder" = "0000000";
@@ -201,7 +201,7 @@
 "sLw-Ya-gJP.text" = "-";
 
 /* Class = "UILabel"; text = "Book"; ObjectID = "saZ-PN-SUf"; */
-"saZ-PN-SUf.text" = "Book";
+"saZ-PN-SUf.text" = "Livre";
 
 /* Class = "UITextView"; text = "-"; ObjectID = "sap-Zy-1vL"; */
 "sap-Zy-1vL.text" = "-";
@@ -213,10 +213,10 @@
 "so0-2i-u8w.text" = "-";
 
 /* Class = "UILabel"; text = "Number of article registered :"; ObjectID = "sr1-5V-nhD"; */
-"sr1-5V-nhD.text" = "Number of article registered :";
+"sr1-5V-nhD.text" = "Nombre d'articles enregistrés :";
 
 /* Class = "UILabel"; text = "Author :"; ObjectID = "tLW-WS-HTF"; */
-"tLW-WS-HTF.text" = "Author :";
+"tLW-WS-HTF.text" = "Auteur :";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "tgm-x8-29Z"; */
 "tgm-x8-29Z.text" = "-";
@@ -225,31 +225,31 @@
 "uJr-8p-H4D.text" = "-";
 
 /* Class = "UILabel"; text = "Created by :"; ObjectID = "ugp-6q-hhP"; */
-"ugp-6q-hhP.text" = "Created by :";
+"ugp-6q-hhP.text" = "Créé par :";
 
 /* Class = "UIButton"; normalTitle = "Refund"; ObjectID = "upv-xV-o0l"; */
-"upv-xV-o0l.normalTitle" = "Refund";
+"upv-xV-o0l.normalTitle" = "Restituer";
 
 /* Class = "UINavigationItem"; title = "Sellers"; ObjectID = "wdn-RQ-97l"; */
-"wdn-RQ-97l.title" = "Sellers";
+"wdn-RQ-97l.title" = "Vendeurs";
 
 /* Class = "UILabel"; text = "Author :"; ObjectID = "wwl-NZ-sdh"; */
-"wwl-NZ-sdh.text" = "Author :";
+"wwl-NZ-sdh.text" = "Auteur :";
 
 /* Class = "UILabel"; text = "Price :"; ObjectID = "xXC-D9-abA"; */
-"xXC-D9-abA.text" = "Price :";
+"xXC-D9-abA.text" = "Prix :";
 
 /* Class = "UIButton"; normalTitle = "Select"; ObjectID = "xbf-e1-bw8"; */
-"xbf-e1-bw8.normalTitle" = "Select";
+"xbf-e1-bw8.normalTitle" = "Selectionner";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "xgK-MP-O3E"; */
-"xgK-MP-O3E.normalTitle" = "Save";
+"xgK-MP-O3E.normalTitle" = "Sauvegarder";
 
 /* Class = "UILabel"; text = "Date of refund :"; ObjectID = "zJa-jf-76g"; */
-"zJa-jf-76g.text" = "Date of refund :";
+"zJa-jf-76g.text" = "Date de la restitution :";
 
 /* Class = "UITextField"; placeholder = "le livre"; ObjectID = "zcp-Hw-Pwi"; */
 "zcp-Hw-Pwi.placeholder" = "le livre";
 
 /* Class = "UILabel"; text = "Title / Name : "; ObjectID = "zyG-RN-k5f"; */
-"zyG-RN-k5f.text" = "Title / Name : ";
+"zyG-RN-k5f.text" = "Titre / Nom : ";

@@ -24,6 +24,7 @@
 		4F25C3FF23390DF200916CC8 /* SaleValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C3FE23390DF200916CC8 /* SaleValues.swift */; };
 		4F25C4012339138800916CC8 /* SaleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C4002339138800916CC8 /* SaleAPI.swift */; };
 		4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3820242302ADE600AB9577 /* PurseTestCase.swift */; };
+		4F4A3ABA23477CE500139359 /* SaleAPITestCaseRealDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A3AB923477CE500139359 /* SaleAPITestCaseRealDB.swift */; };
 		4F6B76F123100CB10028EA97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1668B22C4C7FC00236165 /* LoginViewController.swift */; };
 		4F6B76F223100CB10028EA97 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA05B9722C24AC200708718 /* Article.swift */; };
 		4F6B76F423100CB10028EA97 /* SearchingBookDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */; };
@@ -72,10 +73,10 @@
 		4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */; };
 		4F815E8E231E4F3800C6718A /* SellerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E8D231E4F3800C6718A /* SellerTestCase.swift */; };
 		4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */; };
-		4F815E92231E714800C6718A /* PurseAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E91231E714800C6718A /* PurseAPITestCase.swift */; };
+		4F815E92231E714800C6718A /* PurseAPITestCaseWithMockCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E91231E714800C6718A /* PurseAPITestCaseWithMockCR.swift */; };
 		4F815E94231EC10000C6718A /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E93231EC10000C6718A /* PrivateKey.swift */; };
 		4F815E962320FEF400C6718A /* SellerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E952320FEF400C6718A /* SellerAPI.swift */; };
-		4F815E982321024B00C6718A /* SellerAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E972321024B00C6718A /* SellerAPITestCase.swift */; };
+		4F815E982321024B00C6718A /* SellerAPITestCaseWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E972321024B00C6718A /* SellerAPITestCaseWithMock.swift */; };
 		4F815E9A23210C8400C6718A /* ArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9923210C8400C6718A /* ArticleAPI.swift */; };
 		4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */; };
 		4F815E9E23215A4D00C6718A /* RemoteAuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */; };
@@ -84,13 +85,18 @@
 		4F815EA72322418E00C6718A /* UserAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EA62322418E00C6718A /* UserAuthAPI.swift */; };
 		4F815EA92322475800C6718A /* RemoteAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EA82322475800C6718A /* RemoteAuthentication.swift */; };
 		4F815EAE2322576C00C6718A /* UserTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAD2322576C00C6718A /* UserTestCase.swift */; };
-		4F815EB02322591500C6718A /* UserAuthAPITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAF2322591500C6718A /* UserAuthAPITestCase.swift */; };
+		4F815EB02322591500C6718A /* UserAuthAPITestCaseWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EAF2322591500C6718A /* UserAuthAPITestCaseWithMock.swift */; };
 		4F815EB2232259F800C6718A /* RemoteAuthenticationRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */; };
+		4F89FB0C2349F602002A650C /* PurseAPITestCaseRealDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F89FB0B2349F602002A650C /* PurseAPITestCaseRealDB.swift */; };
+		4F89FB0E2349FE7C002A650C /* PurseAPITestCaseWithMockUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F89FB0D2349FE7C002A650C /* PurseAPITestCaseWithMockUD.swift */; };
+		4F89FB10234A81A9002A650C /* UserAPITestCaseWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F89FB0F234A81A9002A650C /* UserAPITestCaseWithMock.swift */; };
+		4F89FB12234A8837002A650C /* SellerAPITestCaseRealDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F89FB11234A8837002A650C /* SellerAPITestCaseRealDB.swift */; };
 		4FAF92972341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF92962341F4E400B903FF /* FireBaseDataRequest+extensionUD.swift */; };
 		4FCF6AF723269A1100C71C11 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF623269A1100C71C11 /* UserAPI.swift */; };
 		4FCF6AF92326A01700C71C11 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AF82326A01700C71C11 /* UserListTableViewController.swift */; };
 		4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AFA2326A0E100C71C11 /* UserListTableViewCell.swift */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
+		4FDD6062234621FD00612606 /* SaleAPITestCaseWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD6061234621FD00612606 /* SaleAPITestCaseWithMock.swift */; };
 		6D2060DCCDA6BE60A4FB81F7 /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */; };
 		76E351846A766040C9A316A2 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */; };
 /* End PBXBuildFile section */
@@ -136,6 +142,7 @@
 		4F25C4002339138800916CC8 /* SaleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPI.swift; sourceTree = "<group>"; };
 		4F3820242302ADE600AB9577 /* PurseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseTestCase.swift; sourceTree = "<group>"; };
 		4F3820272302EAB000AB9577 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		4F4A3AB923477CE500139359 /* SaleAPITestCaseRealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPITestCaseRealDB.swift; sourceTree = "<group>"; };
 		4F6B772C23100CB10028EA97 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
 		4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStorage.swift; sourceTree = "<group>"; };
@@ -150,10 +157,10 @@
 		4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseListTableViewCell.swift; sourceTree = "<group>"; };
 		4F815E8D231E4F3800C6718A /* SellerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTestCase.swift; sourceTree = "<group>"; };
 		4F815E8F231E50DD00C6718A /* FakeDataDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDataDictionary.swift; sourceTree = "<group>"; };
-		4F815E91231E714800C6718A /* PurseAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPITestCase.swift; sourceTree = "<group>"; };
+		4F815E91231E714800C6718A /* PurseAPITestCaseWithMockCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPITestCaseWithMockCR.swift; sourceTree = "<group>"; };
 		4F815E93231EC10000C6718A /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		4F815E952320FEF400C6718A /* SellerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPI.swift; sourceTree = "<group>"; };
-		4F815E972321024B00C6718A /* SellerAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCase.swift; sourceTree = "<group>"; };
+		4F815E972321024B00C6718A /* SellerAPITestCaseWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCaseWithMock.swift; sourceTree = "<group>"; };
 		4F815E9923210C8400C6718A /* ArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPI.swift; sourceTree = "<group>"; };
 		4F815E9B23210D4E00C6718A /* ArticleAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPITestCase.swift; sourceTree = "<group>"; };
 		4F815E9D23215A4D00C6718A /* RemoteAuthenticationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationRequest.swift; sourceTree = "<group>"; };
@@ -162,8 +169,12 @@
 		4F815EA62322418E00C6718A /* UserAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthAPI.swift; sourceTree = "<group>"; };
 		4F815EA82322475800C6718A /* RemoteAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthentication.swift; sourceTree = "<group>"; };
 		4F815EAD2322576C00C6718A /* UserTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestCase.swift; sourceTree = "<group>"; };
-		4F815EAF2322591500C6718A /* UserAuthAPITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthAPITestCase.swift; sourceTree = "<group>"; };
+		4F815EAF2322591500C6718A /* UserAuthAPITestCaseWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthAPITestCaseWithMock.swift; sourceTree = "<group>"; };
 		4F815EB1232259F800C6718A /* RemoteAuthenticationRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAuthenticationRequestMock.swift; sourceTree = "<group>"; };
+		4F89FB0B2349F602002A650C /* PurseAPITestCaseRealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPITestCaseRealDB.swift; sourceTree = "<group>"; };
+		4F89FB0D2349FE7C002A650C /* PurseAPITestCaseWithMockUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurseAPITestCaseWithMockUD.swift; sourceTree = "<group>"; };
+		4F89FB0F234A81A9002A650C /* UserAPITestCaseWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPITestCaseWithMock.swift; sourceTree = "<group>"; };
+		4F89FB11234A8837002A650C /* SellerAPITestCaseRealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCaseRealDB.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrCodeViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
@@ -203,6 +214,7 @@
 		4FD11C5A231472C200FB9F94 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataBaseModel.swift; sourceTree = "<group>"; };
 		4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
+		4FDD6061234621FD00612606 /* SaleAPITestCaseWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPITestCaseWithMock.swift; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5381DE441BEE4C417421E306 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +260,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4F149FF52344FD5A00791593 /* LabelSheet */ = {
+			isa = PBXGroup;
+			children = (
+				4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */,
+			);
+			path = LabelSheet;
+			sourceTree = "<group>";
+		};
 		4F16C726230FE77400063B95 /* Article */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				4F1FA54F2344C7A900816DD9 /* SaleTestCase.swift */,
+				4FDD6061234621FD00612606 /* SaleAPITestCaseWithMock.swift */,
+				4F4A3AB923477CE500139359 /* SaleAPITestCaseRealDB.swift */,
 			);
 			path = Sale;
 			sourceTree = "<group>";
@@ -302,7 +324,9 @@
 			isa = PBXGroup;
 			children = (
 				4F3820242302ADE600AB9577 /* PurseTestCase.swift */,
-				4F815E91231E714800C6718A /* PurseAPITestCase.swift */,
+				4F815E91231E714800C6718A /* PurseAPITestCaseWithMockCR.swift */,
+				4F89FB0D2349FE7C002A650C /* PurseAPITestCaseWithMockUD.swift */,
+				4F89FB0B2349F602002A650C /* PurseAPITestCaseRealDB.swift */,
 			);
 			path = Purse;
 			sourceTree = "<group>";
@@ -367,7 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				4F815E8D231E4F3800C6718A /* SellerTestCase.swift */,
-				4F815E972321024B00C6718A /* SellerAPITestCase.swift */,
+				4F815E972321024B00C6718A /* SellerAPITestCaseWithMock.swift */,
+				4F89FB11234A8837002A650C /* SellerAPITestCaseRealDB.swift */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -387,7 +412,8 @@
 			isa = PBXGroup;
 			children = (
 				4F815EAD2322576C00C6718A /* UserTestCase.swift */,
-				4F815EAF2322591500C6718A /* UserAuthAPITestCase.swift */,
+				4F815EAF2322591500C6718A /* UserAuthAPITestCaseWithMock.swift */,
+				4F89FB0F234A81A9002A650C /* UserAPITestCaseWithMock.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -498,7 +524,7 @@
 				4F815E8A231E4E4E00C6718A /* URLSession */,
 				4F19E84022FAF503004C545C /* BookService */,
 				4FC5135422B13440000FD572 /* Info.plist */,
-				4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */,
+				4F149FF52344FD5A00791593 /* LabelSheet */,
 			);
 			path = BoursobookTests;
 			sourceTree = "<group>";
@@ -865,21 +891,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F1FA5502344C7A900816DD9 /* SaleTestCase.swift in Sources */,
+				4F89FB0E2349FE7C002A650C /* PurseAPITestCaseWithMockUD.swift in Sources */,
 				4F815E90231E50DD00C6718A /* FakeDataDictionary.swift in Sources */,
-				4F815E982321024B00C6718A /* SellerAPITestCase.swift in Sources */,
+				4F815E982321024B00C6718A /* SellerAPITestCaseWithMock.swift in Sources */,
 				4F19E83F22FAF4E9004C545C /* BookServiceTestCase.swift in Sources */,
+				4F89FB12234A8837002A650C /* SellerAPITestCaseRealDB.swift in Sources */,
 				4F19E84222FB25FB004C545C /* URLSessionFake.swift in Sources */,
-				4F815EB02322591500C6718A /* UserAuthAPITestCase.swift in Sources */,
+				4F815EB02322591500C6718A /* UserAuthAPITestCaseWithMock.swift in Sources */,
 				4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */,
 				4F815E8E231E4F3800C6718A /* SellerTestCase.swift in Sources */,
+				4F4A3ABA23477CE500139359 /* SaleAPITestCaseRealDB.swift in Sources */,
 				4F19E84422FB26E6004C545C /* FakeResponseData.swift in Sources */,
 				4F1B5742230D2F7D000C7276 /* RemoteDatabaseRequestMock.swift in Sources */,
 				4F16C728230FE79B00063B95 /* ArticleTestCase.swift in Sources */,
+				4FDD6062234621FD00612606 /* SaleAPITestCaseWithMock.swift in Sources */,
 				4F19E83D22F75D17004C545C /* LabelSheetTestCase.swift in Sources */,
+				4F89FB0C2349F602002A650C /* PurseAPITestCaseRealDB.swift in Sources */,
 				4F815EAE2322576C00C6718A /* UserTestCase.swift in Sources */,
+				4F89FB10234A81A9002A650C /* UserAPITestCaseWithMock.swift in Sources */,
 				4F815EB2232259F800C6718A /* RemoteAuthenticationRequestMock.swift in Sources */,
 				4F815E9C23210D4E00C6718A /* ArticleAPITestCase.swift in Sources */,
-				4F815E92231E714800C6718A /* PurseAPITestCase.swift in Sources */,
+				4F815E92231E714800C6718A /* PurseAPITestCaseWithMockCR.swift in Sources */,
 				4F3820252302ADE600AB9577 /* PurseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

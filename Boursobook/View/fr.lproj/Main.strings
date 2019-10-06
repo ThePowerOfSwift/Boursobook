@@ -1,12 +1,12 @@
 
 /* Class = "UITabBarItem"; title = "Seller"; ObjectID = "24T-0Q-59f"; */
-"24T-0Q-59f.title" = "Seller";
+"24T-0Q-59f.title" = "Vendeur";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "3Th-xe-OB0"; */
 "3Th-xe-OB0.placeholder" = "Email";
 
 /* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "BG7-bt-S7C"; */
-"BG7-bt-S7C.normalTitle" = "Log Out";
+"BG7-bt-S7C.normalTitle" = "Deconnexion";
 
 /* Class = "UILabel"; text = "Boursobook"; ObjectID = "BvU-cC-pjJ"; */
 "BvU-cC-pjJ.text" = "Boursobook";
@@ -15,28 +15,28 @@
 "CST-XH-SDW.title" = "Info";
 
 /* Class = "UIButton"; normalTitle = "Create a new purse"; ObjectID = "NQj-qV-kfl"; */
-"NQj-qV-kfl.normalTitle" = "Create a new purse";
+"NQj-qV-kfl.normalTitle" = "Creer une nouvelle bourse";
 
 /* Class = "UINavigationItem"; title = "Login"; ObjectID = "ZHL-yW-uj0"; */
-"ZHL-yW-uj0.title" = "Login";
+"ZHL-yW-uj0.title" = "Connexion";
 
 /* Class = "UILabel"; text = "Boursobook"; ObjectID = "a00-9t-nJZ"; */
 "a00-9t-nJZ.text" = "Boursobook";
 
 /* Class = "UIButton"; normalTitle = "Register Now"; ObjectID = "bCC-dz-0mq"; */
-"bCC-dz-0mq.normalTitle" = "Register Now";
+"bCC-dz-0mq.normalTitle" = "S'enregistrer";
 
 /* Class = "UITabBarItem"; title = "Buy"; ObjectID = "iVT-Ge-bjO"; */
-"iVT-Ge-bjO.title" = "Buy";
+"iVT-Ge-bjO.title" = "Achat";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "jP4-pk-K8P"; */
-"jP4-pk-K8P.placeholder" = "Password";
+"jP4-pk-K8P.placeholder" = "Mot de passe";
 
 /* Class = "UILabel"; text = "Select a purse :"; ObjectID = "oit-Sq-liF"; */
-"oit-Sq-liF.text" = "Select a purse :";
+"oit-Sq-liF.text" = "Choisir la bourse :";
 
 /* Class = "UILabel"; text = "Purse Name"; ObjectID = "sBG-WF-SP7"; */
-"sBG-WF-SP7.text" = "Purse Name";
+"sBG-WF-SP7.text" = "Nom de la bourse";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "zOk-kz-4Bl"; */
-"zOk-kz-4Bl.normalTitle" = "Login";
+"zOk-kz-4Bl.normalTitle" = "Connexion";

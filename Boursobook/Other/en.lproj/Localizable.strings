@@ -80,3 +80,5 @@
 "Sorry, You are not administrator of this purse" = "Sorry, You are not administrator of this purse";
 "The sale was saved, but some article failed !" = "The sale was saved, but some article failed !";
 "The seller was refunded, but some article failed !" = "The seller was refunded, but some article failed !" ;
+"Sorry, there is no purse with this name !" = "Sorry, there is no purse with this name !";
+"Sorry, there is no sale with this name !" = "Sorry, there is no sale with this name !";

@@ -12,7 +12,7 @@ class SheetSetupViewController: UIViewController {
 
     // MARK: - Properties
     var activeTextField: UITextField?
-    var labelSheet = LabelSheet()
+    var labelSheet = LabelSheet(userDefaults: UserDefaults.standard)
 
     // MARK: - IBOutlets
     @IBOutlet weak var sheetWidthInMMTextField: UITextField!

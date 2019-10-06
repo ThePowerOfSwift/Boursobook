@@ -1,27 +1,27 @@
 
 /* Class = "UILabel"; text = "Scan the QRCode of article"; ObjectID = "BpX-qv-CuV"; */
-"BpX-qv-CuV.text" = "Scan the QRCode of article";
+"BpX-qv-CuV.text" = "Scannner le QRcode de l'article";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "LEa-sg-xjc"; */
-"LEa-sg-xjc.text" = "Title";
+"LEa-sg-xjc.text" = "Titre";
 
 /* Class = "UIButton"; normalTitle = "Browse articles"; ObjectID = "LhR-Td-2k1"; */
-"LhR-Td-2k1.normalTitle" = "Browse articles";
+"LhR-Td-2k1.normalTitle" = "Parcourir les articles";
 
 /* Class = "UILabel"; text = "Number of registered article :"; ObjectID = "N1R-ye-aKm"; */
-"N1R-ye-aKm.text" = "Number of registered article :";
+"N1R-ye-aKm.text" = "Nombre d'articles enregistrés :";
 
 /* Class = "UILabel"; text = "Titre"; ObjectID = "OdA-zz-KKz"; */
 "OdA-zz-KKz.text" = "Titre";
 
 /* Class = "UINavigationItem"; title = "sale"; ObjectID = "QCY-aw-gTe"; */
-"QCY-aw-gTe.title" = "sale";
+"QCY-aw-gTe.title" = "Vente";
 
 /* Class = "UILabel"; text = "99,99 €"; ObjectID = "RSW-67-vNX"; */
 "RSW-67-vNX.text" = "99,99 €";
 
 /* Class = "UIButton"; normalTitle = "Add manually"; ObjectID = "SgE-60-SQT"; */
-"SgE-60-SQT.normalTitle" = "Add manually";
+"SgE-60-SQT.normalTitle" = "Ajouter manuellement";
 
 /* Class = "UILabel"; text = "000"; ObjectID = "Wr9-5l-BZO"; */
 "Wr9-5l-BZO.text" = "000";
@@ -30,19 +30,19 @@
 "apP-Mh-3vL.text" = "99,99 €";
 
 /* Class = "UILabel"; text = "Number checked ?"; ObjectID = "fEw-vc-5zP"; */
-"fEw-vc-5zP.text" = "Number checked ?";
+"fEw-vc-5zP.text" = "Comptage OK ?";
 
 /* Class = "UIButton"; normalTitle = "Save the sale"; ObjectID = "fg0-ML-Qwg"; */
-"fg0-ML-Qwg.normalTitle" = "Save the sale";
+"fg0-ML-Qwg.normalTitle" = "Sauvegarder la vente";
 
 /* Class = "UILabel"; text = "ZZZZ999"; ObjectID = "gcZ-j4-pua"; */
 "gcZ-j4-pua.text" = "ZZZZ999";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "j6I-Ik-Rq8"; */
-"j6I-Ik-Rq8.normalTitle" = "Reset";
+"j6I-Ik-Rq8.normalTitle" = "RAZ";
 
 /* Class = "UILabel"; text = "Loading articles ..."; ObjectID = "tVg-PI-L13"; */
-"tVg-PI-L13.text" = "Loading articles ...";
+"tVg-PI-L13.text" = "Chargement des articles ...";
 
 /* Class = "UILabel"; text = "RRRR999"; ObjectID = "vjT-XK-oXn"; */
 "vjT-XK-oXn.text" = "RRRR999";
@@ -51,4 +51,4 @@
 "ybw-AC-QeH.text" = "000";
 
 /* Class = "UILabel"; text = "Total Amount :"; ObjectID = "zsT-uA-1zH"; */
-"zsT-uA-1zH.text" = "Total Amount :";
+"zsT-uA-1zH.text" = "Montant total :";
