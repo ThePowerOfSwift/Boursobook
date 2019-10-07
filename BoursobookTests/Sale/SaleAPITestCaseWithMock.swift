@@ -12,8 +12,74 @@ import XCTest
 class SaleAPITestCaseWithMock: XCTestCase {
     // Test in local with mock
 
-    // MARK: - Test "createNewSale" function
+    // MARK: - Test "getSaler" function
+    func testGetSaleWithDataWithErrorSouldReturnError() {
+        //Given
+        let goodData = [FakeData.sale]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Sale.collection,
+                                                                  error: FakeData.error, data: goodData)
+        let fakeSaleAPI = SaleAPI(saleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeSaleAPI.getSale(uniqueID: "uniqueID") { (error, loadedSales) in
+
+            //Then
+            XCTAssertNil(loadedSales)
+            if let error = error {
+                XCTAssertEqual(error.message, """
+                                                Error !
+                                                BoursobookTests.FakeData.FakeError
+                                                """)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testGetSaleWithNoDataWithNoErrorSouldReturnError() {
+           //Given
+           let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Sale.collection,
+                                                                     error: nil, data: nil)
+           let fakeSaleAPI = SaleAPI(saleRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+           //When
+           let expectation = XCTestExpectation(description: "Wait for queue change.")
+           fakeSaleAPI.getSale(uniqueID: "uniqueID") { (error, loadedSales) in
+
+               //Then
+               XCTAssertNil(loadedSales)
+               if let error = error {
+                   XCTAssertEqual(error.message, "Sorry, there is an error !")
+               }
+               expectation.fulfill()
+           }
+           wait(for: [expectation], timeout: 0.5)
+       }
+
+    func testGetSalerWithDataWithNoErrorSouldReturnSeller() {
+        //Given
+
+        let goodData = [FakeData.sale]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Sale.collection,
+                                                                  error: nil, data: goodData)
+        let fakeSaleAPI = SaleAPI(saleRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeSaleAPI.getSale(uniqueID: "uniqueID") { (error, loadedSales) in
+
+            //Then
+            XCTAssertNil(error)
+            if let loadedSales = loadedSales {
+                XCTAssertEqual(loadedSales.uniqueID, goodData.first?.uniqueID)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    // MARK: - Test "createNewSale" function
     func testCreateWithNoPurseWithNoErrorSouldReturnError() {
         //Given
 
