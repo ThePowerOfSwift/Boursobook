@@ -177,7 +177,7 @@ class SaleAPITestCaseRealDB: XCTestCase {
                                                 }
                                                 XCTAssertEqual(updatedSale.amount, sale.amount + article.price)
                                                 XCTAssertEqual(updatedSale.numberOfArticle, sale.numberOfArticle + 1)
-                                                XCTAssert(updatedSale.articlesUniqueID.contains(article.uniqueID))
+                                                XCTAssert(updatedSale.inArticlesCode.contains(article.code))
 
                                                 // Clean all data created
                                                 self.cleanDataCreatedForTestseller(seller: seller, article: article,

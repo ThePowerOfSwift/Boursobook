@@ -12,7 +12,7 @@ class BrowseArticleListTableViewController: UITableViewController {
 
     // MARK: - Properties
     var displayedArticles = [Article]()
-    var selectedArticleUniqueID: String?
+    var selectedArticleCode: String?
     let articleAPI = ArticleAPI()
     var currentSale: Sale?
 
@@ -46,8 +46,8 @@ class BrowseArticleListTableViewController: UITableViewController {
         guard let currentSale = currentSale else {
             return
         }
-        for articleUniqueId in currentSale.articlesUniqueID {
-            for (index, article) in displayedArticles.enumerated() where article.uniqueID == articleUniqueId {
+        for articleCode in currentSale.inArticlesCode {
+            for (index, article) in displayedArticles.enumerated() where article.code == articleCode {
                 displayedArticles.remove(at: index)
             }
         }
@@ -94,7 +94,7 @@ class BrowseArticleListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedArticleUniqueID = displayedArticles[indexPath.row].uniqueID
+        selectedArticleCode = displayedArticles[indexPath.row].code
         self.performSegue(withIdentifier: "segueToArticleFromBrowseArticle", sender: nil)
     }
 
@@ -102,7 +102,7 @@ class BrowseArticleListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToArticleFromBrowseArticle" {
             if let articleVC = segue.destination as? ArticleViewController {
-                articleVC.selectedArticleUniqueID = selectedArticleUniqueID
+                articleVC.selectedArticleCode = selectedArticleCode
                 articleVC.isRegisterSale = true
             }
         }

@@ -39,6 +39,7 @@ class AddArticleViewController: UIViewController, SearchingBookDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyleOfVC()
+        toogleActivity(loading: false)
 
         guard let seller = selectedSeller else {
             self.navigationController?.popViewController(animated: true)

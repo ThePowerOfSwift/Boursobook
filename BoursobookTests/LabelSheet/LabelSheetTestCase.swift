@@ -136,8 +136,8 @@ class LabelSheetTestCase: XCTestCase {
         // Then
         XCTAssertEqual(labelSheet.sheetWidthInMM, 210)
         XCTAssertEqual(labelSheet.sheetHeightInMM, 297)
-        XCTAssertEqual(labelSheet.labelWidthInMM, 25.4)
-        XCTAssertEqual(labelSheet.labelHeightInMM, 10)
+        XCTAssertEqual(labelSheet.labelWidthInMM, 50)
+        XCTAssertEqual(labelSheet.labelHeightInMM, 20)
         XCTAssertEqual(labelSheet.firstLablePositionXInMM, 10)
         XCTAssertEqual(labelSheet.firstLablePositionYInMM, 10)
         XCTAssertEqual(labelSheet.labelSpacingXInMM, 10)

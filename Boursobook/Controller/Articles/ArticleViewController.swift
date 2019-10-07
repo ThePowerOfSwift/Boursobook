@@ -11,7 +11,7 @@ import UIKit
 class ArticleViewController: UIViewController {
 
     // MARK: - Properties
-    var selectedArticleUniqueID: String?
+    var selectedArticleCode: String?
     var isRegisterSale: Bool?
     var displayedArticle: Article?
     let articleAPI = ArticleAPI()
@@ -36,7 +36,7 @@ class ArticleViewController: UIViewController {
 
     // MARK: - IBActions
     @IBAction func didTapSelectButton(_ sender: UIButton) {
-        didSelectArticle(articleUniqueID: selectedArticleUniqueID)
+        didSelectArticle(articleCode: selectedArticleCode)
     }
 
     // MARK: - Override
@@ -76,7 +76,7 @@ class ArticleViewController: UIViewController {
         isbnLabel.text = article.isbn
         priceLabel.text = formatDiplayedNumber(article.price)
         codeLabel.text = article.code
-        if let qRCode = generateQrCode(from: article.uniqueID) {
+        if let qRCode = generateQrCode(from: article.code) {
             qRCodeImage.image = qRCode
         }
         articleLabelCodeLabel.text = article.code
@@ -85,11 +85,11 @@ class ArticleViewController: UIViewController {
     }
 
     private func loadArticleToDisplay() {
-           guard let uniqueID = selectedArticleUniqueID else {
+           guard let code = selectedArticleCode else {
                self.navigationController?.popViewController(animated: true)
                return
            }
-           articleAPI.loadArticle(uniqueID: uniqueID) { (error, loadedArticle) in
+        articleAPI.loadArticle(code: code, purse: InMemoryStorage.shared.inWorkingPurse) { (error, loadedArticle) in
                self.toogleActivity(loading: false)
                if let error = error {
                    self.displayAlert(
@@ -144,11 +144,11 @@ class ArticleViewController: UIViewController {
 
     }
 
-    private func didSelectArticle(articleUniqueID: String? ) {
-        guard let articleUniqueID = articleUniqueID else {
+    private func didSelectArticle(articleCode: String? ) {
+        guard let articleCode = articleCode else {
             return
         }
-        InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.append(articleUniqueID)
+        InMemoryStorage.shared.codeOfArticlesInCurrentSales.append(articleCode)
         self.performSegue(withIdentifier: "undwindToBuyVC", sender: self)
     }
 

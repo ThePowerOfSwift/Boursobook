@@ -52,8 +52,7 @@ class ArticleAPITestCaseWithMockR: XCTestCase {
 
                //Then
                XCTAssertNil(loadedArticles)
-               if let error = error {
-                   XCTAssertEqual(error.message, "Sorry, there is an error !")
+               if let error = error { XCTAssertEqual(error.message, "Sorry, there is an error !")
                }
                expectation.fulfill()
            }
@@ -83,51 +82,70 @@ class ArticleAPITestCaseWithMockR: XCTestCase {
     }
 
     // MARK: - Test "loadArticle" function
-    func testLoadArticleWithDataWithErrorSouldReturnError() {
+    func testLoadArticleWithNoPurseWithDataWithNoErrorSouldReturnError() {
         //Given
         let goodData = [FakeData.firstArticleNotSold]
         let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
-                                                                  error: FakeData.error, data: goodData)
+                                                                  error: nil, data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeArticleAPI.loadArticle(uniqueID: "uniqueID") { (error, loadedArticles) in
+        fakeArticleAPI.loadArticle(code: "code", purse: nil) { (error, loadedArticles) in
 
             //Then
             XCTAssertNil(loadedArticles)
-            if let error = error {
-                XCTAssertEqual(error.message, """
-                                                Error !
-                                                BoursobookTests.FakeData.FakeError
-                                                """)
+            if let error = error { XCTAssertEqual(error.message, "Sorry, there is an error !")
             }
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.5)
     }
 
-    func testLoadArticleWithNoDataWithNoErrorSouldReturnError() {
-           //Given
-           let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
-                                                                     error: nil, data: nil)
-           let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
+    func testLoadArticleWithPurseWithNoDataWithNoErrorSouldReturnError() {
+        //Given
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
+                                                                  error: nil, data: nil)
+        let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
 
-           //When
-           let expectation = XCTestExpectation(description: "Wait for queue change.")
-           fakeArticleAPI.loadArticle(uniqueID: "uniqueID") { (error, loadedArticles) in
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeArticleAPI.loadArticle(code: "code", purse: purse) { (error, loadedArticles) in
+
+            //Then
+            XCTAssertNil(loadedArticles)
+            if let error = error { XCTAssertEqual(error.message, "Sorry, there is an error !")
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testLoadArticleWithPurseWithDataWithErrorSouldReturnError() {
+           //Given
+            let goodData = [FakeData.firstArticleNotSold]
+            let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
+                                                                      error: FakeData.error, data: goodData)
+            let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+            //When
+            let expectation = XCTestExpectation(description: "Wait for queue change.")
+            fakeArticleAPI.loadArticle(code: "code", purse: purse) { (error, loadedArticles) in
 
                //Then
                XCTAssertNil(loadedArticles)
                if let error = error {
-                   XCTAssertEqual(error.message, "Sorry, there is an error !")
+                   XCTAssertEqual(error.message, """
+                   Error !
+                   BoursobookTests.FakeData.FakeError
+                   """)
                }
                expectation.fulfill()
            }
            wait(for: [expectation], timeout: 0.5)
        }
 
-    func testLoadArticleWithDataWithNoErrorSouldReturnSeller() {
+    func testLoadArticleWithPurseWithDataOkWithNoErrorSouldReturnArticle() {
         //Given
 
         let goodData = [FakeData.firstArticleNotSold]
@@ -137,13 +155,35 @@ class ArticleAPITestCaseWithMockR: XCTestCase {
 
         //When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        fakeArticleAPI.loadArticle(uniqueID: "uniqueID") { (error, loadedArticles) in
+        fakeArticleAPI.loadArticle(code: "AAAA 0001", purse: purse) { (error, loadedArticle) in
 
             //Then
             XCTAssertNil(error)
-            if let loadedArticles = loadedArticles {
-                XCTAssertEqual(loadedArticles.uniqueID, goodData.first?.uniqueID)
+            XCTAssertNotNil(loadedArticle)
+            if let loadedArticle = loadedArticle {
+                XCTAssertEqual(loadedArticle.code, "AAAA 0001")
             }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
+
+    func testLoadArticleWithPurseWithDataKoWithNoErrorSouldReturnArticle() {
+        //Given
+
+        let goodData = [FakeData.firstArticleNotSold]
+        let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
+                                                                  error: nil, data: goodData)
+        let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        fakeArticleAPI.loadArticle(code: "Wrong Code", purse: purse) { (error, loadedArticle) in
+
+            //Then
+            XCTAssertNil(error)
+            XCTAssertNil(loadedArticle)
+
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.5)
@@ -236,6 +276,9 @@ class ArticleAPITestCaseWithMockR: XCTestCase {
         }
         wait(for: [expectation], timeout: 0.5)
     }
+}
+
+extension ArticleAPITestCaseWithMockR {
 
     // MARK: - Test "loadNoSoldArticleFor" function
     func testLoadNoSoldNoPurseWithDataWithNoErrorSouldReturnError() {

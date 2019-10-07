@@ -318,7 +318,7 @@ extension SellerViewController {
         let labelSize = CGSize(width: labelWidthResolution, height: labelheight )
         UIGraphicsBeginImageContext(labelSize)
 
-        guard let QRcodeUIImage = generateQRCode(from: article.uniqueID) else {
+        guard let QRcodeUIImage = generateQRCode(from: article.code) else {
             return nil
         }
         // Draw QRCode
@@ -353,7 +353,7 @@ extension SellerViewController {
                                              width: labelSize.width,
                                              height: labelSize.height))
         UIColor.black.setStroke()
-        path.lineWidth = 10
+        path.lineWidth = 2
         path.stroke()
 
         return UIGraphicsGetImageFromCurrentImageContext()

@@ -58,7 +58,7 @@ class SaleAPI {
         let uniqueID = purse.name + " " + date.description + " " + UUID().description
         let newSale = Sale(date: currentDate, uniqueID: uniqueID, amount: 0,
                            numberOfArticle: 0, madeByUser: user.email,
-                           articlesUniqueID: [""], purseName: purse.name)
+                           inArticlesCode: [""], purseName: purse.name)
         saleRemoteDataBaseRequest
             .createWithOneTransaction(
                 model: purse,
@@ -118,10 +118,10 @@ class SaleAPI {
                         },
                     fourthBlock: { (remoteSale) -> [String: Any] in
                         remoteSale.amount += articlePrice
-                        remoteSale.articlesUniqueID.append(article.uniqueID)
+                        remoteSale.inArticlesCode.append(article.code)
                         remoteSale.numberOfArticle += 1
                         return ["amount": remoteSale.amount,
-                                "articlesUniqueID": remoteSale.articlesUniqueID,
+                                "inArticlesCode": remoteSale.inArticlesCode,
                                 "numberOfArticle": remoteSale.numberOfArticle]
                         }),
                 completionHandler: { (error) in

@@ -36,8 +36,8 @@ class LabelSheet {
         if let labelSheetSetup = userDefaults.dictionary(forKey: "labelSheetSetup") {
             self.sheetWidthInMM = labelSheetSetup["sheetWidthInMM"] as? Double ?? 210
             self.sheetHeightInMM = labelSheetSetup["sheetHeightInMM"] as? Double ?? 297
-            self.labelWidthInMM = labelSheetSetup["labelWidthInMM"] as? Double ?? 25.4
-            self.labelHeightInMM = labelSheetSetup["labelHeightInMM"] as? Double ?? 10
+            self.labelWidthInMM = labelSheetSetup["labelWidthInMM"] as? Double ?? 50
+            self.labelHeightInMM = labelSheetSetup["labelHeightInMM"] as? Double ?? 20
             self.firstLablePositionXInMM = labelSheetSetup["firstLablePositionXInMM"] as? Double ?? 10
             self.firstLablePositionYInMM = labelSheetSetup["firstLablePositionYInMM"] as? Double ?? 10
             self.labelSpacingXInMM = labelSheetSetup["labelSpacingXInMM"] as? Double ?? 10
@@ -45,8 +45,8 @@ class LabelSheet {
         } else {
             self.sheetWidthInMM = 210
             self.sheetHeightInMM = 297
-            self.labelWidthInMM = 25.4
-            self.labelHeightInMM = 10
+            self.labelWidthInMM = 50
+            self.labelHeightInMM = 20
             self.firstLablePositionXInMM = 10
             self.firstLablePositionYInMM = 10
             self.labelSpacingXInMM = 10

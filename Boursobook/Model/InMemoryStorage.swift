@@ -16,7 +16,7 @@ class InMemoryStorage {
     static var shared = InMemoryStorage()
     var userLogIn: User?
     var inWorkingPurse: Purse?
-    var uniqueIdOfArticlesInCurrentSales = [String]()
+    var codeOfArticlesInCurrentSales = [String]()
 
     private init() {
     }

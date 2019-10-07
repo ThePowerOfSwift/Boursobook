@@ -41,9 +41,14 @@ class ArticleAPI {
         }
     }
 
-    func loadArticle(uniqueID: String, completionHandler: @escaping (Error?, Article?) -> Void) {
-        // Query an article from database with his uniqueID
-        let condition = RemoteDataBase.Condition(key: "uniqueID", value: uniqueID)
+    func loadArticle(code: String, purse: Purse?, completionHandler: @escaping (Error?, Article?) -> Void) {
+        // Query an article from database with his code from a purse
+
+        guard let purse = purse else {
+            completionHandler(AAPIError.other, nil)
+            return
+        }
+        let condition = RemoteDataBase.Condition(key: "purseName", value: purse.name)
 
         articleRemoteDataBaseRequest
             .readAndListenData(conditionInField: condition) { (error, loadedArticles: [Article]? ) in
@@ -54,7 +59,13 @@ class ArticleAPI {
                     completionHandler(AAPIError.other, nil)
                     return
                 }
-                completionHandler(nil, loadedArticles.first)
+                let withCodeArticles: [Article] = loadedArticles.compactMap {
+                    if $0.code == code {
+                        return $0
+                    }
+                    return nil
+                }
+                completionHandler(nil, withCodeArticles.first)
             }
         }
     }

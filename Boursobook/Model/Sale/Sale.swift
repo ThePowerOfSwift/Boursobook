@@ -18,13 +18,13 @@ class Sale: RemoteDataBaseModel {
     var amount: Double
     var numberOfArticle: Int
     var madeByUser: String
-    var articlesUniqueID: [String]
+    var inArticlesCode: [String]
     var purseName: String
 
     var dictionary: [String: Any] {
         let values: [String: Any] = ["date": date, "uniqueID": uniqueID,
                                      "amount": amount, "numberOfArticle": numberOfArticle,
-                                     "madeByUser": madeByUser, "articlesUniqueID": articlesUniqueID,
+                                     "madeByUser": madeByUser, "inArticlesCode": inArticlesCode,
                                      "purseName": purseName]
         return values
     }
@@ -36,19 +36,19 @@ class Sale: RemoteDataBaseModel {
         self.amount = 0
         self.numberOfArticle = 0
         self.madeByUser = ""
-        self.articlesUniqueID = [""]
+        self.inArticlesCode = [""]
         self.purseName = ""
     }
 
     init(date: String, uniqueID: String, amount: Double,
          numberOfArticle: Int, madeByUser: String,
-         articlesUniqueID: [String], purseName: String) {
+         inArticlesCode: [String], purseName: String) {
         self.date = date
         self.uniqueID = uniqueID
         self.amount = amount
         self.numberOfArticle = numberOfArticle
         self.madeByUser = madeByUser
-        self.articlesUniqueID = articlesUniqueID
+        self.inArticlesCode = inArticlesCode
         self.purseName = purseName
     }
 
@@ -59,7 +59,7 @@ class Sale: RemoteDataBaseModel {
             let amountValue = dictionary["amount"] as? Double,
             let numberValue = dictionary["numberOfArticle"] as? Int,
             let madeByValue = dictionary["madeByUser"] as? String,
-            let articlesUniqueIDValues = dictionary["articlesUniqueID"] as? [String],
+            let inArticlesCodeValues = dictionary["inArticlesCode"] as? [String],
             let purseNameValue = dictionary["purseName"] as? String else {
                 return nil
         }
@@ -69,7 +69,7 @@ class Sale: RemoteDataBaseModel {
         amount = amountValue
         numberOfArticle = numberValue
         madeByUser = madeByValue
-        articlesUniqueID = articlesUniqueIDValues
+        inArticlesCode = inArticlesCodeValues
         purseName = purseNameValue
     }
 }

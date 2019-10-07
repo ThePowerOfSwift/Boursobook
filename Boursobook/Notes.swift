@@ -18,15 +18,16 @@ import Foundation
  -
 
 
-            - Probleme impression etiquettes 
+            - Probleme impression etiquettes (quand on imprime direct probleme - par pdf ok
+            (pourquoi je peux pas le sauver sur le simulateur)
             - Supprimer le fichier Notes
             - Supprimer tous les messages d'alertes dans la console
-            - Mettre à jour les string du storyboard
-                    - Verifier si tout passe dans l'appli en francais
+
             - Livragbles (presentation appli - retour d'ex) 1 page chaque
             - livrables sure le site
             - presentation
-
+            Boursobook[30891:5206027] [] nw_connection_receive_internal_block_invoke [C6]
+ Receive reply failed with error "Operation canceled"
 
 */
 

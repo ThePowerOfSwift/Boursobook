@@ -31,7 +31,7 @@ class SaleTestCase: XCTestCase {
         XCTAssertEqual(emptySale.amount, 0)
         XCTAssertEqual(emptySale.numberOfArticle, 0)
         XCTAssertEqual(emptySale.madeByUser, "")
-        XCTAssertEqual(emptySale.articlesUniqueID, [""])
+        XCTAssertEqual(emptySale.inArticlesCode, [""])
         XCTAssertEqual(emptySale.purseName, "")
     }
 
@@ -42,13 +42,13 @@ class SaleTestCase: XCTestCase {
         let amount = 23.4
         let numberOfArticle = 7
         let madeByUser = "michel"
-        let articlesUniqueID = ["livre"]
+        let inArticlesCode = ["livre"]
         let purseName = "APE 2019"
 
         //When
         let sale = Sale(date: date, uniqueID: uniqueID,
                                       amount: amount, numberOfArticle: numberOfArticle,
-                                      madeByUser: madeByUser, articlesUniqueID: articlesUniqueID, purseName: purseName)
+                                      madeByUser: madeByUser, inArticlesCode: inArticlesCode, purseName: purseName)
 
         //Then
         XCTAssertEqual(sale.date, date)
@@ -56,7 +56,7 @@ class SaleTestCase: XCTestCase {
         XCTAssertEqual(sale.amount, amount)
         XCTAssertEqual(sale.numberOfArticle, numberOfArticle)
         XCTAssertEqual(sale.madeByUser, madeByUser)
-        XCTAssertEqual(sale.articlesUniqueID, articlesUniqueID)
+        XCTAssertEqual(sale.inArticlesCode, inArticlesCode)
         XCTAssertEqual(sale.purseName, purseName)
     }
 
@@ -67,7 +67,7 @@ class SaleTestCase: XCTestCase {
         let amount = 23.4
         let numberOfArticle = 7
         let madeByUser = "michel"
-        let articlesUniqueID = ["livre"]
+        let inArticlesCode = ["livre"]
         let purseName = "APE 2019"
         let fakeSaleDataDictionary = FakeDataDictionary().sale
 
@@ -83,7 +83,7 @@ class SaleTestCase: XCTestCase {
         XCTAssertEqual(sale.amount, amount)
         XCTAssertEqual(sale.numberOfArticle, numberOfArticle)
         XCTAssertEqual(sale.madeByUser, madeByUser)
-        XCTAssertEqual(sale.articlesUniqueID, articlesUniqueID)
+        XCTAssertEqual(sale.inArticlesCode, inArticlesCode)
         XCTAssertEqual(sale.purseName, purseName)
     }
 
@@ -106,7 +106,7 @@ class SaleTestCase: XCTestCase {
     func testGetDictionarySouldReturnGoodValues() {
         //Given
         let fakeSaleDataDictionary = FakeDataDictionary().sale
-        let articlesfake = fakeSaleDataDictionary["articlesUniqueID"] as? [String] ?? [""]
+        let articlesfake = fakeSaleDataDictionary["inArticlesCode"] as? [String] ?? [""]
 
         //When
         guard let sale = Sale(dictionary: fakeSaleDataDictionary) else {
@@ -114,7 +114,7 @@ class SaleTestCase: XCTestCase {
             return
         }
         let dictionaryValues = sale.dictionary
-        let articlesValues = dictionaryValues["articlesUniqueID"] as? [String] ?? [""]
+        let articlesValues = dictionaryValues["inArticlesCode"] as? [String] ?? [""]
 
         //Then
         XCTAssertEqual(dictionaryValues["date"] as? String, fakeSaleDataDictionary["date"] as? String)

@@ -13,7 +13,7 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: - Properties
     var selectedSeller: Seller?
     var displayedArticles = [Article]()
-    var selectedArticleUniqueID: String?
+    var selectedArticleCode: String?
     let articleAPI = ArticleAPI()
 
     // MARK: - IBOutlets
@@ -96,7 +96,7 @@ class ArticleListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedArticleUniqueID = displayedArticles[indexPath.row].uniqueID
+        selectedArticleCode = displayedArticles[indexPath.row].code
         self.performSegue(withIdentifier: "segueToArticleFromArticleList", sender: nil)
     }
 
@@ -114,7 +114,7 @@ class ArticleListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToArticleFromArticleList" {
             if let articleVC = segue.destination as? ArticleViewController {
-                articleVC.selectedArticleUniqueID = selectedArticleUniqueID
+                articleVC.selectedArticleCode = selectedArticleCode
                 articleVC.isRegisterSale = false
             }
         }

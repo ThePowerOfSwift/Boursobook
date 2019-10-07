@@ -64,7 +64,7 @@ class SaleViewController: UIViewController {
     // MARK: - Functions
     private func loadInSaleArticles() {
 
-        if !InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.isEmpty {
+        if !InMemoryStorage.shared.codeOfArticlesInCurrentSales.isEmpty {
             toogleLoadingActivity(loading: true)
             articleAPI.loadNoSoldArticlesFor(purse: InMemoryStorage.shared.inWorkingPurse) { (error, loadedArticles) in
                 self.toogleLoadingActivity(loading: false)
@@ -80,12 +80,12 @@ class SaleViewController: UIViewController {
                     self.inSaleArticles.removeAll()
                     self.currentSale = Sale()
 
-                    for uniqueIdArticle in InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales {
-                        for article in articles where article.uniqueID == uniqueIdArticle {
+                    for codeArticle in InMemoryStorage.shared.codeOfArticlesInCurrentSales {
+                        for article in articles where article.code == codeArticle {
                             self.inSaleArticles.append(article)
                             self.currentSale.numberOfArticle += 1
                             self.currentSale.amount += article.price
-                            self.currentSale.articlesUniqueID.append(uniqueIdArticle)
+                            self.currentSale.inArticlesCode.append(codeArticle)
                         }
                     }
                     self.updateValues()
@@ -103,7 +103,7 @@ class SaleViewController: UIViewController {
     private func saveTheSale() {
         toogleSavingActivity(saving: true)
 
-        if InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.isEmpty {
+        if InMemoryStorage.shared.codeOfArticlesInCurrentSales.isEmpty {
             toogleSavingActivity(saving: false)
             self.displayAlert(message: NSLocalizedString("Nothing To Save !", comment: ""),
                               title: NSLocalizedString("Warning", comment: ""))
@@ -162,12 +162,12 @@ class SaleViewController: UIViewController {
     private func resetSale(artilclesInError: [Article]?) {
         numberCheckedSwitch.isOn = false
         if artilclesInError == nil {
-            InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.removeAll()
+            InMemoryStorage.shared.codeOfArticlesInCurrentSales.removeAll()
             currentSale = Sale()
             inSaleArticles = [Article]()
             updateValues()
         } else {
-            InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.removeAll()
+            InMemoryStorage.shared.codeOfArticlesInCurrentSales.removeAll()
             currentSale = Sale()
             inSaleArticles = [Article]()
             updateValues()
@@ -241,10 +241,10 @@ extension SaleViewController: UITableViewDataSource, UITableViewDelegate {
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let articleToDelete = inSaleArticles[indexPath.row]
-            for (index, uniqueId) in InMemoryStorage.shared
-                .uniqueIdOfArticlesInCurrentSales.enumerated()
-                        where uniqueId == articleToDelete.uniqueID {
-                InMemoryStorage.shared.uniqueIdOfArticlesInCurrentSales.remove(at: index)
+            for (index, code) in InMemoryStorage.shared
+                .codeOfArticlesInCurrentSales.enumerated()
+                        where code == articleToDelete.code {
+                InMemoryStorage.shared.codeOfArticlesInCurrentSales.remove(at: index)
                 loadInSaleArticles()
             }
         }

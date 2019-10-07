@@ -20,7 +20,7 @@ class FakeDataDictionary {
                 "amount": 23.4,
                 "numberOfArticle": 7,
                 "madeByUser": "michel",
-                "articlesUniqueID": ["livre"],
+                "inArticlesCode": ["livre"],
                 "purseName": "APE 2019"]
     }
 
