@@ -51,12 +51,14 @@ class AddNewSellerViewController: UIViewController {
         toogleActivity(loading: true)
         guard let firstNameValue = firstNameTextField.text, let familyNameValue = familyNameTextField.text,
             let emailValue = emailTextField.text, let phoneNumberValue = phoneNumberTextField.text else {
+                toogleActivity(loading: false)
             return
         }
         // Confirm if all the field are completed
         if firstNameValue == "" || familyNameValue == "" || emailValue == "" || phoneNumberValue == "" {
             displayAlert(message: NSLocalizedString("Please, fill all the field !", comment: ""),
                          title: NSLocalizedString("Error !", comment: ""))
+            toogleActivity(loading: false)
             return
         }
 
