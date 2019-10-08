@@ -148,7 +148,7 @@ class ArticleAPITestCaseWithMockR: XCTestCase {
     func testLoadArticleWithPurseWithDataOkWithNoErrorSouldReturnArticle() {
         //Given
 
-        let goodData = [FakeData.firstArticleNotSold]
+        let goodData = [FakeData.articleReturned]
         let remoteDatabaseRequestMock = RemoteDatabaseRequestMock(collection: Article.collection,
                                                                   error: nil, data: goodData)
         let fakeArticleAPI = ArticleAPI(articleRemoteDataBaseRequest: remoteDatabaseRequestMock)

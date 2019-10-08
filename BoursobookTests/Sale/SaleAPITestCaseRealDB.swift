@@ -83,8 +83,6 @@ class SaleAPITestCaseRealDB: XCTestCase {
 
 // MARK: - Test "updateDataforArticleSold" function
 
-    // swiftlint:disable function_body_length
-    // swiftlint:disable cyclomatic_complexity
     func testUpdateRealSaleSouldSucceed() {
 
         let article = FakeData.firstArticleNotSold
@@ -95,111 +93,72 @@ class SaleAPITestCaseRealDB: XCTestCase {
         // Login into FireBase
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         self.userAPI.signInUser(email: PrivateKey.userMail, password: PrivateKey.userPassword) { (error, _) in
-            if error != nil { XCTFail("error whin login")
-                } else {
+            if error != nil { XCTFail("error whin login") } else {
 
                 // Get the initial state of "Purse For Unit Testing"
                 self.purseAPI.getPurse(name: "Purse For Unit Testing") { (error, purseLoaded) in
                     if error != nil { XCTFail("error in get the test purse")
-                       } else {
-                        guard let purseBeforeTesting = purseLoaded else {
-                            XCTFail("error in get the test purse")
+                       } else { guard let purseBeforeTesting = purseLoaded else {
+                                XCTFail("error in get the test purse")
+                                return
+                        }
+
+                self.setInitialState(seller: seller, article: article, purse: purseBeforeTesting,
+                                     sale: sale) { (error, sale) in
+
+                if error != nil { XCTFail("error in create seller")
+                } else if let sale = sale {
+
+                //When
+                // uptade data in database with the article sold
+                self.saleAPI.updateDataforArticleSold(article: article, sale: sale,
+                                                      purse: purseBeforeTesting) { (error) in
+                        if error != nil { XCTFail("error in update article") } else {
+
+                //Then
+                // Load updated data from data base
+                // and test if the data had been correctly updated
+
+                self.getDataUpdate(seller: seller, purse: purseBeforeTesting, article: article, sale: sale
+                ) { (error, purseAfterTesting, sellerAfterTesting, articleAfterTesting, saleAfterTesting) in
+
+                    if error != nil { XCTFail("error in load data") } else {
+                        guard let purseAfterTesting = purseAfterTesting, let sellerAfterTesting = sellerAfterTesting,
+                        let articleAfterTesting = articleAfterTesting, let saleAfterTesting = saleAfterTesting
+
+                        else { XCTFail("error in test purse")
                             return
                         }
 
-                        self.setInitialState(seller: seller, article: article, purse: purseBeforeTesting,
-                                             sale: sale) { (error, sale) in
+    // Test purse update
+    XCTAssertEqual(purseAfterTesting.numberOfArticlesold, purseBeforeTesting.numberOfArticlesold + 1)
+    XCTAssertEqual(purseAfterTesting.totalBenefitOnSalesAmount, purseBeforeTesting.totalBenefitOnSalesAmount
+                   + article.price * purseBeforeTesting.percentageOnSales * 0.01)
+    XCTAssertEqual(purseAfterTesting.totalSalesAmount, purseBeforeTesting.totalSalesAmount + article.price)
 
-                        if error != nil { XCTFail("error in create seller")
-                        } else if let sale = sale {
+    // Test article update
+    XCTAssertEqual(articleAfterTesting.sold, true)
 
-                            //When
-                        // uptade data in database with the article sold
-                        self.saleAPI.updateDataforArticleSold(
-                            article: article, sale: sale,
-                            purse: purseBeforeTesting) { (error) in
-                                if error != nil { XCTFail("error in update article")
-                                } else {
+    // Test seller update
+    XCTAssertEqual(sellerAfterTesting.articlesold, seller.articlesold + 1)
+    XCTAssertEqual(sellerAfterTesting.salesAmount, seller.salesAmount
+        + article.price - article.price * purseBeforeTesting.percentageOnSales * 0.01)
 
-                                    //Then
-                                    // Load updated data from data base
-                                    // and test if the data had been correctly updated
-                                    // Test purse update
-                                    self.purseAPI.getPurse(name: "Purse For Unit Testing") { (error, purseLoaded) in
-                                               if error != nil { XCTFail("error in test purse")
-                                           } else {
-                                               guard let purseAfterTesting = purseLoaded else {
-                                                   XCTFail("error in test purse")
-                                                   return
-                                               }
-                                               XCTAssertEqual(purseAfterTesting.numberOfArticlesold,
-                                                              purseBeforeTesting.numberOfArticlesold + 1)
-                                               XCTAssertEqual(purseAfterTesting.totalBenefitOnSalesAmount,
-                                                              purseBeforeTesting.totalBenefitOnSalesAmount
-                                                                + article.price
-                                                                   * purseBeforeTesting.percentageOnSales * 0.01)
-                                               XCTAssertEqual(purseAfterTesting.totalSalesAmount,
-                                                              purseBeforeTesting.totalSalesAmount + article.price)
+     // Test sale update
+    XCTAssertEqual(saleAfterTesting.amount, sale.amount + article.price)
+    XCTAssertEqual(saleAfterTesting.numberOfArticle, sale.numberOfArticle + 1)
+    XCTAssert(saleAfterTesting.inArticlesCode.contains(article.code))
 
-                                    // Test article update
-                                    self.articleAPI.getArticle(uniqueID: article.uniqueID) { (error, updatedArticle) in
-                                                                       if error != nil {
-                                                                           XCTFail("error in test article")
-                                                                       } else {
-                                                                       guard let updatedArticle = updatedArticle else {
-                                                                           XCTFail("error in test article")
-                                                                           return
-                                                                           }
-                                                                           XCTAssertEqual(updatedArticle.sold, true)
+    // Clean all data created
+    self.cleanDataCreatedForTestseller(seller: seller, article: article, sale: sale) { (error) in
+            if error != nil { XCTFail("error in remove data") } else { expectation.fulfill() }
+        }
+                    }
 
-                                    // Test seller update
-                                    self.sellerAPI.getSeller(uniqueID: seller.uniqueID) { (error, updatedSeller) in
-                                            if error != nil {
-                                                XCTFail("error in test seller")
-                                                } else {
-                                            guard let updatedSeller = updatedSeller else {
-                                                XCTFail("error in test seller")
-                                                return
-                                                }
-                                                XCTAssertEqual(updatedSeller.articlesold, seller.articlesold + 1)
-                                                XCTAssertEqual(updatedSeller.salesAmount, seller.salesAmount
-                                                    + article.price - article.price
-                                                    * purseBeforeTesting.percentageOnSales * 0.01)
-
-                                    // Test sale update
-                                    self.saleAPI.getSale(uniqueID: sale.uniqueID) { (error, updatedSale) in
-                                            if error != nil {
-                                                XCTFail("error in test sale")
-                                                } else {
-                                            guard let updatedSale = updatedSale else {
-                                                XCTFail("error in test sale")
-                                                return
-                                                }
-                                                XCTAssertEqual(updatedSale.amount, sale.amount + article.price)
-                                                XCTAssertEqual(updatedSale.numberOfArticle, sale.numberOfArticle + 1)
-                                                XCTAssert(updatedSale.inArticlesCode.contains(article.code))
-
-                                                // Clean all data created
-                                                self.cleanDataCreatedForTestseller(seller: seller, article: article,
-                                                                              sale: sale) { (error) in
-                                                    if error != nil { XCTFail("error in remove data")
-                                                    } else {
-                                                    expectation.fulfill()
-                                                    }
-                                                }
-                                        }
-                                    }
-                                        }
-                                    }
-
-                                        }
-                                    }
-
-                                        }
-                                    }
-                                }
                             }
-                        }
+                                                        }
+                    }
+                                        }
                         }
                     }
                 }
@@ -268,6 +227,50 @@ class SaleAPITestCaseRealDB: XCTestCase {
             }
         }
 
+    }
+
+    private func getDataUpdate(
+        seller: Seller, purse: Purse, article: Article, sale: Sale,
+        completionHandler: @escaping (Error?, Purse?, Seller?, Article?, Sale?) -> Void) {
+
+        self.purseAPI.getPurse(name: purse.name) { (error, purseLoaded) in
+            if error != nil {  completionHandler(FakeData.error, nil, nil, nil, nil)
+            } else {
+                guard let purseAfterTesting = purseLoaded else {
+                    completionHandler(FakeData.error, nil, nil, nil, nil)
+                    return
+                }
+                self.sellerAPI.getSeller(uniqueID: seller.uniqueID) { (error, sellerLoaded) in
+                    if error != nil { completionHandler(FakeData.error, nil, nil, nil, nil)
+                    } else {
+                        guard let sellerAfterTesting = sellerLoaded else {
+                            completionHandler(FakeData.error, nil, nil, nil, nil)
+                            return
+                        }
+                        self.articleAPI.getArticle(uniqueID: article.uniqueID) { (error, articleLoaded) in
+                            if error != nil { completionHandler(FakeData.error, nil, nil, nil, nil)
+                            } else {
+                                guard let articleAfterTesting = articleLoaded else {
+                                    completionHandler(FakeData.error, nil, nil, nil, nil)
+                                    return
+                                }
+                                self.saleAPI.getSale(uniqueID: sale.uniqueID) { (error, saleLoaded) in
+                                if error != nil { completionHandler(FakeData.error, nil, nil, nil, nil)
+                                } else {
+                                    guard let saleAfterTesting = saleLoaded else {
+                                        completionHandler(FakeData.error, nil, nil, nil, nil)
+                                        return
+                                    }
+                                    completionHandler(nil, purseAfterTesting, sellerAfterTesting,
+                                                      articleAfterTesting, saleAfterTesting)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

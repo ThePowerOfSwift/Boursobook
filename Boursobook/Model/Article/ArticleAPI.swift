@@ -175,8 +175,8 @@ class ArticleAPI {
                                             },
                                         secondBlock: { (remotePurse) -> [String: Any] in
                                             remotePurse.numberOfArticleRegistered += 1
-                                            remotePurse.totalDepositFeeAmount += newSellerDepositFeeAmount
-                                              - oldSellerDepositFeeAmount
+                                            remotePurse.totalDepositFeeAmount += (newSellerDepositFeeAmount
+                                              - oldSellerDepositFeeAmount)
                                             return ["numberOfArticleRegistered": remotePurse
                                                         .numberOfArticleRegistered,
                                                     "totalDepositFeeAmount": remotePurse
@@ -220,8 +220,8 @@ class ArticleAPI {
                                         },
                                      secondBlock: { (remotePurse) -> [String: Any] in
                                         remotePurse.numberOfArticleRegistered -= 1
-                                        remotePurse.totalDepositFeeAmount += newSellerDepositFeeAmount
-                                            - oldSellerDepositFeeAmount
+                                        remotePurse.totalDepositFeeAmount -= (oldSellerDepositFeeAmount
+                                            - newSellerDepositFeeAmount)
                                         return ["numberOfArticleRegistered": remotePurse
                                                      .numberOfArticleRegistered,
                                                 "totalDepositFeeAmount": remotePurse
