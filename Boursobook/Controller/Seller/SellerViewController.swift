@@ -37,6 +37,7 @@ class SellerViewController: UIViewController {
     @IBOutlet weak var printLablesButton: UIButton!
     @IBOutlet weak var refundButton: UIButton!
     @IBOutlet weak var addArticleButton: UIBarButtonItem!
+    @IBOutlet weak var addManyArticleButton: UIBarButtonItem!
     @IBOutlet weak var numberCheckedStack: UIStackView!
     @IBOutlet weak var refundButtonStack: UIStackView!
     @IBOutlet weak var numberArticleToReturnStack: UIStackView!
@@ -134,6 +135,7 @@ class SellerViewController: UIViewController {
 
     private func setDisplayToSeller(refunded: Bool) {
         addArticleButton.isEnabled = !refunded
+        addManyArticleButton.isEnabled = !refunded
         printLablesButton.isHidden = refunded
         numberCheckedStack.isHidden = refunded
         refundButtonStack.isHidden = refunded
@@ -221,6 +223,13 @@ class SellerViewController: UIViewController {
                 articleListVC.selectedSeller = displayedSeller
             }
         }
+
+        if segue.identifier == "segueToAddManyArticle" {
+            if let addManyArticleVC = segue.destination as? AddManyArticleViewController {
+                addManyArticleVC.selectedSeller = displayedSeller
+            }
+        }
+
     }
 }
 // MARK: PDF and Label generation

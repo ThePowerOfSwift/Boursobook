@@ -16,7 +16,9 @@
 
 //AddArticleViewController
 "Please, fill the name and the price !" = "SVP, remplissez le nom et le prix !";
+"Please, fill the name, number and the price !" = "SVP, remplissez le nom, le nombre et le prix !";
 "Incorrect price !" = "Prix Incorrect !";
+"Articles have been created !" = "Les articles ont été sauvegardés !";
 
 //ArticleListTableViewController
 "Articles of  " = "Articles de  ";

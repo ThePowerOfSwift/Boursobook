@@ -253,3 +253,20 @@
 
 /* Class = "UILabel"; text = "Title / Name : "; ObjectID = "zyG-RN-k5f"; */
 "zyG-RN-k5f.text" = "Titre / Nom : ";
+
+///////////////////////
+// Add Many Article VC
+/* Class = "UILabel"; text = "Sort :"; ObjectID = "ZMC-PN-yx6"; */
+"ZMC-PN-yx6.text" = "Type :";
+
+/* Class = "UILabel"; text = "Series Name : "; ObjectID = "6p8-VP-lvP"; */
+"6p8-VP-lvP.text" = "Nom de la serie : ";
+
+/* Class = "UILabel"; text = "Price : "; ObjectID = "FHT-6L-EkC"; */
+"FHT-6L-EkC.text" = "Prix : ";
+
+/* Class = "UILabel"; text = "Number : "; ObjectID = "iYZ-GJ-fWL"; */
+"iYZ-GJ-fWL.text" = "Nombre : ";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "vJy-mu-m4Q"; */
+"vJy-mu-m4Q.normalTitle" = "Sauvegarder";
