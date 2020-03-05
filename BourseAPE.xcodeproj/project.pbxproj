@@ -66,13 +66,14 @@
 		4F6B771A23100CB10028EA97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC5133A22B13440000FD572 /* AppDelegate.swift */; };
 		4F6B771B23100CB10028EA97 /* SheetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F19E85122FD80B7004C545C /* SheetSetupViewController.swift */; };
 		4F6B771C23100CB10028EA97 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9E864622C636B100C9BE1E /* User.swift */; };
-		4F6B772023100CB10028EA97 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C934230599C600BDD28E /* GoogleService-Info-production.plist */; };
 		4F6B772123100CB10028EA97 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1668722C3D9E800236165 /* .gitignore */; };
 		4F6B772223100CB10028EA97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134622B13440000FD572 /* LaunchScreen.storyboard */; };
 		4F6B772323100CB10028EA97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9E864122C6239A00C9BE1E /* Localizable.strings */; };
 		4F6B772423100CB10028EA97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5134422B13440000FD572 /* Assets.xcassets */; };
-		4F6B772523100CB10028EA97 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */; };
 		4F6B772623100CB10028EA97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC5133E22B13440000FD572 /* Main.storyboard */; };
+		4F6F7BD3240C4B990071E991 /* SellerViewController+pdfRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BD2240C4B990071E991 /* SellerViewController+pdfRender.swift */; };
+		4F6F7BD9240CF5630071E991 /* PdfPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BD8240CF5630071E991 /* PdfPreviewVC.swift */; };
+		4F6F7BDB241122BC0071E991 /* pdfCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BDA241122BC0071E991 /* pdfCreator.swift */; };
 		4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E84231A969B00C6718A /* SelectPurseViewController.swift */; };
 		4F815E87231A97E100C6718A /* PurseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E86231A97E100C6718A /* PurseAPI.swift */; };
 		4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */; };
@@ -103,8 +104,10 @@
 		4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF6AFA2326A0E100C71C11 /* UserListTableViewCell.swift */; };
 		4FD11C5B231472C200FB9F94 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD11C5A231472C200FB9F94 /* FakeData.swift */; };
 		4FDD6062234621FD00612606 /* SaleAPITestCaseWithMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD6061234621FD00612606 /* SaleAPITestCaseWithMock.swift */; };
-		6D2060DCCDA6BE60A4FB81F7 /* Pods_BoursobookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */; };
-		76E351846A766040C9A316A2 /* Pods_Boursobook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */; };
+		4FF1061923F404E800BE44F4 /* GoogleService-Info-production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1061823F404E800BE44F4 /* GoogleService-Info-production.plist */; };
+		4FF1061B23F4059200BE44F4 /* GoogleService-Info-development.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1061A23F4059200BE44F4 /* GoogleService-Info-development.plist */; };
+		7A23498558F25D0AAB4E7CA1 /* Pods_BourseAPETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED6F6A94A4A9B06D14556DF /* Pods_BourseAPETests.framework */; };
+		B3990C20FA1B3878AFA5E0DB /* Pods_BourseAPE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B566611202C7A785019E3D7 /* Pods_BourseAPE.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +121,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A6AD1B7D7CA85EFE6A5F367 /* Pods-BourseAPETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BourseAPETests.release.xcconfig"; path = "Target Support Files/Pods-BourseAPETests/Pods-BourseAPETests.release.xcconfig"; sourceTree = "<group>"; };
 		1104027D79BE5C839A2ACB5E /* Pods-Boursobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.debug.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.debug.xcconfig"; sourceTree = "<group>"; };
-		4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B566611202C7A785019E3D7 /* Pods_BourseAPE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BourseAPE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48ED680FE15F83035B12C0E7 /* Pods-BourseAPETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BourseAPETests.debug.xcconfig"; path = "Target Support Files/Pods-BourseAPETests/Pods-BourseAPETests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F16C727230FE79B00063B95 /* ArticleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTestCase.swift; sourceTree = "<group>"; };
 		4F19E83A22F5F69C004C545C /* SearchingBookDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingBookDelegate.swift; sourceTree = "<group>"; };
 		4F19E83C22F75D17004C545C /* LabelSheetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheetTestCase.swift; sourceTree = "<group>"; };
@@ -152,9 +157,12 @@
 		4F3DEEFB234AA5CA00ECF9F3 /* ArticleAPITestCaseWithMockUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAPITestCaseWithMockUD.swift; sourceTree = "<group>"; };
 		4F3DEEFD234B65DB00ECF9F3 /* ErrorExtensionTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtensionTestCase.swift; sourceTree = "<group>"; };
 		4F4A3AB923477CE500139359 /* SaleAPITestCaseRealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPITestCaseRealDB.swift; sourceTree = "<group>"; };
-		4F6B772C23100CB10028EA97 /* Boursobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boursobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F6B772C23100CB10028EA97 /* BourseAPE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BourseAPE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6C1C3822CE2437004C9BF3 /* Purse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purse.swift; sourceTree = "<group>"; };
 		4F6C1C3F22D4F2FC004C9BF3 /* InMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStorage.swift; sourceTree = "<group>"; };
+		4F6F7BD2240C4B990071E991 /* SellerViewController+pdfRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SellerViewController+pdfRender.swift"; sourceTree = "<group>"; };
+		4F6F7BD8240CF5630071E991 /* PdfPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfPreviewVC.swift; sourceTree = "<group>"; };
+		4F6F7BDA241122BC0071E991 /* pdfCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfCreator.swift; sourceTree = "<group>"; };
 		4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E722E2F683001FA860 /* LabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheet.swift; sourceTree = "<group>"; };
@@ -186,7 +194,7 @@
 		4F89FB11234A8837002A650C /* SellerAPITestCaseRealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerAPITestCaseRealDB.swift; sourceTree = "<group>"; };
 		4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrCodeViewController.swift; sourceTree = "<group>"; };
 		4F8B454D22C9FBE1005FD099 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
-		4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boursobook.entitlements; sourceTree = "<group>"; };
+		4F9E863C22C610FD00C9BE1E /* BourseAPE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BourseAPE.entitlements; sourceTree = "<group>"; };
 		4F9E864022C6239A00C9BE1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9E864222C6239F00C9BE1E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F9E864622C636B100C9BE1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -212,11 +220,9 @@
 		4FC5134422B13440000FD572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FC5134722B13440000FD572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FC5134922B13440000FD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FC5134E22B13440000FD572 /* BoursobookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoursobookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC5134E22B13440000FD572 /* BourseAPETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BourseAPETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC5135422B13440000FD572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FC5135F22B155CF000FD572 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		4FC5C934230599C600BDD28E /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
-		4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-development.plist"; sourceTree = "<group>"; };
 		4FC5C93C2305BF8800BDD28E /* RemoteDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabaseRequest.swift; sourceTree = "<group>"; };
 		4FCF6AF623269A1100C71C11 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		4FCF6AF82326A01700C71C11 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
@@ -225,12 +231,16 @@
 		4FDA369C230A963A00D70489 /* RemoteDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataBaseModel.swift; sourceTree = "<group>"; };
 		4FDA36A1230AFA8600D70489 /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
 		4FDD6061234621FD00612606 /* SaleAPITestCaseWithMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleAPITestCaseWithMock.swift; sourceTree = "<group>"; };
+		4FF1061823F404E800BE44F4 /* GoogleService-Info-production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-production.plist"; sourceTree = "<group>"; };
+		4FF1061A23F4059200BE44F4 /* GoogleService-Info-development.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-development.plist"; sourceTree = "<group>"; };
 		4FF1668722C3D9E800236165 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		4FF1668B22C4C7FC00236165 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5381DE441BEE4C417421E306 /* Pods-Boursobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boursobook.release.xcconfig"; path = "Target Support Files/Pods-Boursobook/Pods-Boursobook.release.xcconfig"; sourceTree = "<group>"; };
+		6ED6F6A94A4A9B06D14556DF /* Pods_BourseAPETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BourseAPETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction_BoursobookDevelopment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2E5CDCBC54888F269C293E /* Pods-BoursobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookTests.debug.xcconfig"; path = "Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boursobook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EDBB8FA9B6FD512438179F4 /* Pods-BourseAPE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BourseAPE.debug.xcconfig"; path = "Target Support Files/Pods-BourseAPE/Pods-BourseAPE.debug.xcconfig"; sourceTree = "<group>"; };
+		B2213706976959D781CEE9D7 /* Pods-BourseAPE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BourseAPE.release.xcconfig"; path = "Target Support Files/Pods-BourseAPE/Pods-BourseAPE.release.xcconfig"; sourceTree = "<group>"; };
 		D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoursobookTests.release.xcconfig"; path = "Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests.release.xcconfig"; sourceTree = "<group>"; };
 		F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -240,7 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76E351846A766040C9A316A2 /* Pods_Boursobook.framework in Frameworks */,
+				B3990C20FA1B3878AFA5E0DB /* Pods_BourseAPE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D2060DCCDA6BE60A4FB81F7 /* Pods_BoursobookTests.framework in Frameworks */,
+				7A23498558F25D0AAB4E7CA1 /* Pods_BourseAPETests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +270,8 @@
 			children = (
 				7A340DC5B0242B2E5D2CF05C /* Pods_BoursobookProduction_BoursobookDevelopment.framework */,
 				F07B17DCE019A68FAC4EE86A /* Pods_BoursobookProduction_BoursobookDevelopment_BoursobookDevelopmentFrench.framework */,
-				C6993493FF9B7BE86F97CA52 /* Pods_Boursobook.framework */,
-				4E58F1A874EC2F2F19F82C9B /* Pods_BoursobookTests.framework */,
+				3B566611202C7A785019E3D7 /* Pods_BourseAPE.framework */,
+				6ED6F6A94A4A9B06D14556DF /* Pods_BourseAPETests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -359,13 +369,14 @@
 			path = Purse;
 			sourceTree = "<group>";
 		};
-		4F7AA7E622E2F1C0001FA860 /* LabelSheet */ = {
+		4F7AA7E622E2F1C0001FA860 /* Pdf */ = {
 			isa = PBXGroup;
 			children = (
 				4F7AA7E722E2F683001FA860 /* LabelSheet.swift */,
+				4F6F7BDA241122BC0071E991 /* pdfCreator.swift */,
 			);
-			name = LabelSheet;
-			path = ../../LabelSheet;
+			name = Pdf;
+			path = ../../Pdf;
 			sourceTree = "<group>";
 		};
 		4F7AA7ED22EDE100001FA860 /* Book */ = {
@@ -464,7 +475,9 @@
 			children = (
 				4FA05B8222BD06E100708718 /* SellersListViewController.swift */,
 				4FA05B7822BCFE3900708718 /* SellerViewController.swift */,
+				4F6F7BD2240C4B990071E991 /* SellerViewController+pdfRender.swift */,
 				4FA05B8422BD197E00708718 /* AddNewSellerViewController.swift */,
+				4F6F7BD8240CF5630071E991 /* PdfPreviewVC.swift */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -492,8 +505,8 @@
 		4FC5132E22B13440000FD572 = {
 			isa = PBXGroup;
 			children = (
-				4FC5133922B13440000FD572 /* Boursobook */,
-				4FC5135122B13440000FD572 /* BoursobookTests */,
+				4FC5133922B13440000FD572 /* BourseAPE */,
+				4FC5135122B13440000FD572 /* BourseAPETests */,
 				4FC5133822B13440000FD572 /* Products */,
 				52F8EC04C1FA26C604F0A847 /* Pods */,
 				30AD75877C3943C28257FDCC /* Frameworks */,
@@ -503,16 +516,16 @@
 		4FC5133822B13440000FD572 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FC5134E22B13440000FD572 /* BoursobookTests.xctest */,
-				4F6B772C23100CB10028EA97 /* Boursobook.app */,
+				4FC5134E22B13440000FD572 /* BourseAPETests.xctest */,
+				4F6B772C23100CB10028EA97 /* BourseAPE.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4FC5133922B13440000FD572 /* Boursobook */ = {
+		4FC5133922B13440000FD572 /* BourseAPE */ = {
 			isa = PBXGroup;
 			children = (
-				4F9E863C22C610FD00C9BE1E /* Boursobook.entitlements */,
+				4F9E863C22C610FD00C9BE1E /* BourseAPE.entitlements */,
 				4FC5136022B155E9000FD572 /* Model */,
 				4FC5136122B155F5000FD572 /* View */,
 				4FC5136222B15600000FD572 /* Controller */,
@@ -520,10 +533,10 @@
 				4FF1668D22C4D23B00236165 /* Other */,
 				4FC5136322B15617000FD572 /* Supporting Files */,
 			);
-			path = Boursobook;
+			path = BourseAPE;
 			sourceTree = "<group>";
 		};
-		4FC5135122B13440000FD572 /* BoursobookTests */ = {
+		4FC5135122B13440000FD572 /* BourseAPETests */ = {
 			isa = PBXGroup;
 			children = (
 				4F1FA54E2344C78100816DD9 /* Sale */,
@@ -538,14 +551,14 @@
 				4F149FF52344FD5A00791593 /* LabelSheet */,
 				4F3DEEFD234B65DB00ECF9F3 /* ErrorExtensionTestCase.swift */,
 			);
-			path = BoursobookTests;
+			path = BourseAPETests;
 			sourceTree = "<group>";
 		};
 		4FC5136022B155E9000FD572 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4F7AA7ED22EDE100001FA860 /* Book */,
-				4F7AA7E622E2F1C0001FA860 /* LabelSheet */,
+				4F7AA7E622E2F1C0001FA860 /* Pdf */,
 				4F25C3FD23390DA400916CC8 /* Sale */,
 				4F6C1C3722CE2424004C9BF3 /* Purse */,
 				4F9E864A22C6383D00C9BE1E /* User */,
@@ -596,8 +609,8 @@
 			children = (
 				4FC5134922B13440000FD572 /* Info.plist */,
 				4F815E93231EC10000C6718A /* PrivateKey.swift */,
-				4FC5C934230599C600BDD28E /* GoogleService-Info-production.plist */,
-				4FC5C93523059B6B00BDD28E /* GoogleService-Info-development.plist */,
+				4FF1061823F404E800BE44F4 /* GoogleService-Info-production.plist */,
+				4FF1061A23F4059200BE44F4 /* GoogleService-Info-development.plist */,
 				4FF1668722C3D9E800236165 /* .gitignore */,
 			);
 			path = "Supporting Files";
@@ -631,6 +644,10 @@
 				D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */,
 				1104027D79BE5C839A2ACB5E /* Pods-Boursobook.debug.xcconfig */,
 				5381DE441BEE4C417421E306 /* Pods-Boursobook.release.xcconfig */,
+				9EDBB8FA9B6FD512438179F4 /* Pods-BourseAPE.debug.xcconfig */,
+				B2213706976959D781CEE9D7 /* Pods-BourseAPE.release.xcconfig */,
+				48ED680FE15F83035B12C0E7 /* Pods-BourseAPETests.debug.xcconfig */,
+				0A6AD1B7D7CA85EFE6A5F367 /* Pods-BourseAPETests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -638,9 +655,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F6B76EE23100CB10028EA97 /* Boursobook */ = {
+		4F6B76EE23100CB10028EA97 /* BourseAPE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F6B772923100CB10028EA97 /* Build configuration list for PBXNativeTarget "Boursobook" */;
+			buildConfigurationList = 4F6B772923100CB10028EA97 /* Build configuration list for PBXNativeTarget "BourseAPE" */;
 			buildPhases = (
 				4F6B76EF23100CB10028EA97 /* [CP] Check Pods Manifest.lock */,
 				4F6B76F023100CB10028EA97 /* Sources */,
@@ -653,14 +670,14 @@
 			);
 			dependencies = (
 			);
-			name = Boursobook;
+			name = BourseAPE;
 			productName = Boursobook;
-			productReference = 4F6B772C23100CB10028EA97 /* Boursobook.app */;
+			productReference = 4F6B772C23100CB10028EA97 /* BourseAPE.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4FC5134D22B13440000FD572 /* BoursobookTests */ = {
+		4FC5134D22B13440000FD572 /* BourseAPETests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FC5135A22B13440000FD572 /* Build configuration list for PBXNativeTarget "BoursobookTests" */;
+			buildConfigurationList = 4FC5135A22B13440000FD572 /* Build configuration list for PBXNativeTarget "BourseAPETests" */;
 			buildPhases = (
 				C4BE6D1DB790D90D31735699 /* [CP] Check Pods Manifest.lock */,
 				4FC5134A22B13440000FD572 /* Sources */,
@@ -673,9 +690,9 @@
 			dependencies = (
 				4F6B772F2310137F0028EA97 /* PBXTargetDependency */,
 			);
-			name = BoursobookTests;
+			name = BourseAPETests;
 			productName = BoursobookTests;
-			productReference = 4FC5134E22B13440000FD572 /* BoursobookTests.xctest */;
+			productReference = 4FC5134E22B13440000FD572 /* BourseAPETests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -694,7 +711,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4FC5133222B13440000FD572 /* Build configuration list for PBXProject "Boursobook" */;
+			buildConfigurationList = 4FC5133222B13440000FD572 /* Build configuration list for PBXProject "BourseAPE" */;
 			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -708,8 +725,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4FC5134D22B13440000FD572 /* BoursobookTests */,
-				4F6B76EE23100CB10028EA97 /* Boursobook */,
+				4FC5134D22B13440000FD572 /* BourseAPETests */,
+				4F6B76EE23100CB10028EA97 /* BourseAPE */,
 			);
 		};
 /* End PBXProject section */
@@ -719,15 +736,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F6B772023100CB10028EA97 /* GoogleService-Info-production.plist in Resources */,
 				4F6B772123100CB10028EA97 /* .gitignore in Resources */,
 				4F1FA5392344BC5D00816DD9 /* Info.storyboard in Resources */,
+				4FF1061923F404E800BE44F4 /* GoogleService-Info-production.plist in Resources */,
 				4F6B772223100CB10028EA97 /* LaunchScreen.storyboard in Resources */,
 				4F6B772323100CB10028EA97 /* Localizable.strings in Resources */,
 				4F1FA5472344C45F00816DD9 /* Seller.storyboard in Resources */,
 				4F1FA5402344C42B00816DD9 /* Sale.storyboard in Resources */,
+				4FF1061B23F4059200BE44F4 /* GoogleService-Info-development.plist in Resources */,
 				4F6B772423100CB10028EA97 /* Assets.xcassets in Resources */,
-				4F6B772523100CB10028EA97 /* GoogleService-Info-development.plist in Resources */,
 				4F6B772623100CB10028EA97 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,15 +768,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BourseAPETests/Pods-BourseAPETests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BourseAPETests/Pods-BourseAPETests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoursobookTests/Pods-BoursobookTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BourseAPETests/Pods-BourseAPETests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4F6B76EF23100CB10028EA97 /* [CP] Check Pods Manifest.lock */ = {
@@ -773,7 +790,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Boursobook-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BourseAPE-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -799,15 +816,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Boursobook/Pods-Boursobook-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BourseAPE/Pods-BourseAPE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Boursobook/Pods-Boursobook-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BourseAPE/Pods-BourseAPE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Boursobook/Pods-Boursobook-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BourseAPE/Pods-BourseAPE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4BE6D1DB790D90D31735699 /* [CP] Check Pods Manifest.lock */ = {
@@ -821,7 +838,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BoursobookTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BourseAPETests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -838,6 +855,7 @@
 				4F6B76F123100CB10028EA97 /* LoginViewController.swift in Sources */,
 				4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */,
 				4F6B76F223100CB10028EA97 /* Article.swift in Sources */,
+				4F6F7BD3240C4B990071E991 /* SellerViewController+pdfRender.swift in Sources */,
 				4F6B76F423100CB10028EA97 /* SearchingBookDelegate.swift in Sources */,
 				4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */,
 				4F6B76F523100CB10028EA97 /* SaleViewController.swift in Sources */,
@@ -850,6 +868,7 @@
 				4F815EA023215B8300C6718A /* FireBaseAuthenticationRequest.swift in Sources */,
 				4F6B76F923100CB10028EA97 /* TransactionActicleListTableViewCell.swift in Sources */,
 				4FCF6AF723269A1100C71C11 /* UserAPI.swift in Sources */,
+				4F6F7BDB241122BC0071E991 /* pdfCreator.swift in Sources */,
 				4F6B76FA23100CB10028EA97 /* BrowseArticleTableViewCell.swift in Sources */,
 				4F6B76FB23100CB10028EA97 /* RemoteDatabase.swift in Sources */,
 				4F815EA523215F3000C6718A /* RemoteAuthenticationModel.swift in Sources */,
@@ -860,6 +879,7 @@
 				4F6B770023100CB10028EA97 /* RemoteDatabaseRequest.swift in Sources */,
 				4F815E9E23215A4D00C6718A /* RemoteAuthenticationRequest.swift in Sources */,
 				4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */,
+				4F6F7BD9240CF5630071E991 /* PdfPreviewVC.swift in Sources */,
 				4F6B770223100CB10028EA97 /* UIViewController+Extension.swift in Sources */,
 				4F815E87231A97E100C6718A /* PurseAPI.swift in Sources */,
 				4F6B770423100CB10028EA97 /* BrowseArticleListTableViewController.swift in Sources */,
@@ -933,7 +953,7 @@
 /* Begin PBXTargetDependency section */
 		4F6B772F2310137F0028EA97 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4F6B76EE23100CB10028EA97 /* Boursobook */;
+			target = 4F6B76EE23100CB10028EA97 /* BourseAPE */;
 			targetProxy = 4F6B772E2310137F0028EA97 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -998,21 +1018,24 @@
 /* Begin XCBuildConfiguration section */
 		4F6B772A23100CB10028EA97 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1104027D79BE5C839A2ACB5E /* Pods-Boursobook.debug.xcconfig */;
+			baseConfigurationReference = 9EDBB8FA9B6FD512438179F4 /* Pods-BourseAPE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BourseAPE/BourseAPE.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = "$(SRCROOT)/Boursobook/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/BourseAPE/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.1;
 				OTHER_SWIFT_FLAGS = "-DTEST_VERSION";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.Boursobook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.BourseAPE;
+				PRODUCT_NAME = BourseAPE;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "";
@@ -1021,20 +1044,23 @@
 		};
 		4F6B772B23100CB10028EA97 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5381DE441BEE4C417421E306 /* Pods-Boursobook.release.xcconfig */;
+			baseConfigurationReference = B2213706976959D781CEE9D7 /* Pods-BourseAPE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Boursobook/Boursobook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BourseAPE/BourseAPE.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
-				INFOPLIST_FILE = "$(SRCROOT)/Boursobook/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/BourseAPE/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.Boursobook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.BourseAPE;
+				PRODUCT_NAME = BourseAPE;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "";
@@ -1161,7 +1187,7 @@
 		};
 		4FC5135B22B13440000FD572 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C2E5CDCBC54888F269C293E /* Pods-BoursobookTests.debug.xcconfig */;
+			baseConfigurationReference = 48ED680FE15F83035B12C0E7 /* Pods-BourseAPETests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1169,24 +1195,24 @@
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = BoursobookTests/Info.plist;
+				INFOPLIST_FILE = BourseAPETests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DTEST_VERSION";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.BoursobookTests;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.BourseAPETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boursobook.app/Boursobook";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BourseAPE.app/BourseAPE";
 			};
 			name = Debug;
 		};
 		4FC5135C22B13440000FD572 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8D612D99BDB43B0E8C94AA9 /* Pods-BoursobookTests.release.xcconfig */;
+			baseConfigurationReference = 0A6AD1B7D7CA85EFE6A5F367 /* Pods-BourseAPETests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1194,25 +1220,25 @@
 				DEVELOPMENT_TEAM = A5M6QHPHN6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = BoursobookTests/Info.plist;
+				INFOPLIST_FILE = BourseAPETests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-DTEST_VERSION";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.BoursobookTests;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.daviddubez.BourseAPETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boursobook.app/Boursobook";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BourseAPE.app/BourseAPE";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F6B772923100CB10028EA97 /* Build configuration list for PBXNativeTarget "Boursobook" */ = {
+		4F6B772923100CB10028EA97 /* Build configuration list for PBXNativeTarget "BourseAPE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F6B772A23100CB10028EA97 /* Debug */,
@@ -1221,7 +1247,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FC5133222B13440000FD572 /* Build configuration list for PBXProject "Boursobook" */ = {
+		4FC5133222B13440000FD572 /* Build configuration list for PBXProject "BourseAPE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FC5135522B13440000FD572 /* Debug */,
@@ -1230,7 +1256,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FC5135A22B13440000FD572 /* Build configuration list for PBXNativeTarget "BoursobookTests" */ = {
+		4FC5135A22B13440000FD572 /* Build configuration list for PBXNativeTarget "BourseAPETests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FC5135B22B13440000FD572 /* Debug */,
