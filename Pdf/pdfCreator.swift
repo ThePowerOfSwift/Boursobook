@@ -144,7 +144,6 @@ class PDFCreator: NSObject {
 
                 drawSeparation(cgContext, pageRect: pageRect, separationY: articleReturnedChartBottom + 25)
 
-                // TODO: chek the sapce
                 // Information about returnation
                 _ = addPageFooter(
                     context: context,

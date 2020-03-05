@@ -74,6 +74,8 @@
 		4F6F7BD3240C4B990071E991 /* SellerViewController+pdfRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BD2240C4B990071E991 /* SellerViewController+pdfRender.swift */; };
 		4F6F7BD9240CF5630071E991 /* PdfPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BD8240CF5630071E991 /* PdfPreviewVC.swift */; };
 		4F6F7BDB241122BC0071E991 /* pdfCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BDA241122BC0071E991 /* pdfCreator.swift */; };
+		4F6F7BDD24113A950071E991 /* PdfSalePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BDC24113A950071E991 /* PdfSalePreviewVC.swift */; };
+		4F6F7BDF24113E500071E991 /* pdfCreator+saleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6F7BDE24113E500071E991 /* pdfCreator+saleView.swift */; };
 		4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E84231A969B00C6718A /* SelectPurseViewController.swift */; };
 		4F815E87231A97E100C6718A /* PurseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E86231A97E100C6718A /* PurseAPI.swift */; };
 		4F815E89231AB41800C6718A /* PurseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F815E88231AB41800C6718A /* PurseListTableViewCell.swift */; };
@@ -163,6 +165,8 @@
 		4F6F7BD2240C4B990071E991 /* SellerViewController+pdfRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SellerViewController+pdfRender.swift"; sourceTree = "<group>"; };
 		4F6F7BD8240CF5630071E991 /* PdfPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfPreviewVC.swift; sourceTree = "<group>"; };
 		4F6F7BDA241122BC0071E991 /* pdfCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfCreator.swift; sourceTree = "<group>"; };
+		4F6F7BDC24113A950071E991 /* PdfSalePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfSalePreviewVC.swift; sourceTree = "<group>"; };
+		4F6F7BDE24113E500071E991 /* pdfCreator+saleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "pdfCreator+saleView.swift"; sourceTree = "<group>"; };
 		4F7AA7E222DF8E94001FA860 /* BrowseArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E422E05418001FA860 /* TransactionActicleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionActicleListTableViewCell.swift; sourceTree = "<group>"; };
 		4F7AA7E722E2F683001FA860 /* LabelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSheet.swift; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 			children = (
 				4F7AA7E722E2F683001FA860 /* LabelSheet.swift */,
 				4F6F7BDA241122BC0071E991 /* pdfCreator.swift */,
+				4F6F7BDE24113E500071E991 /* pdfCreator+saleView.swift */,
 			);
 			name = Pdf;
 			path = ../../Pdf;
@@ -487,6 +492,7 @@
 			children = (
 				4FA05B8022BD01C100708718 /* SaleViewController.swift */,
 				4F8B454B22C9FBA8005FD099 /* ScanQrCodeViewController.swift */,
+				4F6F7BDC24113A950071E991 /* PdfSalePreviewVC.swift */,
 			);
 			path = Sales;
 			sourceTree = "<group>";
@@ -855,6 +861,8 @@
 				4F6B76F123100CB10028EA97 /* LoginViewController.swift in Sources */,
 				4FCF6AFB2326A0E100C71C11 /* UserListTableViewCell.swift in Sources */,
 				4F6B76F223100CB10028EA97 /* Article.swift in Sources */,
+				4F6F7BDF24113E500071E991 /* pdfCreator+saleView.swift in Sources */,
+				4F6F7BDD24113A950071E991 /* PdfSalePreviewVC.swift in Sources */,
 				4F6F7BD3240C4B990071E991 /* SellerViewController+pdfRender.swift in Sources */,
 				4F6B76F423100CB10028EA97 /* SearchingBookDelegate.swift in Sources */,
 				4F815E85231A969B00C6718A /* SelectPurseViewController.swift in Sources */,
